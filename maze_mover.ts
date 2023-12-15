@@ -2,16 +2,11 @@ namespace maze {
     class DirImage {
         dir: Direction
         img: Image
-        name: string
 
         constructor(name: string, dir: Direction) {
             let imgName = name + "_" + dirString(dir)
             this.img = helpers.getImageByName(imgName)
-            if (this.img) {
-                console.log("found:" + imgName)
-            }
             this.dir = dir
-            this.name = imgName
         }
     }
 
@@ -61,7 +56,7 @@ namespace maze {
                 new DirImage(name, Direction.Left),
                 new DirImage(name, Direction.Right),
                 ]
-            this.sprite = sprites.create(this.images[0].img, SpriteKind.Player)
+            this.sprite = sprites.create(this.images[0].img)
             this.setImage(Direction.Right)
 
             // Hide until placed
@@ -85,7 +80,6 @@ namespace maze {
         private setImage(dir: Direction) {
             for (const img of this.images) {
                 if (img.dir == dir) {
-                    console.log("found:" + img.name)
                     this.sprite.setImage(img.img)
                     break
                 }

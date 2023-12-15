@@ -8,6 +8,9 @@ namespace maze {
         NextLevel,
         GameComplete,
         GameOver,
+        Fruit,
+        FruitSpawn,
+        FruitDespawn,
     }
 
     class TimedEvent {
@@ -99,6 +102,19 @@ namespace maze {
             while (this.frameEvents.length > 0) {
                 this.callHandlers(this.frameEvents.shift())
             }
+        }
+
+        cancel(event: Event) {
+            for (const e of this.timedEvents) {
+                if (e.event == event) {
+                    e.time = MAX_EVENT_TIME
+                }
+            }
+        }
+
+        cancelAll() {
+            this.frameEvents = []
+            this.timedEvents = []
         }
     }
 }

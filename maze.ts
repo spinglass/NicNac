@@ -27,21 +27,24 @@ namespace maze {
         audio: Audio
         events: EventManager
         game: Game
-        hero: Hero
         map: Map
+        hero: Hero
+        fruit: Fruit
 
         constructor() {     
             this.audio = new Audio()
             this.events = new EventManager()
             this.game = new Game()
-            this.hero = new Hero()
             this.map = new Map()
+            this.hero = new Hero()
+            this.fruit = new Fruit()
         }
 
         init() {
             this.audio.init()
             this.game.init()
             this.hero.init()
+            this.fruit.init()
 
             game.onUpdate(() => getMaze().update())
         }
@@ -51,12 +54,14 @@ namespace maze {
             this.map.init(tilemap)
             this.game.initLevel()
             this.hero.initLevel()
+            this.fruit.initLevel()
         }
 
         update() {
             this.events.fireTimedEvents()
             
             this.hero.update()
+            this.fruit.update()
 
             // finally fire frame events
             this.events.fireFrameEvents()

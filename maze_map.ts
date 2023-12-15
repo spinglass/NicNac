@@ -6,7 +6,8 @@ namespace maze {
         Power = 1 << 2,
         Tunnel = 1 << 3,
         Home = 1 << 4,
-        Player = 1 << 5,
+        Fruit = 1 << 5,
+        Player = 1 << 6,
     }
     
     export class Tile {
@@ -51,6 +52,8 @@ namespace maze {
         h: number
         homeX: number
         homeY: number
+        fruitX: number
+        fruitY: number
         tunnels: Tile[]
         pillCount: number
 
@@ -60,6 +63,8 @@ namespace maze {
             this.h = 0
             this.homeX = 0
             this.homeY = 0
+            this.fruitX = 0
+            this.fruitY = 0
             this.pillCount = 0
         }
 
@@ -87,19 +92,25 @@ namespace maze {
             return new Tile(tx, ty)
         }
 
-        private initHome() {
-            // Find hero home
-            this.homeX = 0
-            this.homeY = 0
-            const locs = tiles.getTilesByType(assets.tile`tile_home`)
-            if (locs.length > 0) {
-                for (const loc of locs) {
-                    this.homeX += loc.x
-                    this.homeY += loc.y
+        private initPosition(f: MapFlags): number[] {
+            let x = 0
+            let y = 0
+            let count = 0
+            for (let i = 0; i < this.flags.length; ++i) {
+                if (this.flags[i] & f) {
+                    const tile = this.getTile(i)
+                    console.log(tile.cx + "," + tile.cy)
+                    x += tile.cx
+                    y += tile.cy
+                    ++count
                 }
-                this.homeX /= locs.length
-                this.homeY /= locs.length
             }
+            if (count > 0) {
+                x /= count
+                y /= count
+            }
+            console.log(x + "," + y)
+            return [x, y]
         }
 
         private initTunnels() {
@@ -155,24 +166,31 @@ namespace maze {
             this.h = tilemap.height
             this.flags.length = (this.w * this.h)
 
-            // find player home position
-            this.initHome()
-
             // find all tiles of interest
             this.initFlagsFromTiles(assets.tile`tile_empty`, MapFlags.Empty)
-            this.initFlagsFromTiles(assets.tile`tile_home`, MapFlags.Empty)
+            this.initFlagsFromTiles(assets.tile`tile_home`, MapFlags.Home)
+            this.initFlagsFromTiles(assets.tile`tile_fruit`, MapFlags.Fruit)
             this.initFlagsFromTiles(assets.tile`tile_pill`, MapFlags.Pill)
             this.initFlagsFromTiles(assets.tile`tile_power`, MapFlags.Power)
             this.initFlagsFromTiles(assets.tile`tile_tunnel`, MapFlags.Tunnel)
 
             // find all player tiles
-            this.initFlagsFromFlags(MapFlags.Empty, MapFlags.Player)
-            this.initFlagsFromFlags(MapFlags.Pill, MapFlags.Player)
-            this.initFlagsFromFlags(MapFlags.Power, MapFlags.Player)
-            this.initFlagsFromFlags(MapFlags.Tunnel, MapFlags.Player)
+            for (const f of [MapFlags.Empty, MapFlags.Home, MapFlags.Fruit, MapFlags.Pill, MapFlags.Power, MapFlags.Tunnel]) {
+                this.initFlagsFromFlags(f, MapFlags.Player)
+            }
 
             this.initPills()
             this.initTunnels()
+
+            // home position
+            const [homeX, homeY] = this.initPosition(MapFlags.Home)
+            this.homeX = homeX
+            this.homeY = homeY
+        
+            // fruits position
+            const [fruitX, fruitY] = this.initPosition(MapFlags.Fruit)
+            this.fruitX = fruitX
+            this.fruitY = fruitY
         }
 
         eatPill(tile: Tile):  boolean {
