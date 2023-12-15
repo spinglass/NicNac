@@ -14,7 +14,9 @@
         "maze.ts",
         "images.g.jres",
         "images.g.ts",
-        "maze_hero.ts"
+        "maze_hero.ts",
+        "maze_map.ts",
+        "maze_mover.ts"
     ],
     "testFiles": [
         "test.ts"
@@ -26,5 +28,5 @@
     "supportedTargets": [
         "arcade"
     ],
-    "preferredEditor": "blocksprj"
+    "preferredEditor": "tsprj"
 }

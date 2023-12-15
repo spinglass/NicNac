@@ -1,1 +1,1 @@
-maze.setTilemap(tilemap`level1`)
+maze.setTilemap(tilemap`maze`)

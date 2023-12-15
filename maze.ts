@@ -1,30 +1,45 @@
 //% weight=100 color=#0fbc11 icon="\uf11b" block="Maze"
 namespace maze {
+    export enum Direction {
+        None = 0,
+        Up = 1 << 0,
+        Right = 1 << 1,
+        Down = 1 << 2,
+        Left = 1 << 3,
+    }
+
+    export function opposite(dir: Direction): Direction {
+        return (dir << 2) % 0xf
+    }
+    
     class Maze {
-        _hero: Hero
+        hero: Hero
+        map: Map
 
         constructor() {     
-            this._hero = new Hero()
+            this.hero = new Hero()
+            this.map = new Map()
         }
 
         init() {
-            this._hero.init(assets.image`hero`)
+            this.hero.init(assets.image`hero`)
 
             game.onUpdate(() => getMaze().update())
         }
 
         initLevel(tilemap: tiles.TileMapData) {
             scene.setTileMapLevel(tilemap);
-            this._hero.initLevel()
+            this.map.init(tilemap)
+            this.hero.initLevel()
         }
 
         update() {
-            this._hero.update()
+            this.hero.update()
         }
     }
     let _maze: Maze = null
 
-    function getMaze() {
+    export function getMaze() {
         if (!_maze) {
             _maze = new Maze()
             _maze.init()

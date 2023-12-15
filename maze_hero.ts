@@ -1,62 +1,40 @@
 namespace maze {
     export class Hero {
-        sprite: Sprite
-        speed: number
-        homeX: number
-        homeY: number
+        mover: Mover
 
         constructor() {
-            this.speed = 100
-            this.homeX = 0
-            this.homeY = 0
+            this.mover = new Mover()
         }
 
         init(img: Image) {
-            this.sprite = sprites.create(img, SpriteKind.Player)
-            scene.cameraFollowSprite(this.sprite)
+            this.mover.init(img)
+            scene.cameraFollowSprite(this.mover.sprite)
         }
 
         initLevel() {
-            // Find home
-            this.homeX = 0
-            this.homeY = 0;
-            const locs = tiles.getTilesByType(assets.tile`tile_hero`)
-            if (locs.length > 0) {
-                for (const loc of locs) {
-                    this.homeX += loc.x
-                    this.homeY += loc.y
-                }
-                this.homeX /= locs.length
-                this.homeY /= locs.length
-            }
-            console.log("Hero home: (" + this.homeX + ", " + this.homeY + ")")
-            this.placeHome()
+            const map = getMaze().map
+            this.mover.hx = map.homeX
+            this.mover.hy = map.homeY
+            this.place()
         }
 
-        placeHome() {
-            this.sprite.x = this.homeX
-            this.sprite.y = this.homeY
-            this.sprite.vx = 0
-            this.sprite.vy = 0
+        place() {
+            this.mover.place()
         }
 
         update() {
             if (controller.up.isPressed()) {
-                this.sprite.vx = 0
-                this.sprite.vy = -this.speed
+                this.mover.request = Direction.Up
             } else if (controller.down.isPressed()) {
-                this.sprite.vx = 0
-                this.sprite.vy = this.speed
+                this.mover.request = Direction.Down
             } else if (controller.left.isPressed()) {
-                this.sprite.vx = -this.speed
-                this.sprite.vy = 0
+                this.mover.request = Direction.Left
             } else if (controller.right.isPressed()) {
-                this.sprite.vx = this.speed
-                this.sprite.vy = 0
-            } else {
-                this.sprite.vx = 0
-                this.sprite.vy = 0
+                this.mover.request = Direction.Right
             }
+
+
+            this.mover.update()
         }
     }
 }

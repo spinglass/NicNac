@@ -207,23 +207,23 @@
         "tilemapTile": true,
         "displayName": "myTile33"
     },
-    "tile25": {
-        "data": "hwQIAAgAAAAAAAAAAAAAAAAAAAAA0A0AANANAAAAAAAAAAAAAAAAAA==",
-        "mimeType": "image/x-mkcd-f4",
-        "tilemapTile": true,
-        "displayName": "tile_pill"
-    },
-    "tile36": {
-        "data": "hwQIAAgAAAAA3d0A0N3dDd3d3d3d3d3d3d3d3d3d3d3Q3d0NAN3dAA==",
-        "mimeType": "image/x-mkcd-f4",
-        "tilemapTile": true,
-        "displayName": "tile_powerpill"
-    },
     "tile1": {
         "data": "hwQIAAgAAAAAAAAA8P//DwAADwAAAA8AAAAPAAAADwDw//8PAAAAAA==",
         "mimeType": "image/x-mkcd-f4",
         "tilemapTile": true,
         "displayName": "tile_hero"
+    },
+    "tile25": {
+        "data": "hwQIAAgAAAAAAAAAAAAAAAAAAAAA8A8AAPAPAAAAAAAAAAAAAAAAAA==",
+        "mimeType": "image/x-mkcd-f4",
+        "tilemapTile": true,
+        "displayName": "tile_pill"
+    },
+    "tile36": {
+        "data": "hwQIAAgAAAAA//8A8P//D//////////////////////w//8PAP//AA==",
+        "mimeType": "image/x-mkcd-f4",
+        "tilemapTile": true,
+        "displayName": "tile_powerpill"
     },
     "level1": {
         "id": "level1",
@@ -268,7 +268,7 @@
             "myTiles.tile36",
             "myTiles.tile1"
         ],
-        "displayName": "level1"
+        "displayName": "maze"
     },
     "*": {
         "mimeType": "image/x-mkcd-f4",
