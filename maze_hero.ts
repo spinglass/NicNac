@@ -38,10 +38,10 @@ namespace maze {
             this.mover.update()
 
             if (this.mover.changedTile) {
-                if (this.maze.map.eatPill(this.mover.tx, this.mover.ty)) {
+                if (this.maze.map.eatPill(this.mover.tile)) {
                     this.maze.audio.play(Effect.Pill)
                     this.maze.game.score(ScoreKind.Pill)
-                } else if (this.maze.map.eatPower(this.mover.tx, this.mover.ty)) {
+                } else if (this.maze.map.eatPower(this.mover.tile)) {
                     this.maze.audio.play(Effect.Power)
                     this.maze.game.score(ScoreKind.Power)
                 }

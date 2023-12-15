@@ -2,10 +2,9 @@ namespace maze {
     export class Mover {
         maze: Maze
         sprite: Sprite
+        tile: Tile
         x: number                   // world x
         y: number                   // world y
-        tx: number                  // tilemap x (col)
-        ty: number                  // tilemap y (row)
         hx: number                  // home y
         hy: number                  // home x
         validDirs: number
@@ -22,8 +21,7 @@ namespace maze {
         constructor() {
             this.x = 0
             this.y = 0
-            this.tx = 0
-            this.ty = 0
+            this.tile = new Tile(0, 0)
             this.validDirs = 0
             this.direction = Direction.None
             this.request = Direction.None
@@ -48,15 +46,14 @@ namespace maze {
             // get tile coords
             this.x = this.sprite.x
             this.y = this.sprite.y
-            this.tx = (this.x >> 3)
-            this.ty = (this.y >> 3)
+            this.tile = getTileFromWorldPosition(this.x, this.y)
 
             // check which directions can travel from this tile
             this.validDirs = 0
-            this.checkTile(this.tx, this.ty - 1, Direction.Up)
-            this.checkTile(this.tx + 1, this.ty, Direction.Right)
-            this.checkTile(this.tx, this.ty + 1, Direction.Down)
-            this.checkTile(this.tx - 1, this.ty, Direction.Left)
+            this.checkTile(this.tile.tx, this.tile.ty - 1, Direction.Up)
+            this.checkTile(this.tile.tx + 1, this.tile.ty, Direction.Right)
+            this.checkTile(this.tile.tx, this.tile.ty + 1, Direction.Down)
+            this.checkTile(this.tile.tx - 1, this.tile.ty, Direction.Left)
         }
 
         reset() {
@@ -89,23 +86,33 @@ namespace maze {
             // get previous state
             const px = this.x
             const py = this.y
-            const ptx = this.tx
-            const pty = this.ty
+            const ptile = this.tile
 
             this.updateState()
 
-            this.changedTile = (this.tx != ptx) || (this.ty != pty)
-
-            // Ignore if request is same as current direction
+            // ignore if request is same as current direction
             if (this.request == this.direction) {
                 this.request = Direction.None
             }
 
+            this.changedTile = (this.tile.tx != ptile.tx) || (this.tile.ty != ptile.ty)
+            if (this.changedTile) {
+                // check for tunnel
+                const exit = this.maze.map.useTunnel(this.tile)
+                if (exit) {
+                    // keep current speed and warp to exit
+                    this.sprite.x = exit.cx
+                    this.sprite.y = exit.cy
+                    this.updateState()
+                    return
+                }
+            }
+            
             const stopped = (this.sprite.vx == 0 && this.sprite.vy == 0)
 
             let crossing = false
-            const cx = (8 * this.tx) + 4    // centre of tile x
-            const cy = (8 * this.ty) + 4    // centre of tile y
+            const cx = this.tile.cx
+            const cy = this.tile.cy
             if (!stopped) {
                 // Check for crossing centre of tile
                 if (this.direction == Direction.Up) {

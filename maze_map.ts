@@ -4,7 +4,35 @@ namespace maze {
         Empty = 1 << 0,
         Pill = 1 << 1,
         Power = 1 << 2,
-        Player = 1 << 3,
+        Tunnel = 1 << 3,
+        Home = 1 << 4,
+        Player = 1 << 5,
+    }
+    
+    export class Tile {
+        tx: number
+        ty: number
+
+        constructor(tx: number, ty: number) {
+            this.tx = tx
+            this.ty = ty
+        }
+
+        // centre position x
+        get cx(): number {
+            return (8 * this.tx) + 4
+        }
+
+        // centre position y
+        get cy(): number {
+            return (8 * this.ty) + 4
+        }
+    }
+
+    export function getTileFromWorldPosition(x: number, y: number) : Tile {
+        const tx = (x >> 3)
+        const ty = (y >> 3)
+        return new Tile(tx, ty)
     }
 
     export class Map {
@@ -13,6 +41,7 @@ namespace maze {
         h: number
         homeX: number
         homeY: number
+        tunnels: Tile[]
 
         constructor() {
             this.tiles = []
@@ -40,6 +69,12 @@ namespace maze {
             return (this.tiles[i] & flag) != 0
         }
 
+        private getTile(index: number) {
+            const tx = index % this.w
+            const ty = Math.floor(index / this.w)
+            return new Tile(tx, ty)
+        }
+
         private initHome() {
             // Find hero home
             this.homeX = 0
@@ -52,6 +87,17 @@ namespace maze {
                 }
                 this.homeX /= locs.length
                 this.homeY /= locs.length
+            }
+        }
+
+        private initTunnels() {
+            this.tunnels = []
+            for (let i = 0; i < this.tiles.length; ++i) {
+                if (this.tiles[i] & MapFlags.Tunnel) {
+                    const tile = this.getTile(i)
+                    this.tunnels.push(tile)
+                    console.log("tunnel " + tile.tx + "," + tile.ty)
+                }
             }
         }
 
@@ -70,13 +116,13 @@ namespace maze {
             }
         }
 
-        private clearTile(tx: number, ty: number, flag: MapFlags): boolean  {      
-            if (this.getFlag(tx, ty, flag)) {
+        private clearTile(tile: Tile, flag: MapFlags): boolean  {
+            if (tile && this.getFlag(tile.tx, tile.ty, flag)) {
                 // clear the flag
-                this.setFlag(tx, ty, flag, false)
+                this.setFlag(tile.tx, tile.ty, flag, false)
 
                 // hide the tile
-                const loc = tiles.getTileLocation(tx, ty)
+                const loc = tiles.getTileLocation(tile.tx, tile.ty)
                 tiles.setTileAt(loc, assets.tile`transparency16`)
                 return true
             }
@@ -96,19 +142,37 @@ namespace maze {
             this.initFlagsFromTiles(assets.tile`tile_home`, MapFlags.Empty)
             this.initFlagsFromTiles(assets.tile`tile_pill`, MapFlags.Pill)
             this.initFlagsFromTiles(assets.tile`tile_power`, MapFlags.Power)
+            this.initFlagsFromTiles(assets.tile`tile_tunnel`, MapFlags.Tunnel)
 
             // find all player tiles
             this.initFlagsFromFlags(MapFlags.Empty, MapFlags.Player)
             this.initFlagsFromFlags(MapFlags.Pill, MapFlags.Player)
             this.initFlagsFromFlags(MapFlags.Power, MapFlags.Player)
+            this.initFlagsFromFlags(MapFlags.Tunnel, MapFlags.Player)
+
+            this.initTunnels()
         }
 
-        eatPill(tx: number, ty: number):  boolean {
-            return this.clearTile(tx, ty, MapFlags.Pill)
+        eatPill(tile: Tile):  boolean {
+            return this.clearTile(tile, MapFlags.Pill)
         }
 
-        eatPower(tx: number, ty: number): boolean {
-            return this.clearTile(tx, ty, MapFlags.Power)
+        eatPower(tile: Tile): boolean {
+            return this.clearTile(tile, MapFlags.Power)
+        }
+
+        useTunnel(tile: Tile): Tile {
+            if (tile && this.getFlag(tile.tx, tile.ty, MapFlags.Tunnel)) {
+                //this is a tunnel, find the other end,
+                // assumed to be another tunnel tile with either the same tx or ty
+                for (const tunnel of this.tunnels) {
+                    if ((tunnel.tx == tile.tx && tunnel.ty != tile.ty) || (tunnel.tx != tile.tx && tunnel.ty == tile.ty))
+                    {
+                        return tunnel
+                    }
+                }
+            }
+            return null
         }
     }
 
