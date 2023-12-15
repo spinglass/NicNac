@@ -108,7 +108,6 @@ namespace maze {
                 if (this.flags[i] & MapFlags.Tunnel) {
                     const tile = this.getTile(i)
                     this.tunnels.push(tile)
-                    console.log("tunnel " + tile.tx + "," + tile.ty)
                 }
             }
         }
