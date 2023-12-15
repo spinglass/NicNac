@@ -12,7 +12,7 @@ namespace maze {
             const pill = music.createSoundEffect(WaveShape.Sine, 838, 2584, 120, 120, 60, SoundExpressionEffect.None, InterpolationCurve.Linear)
             events.register(Event.Pill, () => this.play(pill))
 
-            const power = music.melodyPlayable(music.powerUp)
+            const power = music.createSoundEffect(WaveShape.Sine, 595, 2020, 232, 0, 1000, SoundExpressionEffect.Vibrato, InterpolationCurve.Linear)
             events.register(Event.Power, () => this.play(power))
 
             const level = music.melodyPlayable(music.magicWand)

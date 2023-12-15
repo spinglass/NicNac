@@ -7,9 +7,9 @@ namespace maze {
             this.mover = new Mover()
         }
 
-        init(img: Image) {
+        init() {
             this.maze = getMaze()
-            this.mover.init(img)
+            this.mover.init("hero")
             this.mover.mapType = MapFlags.Player
             scene.cameraFollowSprite(this.mover.sprite)
         }

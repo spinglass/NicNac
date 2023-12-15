@@ -1,7 +1,24 @@
 namespace maze {
+    class DirImage {
+        dir: Direction
+        img: Image
+        name: string
+
+        constructor(name: string, dir: Direction) {
+            let imgName = name + "_" + dirString(dir)
+            this.img = helpers.getImageByName(imgName)
+            if (this.img) {
+                console.log("found:" + imgName)
+            }
+            this.dir = dir
+            this.name = imgName
+        }
+    }
+
     export class Mover {
         maze: Maze
         sprite: Sprite
+        images: DirImage[]
         tile: Tile
         x: number                   // world x
         y: number                   // world y
@@ -19,6 +36,7 @@ namespace maze {
         mapType: MapFlags
 
         constructor() {
+            this.images = []
             this.x = 0
             this.y = 0
             this.tile = new Tile(0, 0)
@@ -34,9 +52,17 @@ namespace maze {
             this.mapType = MapFlags.None
         }
 
-        init(img: Image) {
-            this.maze = getMaze()
-            this.sprite = sprites.create(img, SpriteKind.Player)
+        init(name: string) {
+            this.maze = getMaze()            
+
+            this.images = [
+                new DirImage(name, Direction.Up),
+                new DirImage(name, Direction.Down),
+                new DirImage(name, Direction.Left),
+                new DirImage(name, Direction.Right),
+                ]
+            this.sprite = sprites.create(this.images[0].img, SpriteKind.Player)
+            this.setImage(Direction.Right)
 
             // Hide until placed
             this.setVisible(false)
@@ -54,6 +80,16 @@ namespace maze {
             this.checkTile(Direction.Right)
             this.checkTile(Direction.Down)
             this.checkTile(Direction.Left)
+        }
+
+        private setImage(dir: Direction) {
+            for (const img of this.images) {
+                if (img.dir == dir) {
+                    console.log("found:" + img.name)
+                    this.sprite.setImage(img.img)
+                    break
+                }
+            }
         }
 
         reset() {
@@ -177,6 +213,8 @@ namespace maze {
                     this.sprite.y = cy
                     break
             }
+
+            this.setImage(this.dir)
         }
 
         setFreeze(freeze: boolean) {

@@ -11,6 +11,17 @@ namespace maze {
     export function opposite(dir: Direction): Direction {
         return (dir << 2) % 0xf
     }
+
+    export function dirString(dir: Direction): string {
+        switch (dir) {
+            case Direction.None:    return "none"
+            case Direction.Up:      return "up"
+            case Direction.Right:   return "right"
+            case Direction.Down:    return "down"
+            case Direction.Left:    return "left"
+        }
+        return null
+    }
     
     export class Maze {
         audio: Audio
@@ -30,7 +41,7 @@ namespace maze {
         init() {
             this.audio.init()
             this.game.init()
-            this.hero.init(assets.image`hero`)
+            this.hero.init()
 
             game.onUpdate(() => getMaze().update())
         }
