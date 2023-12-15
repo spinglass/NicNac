@@ -1,9 +1,4 @@
 namespace maze {
-    export enum ScoreKind {
-        Pill,
-        Power,
-    }
-
     export class Game {
         scorePill: number
         scorePower: number
@@ -15,13 +10,18 @@ namespace maze {
 
         init() {
             info.setScore(0)
+
+            // register for events
+            const events = getMaze().events
+            events.register(Event.Pill, () => this.score(Event.Pill))
+            events.register(Event.Power, () => this.score(Event.Power))
         }
 
-        score(kind: ScoreKind) {
+        private score(event: Event) {
             let s = 0
-            if (kind == ScoreKind.Pill) {
+            if (event == Event.Pill) {
                 s = this.scorePill
-            } else if (kind == ScoreKind.Power) {
+            } else if (event == Event.Power) {
                 s = this.scorePower
             }
             info.changeScoreBy(s)

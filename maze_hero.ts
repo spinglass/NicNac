@@ -39,11 +39,9 @@ namespace maze {
 
             if (this.mover.changedTile) {
                 if (this.maze.map.eatPill(this.mover.tile)) {
-                    this.maze.audio.play(Effect.Pill)
-                    this.maze.game.score(ScoreKind.Pill)
+                    this.maze.events.fire(Event.Pill)
                 } else if (this.maze.map.eatPower(this.mover.tile)) {
-                    this.maze.audio.play(Effect.Power)
-                    this.maze.game.score(ScoreKind.Power)
+                    this.maze.events.fire(Event.Power)
                 }
             }
         }

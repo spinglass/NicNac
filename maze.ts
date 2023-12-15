@@ -14,12 +14,14 @@ namespace maze {
     
     export class Maze {
         audio: Audio
+        events: EventManager
         game: Game
         hero: Hero
         map: Map
 
         constructor() {     
             this.audio = new Audio()
+            this.events = new EventManager()
             this.game = new Game()
             this.hero = new Hero()
             this.map = new Map()
@@ -40,7 +42,12 @@ namespace maze {
         }
 
         update() {
+            this.events.fireTimedEvents()
+            
             this.hero.update()
+
+            // finally fire frame events
+            this.events.fireFrameEvents()
         }
     }
     let _maze: Maze = null
