@@ -38,6 +38,7 @@ namespace maze {
         initLevel(tilemap: tiles.TileMapData) {
             scene.setTileMapLevel(tilemap);
             this.map.init(tilemap)
+            this.game.initLevel()
             this.hero.initLevel()
         }
 

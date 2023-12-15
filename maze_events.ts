@@ -2,7 +2,7 @@ namespace maze {
     export enum Event {
         Pill,
         Power,
-        UseTunnel
+        LevelComplete,
     }
 
     class Handler {
@@ -46,10 +46,11 @@ namespace maze {
         }
 
         fireFrameEvents() {
-            for (const event of this.frameEvents) {
-                this.callHandlers(event)
+            // loop such that any handlers that fire further events will also be handled
+            // IMPORTANT: if a handler fires the same event it's handling, that could be a soft-lock
+            while (this.frameEvents.length > 0) {
+                this.callHandlers(this.frameEvents.shift())
             }
-            this.frameEvents = []
         }
     }
 }

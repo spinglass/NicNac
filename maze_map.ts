@@ -46,19 +46,21 @@ namespace maze {
     }
 
     export class Map {
-        tiles: MapFlags[]
+        flags: MapFlags[]
         w: number
         h: number
         homeX: number
         homeY: number
         tunnels: Tile[]
+        pillCount: number
 
         constructor() {
-            this.tiles = []
+            this.flags = []
             this.w = 0
             this.h = 0
             this.homeX = 0
             this.homeY = 0
+            this.pillCount = 0
         }
 
         private getIndex(tx: number, ty: number) {
@@ -68,15 +70,15 @@ namespace maze {
         private setFlag(tx: number, ty: number, flag: MapFlags, on: boolean) {
             const i = this.getIndex(tx, ty)
             if (on) {
-                this.tiles[i] |= flag
+                this.flags[i] |= flag
             } else {
-                this.tiles[i] ^= flag
+                this.flags[i] ^= flag
             }
         }
 
         getFlag(tile: Tile, flag: MapFlags): boolean {
             const i = this.getIndex(tile.tx, tile.ty)
-            return (this.tiles[i] & flag) != 0
+            return (this.flags[i] & flag) != 0
         }
 
         private getTile(index: number) {
@@ -102,11 +104,21 @@ namespace maze {
 
         private initTunnels() {
             this.tunnels = []
-            for (let i = 0; i < this.tiles.length; ++i) {
-                if (this.tiles[i] & MapFlags.Tunnel) {
+            for (let i = 0; i < this.flags.length; ++i) {
+                if (this.flags[i] & MapFlags.Tunnel) {
                     const tile = this.getTile(i)
                     this.tunnels.push(tile)
                     console.log("tunnel " + tile.tx + "," + tile.ty)
+                }
+            }
+        }
+
+        private initPills() {
+            this.pillCount = 0
+            for (const f of this.flags) {
+                if ((f & MapFlags.Pill) || (f & MapFlags.Power))
+                {
+                    ++this.pillCount
                 }
             }
         }
@@ -119,9 +131,9 @@ namespace maze {
         }
 
         private initFlagsFromFlags(f1: MapFlags, f2: MapFlags) {
-            for (let i = 0; i < this.tiles.length; ++i) {
-                if (this.tiles[i] & f1) {
-                    this.tiles[i] |= f2
+            for (let i = 0; i < this.flags.length; ++i) {
+                if (this.flags[i] & f1) {
+                    this.flags[i] |= f2
                 }
             }
         }
@@ -142,12 +154,12 @@ namespace maze {
         init(tilemap: tiles.TileMapData) {
             this.w = tilemap.width
             this.h = tilemap.height
-            this.tiles.length = (this.w * this.h)
+            this.flags.length = (this.w * this.h)
 
             // find player home position
             this.initHome()
 
-            // find pill tiles
+            // find all tiles of interest
             this.initFlagsFromTiles(assets.tile`tile_empty`, MapFlags.Empty)
             this.initFlagsFromTiles(assets.tile`tile_home`, MapFlags.Empty)
             this.initFlagsFromTiles(assets.tile`tile_pill`, MapFlags.Pill)
@@ -160,6 +172,7 @@ namespace maze {
             this.initFlagsFromFlags(MapFlags.Power, MapFlags.Player)
             this.initFlagsFromFlags(MapFlags.Tunnel, MapFlags.Player)
 
+            this.initPills()
             this.initTunnels()
         }
 
