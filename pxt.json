@@ -17,7 +17,8 @@
         "maze_hero.ts",
         "maze_map.ts",
         "maze_mover.ts",
-        "maze_audio.ts"
+        "maze_audio.ts",
+        "maze_game.ts"
     ],
     "testFiles": [
         "test.ts"

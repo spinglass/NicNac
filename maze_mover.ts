@@ -1,5 +1,6 @@
 namespace maze {
     export class Mover {
+        maze: Maze
         sprite: Sprite
         x: number                   // world x
         y: number                   // world y
@@ -35,6 +36,14 @@ namespace maze {
             this.mapType = MapFlags.None
         }
 
+        init(img: Image) {
+            this.maze = getMaze()
+            this.sprite = sprites.create(img, SpriteKind.Player)
+
+            // Hide until placed
+            this.setVisible(false)
+        }
+        
         private updateState() {
             // get tile coords
             this.x = this.sprite.x
@@ -48,16 +57,6 @@ namespace maze {
             this.checkTile(this.tx + 1, this.ty, Direction.Right)
             this.checkTile(this.tx, this.ty + 1, Direction.Down)
             this.checkTile(this.tx - 1, this.ty, Direction.Left)
-        }
-
-        get vx(): number { return this.sprite.vx }
-        get vy(): number { return this.sprite.vy }
-
-        init(img: Image) {
-            this.sprite = sprites.create(img, SpriteKind.Player)
-
-            // Hide until placed
-            this.setVisible(false)
         }
 
         reset() {
@@ -102,7 +101,7 @@ namespace maze {
                 this.request = Direction.None
             }
 
-            const stopped = (this.vx == 0 && this.vy == 0)
+            const stopped = (this.sprite.vx == 0 && this.sprite.vy == 0)
 
             let crossing = false
             const cx = (8 * this.tx) + 4    // centre of tile x
@@ -170,8 +169,8 @@ namespace maze {
         setFreeze(freeze: boolean) {
             this.frozen = freeze
             if (freeze) {
-                this.fvx = this.vx
-                this.fvy = this.vy
+                this.fvx = this.sprite.vx
+                this.fvy = this.sprite.vy
                 this.sprite.vx = 0
                 this.sprite.vy = 0
             } else {
@@ -189,8 +188,7 @@ namespace maze {
         }
 
         private checkTile(tx: number, ty: number, dir: Direction) {
-            const map = getMaze().map
-            if (map.getFlag(tx, ty, this.mapType)) {
+            if (this.maze.map.getFlag(tx, ty, this.mapType)) {
                 this.validDirs |= dir
             }
         }

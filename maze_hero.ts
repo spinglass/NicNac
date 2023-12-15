@@ -1,5 +1,6 @@
 namespace maze {
     export class Hero {
+        maze: Maze
         mover: Mover
 
         constructor() {
@@ -7,15 +8,15 @@ namespace maze {
         }
 
         init(img: Image) {
+            this.maze = getMaze()
             this.mover.init(img)
             this.mover.mapType = MapFlags.Player
             scene.cameraFollowSprite(this.mover.sprite)
         }
 
         initLevel() {
-            const map = getMaze().map
-            this.mover.hx = map.homeX
-            this.mover.hy = map.homeY
+            this.mover.hx = this.maze.map.homeX
+            this.mover.hy = this.maze.map.homeY
             this.place()
         }
 
@@ -37,11 +38,12 @@ namespace maze {
             this.mover.update()
 
             if (this.mover.changedTile) {
-                const maze = getMaze()
-                if (maze.map.eatPill(this.mover.tx, this.mover.ty)) {
-                    maze.audio.play(Effect.Pill)
-                } else if (maze.map.eatPower(this.mover.tx, this.mover.ty)) {
-                    maze.audio.play(Effect.Power)
+                if (this.maze.map.eatPill(this.mover.tx, this.mover.ty)) {
+                    this.maze.audio.play(Effect.Pill)
+                    this.maze.game.score(ScoreKind.Pill)
+                } else if (this.maze.map.eatPower(this.mover.tx, this.mover.ty)) {
+                    this.maze.audio.play(Effect.Power)
+                    this.maze.game.score(ScoreKind.Power)
                 }
             }
         }

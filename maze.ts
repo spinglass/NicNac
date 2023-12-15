@@ -12,19 +12,22 @@ namespace maze {
         return (dir << 2) % 0xf
     }
     
-    class Maze {
+    export class Maze {
         audio: Audio
+        game: Game
         hero: Hero
         map: Map
 
         constructor() {     
             this.audio = new Audio()
+            this.game = new Game()
             this.hero = new Hero()
             this.map = new Map()
         }
 
         init() {
             this.audio.init()
+            this.game.init()
             this.hero.init(assets.image`hero`)
 
             game.onUpdate(() => getMaze().update())
