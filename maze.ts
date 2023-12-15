@@ -13,15 +13,18 @@ namespace maze {
     }
     
     class Maze {
+        audio: Audio
         hero: Hero
         map: Map
 
         constructor() {     
+            this.audio = new Audio()
             this.hero = new Hero()
             this.map = new Map()
         }
 
         init() {
+            this.audio.init()
             this.hero.init(assets.image`hero`)
 
             game.onUpdate(() => getMaze().update())

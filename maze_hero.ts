@@ -36,10 +36,11 @@ namespace maze {
             this.mover.update()
 
             if (this.mover.changedTile) {
-                const map = getMaze().map
-                if (map.eatPill(this.mover.tx, this.mover.ty)) {
-
-                } else if (map.eatPowerPill(this.mover.tx, this.mover.ty)) {
+                const maze = getMaze()
+                if (maze.map.eatPill(this.mover.tx, this.mover.ty)) {
+                    maze.audio.play(Effect.Pill)
+                } else if (maze.map.eatPowerPill(this.mover.tx, this.mover.ty)) {
+                    maze.audio.play(Effect.PowerPill)
                 }
             }
         }
