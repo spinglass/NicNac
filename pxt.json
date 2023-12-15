@@ -9,9 +9,12 @@
         "main.ts",
         "README.md",
         "assets.json",
-        "tilemap.ts",
         "tilemap.g.jres",
-        "tilemap.g.ts"
+        "tilemap.g.ts",
+        "maze.ts",
+        "images.g.jres",
+        "images.g.ts",
+        "maze_hero.ts"
     ],
     "testFiles": [
         "test.ts"
