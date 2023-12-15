@@ -214,13 +214,13 @@
         "displayName": "tile_hero"
     },
     "tile25": {
-        "data": "hwQIAAgAAAAAAAAAAAAAAAAAAAAA8A8AAPAPAAAAAAAAAAAAAAAAAA==",
+        "data": "hwQIAAgAAAAAAAAAAAAAAAAAAAAA0A0AANANAAAAAAAAAAAAAAAAAA==",
         "mimeType": "image/x-mkcd-f4",
         "tilemapTile": true,
         "displayName": "tile_pill"
     },
     "tile36": {
-        "data": "hwQIAAgAAAAA//8A8P//D//////////////////////w//8PAP//AA==",
+        "data": "hwQIAAgAAAAAAAAAAN3dANDd3Q3Q3d0N0N3dDdDd3Q0A3d0AAAAAAA==",
         "mimeType": "image/x-mkcd-f4",
         "tilemapTile": true,
         "displayName": "tile_powerpill"

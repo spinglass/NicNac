@@ -33,8 +33,15 @@ namespace maze {
                 this.mover.request = Direction.Right
             }
 
-
             this.mover.update()
+
+            if (this.mover.changedTile) {
+                const map = getMaze().map
+                if (map.eatPill(this.mover.tx, this.mover.ty)) {
+
+                } else if (map.eatPowerPill(this.mover.tx, this.mover.ty)) {
+                }
+            }
         }
     }
 }
