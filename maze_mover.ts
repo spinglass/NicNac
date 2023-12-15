@@ -16,6 +16,7 @@ namespace maze {
         fvx: number                 // frozen speed x
         fvy: number                 // frozen speed y
         changedTile: boolean
+        mapType: MapFlags
 
         constructor() {
             this.x = 0
@@ -31,6 +32,7 @@ namespace maze {
             this.fvx = 0
             this.fvy = 0
             this.changedTile = false
+            this.mapType = MapFlags.None
         }
 
         private updateState() {
@@ -187,8 +189,8 @@ namespace maze {
         }
 
         private checkTile(tx: number, ty: number, dir: Direction) {
-            const loc = tiles.getTileLocation(tx, ty)
-            if (loc && !loc.isWall()) {
+            const map = getMaze().map
+            if (map.getFlag(tx, ty, this.mapType)) {
                 this.validDirs |= dir
             }
         }

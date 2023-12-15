@@ -8,6 +8,7 @@ namespace maze {
 
         init(img: Image) {
             this.mover.init(img)
+            this.mover.mapType = MapFlags.Player
             scene.cameraFollowSprite(this.mover.sprite)
         }
 
@@ -39,8 +40,8 @@ namespace maze {
                 const maze = getMaze()
                 if (maze.map.eatPill(this.mover.tx, this.mover.ty)) {
                     maze.audio.play(Effect.Pill)
-                } else if (maze.map.eatPowerPill(this.mover.tx, this.mover.ty)) {
-                    maze.audio.play(Effect.PowerPill)
+                } else if (maze.map.eatPower(this.mover.tx, this.mover.ty)) {
+                    maze.audio.play(Effect.Power)
                 }
             }
         }

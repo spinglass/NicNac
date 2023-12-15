@@ -1,7 +1,7 @@
 namespace maze {
     export enum Effect {
         Pill,
-        PowerPill,
+        Power,
         Count
     }
 
@@ -15,7 +15,7 @@ namespace maze {
 
         init() {
             this.sounds[Effect.Pill] = music.createSoundEffect(WaveShape.Sine, 838, 2584, 120, 120, 60, SoundExpressionEffect.None, InterpolationCurve.Linear)
-            this.sounds[Effect.PowerPill] = music.melodyPlayable(music.powerUp)
+            this.sounds[Effect.Power] = music.melodyPlayable(music.powerUp)
         }
 
         play(effect: Effect) {
