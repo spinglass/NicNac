@@ -8,7 +8,7 @@ namespace maze {
         hx: number                  // home y
         hy: number                  // home x
         validDirs: number
-        direction: Direction
+        dir: Direction
         request: Direction
         speed: number
         visible: boolean
@@ -23,7 +23,7 @@ namespace maze {
             this.y = 0
             this.tile = new Tile(0, 0)
             this.validDirs = 0
-            this.direction = Direction.None
+            this.dir = Direction.None
             this.request = Direction.None
             this.speed = 80
             this.visible = false
@@ -65,7 +65,7 @@ namespace maze {
             this.sprite.y = this.hy
             this.sprite.vx = 0
             this.sprite.vy = 0
-            this.direction = Direction.None
+            this.dir = Direction.None
             this.request = Direction.None
             this.changedTile = false
             this.updateState()
@@ -91,7 +91,7 @@ namespace maze {
             this.updateState()
 
             // ignore if request is same as current direction
-            if (this.request == this.direction) {
+            if (this.request == this.dir) {
                 this.request = Direction.None
             }
 
@@ -115,37 +115,43 @@ namespace maze {
             const cy = this.tile.cy
             if (!stopped) {
                 // Check for crossing centre of tile
-                if (this.direction == Direction.Up) {
+                if (this.dir == Direction.Up) {
                     crossing = (py > cy && cy >= this.y)
-                } else if (this.direction == Direction.Down) {
+                } else if (this.dir == Direction.Down) {
                     crossing = (py < cy && cy <= this.y)
-                } else if (this.direction == Direction.Left) {
+                } else if (this.dir == Direction.Left) {
                     crossing = (px > cx && cx >= this.x)
-                } else if (this.direction == Direction.Right) {
+                } else if (this.dir == Direction.Right) {
                     crossing = (px < cx && cx <= this.x)
+                }
+
+                if (crossing && !this.isDirectionValid(this.dir)) {
+                    // cannot continue this direction, clamp position
+                    this.sprite.x = this.tile.cx
+                    this.sprite.y = this.tile.cy
                 }
             }
 
-            if (this.direction != Direction.None) {
+            if (this.dir != Direction.None) {
                 // Can reverse direction at any time
-                if (this.direction == opposite(this.request)) {
-                    this.direction = this.request
+                if (this.dir == opposite(this.request)) {
+                    this.dir = this.request
                     this.request = Direction.None
                 }
                 // Stop current direction if reached tile centre and can't continue
-                else if ((stopped || crossing) && !this.isDirectionValid(this.direction)) {
-                    this.direction = Direction.None
+                else if ((stopped || crossing) && !this.isDirectionValid(this.dir)) {
+                    this.dir = Direction.None
                 }
             }
 
             // Apply requested direction if it's possible
             if ((stopped || crossing) && this.isDirectionValid(this.request)) {
-                this.direction = this.request
+                this.dir = this.request
                 this.request = Direction.None
             }
 
             // apply to sprite
-            switch (this.direction) {
+            switch (this.dir) {
                 case Direction.None:
                     this.sprite.vx = 0
                     this.sprite.vy = 0
