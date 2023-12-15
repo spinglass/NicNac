@@ -50,10 +50,10 @@ namespace maze {
 
             // check which directions can travel from this tile
             this.validDirs = 0
-            this.checkTile(this.tile.tx, this.tile.ty - 1, Direction.Up)
-            this.checkTile(this.tile.tx + 1, this.tile.ty, Direction.Right)
-            this.checkTile(this.tile.tx, this.tile.ty + 1, Direction.Down)
-            this.checkTile(this.tile.tx - 1, this.tile.ty, Direction.Left)
+            this.checkTile(Direction.Up)
+            this.checkTile(Direction.Right)
+            this.checkTile(Direction.Down)
+            this.checkTile(Direction.Left)
         }
 
         reset() {
@@ -194,8 +194,9 @@ namespace maze {
             return (this.validDirs & dir) != 0
         }
 
-        private checkTile(tx: number, ty: number, dir: Direction) {
-            if (this.maze.map.getFlag(tx, ty, this.mapType)) {
+        private checkTile(dir: Direction) {
+            const next = this.tile.getNext(dir)
+            if (this.maze.map.getFlag(next, this.mapType)) {
                 this.validDirs |= dir
             }
         }

@@ -27,6 +27,16 @@ namespace maze {
         get cy(): number {
             return (8 * this.ty) + 4
         }
+
+        getNext(dir: Direction): Tile {
+            switch(dir) {
+                case Direction.Up:      return new Tile(this.tx, this.ty - 1)
+                case Direction.Down:    return new Tile(this.tx, this.ty + 1)
+                case Direction.Left:    return new Tile(this.tx - 1, this.ty)
+                case Direction.Right:   return new Tile(this.tx + 1, this.ty)
+            }
+            return this
+        }
     }
 
     export function getTileFromWorldPosition(x: number, y: number) : Tile {
@@ -64,8 +74,8 @@ namespace maze {
             }
         }
 
-        getFlag(tx: number, ty: number, flag: MapFlags): boolean {
-            const i = this.getIndex(tx, ty)
+        getFlag(tile: Tile, flag: MapFlags): boolean {
+            const i = this.getIndex(tile.tx, tile.ty)
             return (this.tiles[i] & flag) != 0
         }
 
@@ -117,7 +127,7 @@ namespace maze {
         }
 
         private clearTile(tile: Tile, flag: MapFlags): boolean  {
-            if (tile && this.getFlag(tile.tx, tile.ty, flag)) {
+            if (tile && this.getFlag(tile, flag)) {
                 // clear the flag
                 this.setFlag(tile.tx, tile.ty, flag, false)
 
@@ -162,7 +172,7 @@ namespace maze {
         }
 
         useTunnel(tile: Tile): Tile {
-            if (tile && this.getFlag(tile.tx, tile.ty, MapFlags.Tunnel)) {
+            if (tile && this.getFlag(tile, MapFlags.Tunnel)) {
                 //this is a tunnel, find the other end,
                 // assumed to be another tunnel tile with either the same tx or ty
                 for (const tunnel of this.tunnels) {
