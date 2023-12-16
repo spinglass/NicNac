@@ -71,11 +71,6 @@ namespace maze {
                 c.initLevel()
             }
             this.fruit.initLevel()
-
-            //scene.cameraFollowSprite(this.hero.mover.sprite)
-
-            const base = this.map.returnBase
-            scene.centerCameraAt(base.cx, base.cy)
         }
 
         update() {

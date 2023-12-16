@@ -39,6 +39,10 @@ namespace maze {
         }
 
         initLevel() {
+            scene.cameraFollowSprite(this.maze.hero.mover.sprite)
+            //const base = this.maze.map.returnBase
+            //scene.centerCameraAt(base.cx, base.cy)
+
             this.pillsRemaining = this.maze.map.pillCount
             this.levelComplete = false
             this.chaserEatCount = 0
