@@ -2,19 +2,20 @@ namespace maze {
     const MAX_EVENT_TIME = 1000000000
 
     export enum Event {
-        Pill,
-        Power,
+        EatPill,
+        EatPower,
+        EatFruit,
+        EatChaser,
+        LevelStart,
+        LevelNext,
         LevelComplete,
-        StartLevel,
-        NextLevel,
         GameComplete,
         GameOver,
-        Fruit,
         FruitSpawn,
         FruitDespawn,
         Defrost,
         LoseLife,
-        NextChaserMode,
+        ChaserNextMode,
     }
 
     class TimedEvent {

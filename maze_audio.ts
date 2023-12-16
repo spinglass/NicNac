@@ -9,13 +9,13 @@ namespace maze {
             const events = getMaze().events
 
             const pill = music.createSoundEffect(WaveShape.Sine, 838, 2584, 120, 120, 60, SoundExpressionEffect.None, InterpolationCurve.Linear)
-            events.register(Event.Pill, () => this.play(pill))
+            events.register(Event.EatPill, () => this.play(pill))
 
             const power = music.createSoundEffect(WaveShape.Sine, 595, 2020, 232, 0, 1000, SoundExpressionEffect.Vibrato, InterpolationCurve.Linear)
-            events.register(Event.Power, () => this.play(power))
+            events.register(Event.EatPower, () => this.play(power))
 
             const fruit = music.melodyPlayable(music.baDing)
-            events.register(Event.Fruit, () => this.play(fruit))
+            events.register(Event.EatFruit, () => this.play(fruit))
 
             const fruitSpawn = music.createSoundEffect(WaveShape.Sawtooth, 1, 4045, 255, 255, 250, SoundExpressionEffect.Warble, InterpolationCurve.Curve)
             events.register(Event.FruitSpawn, () => this.play(fruitSpawn))

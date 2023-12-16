@@ -40,9 +40,9 @@ namespace maze {
             // eat pills
             if (this.mover.changedTile) {
                 if (this.maze.map.eatPill(this.mover.tile)) {
-                    this.maze.events.fire(Event.Pill)
+                    this.maze.events.fire(Event.EatPill)
                 } else if (this.maze.map.eatPower(this.mover.tile)) {
-                    this.maze.events.fire(Event.Power)
+                    this.maze.events.fire(Event.EatPower)
                 }
             }
 

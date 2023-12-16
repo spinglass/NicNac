@@ -1,10 +1,12 @@
 namespace maze {
+    const fruitSpawns: number[] = [70, 170]
+
     export class Fruit {
         maze: Maze
         sprite: Sprite
         visible: boolean
         pillCount: number
-        pillSpawns: number[]
+        count: number           // total fruit eaten
         despawnTime: number
 
         constructor() {
@@ -14,19 +16,20 @@ namespace maze {
             this.maze = getMaze()
             this.sprite = sprites.create(assets.image`fruit`)
             this.setVisible(false)
+            this.count = 0
         }
 
         initLevel() {
             this.pillCount = 0
-            this.pillSpawns = [70, 170]
             this.despawnTime = 10
 
             this.setVisible(false)
             this.sprite.x = this.maze.map.fruit.x
             this.sprite.y = this.maze.map.fruit.y
 
-            this.maze.events.register(Event.Pill, () => this.pill())
-            this.maze.events.register(Event.Fruit, () => this.setVisible(false))
+            this.maze.events.register(Event.EatPill, () => this.checkSpawn())
+            this.maze.events.register(Event.EatPower, () => this.checkSpawn())
+            this.maze.events.register(Event.EatFruit, () => this.setVisible(false))
             this.maze.events.register(Event.FruitDespawn, () => this.setVisible(false))
         }
 
@@ -36,10 +39,10 @@ namespace maze {
             this.sprite.setFlag(SpriteFlag.Invisible, !visible)
         }
 
-        private pill() {
+        private checkSpawn() {
             ++this.pillCount
 
-            if (this.pillSpawns.find(x => (x == this.pillCount))) {
+            if (fruitSpawns.find(x => (x == this.pillCount))) {
                 this.setVisible(true)
                 
                 this.maze.events.fire(Event.FruitSpawn)
@@ -53,8 +56,9 @@ namespace maze {
                 const dy = Math.abs(this.maze.hero.mover.y - this.sprite.y)
 
                 if (dx < 8 && dy < 8) {
+                    ++this.count
                     this.maze.events.cancel(Event.FruitDespawn)
-                    this.maze.events.fire(Event.Fruit)
+                    this.maze.events.fire(Event.EatFruit)
                     this.setVisible(false)
                 }
             }
