@@ -6,7 +6,7 @@ namespace maze {
         Clyde,
     }
 
-    enum ChaserMode {
+    export enum ChaserMode {
         Scatter,
         Chase,
         Frightened
@@ -31,7 +31,7 @@ namespace maze {
             this.maze = getMaze()
             this.mover.init("chaser" + this.id)
             this.mover.mapType = MapFlags.Maze
-            this.mode = ChaserMode.Scatter
+            this.mode = ChaserMode.Frightened
 
             // only blink is ready straight away
             this.ready = (this.kind == ChaserKind.Blinky)
@@ -80,6 +80,28 @@ namespace maze {
             this.doTarget()
         }
 
+        private doChase() {
+
+        }
+
+        private doFrightened() {
+            let dirs: Direction[] = [Direction.Up, Direction.Right, Direction.Down, Direction.Left]
+            let options: Direction[] = []
+
+            // determine which directions are possible
+            dirs.forEach(dir => {
+                if (this.isDirectionValid(dir)) {
+                    options.push(dir)
+                }
+            })
+
+            // randomly pick one
+            if (options.length > 0) {
+                const ran = Math.randomRange(0, options.length - 1)
+                this.mover.request = options[ran]
+            }
+        }
+
         update() {
             if (!this.mover.isReady()) {
                 return
@@ -95,8 +117,10 @@ namespace maze {
                             this.doScatter()
                             break
                         case ChaserMode.Chase:
+                            this.doChase()
                             break
                         case ChaserMode.Frightened:
+                            this.doFrightened()
                             break
                     }
                 }
