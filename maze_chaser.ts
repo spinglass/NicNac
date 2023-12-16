@@ -1,4 +1,7 @@
 namespace maze {
+    const chaserFrightenedSpeed = 40
+    const chaserSpeed = 80
+
     export enum ChaserKind {
         Blinky,
         Pinky,
@@ -7,9 +10,11 @@ namespace maze {
     }
 
     export enum ChaserMode {
+        None,
         Scatter,
         Chase,
-        Frightened
+        Frightened,
+        ReturnToBase,
     }
 
     export class Chaser {
@@ -19,8 +24,11 @@ namespace maze {
         id: number
         ready: boolean
         mode: ChaserMode
+        modeNext: ChaserMode
         target: Tile
-        modeChangeRequest: Direction
+        requestNext: Direction
+        imgFright: Image
+        imgReturn: Image
 
         constructor(kind: ChaserKind, id: number) {
             this.mover = new Mover()
@@ -33,7 +41,10 @@ namespace maze {
             this.mover.init("chaser" + this.id)
             this.mover.mapType = MapFlags.Maze
             this.mode = ChaserMode.Chase
-            this.modeChangeRequest = Direction.None
+            this.modeNext = ChaserMode.None
+            this.requestNext = Direction.None
+            this.imgFright = helpers.getImageByName("chaser_fright")
+            this.imgReturn = helpers.getImageByName("chaser_return")
 
             // only blink is ready straight away
             this.ready = (this.kind == ChaserKind.Blinky)
@@ -122,15 +133,33 @@ namespace maze {
             }
         }
 
+        private doReturnTobase() {
+            this.target = this.maze.map.returnBase
+            this.doTarget()
+        }
+
         update() {
             if (!this.mover.isReady()) {
                 return
             }
 
-            if (this.modeChangeRequest != Direction.None) {
-                this.mover.request = this.modeChangeRequest
-                this.modeChangeRequest = Direction.None
+            if (this.requestNext != Direction.None) {
+                this.mover.request = this.requestNext
+                this.requestNext = Direction.None
             } else {
+                if (this.mode == ChaserMode.ReturnToBase
+                    && this.mover.tile.tx == this.maze.map.returnBase.tx
+                    && this.mover.tile.ty == this.maze.map.returnBase.ty) {
+                    // made it home
+                    if (this.modeNext != ChaserMode.None)
+                    {
+                        this.mode = this.modeNext
+                    } else {
+                        this.mode = ChaserMode.Chase
+                    }
+                    this.requestNext = Direction.Left
+                }
+
                 // check if a decision is required
                 if (this.ready) {
                     const stopped = this.mover.isStopped()
@@ -148,22 +177,48 @@ namespace maze {
                             case ChaserMode.Frightened:
                                 this.doFrightened()
                                 break
+                            case ChaserMode.ReturnToBase:
+                                this.doReturnTobase()
+                                break
                         }
                     }
                 }
             }
 
             this.mover.update()
+
+            if (this.mode == ChaserMode.Frightened) {
+                this.mover.sprite.setImage(this.imgFright)
+            } else if (this.mode == ChaserMode.ReturnToBase) {
+                this.mover.sprite.setImage(this.imgReturn)
+            } else {
+                this.mover.setImage()
+            }
         }
 
         setMode(mode: ChaserMode) {
             if (this.mode != mode) {
-                if (this.mode != ChaserMode.Frightened) {
-                    // reverse to show mode change
-                    this.modeChangeRequest = opposite(this.mover.dir)
-                }
+                if (this.mode == ChaserMode.Scatter || this.mode == ChaserMode.Chase || this.mode == ChaserMode.Frightened) {
+                    // reverse to show mode change, unless leaving frightened
+                    if (this.mode != ChaserMode.Frightened) {
+                        
+                        this.requestNext = opposite(this.mover.dir)
+                    }
 
-                this.mode = mode
+                    this.mode = mode
+                } else {
+                    // need to finish current task first
+                    this.modeNext = mode
+                }
+            }
+
+            switch (this.mode) {
+                default:
+                    this.mover.speed = chaserSpeed
+                    break
+                case ChaserMode.Frightened:
+                    this.mover.speed = chaserFrightenedSpeed
+                    break
             }
         }
     }

@@ -134,6 +134,16 @@
         "mimeType": "image/x-mkcd-f4",
         "displayName": "chaser3_left"
     },
+    "image28": {
+        "data": "hwQQABAAAAAAAAAAAAAAAAAAAICIiIgIAACIiIiNiAAAgIiI2IgIAACIiN2IjYgAAIiI3diIiAiAiIiIiI2ICICIiIjYiAgAgIiIiNiICACAiIiIiI2ICACIiN3YiIgIAIiI3YiNiAAAgIiI2IgIAAAAiIiIjYgAAAAAgIiIiAgAAAAAAAAAAA==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "chaser_fright"
+    },
+    "image29": {
+        "data": "hwQQABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABARAAAAAAAAEYgBAAAAAAARiAEAAAAAABARAAAAAAAAAAAAAAAAAAAAAAAAAAAAABARAAAAAAAAEYgBAAAAAAARiAEAAAAAABARAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "chaser_return"
+    },
     "*": {
         "mimeType": "image/x-mkcd-f4",
         "dataEncoding": "base64",

@@ -17,6 +17,9 @@ namespace maze {
             const fruit = music.melodyPlayable(music.baDing)
             events.register(Event.EatFruit, () => this.play(fruit))
 
+            const chaser = music.createSoundEffect(WaveShape.Sawtooth, 1201, 3731, 232, 0, 250, SoundExpressionEffect.Vibrato, InterpolationCurve.Curve)
+            events.register(Event.EatChaser, () => this.play(chaser))
+
             const fruitSpawn = music.createSoundEffect(WaveShape.Sawtooth, 1, 4045, 255, 255, 250, SoundExpressionEffect.Warble, InterpolationCurve.Curve)
             events.register(Event.FruitSpawn, () => this.play(fruitSpawn))
 

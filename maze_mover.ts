@@ -78,9 +78,9 @@ namespace maze {
             this.checkTile(Direction.Left)
         }
 
-        private setImage(dir: Direction) {
+        setImage() {
             for (const img of this.images) {
-                if (img.dir == dir) {
+                if (img.dir == this.dir) {
                     this.sprite.setImage(img.img)
                     break
                 }
@@ -208,8 +208,6 @@ namespace maze {
                     this.sprite.y = cy
                     break
             }
-
-            this.setImage(this.dir)
         }
 
         setFreeze(freeze: boolean) {

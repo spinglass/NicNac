@@ -36,6 +36,7 @@ namespace maze {
             }
 
             this.mover.update()
+            this.mover.setImage()
 
             // eat pills
             if (this.mover.changedTile) {
@@ -46,13 +47,22 @@ namespace maze {
                 }
             }
 
-            // avoid chasers
+            // check for eating or losing a life
             for (const chaser of this.maze.chasers) {
                 if (this.mover.tile.tx == chaser.mover.tile.tx && this.mover.tile.ty == chaser.mover.tile.ty)
                 {
-                    this.maze.events.fire(Event.LoseLife)
-                    // can only get eaten once per life!
-                    break
+                    if (chaser.mode == ChaserMode.Scatter || chaser.mode == ChaserMode.Chase) {
+                        this.maze.events.fire(Event.LoseLife)
+                        // can only get eaten once per life!
+                        break
+                    }
+                    if (chaser.mode == ChaserMode.Frightened) {
+                        console.log("nom")
+                        this.maze.events.fire(Event.EatChaser)
+
+                        // send the chaser Home
+                        chaser.setMode(ChaserMode.ReturnToBase)
+                    }
                 }
             }
         }

@@ -61,8 +61,9 @@ namespace maze {
         flags: MapFlags[]
         w: number
         h: number
-        home: Pos
-        bases: Pos[]
+        home: Pos                   // player spawn position
+        bases: Pos[]                // chaser spawn positions
+        returnBase: Tile            // chaser return-to-base target
         scatterTargets: Tile[]
         fruit: Pos
         tunnels: Tile[]
@@ -154,6 +155,9 @@ namespace maze {
             this.bases.push(new Pos(cx, cy))        // centre
             this.bases.push(new Pos(cx + 16, cy))   // right
             this.bases.push(new Pos(cx - 16, cy))   // left
+
+            // return-to-base tile is the above centre position
+            this.returnBase = getTileFromWorldPosition(this.bases[0].x, this.bases[0].y)
 
             // also create scatter targets
             this.scatterTargets.push(new Tile(this.w - 1, 0))           // top-right

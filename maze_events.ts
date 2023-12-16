@@ -15,7 +15,7 @@ namespace maze {
         FruitDespawn,
         Defrost,
         LoseLife,
-        ChaserNextMode,
+        ChaserEndMode,
     }
 
     class TimedEvent {
