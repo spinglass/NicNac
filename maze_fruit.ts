@@ -22,8 +22,8 @@ namespace maze {
             this.despawnTime = 10
 
             this.setVisible(false)
-            this.sprite.x = this.maze.map.fruitX
-            this.sprite.y = this.maze.map.fruitY
+            this.sprite.x = this.maze.map.fruit.x
+            this.sprite.y = this.maze.map.fruit.y
 
             this.maze.events.register(Event.Pill, () => this.pill())
             this.maze.events.register(Event.Fruit, () => this.setVisible(false))

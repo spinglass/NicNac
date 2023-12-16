@@ -74,6 +74,9 @@ namespace maze {
 
         private setFreeze(freeze: boolean) {
             this.maze.hero.mover.setFreeze(freeze)
+            for (const c of this.maze.chasers) {
+                c.mover.setFreeze(freeze)
+            }
         }
     }
 }

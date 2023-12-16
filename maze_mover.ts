@@ -7,6 +7,7 @@ namespace maze {
             let imgName = name + "_" + dirString(dir)
             this.img = helpers.getImageByName(imgName)
             this.dir = dir
+            console.log("loaded:" + imgName)
         }
     }
 
@@ -58,7 +59,6 @@ namespace maze {
                 new DirImage(name, Direction.Right),
                 ]
             this.sprite = sprites.create(this.images[0].img)
-            this.setImage(Direction.Right)
 
             // Hide until placed
             this.setVisible(false)

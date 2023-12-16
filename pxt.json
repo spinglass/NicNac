@@ -21,7 +21,8 @@
         "maze_audio.ts",
         "maze_game.ts",
         "maze_events.ts",
-        "maze_fruit.ts"
+        "maze_fruit.ts",
+        "maze_chaser.ts"
     ],
     "testFiles": [
         "test.ts"

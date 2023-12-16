@@ -29,6 +29,7 @@ namespace maze {
         game: Game
         map: Map
         hero: Hero
+        chasers: Chaser[]
         fruit: Fruit
 
         constructor() {     
@@ -38,12 +39,16 @@ namespace maze {
             this.map = new Map()
             this.hero = new Hero()
             this.fruit = new Fruit()
+            this.chasers = [new Chaser(ChaserKind.Chaser1, 0, "chaser1") ]
         }
 
         init() {
             this.audio.init()
             this.game.init()
             this.hero.init()
+            for (const c of this.chasers) {
+                c.init()
+            }
             this.fruit.init()
 
             game.onUpdate(() => getMaze().update())
@@ -54,13 +59,21 @@ namespace maze {
             this.map.init(tilemap)
             this.game.initLevel()
             this.hero.initLevel()
+            for (const c of this.chasers) {
+                c.initLevel()
+            }
             this.fruit.initLevel()
         }
 
         update() {
+            // fire any due events
             this.events.fireTimedEvents()
             
+            // update game elements
             this.hero.update()
+            for (const c of this.chasers) {
+                c.update()
+            }
             this.fruit.update()
 
             // finally fire frame events

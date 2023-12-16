@@ -7,7 +7,8 @@ namespace maze {
         Tunnel = 1 << 3,
         Home = 1 << 4,
         Fruit = 1 << 5,
-        Player = 1 << 6,
+        Maze = 1 << 6,
+        Base = 1 << 7,
     }
     
     export class Tile {
@@ -40,6 +41,16 @@ namespace maze {
         }
     }
 
+    export class Pos {
+        x: number
+        y: number
+
+        constructor(x: number, y: number) {
+            this.x = x
+            this.y = y
+        }
+    }
+
     export function getTileFromWorldPosition(x: number, y: number) : Tile {
         const tx = (x >> 3)
         const ty = (y >> 3)
@@ -50,10 +61,9 @@ namespace maze {
         flags: MapFlags[]
         w: number
         h: number
-        homeX: number
-        homeY: number
-        fruitX: number
-        fruitY: number
+        home: Pos
+        bases: Pos[]
+        fruit: Pos
         tunnels: Tile[]
         pillCount: number
 
@@ -61,10 +71,9 @@ namespace maze {
             this.flags = []
             this.w = 0
             this.h = 0
-            this.homeX = 0
-            this.homeY = 0
-            this.fruitX = 0
-            this.fruitY = 0
+            this.home = new Pos(0, 0)
+            this.bases = [new Pos(0, 0), new Pos(0, 0), new Pos(0, 0), new Pos(0, 0)]
+            this.fruit = new Pos(0, 0)
             this.pillCount = 0
         }
 
@@ -92,14 +101,13 @@ namespace maze {
             return new Tile(tx, ty)
         }
 
-        private initPosition(f: MapFlags): number[] {
+        private initPosition(f: MapFlags): Pos {
             let x = 0
             let y = 0
             let count = 0
             for (let i = 0; i < this.flags.length; ++i) {
                 if (this.flags[i] & f) {
                     const tile = this.getTile(i)
-                    console.log(tile.cx + "," + tile.cy)
                     x += tile.cx
                     y += tile.cy
                     ++count
@@ -109,8 +117,7 @@ namespace maze {
                 x /= count
                 y /= count
             }
-            console.log(x + "," + y)
-            return [x, y]
+            return new Pos(x, y)
         }
 
         private initTunnels() {
@@ -120,6 +127,36 @@ namespace maze {
                     const tile = this.getTile(i)
                     this.tunnels.push(tile)
                 }
+            }
+        }
+
+        private initBase() {
+            // find extents of the base
+            // assumption: base is a single horizontal row
+            let minx = 10000
+            let maxx = 0
+            let cy = 0
+            for (let i = 0; i < this.flags.length; ++i) {
+                if (this.flags[i] & MapFlags.Base) {
+                    const tile = this.getTile(i)
+                    minx = Math.min(minx, tile.cx)
+                    maxx = Math.max(maxx, tile.cx)
+                    cy = tile.cy
+                    console.log("cy:" + cy)
+                }
+            }
+
+            // generate base positions for placing chasers
+            const cx = (minx + maxx) / 2
+
+            this.bases[0] = new Pos(cx, cy - 24)    // above centre
+            this.bases[1] = new Pos(cx, cy)         // centre
+            this.bases[2] = new Pos(cx + 16, cy)    // right
+            this.bases[3] = new Pos(cx - 16, cy)    // left
+            
+            console.log("bases:")
+            for (const b of this.bases) {
+                console.log(b.x + "," + b.y)
             }
         }
 
@@ -169,28 +206,26 @@ namespace maze {
             // find all tiles of interest
             this.initFlagsFromTiles(assets.tile`tile_empty`, MapFlags.Empty)
             this.initFlagsFromTiles(assets.tile`tile_home`, MapFlags.Home)
+            this.initFlagsFromTiles(assets.tile`tile_base`, MapFlags.Base)
             this.initFlagsFromTiles(assets.tile`tile_fruit`, MapFlags.Fruit)
             this.initFlagsFromTiles(assets.tile`tile_pill`, MapFlags.Pill)
             this.initFlagsFromTiles(assets.tile`tile_power`, MapFlags.Power)
             this.initFlagsFromTiles(assets.tile`tile_tunnel`, MapFlags.Tunnel)
 
-            // find all player tiles
+            // find all maze tiles
             for (const f of [MapFlags.Empty, MapFlags.Home, MapFlags.Fruit, MapFlags.Pill, MapFlags.Power, MapFlags.Tunnel]) {
-                this.initFlagsFromFlags(f, MapFlags.Player)
+                this.initFlagsFromFlags(f, MapFlags.Maze)
             }
 
             this.initPills()
             this.initTunnels()
+            this.initBase()
 
             // home position
-            const [homeX, homeY] = this.initPosition(MapFlags.Home)
-            this.homeX = homeX
-            this.homeY = homeY
+            this.home = this.initPosition(MapFlags.Home)
         
             // fruits position
-            const [fruitX, fruitY] = this.initPosition(MapFlags.Fruit)
-            this.fruitX = fruitX
-            this.fruitY = fruitY
+            this.fruit = this.initPosition(MapFlags.Fruit)
         }
 
         eatPill(tile: Tile):  boolean {

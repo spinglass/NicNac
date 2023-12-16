@@ -10,17 +10,13 @@ namespace maze {
         init() {
             this.maze = getMaze()
             this.mover.init("hero")
-            this.mover.mapType = MapFlags.Player
+            this.mover.mapType = MapFlags.Maze
             scene.cameraFollowSprite(this.mover.sprite)
         }
 
         initLevel() {
-            this.mover.hx = this.maze.map.homeX
-            this.mover.hy = this.maze.map.homeY
-            this.place()
-        }
-
-        place() {
+            this.mover.hx = this.maze.map.home.x
+            this.mover.hy = this.maze.map.home.y
             this.mover.place()
         }
 
