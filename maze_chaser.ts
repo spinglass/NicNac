@@ -134,7 +134,9 @@ namespace maze {
                 // check if a decision is required
                 if (this.ready) {
                     const stopped = this.mover.isStopped()
-                    if (stopped || this.mover.changedTile) {
+                    if (stopped && this.mover.isDirectionValid(Direction.Left)) {
+                        this.mover.request = Direction.Left
+                    } else if (stopped || this.mover.changedTile) {
                         // Select the required behaviour
                         switch(this.mode) {
                             case ChaserMode.Scatter:
