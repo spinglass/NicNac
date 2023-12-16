@@ -78,6 +78,48 @@ namespace maze {
             this.checkTile(Direction.Left)
         }
 
+        private applyDir() {
+            switch (this.dir) {
+                case Direction.None:
+                    this.sprite.vx = 0
+                    this.sprite.vy = 0
+                    break
+                case Direction.Up:
+                    this.sprite.vx = 0
+                    this.sprite.vy = -this.speed
+                    break
+                case Direction.Down:
+                    this.sprite.vx = 0
+                    this.sprite.vy = this.speed
+                    break
+                case Direction.Left:
+                    this.sprite.vx = -this.speed
+                    this.sprite.vy = 0
+                    break
+                case Direction.Right:
+                    this.sprite.vx = this.speed
+                    this.sprite.vy = 0
+                    break
+            }
+        }
+
+        private applyCentre() {
+            switch (this.dir) {
+                case Direction.Up:
+                    this.sprite.x = this.tile.cx
+                    break
+                case Direction.Down:
+                    this.sprite.x = this.tile.cx
+                    break
+                case Direction.Left:
+                    this.sprite.y = this.tile.cy
+                    break
+                case Direction.Right:
+                    this.sprite.y = this.tile.cy
+                    break
+            }
+        }
+
         setImage() {
             for (const img of this.images) {
                 if (img.dir == this.dir) {
@@ -181,31 +223,27 @@ namespace maze {
                 this.request = Direction.None
             }
 
-            // apply to sprite
+            this.applyDir()
+            this.applyCentre()
+        }
+
+        forceUpdate(dir: Direction, min: number, max: number) {
+            if (!this.isReady()) {
+                return
+            }
+
+            this.updateState()
+            this.dir = dir
+            this.applyDir()
+
             switch (this.dir) {
-                case Direction.None:
-                    this.sprite.vx = 0
-                    this.sprite.vy = 0
-                    break
                 case Direction.Up:
-                    this.sprite.vx = 0
-                    this.sprite.vy = -this.speed
-                    this.sprite.x = cx
-                    break
                 case Direction.Down:
-                    this.sprite.vx = 0
-                    this.sprite.vy = this.speed
-                    this.sprite.x = cx
+                    this.sprite.y = Math.constrain(this.sprite.y, min, max)
                     break
                 case Direction.Left:
-                    this.sprite.vx = -this.speed
-                    this.sprite.vy = 0
-                    this.sprite.y = cy
-                    break
                 case Direction.Right:
-                    this.sprite.vx = this.speed
-                    this.sprite.vy = 0
-                    this.sprite.y = cy
+                    this.sprite.x = Math.constrain(this.sprite.x, min, max)
                     break
             }
         }

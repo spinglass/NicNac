@@ -153,8 +153,8 @@ namespace maze {
 
             this.bases.push(new Pos(cx, cy - 24))   // above centre
             this.bases.push(new Pos(cx, cy))        // centre
-            this.bases.push(new Pos(cx + 16, cy))   // right
             this.bases.push(new Pos(cx - 16, cy))   // left
+            this.bases.push(new Pos(cx + 16, cy))   // right
 
             // return-to-base tile is the above centre position
             this.returnBase = getTileFromWorldPosition(this.bases[0].x, this.bases[0].y)

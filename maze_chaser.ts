@@ -1,6 +1,7 @@
 namespace maze {
-    const speedChaserFright = 40
     const speedChaser = 75
+    const speedChaserFright = 40
+    const speedChaserWait = 40
 
     export enum ChaserKind {
         Blinky,
@@ -28,6 +29,7 @@ namespace maze {
         target: Tile
         imgFright: Image
         imgReturn: Image
+        waitDir: Direction
 
         constructor(kind: ChaserKind, id: number) {
             this.mover = new Mover()
@@ -61,7 +63,8 @@ namespace maze {
         }
 
         private checkWait(): boolean {
-            return false
+            
+            return true
         }
 
         private checkStandard(): boolean {
@@ -142,6 +145,20 @@ namespace maze {
             }
         }
 
+        private doWait() {
+            const minY = this.mover.hy - 4
+            const maxY = this.mover.hy + 4
+            this.mover.forceUpdate(this.waitDir, minY, maxY)
+            this.mover.setImage()
+
+            if (this.mover.y < minY) {
+                this.waitDir = Direction.Down
+            }
+            if (this.mover.y > maxY) {
+                this.waitDir = Direction.Up
+            }
+        }
+
         private doScatter() {
             if (this.mover.changedTile) {
                 this.target = this.maze.map.scatterTargets[this.id]
@@ -206,6 +223,8 @@ namespace maze {
                 case ChaserMode.Frightened:
                     this.mover.speed = speedChaserFright
                     break
+                case ChaserMode.Wait:
+                    this.mover.speed = speedChaserWait
             }
         }
 
@@ -219,6 +238,7 @@ namespace maze {
             if (this.checkMode()) {
                 // apply mode
                 switch (this.mode) {
+                    case ChaserMode.Wait:           this.doWait(); break
                     case ChaserMode.Scatter:        this.doScatter(); break
                     case ChaserMode.Chase:          this.doChase(); break
                     case ChaserMode.Frightened:     this.doFrightened(); break
@@ -227,7 +247,10 @@ namespace maze {
             }
 
             this.updateSpeed()
-            this.mover.update()
+
+            if (this.mode != ChaserMode.Wait) {
+                this.mover.update()
+            }
 
             if (this.mode == ChaserMode.Frightened) {
                 this.mover.sprite.setImage(this.imgFright)
@@ -247,6 +270,7 @@ namespace maze {
         place() {
             this.mover.place()
             this.mode = (this.kind == ChaserKind.Blinky) ? ChaserMode.None : ChaserMode.Wait
+            this.waitDir = Direction.Up
         }
 
         doEaten() {

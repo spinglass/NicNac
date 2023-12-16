@@ -13,7 +13,6 @@ namespace maze {
             this.maze = getMaze()
             this.mover.init("hero")
             this.mover.mapType = MapFlags.Maze
-            scene.cameraFollowSprite(this.mover.sprite)
         }
 
         initLevel() {
