@@ -20,6 +20,7 @@ namespace maze {
         ready: boolean
         mode: ChaserMode
         target: Tile
+        modeChangeRequest: Direction
 
         constructor(kind: ChaserKind, id: number) {
             this.mover = new Mover()
@@ -32,6 +33,7 @@ namespace maze {
             this.mover.init("chaser" + this.id)
             this.mover.mapType = MapFlags.Maze
             this.mode = ChaserMode.Chase
+            this.modeChangeRequest = Direction.None
 
             // only blink is ready straight away
             this.ready = (this.kind == ChaserKind.Blinky)
@@ -125,26 +127,42 @@ namespace maze {
                 return
             }
 
-            // check if a decision is required
-            if (this.ready) {
-                const stopped = this.mover.isStopped()
-                if (stopped || this.mover.changedTile) {
-                    // Select the required behaviour
-                    switch(this.mode) {
-                        case ChaserMode.Scatter:
-                            this.doScatter()
-                            break
-                        case ChaserMode.Chase:
-                            this.doChase()
-                            break
-                        case ChaserMode.Frightened:
-                            this.doFrightened()
-                            break
+            if (this.modeChangeRequest != Direction.None) {
+                this.mover.request = this.modeChangeRequest
+                this.modeChangeRequest = Direction.None
+            } else {
+                // check if a decision is required
+                if (this.ready) {
+                    const stopped = this.mover.isStopped()
+                    if (stopped || this.mover.changedTile) {
+                        // Select the required behaviour
+                        switch(this.mode) {
+                            case ChaserMode.Scatter:
+                                this.doScatter()
+                                break
+                            case ChaserMode.Chase:
+                                this.doChase()
+                                break
+                            case ChaserMode.Frightened:
+                                this.doFrightened()
+                                break
+                        }
                     }
                 }
             }
 
             this.mover.update()
+        }
+
+        setMode(mode: ChaserMode) {
+            if (this.mode != mode) {
+                if (this.mode != ChaserMode.Frightened) {
+                    // reverse to show mode change
+                    this.modeChangeRequest = opposite(this.mover.dir)
+                }
+
+                this.mode = mode
+            }
         }
     }
 }

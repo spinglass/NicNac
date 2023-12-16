@@ -1,16 +1,17 @@
 namespace maze {
+    const scorePill = 10
+    const scorePower = 50
+    const scoreFruit = 200
+    const timeScatter = 7
+    const timeChase = 20
+
     export class Game {
         maze: Maze
-        scorePill: number
-        scorePower: number
-        scoreFruit: number
         pillsRemaining: number
         levelComplete: boolean
+        chaserMode: ChaserMode
 
         constructor() {
-            this.scorePill = 10
-            this.scorePower = 50
-            this.scoreFruit = 200
             this.pillsRemaining = 0
             this.levelComplete = false
         }
@@ -29,12 +30,17 @@ namespace maze {
             this.maze.events.register(Event.NextLevel, () => this.nextLevel())
             this.maze.events.register(Event.Defrost, () => this.setFreeze(false))
             this.maze.events.register(Event.LoseLife, () => this.life())
+            this.maze.events.register(Event.NextChaserMode, () => this.nextChaserMode())
         }
 
         initLevel() {
             this.pillsRemaining = this.maze.map.pillCount
             this.levelComplete = false
             this.startLevel()
+
+            // set mode
+            this.setChaserMode(ChaserMode.Scatter)
+            this.maze.events.fireLater(Event.NextChaserMode, timeScatter)
         }
 
         private pause(time: number) {
@@ -46,11 +52,11 @@ namespace maze {
             // score events
             let s = 0
             if (event == Event.Pill) {
-                s = this.scorePill
+                s = scorePill
             } else if (event == Event.Power) {
-                s = this.scorePower
+                s = scorePower
             } else if (event == Event.Fruit) {
-                s = this.scoreFruit
+                s = scoreFruit
             }
             info.changeScoreBy(s)
 
@@ -76,6 +82,27 @@ namespace maze {
 
             this.setFreeze(true)
             this.maze.events.fireLater(Event.StartLevel, 1.5)
+        }
+
+        private nextChaserMode() {
+            switch (this.chaserMode) {
+                case ChaserMode.Scatter:
+                case ChaserMode.Frightened:
+                    this.setChaserMode(ChaserMode.Chase)
+                    this.maze.events.fireLater(Event.NextChaserMode, timeChase)
+                    break
+                case ChaserMode.Chase:
+                    this.setChaserMode(ChaserMode.Scatter)
+                    this.maze.events.fireLater(Event.NextChaserMode, timeScatter)
+                    break
+            }
+        }
+
+        private setChaserMode(mode: ChaserMode) {
+            this.chaserMode = mode
+            for (const chaser of this.maze.chasers) {
+                chaser.setMode(mode)
+            }
         }
 
         private startLevel() {

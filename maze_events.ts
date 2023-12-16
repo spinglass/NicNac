@@ -14,6 +14,7 @@ namespace maze {
         FruitDespawn,
         Defrost,
         LoseLife,
+        NextChaserMode,
     }
 
     class TimedEvent {
@@ -88,8 +89,14 @@ namespace maze {
             // find any events that are due
             for (const te of this.timedEvents) {
                 if (this.time >= te.time) {
+                    const prevTime = te.time
+
                     this.callHandlers(te.event)
-                    te.time = MAX_EVENT_TIME
+
+                    // don't clear event if it was re-queued by the handler
+                    if (te.time == prevTime) {
+                        te.time = MAX_EVENT_TIME
+                    }
                 }
             }
         }
