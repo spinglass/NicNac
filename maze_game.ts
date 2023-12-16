@@ -26,17 +26,18 @@ namespace maze {
             this.maze.events.register(Event.EatPill, () => this.score(Event.EatPill))
             this.maze.events.register(Event.EatPower, () => this.score(Event.EatPower))
             this.maze.events.register(Event.EatFruit, () => this.score(Event.EatFruit))
-            this.maze.events.register(Event.LevelStart, () => this.startLevel())
-            this.maze.events.register(Event.LevelNext, () => this.nextLevel())
+            this.maze.events.register(Event.LevelStart, () => this.levelStart())
+            this.maze.events.register(Event.LevelNext, () => this.levelNext())
             this.maze.events.register(Event.Defrost, () => this.setFreeze(false))
             this.maze.events.register(Event.LoseLife, () => this.life())
+            this.maze.events.register(Event.GameOver, () => this.gameOver())
             this.maze.events.register(Event.ChaserNextMode, () => this.nextChaserMode())
         }
 
         initLevel() {
             this.pillsRemaining = this.maze.map.pillCount
             this.levelComplete = false
-            this.startLevel()
+            this.levelStart()
 
             // set mode
             this.setChaserMode(ChaserMode.Scatter)
@@ -79,12 +80,20 @@ namespace maze {
         }
 
         private life() {
+            // stop everything
+            this.setFreeze(true)
+            this.maze.events.cancelAll()
+
             // replace the game-over handler so we can slightly delay it
             info.onLifeZero(() => { })
             info.changeLifeBy(-1)
 
-            this.setFreeze(true)
-            this.maze.events.fireLater(Event.LevelStart, 1.5)
+            if (info.life() <= 0) {
+                this.maze.events.fireLater(Event.GameOver, 1.5)
+            } else {
+                // brief pause before restarting
+                this.maze.events.fireLater(Event.LevelStart, 1.5)
+            }
         }
 
         private nextChaserMode() {
@@ -108,21 +117,20 @@ namespace maze {
             }
         }
 
-        private startLevel() {
-            if (info.life() <= 0) {
-                // all done
-                game.setGameOverEffect(false, effects.dissolve)
-                game.gameOver(false)
-            } else {
-                this.maze.hero.mover.place()
-                for (const chaser of this.maze.chasers) {
-                    chaser.mover.place()
-                }
-                this.pause(1.5)
-            }
+        private gameOver() {
+            game.setGameOverEffect(false, effects.dissolve)
+            game.gameOver(false)
         }
 
-        private nextLevel() {
+        private levelStart() {
+            this.maze.hero.mover.place()
+            for (const chaser of this.maze.chasers) {
+                chaser.mover.place()
+            }
+            this.pause(1.5)
+        }
+
+        private levelNext() {
             // TEMP - complete game
             this.maze.events.fire(Event.GameComplete)
             game.gameOver(true)
