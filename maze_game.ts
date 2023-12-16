@@ -3,12 +3,14 @@ namespace maze {
         maze: Maze
         scorePill: number
         scorePower: number
+        scoreFruit: number
         pillsRemaining: number
         levelComplete: boolean
 
         constructor() {
             this.scorePill = 10
-            this.scorePower = 200
+            this.scorePower = 50
+            this.scoreFruit = 200
             this.pillsRemaining = 0
             this.levelComplete = false
         }
@@ -21,6 +23,7 @@ namespace maze {
             // register for events
             this.maze.events.register(Event.Pill, () => this.score(Event.Pill))
             this.maze.events.register(Event.Power, () => this.score(Event.Power))
+            this.maze.events.register(Event.Fruit, () => this.score(Event.Fruit))
             this.maze.events.register(Event.NextLevel, () => this.nextLevel())
         }
 
@@ -36,6 +39,8 @@ namespace maze {
                 s = this.scorePill
             } else if (event == Event.Power) {
                 s = this.scorePower
+            } else if (event == Event.Fruit) {
+                s = this.scoreFruit
             }
             info.changeScoreBy(s)
 
