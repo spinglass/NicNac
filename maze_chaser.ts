@@ -31,7 +31,7 @@ namespace maze {
             this.maze = getMaze()
             this.mover.init("chaser" + this.id)
             this.mover.mapType = MapFlags.Maze
-            this.mode = ChaserMode.Frightened
+            this.mode = ChaserMode.Chase
 
             // only blink is ready straight away
             this.ready = (this.kind == ChaserKind.Blinky)
@@ -81,7 +81,25 @@ namespace maze {
         }
 
         private doChase() {
-
+            // generate target
+            switch(this.kind) {
+                case ChaserKind.Blinky:
+                    this.target = this.maze.hero.mover.tile
+                    break
+                case ChaserKind.Pinky:
+                    // TODO correct Pinky target
+                    this.target = this.maze.hero.mover.tile
+                    break
+                case ChaserKind.Inky:
+                    // TODO correct Inky target
+                    this.target = this.maze.hero.mover.tile
+                    break
+                case ChaserKind.Clyde:
+                    // TODO correct Clyde target
+                    this.target = this.maze.hero.mover.tile
+                    break
+            }
+            this.doTarget()
         }
 
         private doFrightened() {
