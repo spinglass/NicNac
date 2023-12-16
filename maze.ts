@@ -31,8 +31,9 @@ namespace maze {
         hero: Hero
         chasers: Chaser[]
         fruit: Fruit
+        time: number
 
-        constructor() {     
+        constructor() {
             this.audio = new Audio()
             this.events = new EventManager()
             this.game = new Game()
@@ -48,7 +49,9 @@ namespace maze {
         }
 
         init() {
+            this.time = game.runtime()
             this.audio.init()
+            this.events.init()
             this.game.init()
             this.hero.init()
             for (const c of this.chasers) {
@@ -71,6 +74,8 @@ namespace maze {
         }
 
         update() {
+            this.time = game.runtime()
+            
             // fire any due events
             this.events.fireTimedEvents()
             
