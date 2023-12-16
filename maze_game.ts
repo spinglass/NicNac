@@ -25,11 +25,18 @@ namespace maze {
             this.maze.events.register(Event.Power, () => this.score(Event.Power))
             this.maze.events.register(Event.Fruit, () => this.score(Event.Fruit))
             this.maze.events.register(Event.NextLevel, () => this.nextLevel())
+            this.maze.events.register(Event.Defrost, () => this.setFreeze(false))
         }
 
         initLevel() {
             this.pillsRemaining = this.maze.map.pillCount
             this.levelComplete = false
+            this.pause(1.5)
+        }
+
+        private pause(time: number) {
+            this.setFreeze(true)
+            this.maze.events.fireLater(Event.Defrost, time)
         }
 
         private score(event: Event) {

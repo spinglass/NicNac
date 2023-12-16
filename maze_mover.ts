@@ -51,6 +51,7 @@ namespace maze {
             this.maze = getMaze()            
 
             this.images = [
+                new DirImage(name, Direction.None),
                 new DirImage(name, Direction.Up),
                 new DirImage(name, Direction.Down),
                 new DirImage(name, Direction.Left),

@@ -11,6 +11,7 @@ namespace maze {
         Fruit,
         FruitSpawn,
         FruitDespawn,
+        Defrost,
     }
 
     class TimedEvent {

@@ -29,6 +29,11 @@
         "mimeType": "image/x-mkcd-f4",
         "displayName": "fruit"
     },
+    "image7": {
+        "data": "hwQQABAAAAAAAAAAAAAAAAAAUFVVBQAAAFBVVVVVBQAAVVVVVVVVAABVVVVVVVUAUFVVVVVVVQVQVVVVVVVVBVBVVVVVVVUFUFVVVVVVVQVQVVVVVVVVBVBVVVVVVVUFAFVVVVVVVQAAVVVVVVVVAABQVVVVVQUAAABQVVUFAAAAAAAAAAAAAA==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "hero_none"
+    },
     "*": {
         "mimeType": "image/x-mkcd-f4",
         "dataEncoding": "base64",
