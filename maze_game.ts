@@ -43,10 +43,6 @@ namespace maze {
             this.levelComplete = false
             this.chaserEatCount = 0
             this.levelStart()
-
-            // set mode
-            this.setChaserMode(ChaserMode.Scatter)
-            this.maze.events.fireLater(Event.ChaserEndMode, timeScatter)
         }
 
         private pause(time: number) {
@@ -124,22 +120,19 @@ namespace maze {
             this.chaserEatCount = 0
         }
 
-        private setChaserMode(mode: ChaserMode) {
-            this.chaserMode = mode
-            for (const chaser of this.maze.chasers) {
-                chaser.setMode(mode)
-            }
-        }
-
         private gameOver() {
             game.setGameOverEffect(false, effects.dissolve)
             game.gameOver(false)
         }
 
         private levelStart() {
-            this.maze.hero.mover.place()
+            // set mode
+            this.setChaserMode(ChaserMode.Scatter)
+            this.maze.events.fireLater(Event.ChaserEndMode, timeScatter)
+
+            this.maze.hero.place()
             for (const chaser of this.maze.chasers) {
-                chaser.mover.place()
+                chaser.place()
             }
             this.pause(1.5)
         }
@@ -154,6 +147,13 @@ namespace maze {
             this.maze.hero.mover.setFreeze(freeze)
             for (const chaser of this.maze.chasers) {
                 chaser.mover.setFreeze(freeze)
+            }
+        }
+
+        private setChaserMode(mode: ChaserMode) {
+            this.chaserMode = mode
+            for (const chaser of this.maze.chasers) {
+                chaser.setMode(mode)
             }
         }
     }

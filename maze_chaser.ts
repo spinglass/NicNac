@@ -1,6 +1,6 @@
 namespace maze {
-    const chaserFrightenedSpeed = 40
-    const chaserSpeed = 80
+    const speedChaserFright = 40
+    const speedChaser = 75
 
     export enum ChaserKind {
         Blinky,
@@ -11,6 +11,7 @@ namespace maze {
 
     export enum ChaserMode {
         None,
+        Wait,
         Scatter,
         Chase,
         Frightened,
@@ -22,11 +23,9 @@ namespace maze {
         mover: Mover
         kind: ChaserKind
         id: number
-        ready: boolean
-        mode: ChaserMode
-        modeNext: ChaserMode
+        mode: ChaserMode        // mode this chaser is using
+        gameMode: ChaserMode    // mode the game requested
         target: Tile
-        requestNext: Direction
         imgFright: Image
         imgReturn: Image
 
@@ -40,25 +39,80 @@ namespace maze {
             this.maze = getMaze()
             this.mover.init("chaser" + this.id)
             this.mover.mapType = MapFlags.Maze
-            this.mode = ChaserMode.Chase
-            this.modeNext = ChaserMode.None
-            this.requestNext = Direction.None
             this.imgFright = helpers.getImageByName("chaser_fright")
             this.imgReturn = helpers.getImageByName("chaser_return")
-
-            // only blink is ready straight away
-            this.ready = (this.kind == ChaserKind.Blinky)
         }
 
         initLevel() {
             this.mover.hx = this.maze.map.bases[this.id].x
             this.mover.hy = this.maze.map.bases[this.id].y
-            this.mover.place()
+            this.place()
         }
 
         private isDirectionValid(dir: Direction): boolean {
             // check can move that direction and its now the opposite to current
             return (this.mover.isDirectionValid(dir) && this.mover.dir != opposite(dir))
+        }
+
+        private checkNone(): boolean {
+            this.mode = this.maze.game.chaserMode
+            this.mover.request = Direction.Left
+            return false
+        }
+
+        private checkWait(): boolean {
+            return false
+        }
+
+        private checkStandard(): boolean {
+            if (this.mode != this.gameMode) {
+                const prev = this.mode
+                this.mode = this.gameMode
+
+                if (prev != ChaserMode.Frightened) {
+                    // reverse
+                    this.mover.request = opposite(this.mover.dir)
+
+                    // no further update
+                    return false
+                }
+            }
+
+            // let the update run
+            return true
+        }
+
+        private checkReturnTobase() {
+            if (this.mover.tile.tx == this.maze.map.returnBase.tx && this.mover.tile.ty == this.maze.map.returnBase.ty) {
+                if (this.gameMode == ChaserMode.Frightened) {
+                    // game is still in frightened mode, but we just recovered from that,
+                    // so go straight to chase
+                    this.mode = ChaserMode.Chase
+                    this.gameMode = ChaserMode.Chase
+                } else {
+                    this.mode = this.gameMode
+                }
+
+                this.mover.request = Direction.Left
+                
+                // no further update
+                return false
+            }
+
+            // let the update run
+            return true
+        }
+        
+        private checkMode(): boolean {
+            switch (this.mode) {
+                case ChaserMode.None: return this.checkNone()
+                case ChaserMode.Wait: return this.checkWait()
+                case ChaserMode.Scatter:
+                case ChaserMode.Chase:
+                case ChaserMode.Frightened: return this.checkStandard()
+                case ChaserMode.ReturnToBase: return this.checkReturnTobase()
+            }
+            return false
         }
         
         private doTarget() {
@@ -89,47 +143,53 @@ namespace maze {
         }
 
         private doScatter() {
-            this.target = this.maze.map.scatterTargets[this.id]
-            this.doTarget()
+            if (this.mover.changedTile) {
+                this.target = this.maze.map.scatterTargets[this.id]
+                this.doTarget()
+            }
         }
 
         private doChase() {
-            // generate target
-            switch(this.kind) {
-                case ChaserKind.Blinky:
-                    this.target = this.maze.hero.mover.tile
-                    break
-                case ChaserKind.Pinky:
-                    // TODO correct Pinky target
-                    this.target = this.maze.hero.mover.tile
-                    break
-                case ChaserKind.Inky:
-                    // TODO correct Inky target
-                    this.target = this.maze.hero.mover.tile
-                    break
-                case ChaserKind.Clyde:
-                    // TODO correct Clyde target
-                    this.target = this.maze.hero.mover.tile
-                    break
+            if (this.mover.changedTile) {
+                // generate target
+                switch(this.kind) {
+                    case ChaserKind.Blinky:
+                        this.target = this.maze.hero.mover.tile
+                        break
+                    case ChaserKind.Pinky:
+                        // TODO correct Pinky target
+                        this.target = this.maze.hero.mover.tile
+                        break
+                    case ChaserKind.Inky:
+                        // TODO correct Inky target
+                        this.target = this.maze.hero.mover.tile
+                        break
+                    case ChaserKind.Clyde:
+                        // TODO correct Clyde target
+                        this.target = this.maze.hero.mover.tile
+                        break
+                }
+                this.doTarget()
             }
-            this.doTarget()
         }
 
         private doFrightened() {
-            let dirs: Direction[] = [Direction.Up, Direction.Right, Direction.Down, Direction.Left]
-            let options: Direction[] = []
+            if (this.mover.changedTile) {
+                let dirs: Direction[] = [Direction.Up, Direction.Right, Direction.Down, Direction.Left]
+                let options: Direction[] = []
 
-            // determine which directions are possible
-            dirs.forEach(dir => {
-                if (this.isDirectionValid(dir)) {
-                    options.push(dir)
+                // determine which directions are possible
+                dirs.forEach(dir => {
+                    if (this.isDirectionValid(dir)) {
+                        options.push(dir)
+                    }
+                })
+
+                // randomly pick one
+                if (options.length > 0) {
+                    const ran = Math.randomRange(0, options.length - 1)
+                    this.mover.request = options[ran]
                 }
-            })
-
-            // randomly pick one
-            if (options.length > 0) {
-                const ran = Math.randomRange(0, options.length - 1)
-                this.mover.request = options[ran]
             }
         }
 
@@ -138,53 +198,35 @@ namespace maze {
             this.doTarget()
         }
 
+        private updateSpeed() {
+            switch (this.mode) {
+                default:
+                    this.mover.speed = speedChaser
+                    break
+                case ChaserMode.Frightened:
+                    this.mover.speed = speedChaserFright
+                    break
+            }
+        }
+
         update() {
             if (!this.mover.isReady()) {
                 return
             }
 
-            if (this.requestNext != Direction.None) {
-                this.mover.request = this.requestNext
-                this.requestNext = Direction.None
-            } else {
-                if (this.mode == ChaserMode.ReturnToBase
-                    && this.mover.tile.tx == this.maze.map.returnBase.tx
-                    && this.mover.tile.ty == this.maze.map.returnBase.ty) {
-                    // made it home
-                    if (this.modeNext != ChaserMode.None)
-                    {
-                        this.mode = this.modeNext
-                    } else {
-                        this.mode = ChaserMode.Chase
-                    }
-                    this.requestNext = Direction.Left
-                }
-
-                // check if a decision is required
-                if (this.ready) {
-                    const stopped = this.mover.isStopped()
-                    if (stopped && this.mover.isDirectionValid(Direction.Left)) {
-                        this.mover.request = Direction.Left
-                    } else if (stopped || this.mover.changedTile) {
-                        // Select the required behaviour
-                        switch(this.mode) {
-                            case ChaserMode.Scatter:
-                                this.doScatter()
-                                break
-                            case ChaserMode.Chase:
-                                this.doChase()
-                                break
-                            case ChaserMode.Frightened:
-                                this.doFrightened()
-                                break
-                            case ChaserMode.ReturnToBase:
-                                this.doReturnTobase()
-                                break
-                        }
-                    }
+            // check current mode
+            // this tells us if we need to do further work to apply the mode
+            if (this.checkMode()) {
+                // apply mode
+                switch (this.mode) {
+                    case ChaserMode.Scatter:        this.doScatter(); break
+                    case ChaserMode.Chase:          this.doChase(); break
+                    case ChaserMode.Frightened:     this.doFrightened(); break
+                    case ChaserMode.ReturnToBase:   this.doReturnTobase(); break
                 }
             }
 
+            this.updateSpeed()
             this.mover.update()
 
             if (this.mode == ChaserMode.Frightened) {
@@ -197,29 +239,18 @@ namespace maze {
         }
 
         setMode(mode: ChaserMode) {
-            if (this.mode != mode) {
-                if (this.mode == ChaserMode.Scatter || this.mode == ChaserMode.Chase || this.mode == ChaserMode.Frightened) {
-                    // reverse to show mode change, unless leaving frightened
-                    if (this.mode != ChaserMode.Frightened) {
-                        
-                        this.requestNext = opposite(this.mover.dir)
-                    }
+            // this doesn't set the _actual_ mode, we might be in the middle of something,
+            // or not ready, etc.
+            this.gameMode = mode
+        }
 
-                    this.mode = mode
-                } else {
-                    // need to finish current task first
-                    this.modeNext = mode
-                }
-            }
+        place() {
+            this.mover.place()
+            this.mode = (this.kind == ChaserKind.Blinky) ? ChaserMode.None : ChaserMode.Wait
+        }
 
-            switch (this.mode) {
-                default:
-                    this.mover.speed = chaserSpeed
-                    break
-                case ChaserMode.Frightened:
-                    this.mover.speed = chaserFrightenedSpeed
-                    break
-            }
+        doEaten() {
+            this.mode = ChaserMode.ReturnToBase
         }
     }
 }

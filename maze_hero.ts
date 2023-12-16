@@ -1,4 +1,6 @@
 namespace maze {
+    let speedHero = 80
+    
     export class Hero {
         maze: Maze
         mover: Mover
@@ -18,6 +20,7 @@ namespace maze {
             this.mover.hx = this.maze.map.home.x
             this.mover.hy = this.maze.map.home.y
             this.mover.place()
+            this.mover.speed = speedHero
         }
 
         update() {
@@ -60,10 +63,14 @@ namespace maze {
                         this.maze.events.fire(Event.EatChaser)
 
                         // send the chaser Home
-                        chaser.setMode(ChaserMode.ReturnToBase)
+                        chaser.doEaten()
                     }
                 }
             }
+        }
+
+        place() {
+            this.mover.place()
         }
     }
 }
