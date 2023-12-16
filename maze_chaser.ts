@@ -1,9 +1,9 @@
 namespace maze {
     export enum ChaserKind {
-        Chaser1,
-        Chaser2,
-        Chaser3,
-        Chaser4,
+        Blinky,
+        Pinky,
+        Inky,
+        Clyde,
     }
 
     export class Chaser {
@@ -11,18 +11,16 @@ namespace maze {
         mover: Mover
         kind: ChaserKind
         id: number
-        name: string
 
-        constructor(kind: ChaserKind, id: number, name: string) {
+        constructor(kind: ChaserKind, id: number) {
             this.mover = new Mover()
             this.kind = kind
             this.id = id
-            this.name = name
         }
 
         init() {
             this.maze = getMaze()
-            this.mover.init(this.name)
+            this.mover.init("chaser" + this.id)
             this.mover.mapType = MapFlags.Maze
         }
 

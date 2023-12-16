@@ -39,7 +39,12 @@ namespace maze {
             this.map = new Map()
             this.hero = new Hero()
             this.fruit = new Fruit()
-            this.chasers = [new Chaser(ChaserKind.Chaser1, 0, "chaser1") ]
+            this.chasers = [
+                new Chaser(ChaserKind.Blinky, 0),
+                new Chaser(ChaserKind.Pinky, 1),
+                new Chaser(ChaserKind.Inky, 2),
+                new Chaser(ChaserKind.Clyde, 3)
+                ]
         }
 
         init() {
