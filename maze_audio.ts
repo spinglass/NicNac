@@ -25,6 +25,9 @@ namespace maze {
 
             const level = music.melodyPlayable(music.magicWand)
             events.register(Event.LevelComplete, () => this.play(level))
+
+            const loseLife = music.melodyPlayable(music.zapped)
+            events.register(Event.LoseLife, () => this.play(loseLife))
         }
 
         private play(sound: music.Playable) {

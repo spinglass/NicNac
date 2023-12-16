@@ -37,11 +37,22 @@ namespace maze {
 
             this.mover.update()
 
+            // eat pills
             if (this.mover.changedTile) {
                 if (this.maze.map.eatPill(this.mover.tile)) {
                     this.maze.events.fire(Event.Pill)
                 } else if (this.maze.map.eatPower(this.mover.tile)) {
                     this.maze.events.fire(Event.Power)
+                }
+            }
+
+            // avoid chasers
+            for (const chaser of this.maze.chasers) {
+                if (this.mover.tile.tx == chaser.mover.tile.tx && this.mover.tile.ty == chaser.mover.tile.ty)
+                {
+                    this.maze.events.fire(Event.LoseLife)
+                    // can only get eaten once per life!
+                    break
                 }
             }
         }

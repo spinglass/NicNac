@@ -144,7 +144,6 @@ namespace maze {
                     minx = Math.min(minx, tile.cx)
                     maxx = Math.max(maxx, tile.cx)
                     cy = tile.cy
-                    console.log("cy:" + cy)
                 }
             }
 

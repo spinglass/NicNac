@@ -5,6 +5,7 @@ namespace maze {
         Pill,
         Power,
         LevelComplete,
+        StartLevel,
         NextLevel,
         GameComplete,
         GameOver,
@@ -12,6 +13,7 @@ namespace maze {
         FruitSpawn,
         FruitDespawn,
         Defrost,
+        LoseLife,
     }
 
     class TimedEvent {
