@@ -138,6 +138,8 @@ namespace maze {
             for (const chaser of this.maze.chasers) {
                 chaser.place()
             }
+            this.maze.chasers[0].setWait(0)
+            this.maze.chasers[1].setWait(0)
             this.pause(1.5)
         }
 

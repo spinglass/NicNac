@@ -30,6 +30,7 @@ namespace maze {
         imgFright: Image
         imgReturn: Image
         waitDir: Direction
+        waitTime: number
 
         constructor(kind: ChaserKind, id: number) {
             this.mover = new Mover()
@@ -43,6 +44,7 @@ namespace maze {
             this.mover.mapType = MapFlags.Maze
             this.imgFright = helpers.getImageByName("chaser_fright")
             this.imgReturn = helpers.getImageByName("chaser_return")
+            this.waitTime = -1
         }
 
         initLevel() {
@@ -63,7 +65,7 @@ namespace maze {
         }
 
         private checkWait(): boolean {
-            
+
             return true
         }
 
@@ -146,15 +148,29 @@ namespace maze {
         }
 
         private doWait() {
-            const minY = this.mover.hy - 4
+            let minY = this.mover.hy - 4
             const maxY = this.mover.hy + 4
+
+            this.mover.updateState()
+            
+            if (this.waitTime >= 0 && this.maze.time > this.waitTime) {
+                // wait over, allow to leave base
+                minY = 0
+
+                if (this.mover.y <= this.maze.map.returnBase.cy) {
+                    this.mover.placeAtPos(this.maze.map.bases[0].x, this.maze.map.bases[0].y)
+                    this.mode = ChaserMode.None
+                    return
+                }
+            }
+
             this.mover.forceUpdate(this.waitDir, minY, maxY)
             this.mover.setImage()
 
-            if (this.mover.y < minY) {
+            if (this.mover.y <= minY) {
                 this.waitDir = Direction.Down
             }
-            if (this.mover.y > maxY) {
+            if (this.mover.y >= maxY) {
                 this.waitDir = Direction.Up
             }
         }
@@ -267,9 +283,13 @@ namespace maze {
             this.gameMode = mode
         }
 
+        setWait(delay: number) {
+            this.waitTime = this.maze.time + 1000 * delay
+        }
+
         place() {
             this.mover.place()
-            this.mode = (this.kind == ChaserKind.Blinky) ? ChaserMode.None : ChaserMode.Wait
+            this.mode = ChaserMode.Wait
             this.waitDir = Direction.Up
         }
 

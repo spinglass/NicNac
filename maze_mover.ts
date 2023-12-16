@@ -29,6 +29,7 @@ namespace maze {
         fvx: number                 // frozen speed x
         fvy: number                 // frozen speed y
         changedTile: boolean
+        crossedTile: boolean        // crossed the center of current tile this frame
         mapType: MapFlags
 
         constructor() {
@@ -64,11 +65,31 @@ namespace maze {
             this.setVisible(false)
         }
         
-        private updateState() {
+        updateState() {
+            // get previous state
+            const px = this.x
+            const py = this.y
+            const ptile = this.tile
+
             // get tile coords
             this.x = this.sprite.x
             this.y = this.sprite.y
             this.tile = getTileFromWorldPosition(this.x, this.y)
+            this.changedTile = (this.tile.tx != ptile.tx) || (this.tile.ty != ptile.ty)
+
+            // Check for crossing centre of tile
+            this.crossedTile = false
+            const cx = this.tile.cx
+            const cy = this.tile.cy
+            if (this.dir == Direction.Up) {
+                this.crossedTile = (py > cy && cy >= this.y)
+            } else if (this.dir == Direction.Down) {
+                this.crossedTile = (py < cy && cy <= this.y)
+            } else if (this.dir == Direction.Left) {
+                this.crossedTile = (px > cx && cx >= this.x)
+            } else if (this.dir == Direction.Right) {
+                this.crossedTile = (px < cx && cx <= this.x)
+            }
 
             // check which directions can travel from this tile
             this.validDirs = 0
@@ -134,8 +155,12 @@ namespace maze {
         }
 
         place() {
-            this.sprite.x = this.hx
-            this.sprite.y = this.hy
+            this.placeAtPos(this.hx, this.hy)
+        }
+
+        placeAtPos(x: number, y: number) {
+            this.sprite.x = x
+            this.sprite.y = y
             this.sprite.vx = 0
             this.sprite.vy = 0
             this.dir = Direction.None
@@ -156,11 +181,6 @@ namespace maze {
                 return
             }
 
-            // get previous state
-            const px = this.x
-            const py = this.y
-            const ptile = this.tile
-
             this.updateState()
 
             // ignore if request is same as current direction
@@ -168,7 +188,6 @@ namespace maze {
                 this.request = Direction.None
             }
 
-            this.changedTile = (this.tile.tx != ptile.tx) || (this.tile.ty != ptile.ty)
             if (this.changedTile) {
                 // check for tunnel
                 const exit = this.maze.map.useTunnel(this.tile)
@@ -182,27 +201,10 @@ namespace maze {
             }
             
             const stopped = this.isStopped()
-
-            let crossing = false
-            const cx = this.tile.cx
-            const cy = this.tile.cy
-            if (!stopped) {
-                // Check for crossing centre of tile
-                if (this.dir == Direction.Up) {
-                    crossing = (py > cy && cy >= this.y)
-                } else if (this.dir == Direction.Down) {
-                    crossing = (py < cy && cy <= this.y)
-                } else if (this.dir == Direction.Left) {
-                    crossing = (px > cx && cx >= this.x)
-                } else if (this.dir == Direction.Right) {
-                    crossing = (px < cx && cx <= this.x)
-                }
-
-                if (crossing && !this.isDirectionValid(this.dir)) {
-                    // cannot continue this direction, clamp position
-                    this.sprite.x = this.tile.cx
-                    this.sprite.y = this.tile.cy
-                }
+            if (!stopped && this.crossedTile && !this.isDirectionValid(this.dir)) {
+                // cannot continue this direction, clamp position
+                this.sprite.x = this.tile.cx
+                this.sprite.y = this.tile.cy
             }
 
             if (this.dir != Direction.None) {
@@ -212,13 +214,13 @@ namespace maze {
                     this.request = Direction.None
                 }
                 // Stop current direction if reached tile centre and can't continue
-                else if ((stopped || crossing) && !this.isDirectionValid(this.dir)) {
+                else if ((stopped || this.crossedTile) && !this.isDirectionValid(this.dir)) {
                     this.dir = Direction.None
                 }
             }
 
             // Apply requested direction if it's possible
-            if ((stopped || crossing) && this.isDirectionValid(this.request)) {
+            if ((stopped || this.crossedTile) && this.isDirectionValid(this.request)) {
                 this.dir = this.request
                 this.request = Direction.None
             }
@@ -232,7 +234,6 @@ namespace maze {
                 return
             }
 
-            this.updateState()
             this.dir = dir
             this.applyDir()
 
