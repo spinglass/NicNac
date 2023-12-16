@@ -139,7 +139,7 @@ namespace maze {
                 }
             }
             
-            const stopped = (this.sprite.vx == 0 && this.sprite.vy == 0)
+            const stopped = this.isStopped()
 
             let crossing = false
             const cx = this.tile.cx
@@ -227,6 +227,10 @@ namespace maze {
 
         isReady(): boolean {
             return (this.sprite && this.visible && !this.frozen)
+        }
+
+        isStopped(): boolean {
+            return (this.sprite.vx == 0 && this.sprite.vy == 0)
         }
 
         isDirectionValid(dir: Direction): boolean {

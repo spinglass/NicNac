@@ -63,6 +63,7 @@ namespace maze {
         h: number
         home: Pos
         bases: Pos[]
+        scatterTargets: Tile[]
         fruit: Pos
         tunnels: Tile[]
         pillCount: number
@@ -72,7 +73,8 @@ namespace maze {
             this.w = 0
             this.h = 0
             this.home = new Pos(0, 0)
-            this.bases = [new Pos(0, 0), new Pos(0, 0), new Pos(0, 0), new Pos(0, 0)]
+            this.bases = []
+            this.scatterTargets = []
             this.fruit = new Pos(0, 0)
             this.pillCount = 0
         }
@@ -149,15 +151,16 @@ namespace maze {
             // generate base positions for placing chasers
             const cx = (minx + maxx) / 2
 
-            this.bases[0] = new Pos(cx, cy - 24)    // above centre
-            this.bases[1] = new Pos(cx, cy)         // centre
-            this.bases[2] = new Pos(cx + 16, cy)    // right
-            this.bases[3] = new Pos(cx - 16, cy)    // left
-            
-            console.log("bases:")
-            for (const b of this.bases) {
-                console.log(b.x + "," + b.y)
-            }
+            this.bases.push(new Pos(cx, cy - 24))   // above centre
+            this.bases.push(new Pos(cx, cy))        // centre
+            this.bases.push(new Pos(cx + 16, cy))   // right
+            this.bases.push(new Pos(cx - 16, cy))   // left
+
+            // also create scatter targets
+            this.scatterTargets.push(new Tile(this.w - 1, 0))           // top-right
+            this.scatterTargets.push(new Tile(0, 0))                    // top-left
+            this.scatterTargets.push(new Tile(this.w - 1, this.h - 1))  // bottom-right
+            this.scatterTargets.push(new Tile(0, this.h - 1))           // bottom-left
         }
 
         private initPills() {

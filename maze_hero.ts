@@ -21,6 +21,10 @@ namespace maze {
         }
 
         update() {
+            if (!this.mover.isReady()) {
+                return
+            }
+
             if (controller.up.isPressed()) {
                 this.mover.request = Direction.Up
             } else if (controller.down.isPressed()) {
