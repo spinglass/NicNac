@@ -57,7 +57,6 @@ namespace maze {
                         break
                     }
                     if (chaser.mode == ChaserMode.Frightened) {
-                        console.log("nom")
                         this.maze.events.fire(Event.EatChaser)
 
                         // send the chaser Home

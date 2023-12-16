@@ -64,11 +64,13 @@ namespace maze {
             } else if (event == Event.EatFruit) {
                 const i = Math.min(this.maze.fruit.count - 1, scoreFruit.length - 1)
                 s = scoreFruit[i]
+                this.maze.hero.mover.sprite.say(s, 1000)
             } else if (event == Event.EatChaser) {
                 s = scoreChaser[this.chaserEatCount++]
 
                 // pause to enjoy the taste
-                //this.pause(1)
+                this.maze.hero.mover.sprite.say(s, 1000)
+                this.pause(1)
             }
             info.changeScoreBy(s)
 
