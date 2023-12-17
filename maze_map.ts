@@ -39,6 +39,14 @@ namespace maze {
             }
             return this
         }
+
+        getNextIn(dir: Direction, count: number): Tile {
+            let result = new Tile(this.tx, this.ty)
+            for (let i = 0; i < count; ++i) {
+                result = result.getNext(dir)
+            }
+            return result
+        }
     }
 
     export class Pos {

@@ -1,6 +1,6 @@
 namespace maze {
     const speedHero = 80
-    const immortal = false
+    const immortal = true
     
     export class Hero {
         maze: Maze

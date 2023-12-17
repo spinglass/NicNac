@@ -189,6 +189,7 @@ namespace maze {
         }
 
         private setChaserMode(mode: ChaserMode) {
+            mode = ChaserMode.Chase
             this.chaserMode = mode
             for (const chaser of this.maze.chasers) {
                 chaser.setMode(mode)

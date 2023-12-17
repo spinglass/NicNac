@@ -29,6 +29,7 @@ namespace maze {
         mode: ChaserMode        // mode this chaser is using
         gameMode: ChaserMode    // mode the game requested
         target: Tile
+        scatterTarget: Tile
         imgFright: Image
         imgWarn: Image
         imgReturn: Image
@@ -55,6 +56,7 @@ namespace maze {
         }
 
         initLevel() {
+            this.scatterTarget = this.maze.map.scatterTargets[this.id]
             this.base = this.maze.map.bases[this.id]
             this.exit = this.maze.map.bases[0]
             this.release = false
@@ -215,7 +217,7 @@ namespace maze {
                 return true
             }
             if (this.mover.changedTile) {
-                this.target = this.maze.map.scatterTargets[this.id]
+                this.target = this.scatterTarget
                 this.doTarget()
             }
             return true
@@ -228,21 +230,48 @@ namespace maze {
             if (this.mover.changedTile) {
                 // generate target
                 switch(this.kind) {
-                    case ChaserKind.Blinky:
+                    case ChaserKind.Blinky: {
+                        // directly target the hero
                         this.target = this.maze.hero.mover.tile
                         break
-                    case ChaserKind.Pinky:
-                        // TODO correct Pinky target
-                        this.target = this.maze.hero.mover.tile
+                    }
+                    case ChaserKind.Pinky:  {
+                        // target 4 tiles ahead of the hero
+                        this.target = this.maze.hero.mover.tile.getNextIn(this.maze.hero.mover.dir, 4)
+
+                        // implement the overflow bug
+                        if (this.mover.dir == Direction.Down) {
+                            this.target = this.target.getNextIn(Direction.Right, 4)
+                        }
+                         break
+                    }
+                    case ChaserKind.Inky: {
+                        // get position 2 in front of hero
+                        const t1 = this.maze.hero.mover.tile.getNextIn(this.maze.hero.mover.dir, 2)
+
+                        // get position of first chaser
+                        const t2 = this.maze.chasers[0].mover.tile
+
+                        // cast vector between them beyond t1
+                        const dx = t1.tx - t2.tx
+                        const dy = t1.ty - t2.ty
+                        this.target = new Tile(t1.tx + dx, t1.ty + dy)
                         break
-                    case ChaserKind.Inky:
-                        // TODO correct Inky target
-                        this.target = this.maze.hero.mover.tile
+                    }
+                    case ChaserKind.Clyde: {
+                        // calculate distance from player
+                        const dx = Math.abs(this.maze.hero.mover.tile.tx - this.mover.tile.tx)
+                        const dy = Math.abs(this.maze.hero.mover.tile.ty - this.mover.tile.ty)
+                        const dist = dx + dy
+                        if (dist > 8) {
+                            // far, target hero direction
+                            this.target = this.maze.hero.mover.tile
+                        } else {
+                            // too close - scatter!
+                            this.target = this.scatterTarget
+                        }
                         break
-                    case ChaserKind.Clyde:
-                        // TODO correct Clyde target
-                        this.target = this.maze.hero.mover.tile
-                        break
+                    }
                 }
                 this.doTarget()
             }
