@@ -229,7 +229,7 @@ namespace maze {
             this.applyCentre()
         }
 
-        forceUpdate(dir: Direction, min: number, max: number) {
+        forceUpdate(dir: Direction, minx: number, maxx: number, miny: number, maxy: number) {
             if (!this.isReady()) {
                 return
             }
@@ -237,16 +237,8 @@ namespace maze {
             this.dir = dir
             this.applyDir()
 
-            switch (this.dir) {
-                case Direction.Up:
-                case Direction.Down:
-                    this.sprite.y = Math.constrain(this.sprite.y, min, max)
-                    break
-                case Direction.Left:
-                case Direction.Right:
-                    this.sprite.x = Math.constrain(this.sprite.x, min, max)
-                    break
-            }
+            this.sprite.x = Math.constrain(this.sprite.x, minx, maxx)
+            this.sprite.y = Math.constrain(this.sprite.y, miny, maxy)
         }
 
         setFreeze(freeze: boolean) {

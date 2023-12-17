@@ -71,6 +71,8 @@ namespace maze {
         h: number
         home: Pos                   // player spawn position
         bases: Pos[]                // chaser spawn positions
+        baseCentre: Pos
+        baseTop: Pos
         returnBase: Tile            // chaser return-to-base target
         scatterTargets: Tile[]
         fruit: Pos
@@ -83,6 +85,8 @@ namespace maze {
             this.h = 0
             this.home = new Pos(0, 0)
             this.bases = []
+            this.baseCentre = new Pos(0, 0)
+            this.baseTop = new Pos(0, 0)
             this.scatterTargets = []
             this.fruit = new Pos(0, 0)
             this.pillCount = 0
@@ -159,11 +163,14 @@ namespace maze {
             // generate base positions for placing chasers
             const cx = (minx + maxx) / 2
 
-            this.bases.push(new Pos(cx, cy - 24))   // above centre
-            this.bases.push(new Pos(cx, cy))        // centre
+            this.baseCentre = new Pos(cx, cy)
+            this.baseTop = new Pos(cx, cy - 24)
+
+            this.bases.push(this.baseTop)
+            this.bases.push(this.baseCentre)
             this.bases.push(new Pos(cx - 16, cy))   // left
             this.bases.push(new Pos(cx + 16, cy))   // right
-
+        
             // return-to-base tile is the above centre position
             this.returnBase = getTileFromWorldPosition(this.bases[0].x, this.bases[0].y)
 

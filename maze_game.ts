@@ -47,8 +47,6 @@ namespace maze {
 
         initLevel() {
             scene.cameraFollowSprite(this.maze.hero.mover.sprite)
-            //const base = this.maze.map.returnBase
-            //scene.centerCameraAt(base.cx, base.cy)
 
             this.pillsEaten = 0
             this.pillsRemaining = this.maze.map.pillCount
@@ -189,7 +187,6 @@ namespace maze {
         }
 
         private setChaserMode(mode: ChaserMode) {
-            mode = ChaserMode.Chase
             this.chaserMode = mode
             for (const chaser of this.maze.chasers) {
                 chaser.setMode(mode)

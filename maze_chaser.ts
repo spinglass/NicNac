@@ -13,12 +13,12 @@ namespace maze {
     export enum ChaserMode {
         None,
         Wait,
+        EnterBase,
         ExitBase,
         Scatter,
         Chase,
         Fright,
         ReturnToBase,
-        EnterBase,
     }
 
     export class Chaser {
@@ -37,8 +37,9 @@ namespace maze {
         release: boolean
         reverse: boolean
         warn: boolean
-        base: Pos
-        exit: Pos
+        home: Pos
+        baseExit: Pos
+        baseCentre: Pos
 
         constructor(kind: ChaserKind, id: number) {
             this.mover = new Mover()
@@ -57,8 +58,9 @@ namespace maze {
 
         initLevel() {
             this.scatterTarget = this.maze.map.scatterTargets[this.id]
-            this.base = this.maze.map.bases[this.id]
-            this.exit = this.maze.map.bases[0]
+            this.home = this.maze.map.bases[this.id]
+            this.baseExit = this.maze.map.baseTop
+            this.baseCentre = this.maze.map.baseCentre
             this.release = false
             this.reverse = false
             this.place()
@@ -70,7 +72,7 @@ namespace maze {
         }
 
         private checkNone(): boolean {
-            this.mode = this.maze.game.chaserMode
+            this.mode = this.gameMode
             this.mover.request = Direction.Left
             return false
         }
@@ -82,10 +84,22 @@ namespace maze {
             return true
         }
 
+        private checkEnterBase(): boolean {
+            if (this.mover.y > this.baseCentre.y) {
+                this.mode = ChaserMode.Wait
+                this.waitDir = Direction.Down
+
+                // make sure we don't re-enter fright mode
+                if (this.gameMode == ChaserMode.Fright) {
+                    this.gameMode = ChaserMode.Chase
+                }
+            }
+            return true
+        }
+
         private checkExitBase(): boolean {
-            const minY = this.maze.map.returnBase.cy
-            if (this.mover.y <= minY) {
-                this.mover.placeAtPos(this.maze.map.bases[0].x, this.maze.map.bases[0].y)
+            if (this.mover.y <= this.baseExit.y) {
+                this.mover.placeAtPos(this.baseExit.x, this.baseExit.y)
                 this.mode = ChaserMode.None
             }
             return true
@@ -104,20 +118,14 @@ namespace maze {
         }
 
         private checkReturnTobase() {
-            if (this.mover.tile.tx == this.maze.map.returnBase.tx && this.mover.tile.ty == this.maze.map.returnBase.ty) {
-                if (this.gameMode == ChaserMode.Fright) {
-                    // game is still in Fright mode, but we just recovered from that,
-                    // so go straight to chase
-                    this.mode = ChaserMode.Chase
-                    this.gameMode = ChaserMode.Chase
-                } else {
-                    this.mode = this.gameMode
+            // Watch for crossing the tile boundary at the base entry
+            if (this.mover.changedTile) {
+                // Is the the right position?
+                const dx = Math.abs(this.mover.x - this.baseExit.x)
+                const dy = Math.abs(this.mover.y - this.baseExit.y)
+                if (dx < 4 && dy < 4) {
+                    this.mode = ChaserMode.EnterBase
                 }
-
-                this.mover.request = Direction.Left
-                
-                // no further update
-                return false
             }
 
             // let the update run
@@ -154,9 +162,9 @@ namespace maze {
         private doWait(): boolean {
             this.mover.updateState()
 
-            const minY = this.base.y - 4
-            const maxY = this.base.y + 4
-            this.mover.forceUpdate(this.waitDir, minY, maxY)
+            const minY = this.baseCentre.y - 4
+            const maxY = this.baseCentre.y + 4
+            this.mover.forceUpdate(this.waitDir, this.mover.x, this.mover.x, minY, maxY)
             this.mover.setImage()
 
             // switch direction when hit limits
@@ -170,31 +178,36 @@ namespace maze {
             return false
         }
 
+        private doEnterBase(): boolean {
+            this.mover.updateState()
+            this.mover.forceUpdate(Direction.Down, this.baseExit.x, this.baseExit.x, this.baseExit.y, this.baseCentre.y)
+            return false
+        }
+
         private doExitBase(): boolean {
             this.mover.updateState()
 
             // return to y center
-            if ((this.waitDir == Direction.Up && this.mover.y > this.base.y) || (this.waitDir == Direction.Down && this.mover.y < this.base.y))
+            if ((this.waitDir == Direction.Up && this.mover.y > this.baseCentre.y) || (this.waitDir == Direction.Down && this.mover.y < this.baseCentre.y))
             {
                 // complete wait cycle
                 return this.doWait()
             }
 
             // move to center
-            if (this.base.x < this.exit.x && this.mover.x < this.exit.x) {
-                this.mover.forceUpdate(Direction.Right, this.mover.x, this.exit.x)
+            if (this.home.x < this.baseExit.x && this.mover.x < this.baseExit.x) {
+                this.mover.forceUpdate(Direction.Right, this.home.x, this.baseExit.x, this.home.y, this.home.y)
                 this.mover.setImage()
                 return false
             }
-            if (this.base.x > this.exit.x && this.mover.x > this.exit.x) {
-                this.mover.forceUpdate(Direction.Left, this.exit.x, this.mover.x)
+            if (this.home.x > this.baseExit.x && this.mover.x > this.baseExit.x) {
+                this.mover.forceUpdate(Direction.Left, this.baseExit.x, this.home.x, this.home.y, this.home.y)
                 this.mover.setImage()
                 return false
             }
 
             // move out
-            const minY = this.exit.y
-            this.mover.forceUpdate(Direction.Up, minY, 1000)
+            this.mover.forceUpdate(Direction.Up, this.baseExit.x, this.baseExit.x, this.baseExit.y, this.baseCentre.y)
             this.mover.setImage()
 
             return false
@@ -312,6 +325,7 @@ namespace maze {
             switch (this.mode) {
                 case ChaserMode.None:           return this.checkNone()
                 case ChaserMode.Wait:           return this.checkWait()
+                case ChaserMode.EnterBase:      return this.checkEnterBase()
                 case ChaserMode.ExitBase:       return this.checkExitBase()
                 case ChaserMode.Scatter:
                 case ChaserMode.Chase:
@@ -324,6 +338,7 @@ namespace maze {
         private doMode(): boolean {
             switch (this.mode) {
                 case ChaserMode.Wait:           return this.doWait()
+                case ChaserMode.EnterBase:      return this.doEnterBase()
                 case ChaserMode.ExitBase:       return this.doExitBase()
                 case ChaserMode.Scatter:        return this.doScatter()
                 case ChaserMode.Chase:          return this.doChase()
@@ -374,7 +389,7 @@ namespace maze {
                 }
             } else {
                 this.warn = false
-                if (this.mode == ChaserMode.ReturnToBase) {
+                if (this.mode == ChaserMode.ReturnToBase || this.mode == ChaserMode.EnterBase) {
                     this.mover.sprite.setImage(this.imgReturn)
                 } else {
                     this.mover.setImage()
@@ -397,9 +412,10 @@ namespace maze {
         }
 
         place() {
-            this.mover.placeAtPos(this.base.x, this.base.y)
+            this.mover.placeAtPos(this.home.x, this.home.y)
             this.mode = ChaserMode.Wait
             this.waitDir = Direction.Up
+            this.mover.setImage()
         }
 
         doEaten() {
