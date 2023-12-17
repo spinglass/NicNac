@@ -30,10 +30,12 @@ namespace maze {
         gameMode: ChaserMode    // mode the game requested
         target: Tile
         imgFright: Image
+        imgWarn: Image
         imgReturn: Image
         waitDir: Direction
         release: boolean
         reverse: boolean
+        warn: boolean
         base: Pos
         exit: Pos
 
@@ -48,6 +50,7 @@ namespace maze {
             this.mover.init("chaser" + this.id)
             this.mover.mapType = MapFlags.Maze
             this.imgFright = helpers.getImageByName("chaser_fright")
+            this.imgWarn = helpers.getImageByName("chaser_warn")
             this.imgReturn = helpers.getImageByName("chaser_return")
         }
 
@@ -335,11 +338,18 @@ namespace maze {
             }
 
             if (this.mode == ChaserMode.Frightened) {
-                this.mover.sprite.setImage(this.imgFright)
-            } else if (this.mode == ChaserMode.ReturnToBase) {
-                this.mover.sprite.setImage(this.imgReturn)
+                if (this.warn) {
+                    this.mover.sprite.setImage(this.imgWarn)
+                } else {
+                    this.mover.sprite.setImage(this.imgFright)
+                }
             } else {
-                this.mover.setImage()
+                this.warn = false
+                if (this.mode == ChaserMode.ReturnToBase) {
+                    this.mover.sprite.setImage(this.imgReturn)
+                } else {
+                    this.mover.setImage()
+                }
             }
         }
 
@@ -351,6 +361,10 @@ namespace maze {
 
         setRelease() {
             this.release = true
+        }
+
+        setWarn(warn: boolean) {
+            this.warn = warn
         }
 
         place() {

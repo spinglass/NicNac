@@ -16,6 +16,7 @@ namespace maze {
         Defrost,
         LoseLife,
         ChaserEndMode,
+        ChaserWarn,
     }
 
     class TimedEvent {

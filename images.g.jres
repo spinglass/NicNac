@@ -144,6 +144,11 @@
         "mimeType": "image/x-mkcd-f4",
         "displayName": "chaser_return"
     },
+    "image30": {
+        "data": "hwQQABAAAAAAAAAAAAAAAAAAANDd3d0NAADd3d3S3QAA0N3dLd0NAADd3SLd0t0AAN3dIi3d3Q3Q3d3d3dLdDdDd3d0t3Q0A0N3d3S3dDQDQ3d3d3dLdDQDd3SIt3d0NAN3dIt3S3QAA0N3dLd0NAAAA3d3d0t0AAAAA0N3d3Q0AAAAAAAAAAA==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "chaser_warn"
+    },
     "*": {
         "mimeType": "image/x-mkcd-f4",
         "dataEncoding": "base64",

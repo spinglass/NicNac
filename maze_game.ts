@@ -6,6 +6,8 @@ namespace maze {
     const timeScatter = 7
     const timeChase = 20
     const timeFrightened = 7
+    const timeWarn = 5
+    const timeWarnFlash = 0.25
     const releaseCount = [0, 0, 30, 90]
 
     export class Game {
@@ -15,6 +17,7 @@ namespace maze {
         levelComplete: boolean
         chaserMode: ChaserMode
         chaserEatCount: number
+        chaserWarn: boolean
 
         constructor() {
             this.pillsRemaining = 0
@@ -38,7 +41,8 @@ namespace maze {
             this.maze.events.register(Event.Defrost, () => this.setFreeze(false))
             this.maze.events.register(Event.LoseLife, () => this.life())
             this.maze.events.register(Event.GameOver, () => this.gameOver())
-            this.maze.events.register(Event.ChaserEndMode, () => this.endChaserMode())
+            this.maze.events.register(Event.ChaserEndMode, () => this.chaserEndMode())
+            this.maze.events.register(Event.ChaserWarn, () => this.chaserSetWarn())
         }
 
         initLevel() {
@@ -50,6 +54,7 @@ namespace maze {
             this.pillsRemaining = this.maze.map.pillCount
             this.levelComplete = false
             this.chaserEatCount = 0
+            this.chaserWarn = false
         }
 
         private pause(time: number) {
@@ -95,6 +100,7 @@ namespace maze {
             if (!this.levelComplete && event == Event.EatPower) {
                 this.setChaserMode(ChaserMode.Frightened)
                 this.maze.events.fireLater(Event.ChaserEndMode, timeFrightened)
+                this.maze.events.fireLater(Event.ChaserWarn, timeWarn)
             }
         }
 
@@ -115,7 +121,9 @@ namespace maze {
             }
         }
 
-        private endChaserMode() {
+        private chaserEndMode() {
+            this.maze.events.cancel(Event.ChaserWarn)
+            
             switch (this.chaserMode) {
                 case ChaserMode.Scatter:
                 case ChaserMode.Frightened:
@@ -128,6 +136,17 @@ namespace maze {
                     break
             }
             this.chaserEatCount = 0
+        }
+
+        private chaserSetWarn() {
+            console.log("warn:" + this.maze.time)
+            this.chaserWarn = !this.chaserWarn
+            for (const chaser of this.maze.chasers) {
+                chaser.setWarn(this.chaserWarn)
+            }
+
+            // resend to flash the warning
+            this.maze.events.fireLater(Event.ChaserWarn, timeWarnFlash)
         }
 
         private gameOver() {

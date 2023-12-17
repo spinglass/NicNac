@@ -546,6 +546,25 @@ c 2 e e 2 2 2 2 e 2 5 4 2 c 8 .
 . . . . . . . . . . . . . . . . 
 . . . . . . . . . . . . . . . . 
 `;
+            case "image30":
+            case "chaser_warn":return img`
+. . . . . . . . . . . . . . . . 
+. . . . . . d d d d . . . . . . 
+. . . . d d d d d d d d . . . . 
+. . . d d d d d d d d d d . . . 
+. . d d d d d d d d d d d d . . 
+. . d d d d d d d d d d d d . . 
+. . d d 2 2 d d d d 2 2 d d . . 
+. d d d 2 2 d d d d 2 2 d d d . 
+. d d d d d d d d d d d d d d . 
+. d d 2 d 2 d 2 2 d 2 d 2 d d . 
+. d 2 d 2 d 2 d d 2 d 2 d 2 d . 
+. d d d d d d d d d d d d d d . 
+. d d d d d d d d d d d d d d . 
+. d d . d d d . . d d d . d d . 
+. d . . . d d . . d d . . . d . 
+. . . . . . . . . . . . . . . . 
+`;
         }
         return null;
     })
