@@ -406,6 +406,7 @@ namespace maze {
             // this doesn't set the _actual_ mode, we might be in the middle of something,
             // or not ready, etc.
             this.gameMode = mode
+            this.warn = false
         }
 
         setRelease() {
