@@ -57,6 +57,7 @@ namespace maze {
                     if (chaser.mode == ChaserMode.Scatter || chaser.mode == ChaserMode.Chase) {
                         if (!immortal) {
                             this.maze.events.fire(Event.LoseLife)
+
                             // can only get eaten once per life!
                             break
                         }
@@ -64,8 +65,28 @@ namespace maze {
                     if (chaser.mode == ChaserMode.Fright) {
                         this.maze.events.fire(Event.EatChaser)
 
-                        // send the chaser Home
+                        // send the chaser home
                         chaser.doEaten()
+
+                        // also only one per frame, so both score events are seen
+                        break
+                    }                  
+                }
+
+                // Also check by distance to prevent the pass-through bug, but only for fright,
+                // as otherwise the player can feel cheated
+                // Leaving for being eaten though, as it's like a bonus get-out-of-jail card
+                if (chaser.mode == ChaserMode.Fright) {
+                    const dx = Math.abs(chaser.mover.x - this.mover.x)
+                    const dy = Math.abs(chaser.mover.y - this.mover.y)
+                    if (dx < 4 && dy < 4) {
+                        this.maze.events.fire(Event.EatChaser)
+
+                        // send the chaser home
+                        chaser.doEaten()
+
+                        // also only one per frame, so both score events are seen
+                        break
                     }
                 }
             }

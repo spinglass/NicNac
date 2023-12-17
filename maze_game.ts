@@ -139,7 +139,6 @@ namespace maze {
         }
 
         private chaserSetWarn() {
-            console.log("warn:" + this.maze.time)
             this.chaserWarn = !this.chaserWarn
             for (const chaser of this.maze.chasers) {
                 chaser.setWarn(this.chaserWarn)
