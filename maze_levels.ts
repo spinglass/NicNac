@@ -61,8 +61,8 @@ namespace maze {
             console.log("easy:" + index)
 
             this.timeScatter = 14
-            this.timeFright = 14
-            this.timeWarn = 12
+            this.timeFright = 20
+            this.timeWarn = 17
             this.timeFruitDespawn = 20
             this.pillReleaseCount = [0, 20, 50, 100]
             
@@ -93,45 +93,45 @@ namespace maze {
 
             switch(index) {
                 case 0:
-                    this.speedChaser = 75
-                    this.speedChaserFright = 50                  
-                    this.speedHero = 80
-                    this.speedHeroFright = 90
-                    this.timeFright = 7
-                    this.timeWarn = 5
+                    this.speedChaser = 65
+                    this.speedChaserFright = 45                  
+                    this.speedHero = 70
+                    this.speedHeroFright = 75
+                    this.timeFright = 10
+                    this.timeWarn = 8
                     break
                 case 1:
-                    this.speedChaser = 85
-                    this.speedChaserFright = 55
-                    this.speedHero = 90
-                    this.speedHeroFright = 95
-                    this.timeFright = 6
-                    this.timeWarn = 4
+                    this.speedChaser = 75
+                    this.speedChaserFright = 50
+                    this.speedHero = 80
+                    this.speedHeroFright = 85
+                    this.timeFright = 9
+                    this.timeWarn = 7
                     break
                 case 2:
+                    this.speedChaser = 75
+                    this.speedChaserFright = 50
+                    this.speedHero = 80
+                    this.speedHeroFright = 85
+                    this.timeFright = 8
+                    this.timeWarn = 6
+                    break
+                case 3:
+                    this.speedChaser = 75
+                    this.speedChaserFright = 50
+                    this.speedHero = 80
+                    this.speedHeroFright = 85
+                    this.timeFright = 5
+                    this.timeWarn = 3.5
+                    break
+                // level 4 onwards
+                default:
                     this.speedChaser = 85
                     this.speedChaserFright = 55
                     this.speedHero = 90
                     this.speedHeroFright = 95
                     this.timeFright = 4
-                    this.timeWarn = 3.5
-                    break
-                case 3:
-                    this.speedChaser = 85
-                    this.speedChaserFright = 55
-                    this.speedHero = 90
-                    this.speedHeroFright = 95
-                    this.timeFright = 3
-                    this.timeWarn = 2
-                    break
-                // level 4 onwards
-                default:
-                    this.speedChaser = 95
-                    this.speedChaserFright = 60
-                    this.speedHero = 100
-                    this.speedHeroFright = 100
-                    this.timeFright = 2
-                    this.timeWarn = 1.5
+                    this.timeWarn = 3
                     break
             }
         }
