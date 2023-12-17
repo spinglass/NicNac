@@ -16,7 +16,7 @@ namespace maze {
         ExitBase,
         Scatter,
         Chase,
-        Frightened,
+        Fright,
         ReturnToBase,
         EnterBase,
     }
@@ -91,7 +91,7 @@ namespace maze {
 
         private checkStandard(): boolean {
             if (this.mode != this.gameMode) {
-                if (this.mode != ChaserMode.Frightened) {
+                if (this.mode != ChaserMode.Fright) {
                     this.reverse = true
                 }
                 this.mode = this.gameMode
@@ -103,8 +103,8 @@ namespace maze {
 
         private checkReturnTobase() {
             if (this.mover.tile.tx == this.maze.map.returnBase.tx && this.mover.tile.ty == this.maze.map.returnBase.ty) {
-                if (this.gameMode == ChaserMode.Frightened) {
-                    // game is still in frightened mode, but we just recovered from that,
+                if (this.gameMode == ChaserMode.Fright) {
+                    // game is still in Fright mode, but we just recovered from that,
                     // so go straight to chase
                     this.mode = ChaserMode.Chase
                     this.gameMode = ChaserMode.Chase
@@ -249,7 +249,7 @@ namespace maze {
             return true
         }
 
-        private doFrightened(): boolean {
+        private doFright(): boolean {
             if (this.doReverse()) {
                 return true
             }
@@ -286,7 +286,7 @@ namespace maze {
                 case ChaserMode.ExitBase:       return this.checkExitBase()
                 case ChaserMode.Scatter:
                 case ChaserMode.Chase:
-                case ChaserMode.Frightened:     return this.checkStandard()
+                case ChaserMode.Fright:         return this.checkStandard()
                 case ChaserMode.ReturnToBase:   return this.checkReturnTobase()
             }
             return false
@@ -298,7 +298,7 @@ namespace maze {
                 case ChaserMode.ExitBase:       return this.doExitBase()
                 case ChaserMode.Scatter:        return this.doScatter()
                 case ChaserMode.Chase:          return this.doChase()
-                case ChaserMode.Frightened:     return this.doFrightened()
+                case ChaserMode.Fright:         return this.doFright()
                 case ChaserMode.ReturnToBase:   return this.doReturnToBase()
             }
             return true
@@ -309,7 +309,7 @@ namespace maze {
                 default:
                     this.mover.speed = speedChaser
                     break
-                case ChaserMode.Frightened:
+                case ChaserMode.Fright:
                     this.mover.speed = speedChaserFright
                     break
                 case ChaserMode.Wait:
@@ -337,7 +337,7 @@ namespace maze {
                 this.mover.update()
             }
 
-            if (this.mode == ChaserMode.Frightened) {
+            if (this.mode == ChaserMode.Fright) {
                 if (this.warn) {
                     this.mover.sprite.setImage(this.imgWarn)
                 } else {

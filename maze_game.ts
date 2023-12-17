@@ -5,7 +5,7 @@ namespace maze {
     const scoreChaser = [100, 200, 400, 800]
     const timeScatter = 7
     const timeChase = 20
-    const timeFrightened = 7
+    const timeFright = 7
     const timeWarn = 5
     const timeWarnFlash = 0.25
     const releaseCount = [0, 0, 30, 90]
@@ -98,8 +98,8 @@ namespace maze {
             }
 
             if (!this.levelComplete && event == Event.EatPower) {
-                this.setChaserMode(ChaserMode.Frightened)
-                this.maze.events.fireLater(Event.ChaserEndMode, timeFrightened)
+                this.setChaserMode(ChaserMode.Fright)
+                this.maze.events.fireLater(Event.ChaserEndMode, timeFright)
                 this.maze.events.fireLater(Event.ChaserWarn, timeWarn)
             }
         }
@@ -126,7 +126,7 @@ namespace maze {
             
             switch (this.chaserMode) {
                 case ChaserMode.Scatter:
-                case ChaserMode.Frightened:
+                case ChaserMode.Fright:
                     this.setChaserMode(ChaserMode.Chase)
                     this.maze.events.fireLater(Event.ChaserEndMode, timeChase)
                     break
