@@ -6,6 +6,7 @@ namespace maze {
     const timeScatter = 7
     const timeChase = 20
     const timeFrightened = 7
+    const timeWait = [0, 0, 20, 40]
 
     export class Game {
         maze: Maze
@@ -46,7 +47,6 @@ namespace maze {
             this.pillsRemaining = this.maze.map.pillCount
             this.levelComplete = false
             this.chaserEatCount = 0
-            this.levelStart()
         }
 
         private pause(time: number) {
@@ -135,11 +135,11 @@ namespace maze {
             this.maze.events.fireLater(Event.ChaserEndMode, timeScatter)
 
             this.maze.hero.place()
-            for (const chaser of this.maze.chasers) {
+            for (let i = 0; i < this.maze.chasers.length; ++i) {
+                const chaser = this.maze.chasers[i]
+                chaser.setWait(timeWait[i])
                 chaser.place()
             }
-            this.maze.chasers[0].setWait(0)
-            this.maze.chasers[1].setWait(0)
             this.pause(1.5)
         }
 

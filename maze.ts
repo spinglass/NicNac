@@ -71,6 +71,8 @@ namespace maze {
                 c.initLevel()
             }
             this.fruit.initLevel()
+
+            this.events.fireLater(Event.LevelStart, 0)
         }
 
         update() {
