@@ -22,16 +22,18 @@ namespace maze {
         chaserEatCount: number
         chaserWarn: boolean
         difficulty: Difficulty
+        levelCount: number
 
         constructor() {
-            this.pillsRemaining = 0
-            this.pillsEaten = 0
-            this.levelComplete = false
-            this.difficulty = Difficulty.None
         }
 
         init() {
             this.maze = getMaze()
+            this.pillsRemaining = 0
+            this.pillsEaten = 0
+            this.levelComplete = false
+            this.difficulty = Difficulty.None
+            this.levelCount = 0
 
             // register for events
             this.maze.events.register(Event.EatPill, () => this.eat(Event.EatPill))
@@ -70,12 +72,15 @@ namespace maze {
         initLevel() {
             scene.cameraFollowSprite(this.maze.hero.mover.sprite)
 
+            level.initLevel(this.levelCount)
+
             this.pillsEaten = 0
             this.pillsRemaining = this.maze.map.pillCount
             this.levelComplete = false
             this.chaserEatCount = 0
             this.chaserWarn = false
 
+            this.maze.map.initLevel()
             this.maze.hero.initLevel()
             for (const chaser of this.maze.chasers) {
                 chaser.initLevel()
@@ -208,6 +213,7 @@ namespace maze {
         }
 
         private levelNext() {
+            ++this.levelCount;
             this.initLevel()       
         }
 
@@ -234,6 +240,9 @@ namespace maze {
         }
 
         update() {
+            if (controller.A.isPressed()) {
+                this.levelNext()
+            }
         }
     }
 }

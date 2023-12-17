@@ -37,7 +37,11 @@ namespace maze {
                 this.mover.request = Direction.Right
             }
 
-            this.mover.speed = level.speedHero
+            if (this.maze.game.chaserMode == ChaserMode.Fright) {
+                this.mover.speed = level.speedHeroFright
+            } else {
+                this.mover.speed = level.speedHero
+            }
             this.mover.update()
             this.mover.setImage()
 

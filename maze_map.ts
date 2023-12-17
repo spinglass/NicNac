@@ -9,6 +9,8 @@ namespace maze {
         Fruit = 1 << 5,
         Maze = 1 << 6,
         Base = 1 << 7,
+        PillTile = 1 << 8,
+        PowerTile = 1 << 9,
     }
     
     export class Tile {
@@ -233,6 +235,10 @@ namespace maze {
             this.initFlagsFromTiles(assets.tile`tile_power`, MapFlags.Power)
             this.initFlagsFromTiles(assets.tile`tile_tunnel`, MapFlags.Tunnel)
 
+            // mark pills for level reset
+            this.initFlagsFromFlags(MapFlags.Pill, MapFlags.PillTile)
+            this.initFlagsFromFlags(MapFlags.Power, MapFlags.PowerTile)
+
             // find all maze tiles
             for (const f of [MapFlags.Empty, MapFlags.Home, MapFlags.Fruit, MapFlags.Pill, MapFlags.Power, MapFlags.Tunnel]) {
                 this.initFlagsFromFlags(f, MapFlags.Maze)
@@ -247,6 +253,20 @@ namespace maze {
         
             // fruits position
             this.fruit = this.initPosition(MapFlags.Fruit)
+        }
+
+        initLevel() {
+            for (let i = 0; i < this.flags.length; ++i) {
+                const tile = this.getTile(i)
+                const loc = tiles.getTileLocation(tile.tx, tile.ty)
+                if (this.flags[i] & MapFlags.PillTile) {
+                    this.flags[i] |= MapFlags.Pill
+                    tiles.setTileAt(loc, assets.tile`tile_pill`)
+                } else if (this.flags[i] & MapFlags.PowerTile) {
+                    this.flags[i] |= MapFlags.Power
+                    tiles.setTileAt(loc, assets.tile`tile_power`)
+                }
+            }
         }
 
         eatPill(tile: Tile):  boolean {
