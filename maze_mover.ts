@@ -1,20 +1,34 @@
 namespace maze {
-    class DirImage {
-        dir: Direction
+    export class DirImage {
         img: Image
+        imgUp: Image
+        imgDown: Image
+        imgLeft: Image
+        imgRight: Image
 
-        constructor(name: string, dir: Direction) {
-            let imgName = name + "_" + dirString(dir)
-            this.img = helpers.getImageByName(imgName)
-            this.dir = dir
-            console.log("loaded:" + imgName)
+        load(name: string) {
+            this.img = helpers.getImageByName(name)
+            this.imgUp = helpers.getImageByName(name + "_up")
+            this.imgDown = helpers.getImageByName(name + "_down")
+            this.imgLeft = helpers.getImageByName(name + "_left")
+            this.imgRight = helpers.getImageByName(name + "_right")
+        }
+
+        getImage(dir: Direction): Image {
+            switch(dir) {
+                case Direction.Up:      return this.imgUp
+                case Direction.Down:    return this.imgDown
+                case Direction.Left:    return this.imgLeft
+                case Direction.Right:   return this.imgRight
+            }
+            return this.img
         }
     }
 
     export class Mover {
         maze: Maze
         sprite: Sprite
-        images: DirImage[]
+        images: DirImage
         tile: Tile
         x: number                   // world x
         y: number                   // world y
@@ -33,7 +47,7 @@ namespace maze {
         mapType: MapFlags
 
         constructor() {
-            this.images = []
+            this.images = new DirImage()
             this.x = 0
             this.y = 0
             this.tile = new Tile(0, 0)
@@ -49,17 +63,10 @@ namespace maze {
             this.mapType = MapFlags.None
         }
 
-        init(name: string) {
+        init(images: DirImage) {
             this.maze = getMaze()            
-
-            this.images = [
-                new DirImage(name, Direction.None),
-                new DirImage(name, Direction.Up),
-                new DirImage(name, Direction.Down),
-                new DirImage(name, Direction.Left),
-                new DirImage(name, Direction.Right),
-                ]
-            this.sprite = sprites.create(this.images[0].img)
+            this.images = images
+            this.sprite = sprites.create(this.images.img)
 
             // Hide until placed
             this.setVisible(false)
@@ -142,12 +149,8 @@ namespace maze {
         }
 
         setImage() {
-            for (const img of this.images) {
-                if (img.dir == this.dir) {
-                    this.sprite.setImage(img.img)
-                    break
-                }
-            }
+            const img = this.images.getImage(this.dir)
+            this.sprite.setImage(img)
         }
 
         reset() {

@@ -24,15 +24,17 @@ namespace maze {
     export class Chaser {
         maze: Maze
         mover: Mover
+        images: DirImage
+        imagesReturn: DirImage
+        imgFright: Image
+        imgWarn: Image
         kind: ChaserKind
         id: number
         mode: ChaserMode        // mode this chaser is using
         gameMode: ChaserMode    // mode the game requested
         target: Tile
         scatterTarget: Tile
-        imgFright: Image
-        imgWarn: Image
-        imgReturn: Image
+
         waitDir: Direction
         release: boolean
         reverse: boolean
@@ -43,17 +45,23 @@ namespace maze {
 
         constructor(kind: ChaserKind, id: number) {
             this.mover = new Mover()
+            this.images = new DirImage()
+            this.imagesReturn = new DirImage()
             this.kind = kind
             this.id = id
         }
 
         init() {
             this.maze = getMaze()
-            this.mover.init("chaser" + this.id)
+
+            this.images.load("chaser" + this.id)
+
+            this.mover.init(this.images)
             this.mover.mapType = MapFlags.Maze
+            
+            this.imagesReturn.load("eyes")
             this.imgFright = helpers.getImageByName("chaser_fright")
             this.imgWarn = helpers.getImageByName("chaser_warn")
-            this.imgReturn = helpers.getImageByName("chaser_return")
         }
 
         initLevel() {
@@ -390,10 +398,11 @@ namespace maze {
             } else {
                 this.warn = false
                 if (this.mode == ChaserMode.ReturnToBase || this.mode == ChaserMode.EnterBase) {
-                    this.mover.sprite.setImage(this.imgReturn)
+                    this.mover.images = this.imagesReturn
                 } else {
-                    this.mover.setImage()
+                    this.mover.images = this.images
                 }
+                this.mover.setImage()
             }
         }
 
@@ -413,9 +422,10 @@ namespace maze {
 
         place() {
             this.mover.placeAtPos(this.home.x, this.home.y)
+            this.mover.setImage()
             this.mode = ChaserMode.Wait
             this.waitDir = Direction.Up
-            this.mover.setImage()
+
         }
 
         doEaten() {

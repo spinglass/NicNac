@@ -5,14 +5,17 @@ namespace maze {
     export class Hero {
         maze: Maze
         mover: Mover
+        images: DirImage
 
         constructor() {
             this.mover = new Mover()
+            this.images = new DirImage()
         }
 
         init() {
             this.maze = getMaze()
-            this.mover.init("hero")
+            this.images.load("hero")
+            this.mover.init(this.images)
             this.mover.mapType = MapFlags.Maze
         }
 
@@ -94,6 +97,7 @@ namespace maze {
 
         place() {
             this.mover.place()
+            this.mover.setImage()
         }
     }
 }
