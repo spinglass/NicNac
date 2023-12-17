@@ -32,8 +32,7 @@ namespace maze {
         imgFright: Image
         imgReturn: Image
         waitDir: Direction
-        waitTime: number
-        forceUpdate: boolean
+        release: boolean
         base: Pos
         exit: Pos
 
@@ -49,13 +48,12 @@ namespace maze {
             this.mover.mapType = MapFlags.Maze
             this.imgFright = helpers.getImageByName("chaser_fright")
             this.imgReturn = helpers.getImageByName("chaser_return")
-            this.waitTime = -1
-            this.forceUpdate = false
         }
 
         initLevel() {
             this.base = this.maze.map.bases[this.id]
             this.exit = this.maze.map.bases[0]
+            this.release = false
             this.place()
         }
 
@@ -71,9 +69,8 @@ namespace maze {
         }
 
         private checkWait(): boolean {
-            if (this.waitDir == Direction.Up && this.waitTime >= 0 && this.maze.time > this.waitTime) {
+            if (this.waitDir == Direction.Up && this.release) {
                 this.mode = ChaserMode.ExitBase
-                this.waitTime = -1
             }
             return true
         }
@@ -335,8 +332,8 @@ namespace maze {
             this.gameMode = mode
         }
 
-        setWait(delay: number) {
-            this.waitTime = this.maze.time + 1000 * delay
+        setRelease() {
+            this.release = true
         }
 
         place() {

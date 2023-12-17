@@ -6,10 +6,11 @@ namespace maze {
     const timeScatter = 7
     const timeChase = 20
     const timeFrightened = 7
-    const timeWait = [0, 0, 20, 40]
+    const releaseCount = [0, 0, 30, 90]
 
     export class Game {
         maze: Maze
+        pillsEaten: number
         pillsRemaining: number
         levelComplete: boolean
         chaserMode: ChaserMode
@@ -17,6 +18,7 @@ namespace maze {
 
         constructor() {
             this.pillsRemaining = 0
+            this.pillsEaten = 0
             this.levelComplete = false
         }
 
@@ -44,6 +46,7 @@ namespace maze {
             //const base = this.maze.map.returnBase
             //scene.centerCameraAt(base.cx, base.cy)
 
+            this.pillsEaten = 0
             this.pillsRemaining = this.maze.map.pillCount
             this.levelComplete = false
             this.chaserEatCount = 0
@@ -76,6 +79,7 @@ namespace maze {
 
             // check for completing the level
             if (!this.levelComplete && (event == Event.EatPill || event == Event.EatPower)) {
+                ++this.pillsEaten
                 --this.pillsRemaining
 
                 if (this.pillsRemaining <= 0) {
@@ -83,6 +87,8 @@ namespace maze {
                     this.setFreeze(true)
                     this.maze.events.fire(Event.LevelComplete)
                     this.maze.events.fireLater(Event.LevelNext, 1)
+                } else {
+                    this.updateRelease()
                 }
             }
 
@@ -137,9 +143,9 @@ namespace maze {
             this.maze.hero.place()
             for (let i = 0; i < this.maze.chasers.length; ++i) {
                 const chaser = this.maze.chasers[i]
-                chaser.setWait(timeWait[i])
                 chaser.place()
             }
+            this.updateRelease()
             this.pause(1.5)
         }
 
@@ -147,6 +153,14 @@ namespace maze {
             // TEMP - complete game
             this.maze.events.fire(Event.GameComplete)
             game.gameOver(true)
+        }
+
+        private updateRelease() {
+            for (let i = 0; i < this.maze.chasers.length; ++i) {
+                if (releaseCount[i] == this.pillsEaten) {
+                    this.maze.chasers[i].setRelease()
+                }
+            }
         }
 
         private setFreeze(freeze: boolean) {
