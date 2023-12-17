@@ -56,7 +56,7 @@ namespace maze {
             this.request = Direction.None
             this.speed = 80
             this.visible = false
-            this.frozen = false
+            this.frozen = true
             this.fvx = 0
             this.fvy = 0
             this.changedTile = false

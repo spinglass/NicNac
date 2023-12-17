@@ -10,6 +10,18 @@ namespace maze {
     const timeWarnFlash = 0.25
     const releaseCount = [0, 0, 30, 90]
 
+    enum Difficulty {
+        Easy,
+        Hard,
+    }
+    export function difficultyString(diff: Difficulty) {
+        switch (diff) {
+            case Difficulty.Easy: return "Easy"
+            case Difficulty.Hard: return "Hard"
+        }
+        return null
+    }
+
     export class Game {
         maze: Maze
         pillsEaten: number
@@ -18,11 +30,13 @@ namespace maze {
         chaserMode: ChaserMode
         chaserEatCount: number
         chaserWarn: boolean
+        difficulty: Difficulty
 
         constructor() {
             this.pillsRemaining = 0
             this.pillsEaten = 0
             this.levelComplete = false
+            this.difficulty = Difficulty.Easy
         }
 
         init() {
@@ -43,6 +57,21 @@ namespace maze {
             this.maze.events.register(Event.GameOver, () => this.gameOver())
             this.maze.events.register(Event.ChaserEndMode, () => this.chaserEndMode())
             this.maze.events.register(Event.ChaserWarn, () => this.chaserSetWarn())
+        }
+
+        bootFlow() {
+            const result = ask("Welcome to NicNac", "Select difficulty", "A = Easy, B = Hard")
+            this.difficulty = result ? Difficulty.Easy : Difficulty.Hard
+
+            // get high-score for difficulty
+            const diff = difficultyString(this.difficulty)
+            let highScore = settings.readNumber("high_score_" + diff)
+            if (!highScore) {
+                highScore = 0
+            }
+            settings.writeNumber("high_score", highScore)
+
+            show("You chose: " + diff, "High score: " + highScore, " ", 2)
         }
 
         initLevel() {
@@ -146,7 +175,18 @@ namespace maze {
             this.maze.events.fireLater(Event.ChaserWarn, timeWarnFlash)
         }
 
+        private saveHighScore() {
+            // check the high score for the difficulty
+            const diff = "high_score_" + difficultyString(this.difficulty)
+            const highScore = settings.readNumber(diff)
+            const score = info.score()
+            if (!highScore || score > highScore) {
+                settings.writeNumber(diff, score)
+            }
+        }
+
         private gameOver() {
+            this.saveHighScore()
             game.setGameOverEffect(false, effects.dissolve)
             game.gameOver(false)
         }
@@ -167,6 +207,7 @@ namespace maze {
 
         private levelNext() {
             // TEMP - complete game
+            this.saveHighScore()
             this.maze.events.fire(Event.GameComplete)
             game.gameOver(true)
         }
@@ -191,6 +232,9 @@ namespace maze {
             for (const chaser of this.maze.chasers) {
                 chaser.setMode(mode)
             }
+        }
+
+        update() {
         }
     }
 }

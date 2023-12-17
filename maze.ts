@@ -67,11 +67,12 @@ namespace maze {
             this.map.init(tilemap)
             this.game.initLevel()
             this.hero.initLevel()
-            for (const c of this.chasers) {
-                c.initLevel()
+            for (const chaser of this.chasers) {
+                chaser.initLevel()
             }
             this.fruit.initLevel()
 
+            this.game.bootFlow()
             this.events.fireLater(Event.LevelStart, 0)
         }
 
@@ -82,6 +83,7 @@ namespace maze {
             this.events.fireTimedEvents()
             
             // update game elements
+            this.game.update()
             this.hero.update()
             for (const c of this.chasers) {
                 c.update()
