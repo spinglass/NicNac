@@ -33,9 +33,6 @@ namespace maze {
         init() {
             this.maze = getMaze()
 
-            info.setScore(0)
-            info.setLife(3)
-
             // register for events
             this.maze.events.register(Event.EatPill, () => this.eat(Event.EatPill))
             this.maze.events.register(Event.EatPower, () => this.eat(Event.EatPower))
@@ -62,6 +59,9 @@ namespace maze {
             }
             settings.writeNumber("high_score", highScore)
 
+            info.setScore(0)
+            info.setLife(level.lives)
+
             show("You chose: " + diff, "High score: " + highScore, " ", 2)
 
             level.init()
@@ -75,6 +75,15 @@ namespace maze {
             this.levelComplete = false
             this.chaserEatCount = 0
             this.chaserWarn = false
+
+            this.maze.hero.initLevel()
+            for (const chaser of this.maze.chasers) {
+                chaser.initLevel()
+            }
+            this.maze.fruit.initLevel()
+
+            this.maze.events.cancelAll()
+            this.maze.events.fireLater(Event.LevelStart, 0)
         }
 
         private pause(time: number) {
@@ -199,10 +208,7 @@ namespace maze {
         }
 
         private levelNext() {
-            // TEMP - complete game
-            this.saveHighScore()
-            this.maze.events.fire(Event.GameComplete)
-            game.gameOver(true)
+            this.initLevel()       
         }
 
         private updateRelease() {

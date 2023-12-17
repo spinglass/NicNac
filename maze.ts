@@ -67,17 +67,12 @@ namespace maze {
         }
 
         initLevel(tilemap: tiles.TileMapData) {
-            scene.setTileMapLevel(tilemap);
+            scene.setTileMapLevel(tilemap)
             this.map.init(tilemap)
-            this.game.initLevel()
-            this.hero.initLevel()
-            for (const chaser of this.chasers) {
-                chaser.initLevel()
-            }
-            this.fruit.initLevel()
 
             this.game.bootFlow()
-            this.events.fireLater(Event.LevelStart, 0)
+
+            this.game.initLevel()
         }
 
         update() {

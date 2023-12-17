@@ -2,6 +2,7 @@ namespace maze {
 
     export class Level {
         // game settings
+        lives: number
         scorePill: number
         scorePower: number
         scoreFruit: number[]
@@ -24,6 +25,7 @@ namespace maze {
         immortal: boolean
 
         init() {
+            this.lives = 3
             this.scorePill = 10
             this.scorePower = 50
             this.scoreFruit = [200, 400, 600, 800, 1000]
