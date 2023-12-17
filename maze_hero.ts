@@ -1,5 +1,6 @@
 namespace maze {
-    let speedHero = 80
+    const speedHero = 80
+    const immortal = false
     
     export class Hero {
         maze: Maze
@@ -54,9 +55,11 @@ namespace maze {
                 if (this.mover.tile.tx == chaser.mover.tile.tx && this.mover.tile.ty == chaser.mover.tile.ty)
                 {
                     if (chaser.mode == ChaserMode.Scatter || chaser.mode == ChaserMode.Chase) {
-                        this.maze.events.fire(Event.LoseLife)
-                        // can only get eaten once per life!
-                        break
+                        if (!immortal) {
+                            this.maze.events.fire(Event.LoseLife)
+                            // can only get eaten once per life!
+                            break
+                        }
                     }
                     if (chaser.mode == ChaserMode.Frightened) {
                         this.maze.events.fire(Event.EatChaser)

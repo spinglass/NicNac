@@ -33,6 +33,7 @@ namespace maze {
         imgReturn: Image
         waitDir: Direction
         release: boolean
+        reverse: boolean
         base: Pos
         exit: Pos
 
@@ -54,6 +55,7 @@ namespace maze {
             this.base = this.maze.map.bases[this.id]
             this.exit = this.maze.map.bases[0]
             this.release = false
+            this.reverse = false
             this.place()
         }
 
@@ -86,16 +88,10 @@ namespace maze {
 
         private checkStandard(): boolean {
             if (this.mode != this.gameMode) {
-                const prev = this.mode
-                this.mode = this.gameMode
-
-                if (prev != ChaserMode.Frightened) {
-                    // reverse
-                    this.mover.request = opposite(this.mover.dir)
-
-                    // no further update
-                    return false
+                if (this.mode != ChaserMode.Frightened) {
+                    this.reverse = true
                 }
+                this.mode = this.gameMode
             }
 
             // let the update run
@@ -199,7 +195,22 @@ namespace maze {
             return false
         }
 
+        private doReverse(): boolean {
+            if (this.mover.changedTile && this.reverse) {
+                this.reverse = false
+                const rev = opposite(this.mover.dir)
+                if (this.mover.isDirectionValid(rev)) {
+                    this.mover.request = rev
+                    return true
+                }
+            }
+            return false
+        }
+
         private doScatter(): boolean {
+            if (this.doReverse()) {
+                return true
+            }
             if (this.mover.changedTile) {
                 this.target = this.maze.map.scatterTargets[this.id]
                 this.doTarget()
@@ -208,6 +219,9 @@ namespace maze {
         }
 
         private doChase(): boolean {
+            if (this.doReverse()) {
+                return true
+            }
             if (this.mover.changedTile) {
                 // generate target
                 switch(this.kind) {
@@ -233,6 +247,9 @@ namespace maze {
         }
 
         private doFrightened(): boolean {
+            if (this.doReverse()) {
+                return true
+            }
             if (this.mover.changedTile) {
                 let dirs: Direction[] = [Direction.Up, Direction.Right, Direction.Down, Direction.Left]
                 let options: Direction[] = []
