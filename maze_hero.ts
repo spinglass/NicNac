@@ -1,7 +1,4 @@
 namespace maze {
-    const speedHero = 80
-    const immortal = false
-    
     export class Hero {
         maze: Maze
         mover: Mover
@@ -23,7 +20,6 @@ namespace maze {
             this.mover.hx = this.maze.map.home.x
             this.mover.hy = this.maze.map.home.y
             this.mover.place()
-            this.mover.speed = speedHero
         }
 
         update() {
@@ -41,6 +37,7 @@ namespace maze {
                 this.mover.request = Direction.Right
             }
 
+            this.mover.speed = level.speedHero
             this.mover.update()
             this.mover.setImage()
 
@@ -58,7 +55,7 @@ namespace maze {
                 if (this.mover.tile.tx == chaser.mover.tile.tx && this.mover.tile.ty == chaser.mover.tile.ty)
                 {
                     if (chaser.mode == ChaserMode.Scatter || chaser.mode == ChaserMode.Chase) {
-                        if (!immortal) {
+                        if (!level.immortal) {
                             this.maze.events.fire(Event.LoseLife)
 
                             // can only get eaten once per life!

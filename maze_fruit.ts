@@ -7,7 +7,6 @@ namespace maze {
         visible: boolean
         pillCount: number
         count: number           // total fruit eaten
-        despawnTime: number
 
         constructor() {
         }
@@ -21,7 +20,6 @@ namespace maze {
 
         initLevel() {
             this.pillCount = 0
-            this.despawnTime = 10
 
             this.setVisible(false)
             this.sprite.x = this.maze.map.fruit.x
@@ -46,7 +44,7 @@ namespace maze {
                 this.setVisible(true)
                 
                 this.maze.events.fire(Event.FruitSpawn)
-                this.maze.events.fireLater(Event.FruitDespawn, this.despawnTime)
+                this.maze.events.fireLater(Event.FruitDespawn, level.timeFruitDespawn)
             }
         }
 

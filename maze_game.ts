@@ -1,21 +1,12 @@
 namespace maze {
-    const scorePill = 10
-    const scorePower = 50
-    const scoreFruit = [200, 400, 600, 800, 1000]
-    const scoreChaser = [100, 200, 400, 800]
-    const timeScatter = 7
-    const timeChase = 20
-    const timeFright = 7
-    const timeWarn = 5
-    const timeWarnFlash = 0.25
-    const releaseCount = [0, 0, 30, 90]
-
-    enum Difficulty {
+    export enum Difficulty {
+        None,
         Easy,
         Hard,
     }
     export function difficultyString(diff: Difficulty) {
         switch (diff) {
+            case Difficulty.None: return "None"
             case Difficulty.Easy: return "Easy"
             case Difficulty.Hard: return "Hard"
         }
@@ -36,7 +27,7 @@ namespace maze {
             this.pillsRemaining = 0
             this.pillsEaten = 0
             this.levelComplete = false
-            this.difficulty = Difficulty.Easy
+            this.difficulty = Difficulty.None
         }
 
         init() {
@@ -72,6 +63,8 @@ namespace maze {
             settings.writeNumber("high_score", highScore)
 
             show("You chose: " + diff, "High score: " + highScore, " ", 2)
+
+            level.init()
         }
 
         initLevel() {
@@ -93,15 +86,15 @@ namespace maze {
             // eat events
             let s = 0
             if (event == Event.EatPill) {
-                s = scorePill
+                s = level.scorePill
             } else if (event == Event.EatPower) {
-                s = scorePower
+                s = level.scorePower
             } else if (event == Event.EatFruit) {
-                const i = Math.min(this.maze.fruit.count - 1, scoreFruit.length - 1)
-                s = scoreFruit[i]
+                const i = Math.min(this.maze.fruit.count - 1, level.scoreFruit.length - 1)
+                s = level.scoreFruit[i]
                 this.maze.hero.mover.sprite.say(s, 1000)
             } else if (event == Event.EatChaser) {
-                s = scoreChaser[this.chaserEatCount++]
+                s = level.scoreChaser[this.chaserEatCount++]
 
                 // pause to enjoy the taste
                 this.maze.hero.mover.sprite.say(s, 1000)
@@ -126,8 +119,8 @@ namespace maze {
 
             if (!this.levelComplete && event == Event.EatPower) {
                 this.setChaserMode(ChaserMode.Fright)
-                this.maze.events.fireLater(Event.ChaserEndMode, timeFright)
-                this.maze.events.fireLater(Event.ChaserWarn, timeWarn)
+                this.maze.events.fireLater(Event.ChaserEndMode, level.timeFright)
+                this.maze.events.fireLater(Event.ChaserWarn, level.timeWarn)
             }
         }
 
@@ -155,11 +148,11 @@ namespace maze {
                 case ChaserMode.Scatter:
                 case ChaserMode.Fright:
                     this.setChaserMode(ChaserMode.Chase)
-                    this.maze.events.fireLater(Event.ChaserEndMode, timeChase)
+                    this.maze.events.fireLater(Event.ChaserEndMode, level.timeChase)
                     break
                 case ChaserMode.Chase:
                     this.setChaserMode(ChaserMode.Scatter)
-                    this.maze.events.fireLater(Event.ChaserEndMode, timeScatter)
+                    this.maze.events.fireLater(Event.ChaserEndMode, level.timeScatter)
                     break
             }
             this.chaserEatCount = 0
@@ -172,7 +165,7 @@ namespace maze {
             }
 
             // resend to flash the warning
-            this.maze.events.fireLater(Event.ChaserWarn, timeWarnFlash)
+            this.maze.events.fireLater(Event.ChaserWarn, level.timeWarnFlash)
         }
 
         private saveHighScore() {
@@ -194,7 +187,7 @@ namespace maze {
         private levelStart() {
             // set mode
             this.setChaserMode(ChaserMode.Scatter)
-            this.maze.events.fireLater(Event.ChaserEndMode, timeScatter)
+            this.maze.events.fireLater(Event.ChaserEndMode, level.timeScatter)
 
             this.maze.hero.place()
             for (let i = 0; i < this.maze.chasers.length; ++i) {
@@ -214,7 +207,7 @@ namespace maze {
 
         private updateRelease() {
             for (let i = 0; i < this.maze.chasers.length; ++i) {
-                if (releaseCount[i] == this.pillsEaten) {
+                if (level.pillReleaseCount[i] == this.pillsEaten) {
                     this.maze.chasers[i].setRelease()
                 }
             }

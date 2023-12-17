@@ -1,8 +1,4 @@
 namespace maze {
-    const speedChaser = 75
-    const speedChaserFright = 40
-    const speedChaserWait = 40
-
     export enum ChaserKind {
         Blinky,
         Pinky,
@@ -359,15 +355,15 @@ namespace maze {
         private updateSpeed() {
             switch (this.mode) {
                 default:
-                    this.mover.speed = speedChaser
+                    this.mover.speed = level.speedChaser
                     break
                 case ChaserMode.Fright:
-                    this.mover.speed = speedChaserFright
+                    this.mover.speed = level.speedChaserFright
                     break
                 case ChaserMode.Wait:
                 case ChaserMode.ExitBase:
                 case ChaserMode.EnterBase:
-                    this.mover.speed = speedChaserWait
+                    this.mover.speed = level.speedChaserWait
             }
         }
 

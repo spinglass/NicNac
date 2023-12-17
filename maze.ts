@@ -34,6 +34,8 @@ namespace maze {
         time: number
 
         constructor() {
+            level = new Level()
+
             this.audio = new Audio()
             this.events = new EventManager()
             this.game = new Game()
@@ -49,6 +51,8 @@ namespace maze {
         }
 
         init() {
+            level.init()
+
             this.time = game.runtime()
             this.audio.init()
             this.events.init()
