@@ -1,5 +1,5 @@
-// meta={"simUrl":"https://trg-arcade.userpxt.io/v1.12.46/---simulator","cdnUrl":"https://pxt.azureedge.net","version":"1.3.0","target":"arcade","targetVersion":"1.12.46","repo":"spinglass/nicnac"}
-// total=2384975 new=21.64% cached=73.66% other=4.70%
+// meta={"simUrl":"https://trg-arcade.userpxt.io/v1.12.46/---simulator","cdnUrl":"https://pxt.azureedge.net","version":"1.4.0","target":"arcade","targetVersion":"1.12.46","repo":"spinglass/nicnac"}
+// total=2386688 new=21.69% cached=73.61% other=4.70%
 (function (ectx) {
 'use strict';
 const runtime = ectx.runtime;
@@ -288,6 +288,7 @@ pxtrt.mapKeyNames = [
  "frameWorker",
  "frames",
  "framesInSample",
+ "freeze",
  "frequency",
  "frozen",
  "fruit",
@@ -731,7 +732,7 @@ const pxsim_pxtrt = pxsim.pxtrt;
 const pxsim_numops = pxsim.numops;
 
 
-function _main___P234274(s) {
+function _main___P266376(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -1291,24 +1292,24 @@ switch (step) {
     s.tmp_0 = maze_setTilemap__P4397_mk(s);
     s.tmp_1 = helpers_getTilemapByName__P3335_mk(s);
     s.tmp_1.arg0 = "maze";
-    s.callLocIdx = 556; s.pc = 47; return s.tmp_1;
+    s.callLocIdx = 557; s.pc = 47; return s.tmp_1;
   case 47:
     r0 = s.retval;
     s.tmp_0.arg0 = r0;
-    s.callLocIdx = 557; s.pc = 46; return s.tmp_0;
+    s.callLocIdx = 558; s.pc = 46; return s.tmp_0;
   case 46:
     r0 = s.retval;
     r0 = undefined;
     return leave(s, r0)
   default: oops()
 } } }
-_main___P234274.info = {"start":0,"length":0,"line":0,"column":0,"endLine":0,"endColumn":0,"fileName":"main.ts","functionName":"<main>","argumentNames":[]}
-_main___P234274.continuations = [  ]
+_main___P266376.info = {"start":0,"length":0,"line":0,"column":0,"endLine":0,"endColumn":0,"fileName":"main.ts","functionName":"<main>","argumentNames":[]}
+_main___P266376.continuations = [  ]
 
-function _main___P234274_mk(s) {
+function _main___P266376_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: _main___P234274, depth: s.depth + 1,
+        parent: s, fn: _main___P266376, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
@@ -3419,8 +3420,8 @@ switch (step) {
   case 0:
 
     s.c___7663 = undefined;
-    s.unnamed20496___U1 = undefined;
-    s.unnamed20497___U2 = undefined;
+    s.unnamed24080___U1 = undefined;
+    s.unnamed24081___U2 = undefined;
     if (s.lambdaArgs) {
       s.arg0 = (s.lambdaArgs[0]);
       s.lambdaArgs = null;
@@ -3451,7 +3452,7 @@ switch (step) {
     s.callLocIdx = 87; s.pc = 6; return s.tmp_0;
   case 6:
     r0 = s.retval;
-    s.tmp_0 = maze_Game_init__P4519_mk(s);
+    s.tmp_0 = maze_Game_init__P264822_mk(s);
     r0 = s.arg0.fields["game"];
     s.tmp_0.arg0 = r0;
     s.callLocIdx = 88; s.pc = 7; return s.tmp_0;
@@ -3465,26 +3466,26 @@ switch (step) {
     r0 = s.retval;
     s.c___7663 = (undefined);
     r0 = s.arg0.fields["chasers"];
-    s.unnamed20496___U1 = (r0);
-    s.unnamed20497___U2 = (0);
+    s.unnamed24080___U1 = (r0);
+    s.unnamed24081___U2 = (0);
   case 1:
-    s.tmp_0 = r0 = s.unnamed20497___U2;
-    r0 = pxsim_Array__length(s.unnamed20496___U1);
+    s.tmp_0 = r0 = s.unnamed24081___U2;
+    r0 = pxsim_Array__length(s.unnamed24080___U1);
     s.tmp_1 = r0;
     r0 = (s.tmp_0 < s.tmp_1);
     if (!r0) { step = 2; continue; }
-    r0 = pxsim_Array__getAt(s.unnamed20496___U1, s.unnamed20497___U2);
+    r0 = pxsim_Array__getAt(s.unnamed24080___U1, s.unnamed24081___U2);
     s.c___7663 = (r0);
     s.tmp_2 = maze_Chaser_init__P200287_mk(s);
     s.tmp_2.arg0 = s.c___7663;
     s.callLocIdx = 90; s.pc = 9; return s.tmp_2;
   case 9:
     r0 = s.retval;
-    r0 = (s.unnamed20497___U2 + 1);
-    s.unnamed20497___U2 = (r0);
+    r0 = (s.unnamed24081___U2 + 1);
+    s.unnamed24081___U2 = (r0);
     { step = 1; continue; }
   case 2:
-    s.unnamed20496___U1 = (undefined);
+    s.unnamed24080___U1 = (undefined);
     s.tmp_0 = maze_Fruit_init__P4562_mk(s);
     r0 = s.arg0.fields["fruit"];
     s.tmp_0.arg0 = r0;
@@ -3511,8 +3512,8 @@ function maze_Maze_init__P4393_mk(s) {
   tmp_1: undefined,
   tmp_2: undefined,
   c___7663: undefined,
-  unnamed20496___U1: undefined,
-  unnamed20497___U2: undefined,
+  unnamed24080___U1: undefined,
+  unnamed24081___U2: undefined,
   arg0: undefined,
 } }
 
@@ -3569,8 +3570,8 @@ switch (step) {
   case 0:
 
     s.c___7703 = undefined;
-    s.unnamed20498___U1 = undefined;
-    s.unnamed20499___U2 = undefined;
+    s.unnamed24082___U1 = undefined;
+    s.unnamed24083___U2 = undefined;
     if (s.lambdaArgs) {
       s.arg0 = (s.lambdaArgs[0]);
       s.lambdaArgs = null;
@@ -3590,7 +3591,7 @@ switch (step) {
     s.callLocIdx = 100; s.pc = 4; return s.tmp_0;
   case 4:
     r0 = s.retval;
-    s.tmp_0 = maze_Game_update__P4522_mk(s);
+    s.tmp_0 = maze_Game_update__P264837_mk(s);
     r0 = s.arg0.fields["game"];
     s.tmp_0.arg0 = r0;
     s.callLocIdx = 101; s.pc = 5; return s.tmp_0;
@@ -3604,26 +3605,26 @@ switch (step) {
     r0 = s.retval;
     s.c___7703 = (undefined);
     r0 = s.arg0.fields["chasers"];
-    s.unnamed20498___U1 = (r0);
-    s.unnamed20499___U2 = (0);
+    s.unnamed24082___U1 = (r0);
+    s.unnamed24083___U2 = (0);
   case 1:
-    s.tmp_0 = r0 = s.unnamed20499___U2;
-    r0 = pxsim_Array__length(s.unnamed20498___U1);
+    s.tmp_0 = r0 = s.unnamed24083___U2;
+    r0 = pxsim_Array__length(s.unnamed24082___U1);
     s.tmp_1 = r0;
     r0 = (s.tmp_0 < s.tmp_1);
     if (!r0) { step = 2; continue; }
-    r0 = pxsim_Array__getAt(s.unnamed20498___U1, s.unnamed20499___U2);
+    r0 = pxsim_Array__getAt(s.unnamed24082___U1, s.unnamed24083___U2);
     s.c___7703 = (r0);
     s.tmp_2 = maze_Chaser_update__P200308_mk(s);
     s.tmp_2.arg0 = s.c___7703;
     s.callLocIdx = 103; s.pc = 7; return s.tmp_2;
   case 7:
     r0 = s.retval;
-    r0 = (s.unnamed20499___U2 + 1);
-    s.unnamed20499___U2 = (r0);
+    r0 = (s.unnamed24083___U2 + 1);
+    s.unnamed24083___U2 = (r0);
     { step = 1; continue; }
   case 2:
-    s.unnamed20498___U1 = (undefined);
+    s.unnamed24082___U1 = (undefined);
     s.tmp_0 = maze_Fruit_update__P4564_mk(s);
     r0 = s.arg0.fields["fruit"];
     s.tmp_0.arg0 = r0;
@@ -3651,8 +3652,8 @@ function maze_Maze_update__P4395_mk(s) {
   tmp_1: undefined,
   tmp_2: undefined,
   c___7703: undefined,
-  unnamed20498___U1: undefined,
-  unnamed20499___U2: undefined,
+  unnamed24082___U1: undefined,
+  unnamed24083___U2: undefined,
   arg0: undefined,
 } }
 
@@ -3691,7 +3692,7 @@ switch (step) {
     s.tmp_4 = r0;
     r0 = pxsim_Array_.removeAt(s.tmp_4, 0);
     s.tmp_3.arg1 = r0;
-    s.callLocIdx = 430; s.pc = 3; return s.tmp_3;
+    s.callLocIdx = 431; s.pc = 3; return s.tmp_3;
   case 3:
     r0 = s.retval;
     { step = 1; continue; }
@@ -3762,8 +3763,8 @@ switch (step) {
   case 0:
 
     s.handler___10008 = undefined;
-    s.unnamed20518___U1 = undefined;
-    s.unnamed20519___U2 = undefined;
+    s.unnamed24102___U1 = undefined;
+    s.unnamed24103___U2 = undefined;
     if (s.lambdaArgs) {
       s.arg0 = (s.lambdaArgs[0]);
       s.arg1 = (s.lambdaArgs[1]);
@@ -3773,15 +3774,15 @@ switch (step) {
     if (!checkSubtype(r0, maze_EventManager__C4540_VT)) failedCast(r0);
     s.handler___10008 = (undefined);
     r0 = s.arg0.fields["handlers"];
-    s.unnamed20518___U1 = (r0);
-    s.unnamed20519___U2 = (0);
+    s.unnamed24102___U1 = (r0);
+    s.unnamed24103___U2 = (0);
   case 1:
-    s.tmp_0 = r0 = s.unnamed20519___U2;
-    r0 = pxsim_Array__length(s.unnamed20518___U1);
+    s.tmp_0 = r0 = s.unnamed24103___U2;
+    r0 = pxsim_Array__length(s.unnamed24102___U1);
     s.tmp_1 = r0;
     r0 = (s.tmp_0 < s.tmp_1);
     if (!r0) { step = 4; continue; }
-    r0 = pxsim_Array__getAt(s.unnamed20518___U1, s.unnamed20519___U2);
+    r0 = pxsim_Array__getAt(s.unnamed24102___U1, s.unnamed24103___U2);
     s.handler___10008 = (r0);
     r0 = s.handler___10008.fields["event"];
     s.tmp_3 = r0;
@@ -3793,22 +3794,22 @@ switch (step) {
     s.tmp_4.arg0 = s.handler___10008;
     if (!s.tmp_4.arg0.vtable.iface) {
       setupLambda(s.tmp_4, pxsim_pxtrt.mapGetByString(s.tmp_4.arg0, "callback"), 1);
-      s.callLocIdx = 425; s.pc = 5; return s.tmp_4;
+      s.callLocIdx = 426; s.pc = 5; return s.tmp_4;
     } else {
       s.tmp_4.fn = s.tmp_4.arg0.vtable.iface["callback"];
-      if (s.tmp_4.fn == null) { setupLambda(s.tmp_4, s.tmp_4.arg0.fields["callback"], 1); s.callLocIdx = 425; s.pc = 5; return s.tmp_4; }
-      else if (s.tmp_4.fn.isGetter) { s.tmp_4.stage2Call = true; s.callLocIdx = 425; s.pc = 5; return s.tmp_4;; }
-     else { s.callLocIdx = 425; s.pc = 5; return s.tmp_4; }
+      if (s.tmp_4.fn == null) { setupLambda(s.tmp_4, s.tmp_4.arg0.fields["callback"], 1); s.callLocIdx = 426; s.pc = 5; return s.tmp_4; }
+      else if (s.tmp_4.fn.isGetter) { s.tmp_4.stage2Call = true; s.callLocIdx = 426; s.pc = 5; return s.tmp_4;; }
+     else { s.callLocIdx = 426; s.pc = 5; return s.tmp_4; }
     }
   case 5:
     r0 = s.retval;
   case 2:
   case 3:
-    r0 = (s.unnamed20519___U2 + 1);
-    s.unnamed20519___U2 = (r0);
+    r0 = (s.unnamed24103___U2 + 1);
+    s.unnamed24103___U2 = (r0);
     { step = 1; continue; }
   case 4:
-    s.unnamed20518___U1 = (undefined);
+    s.unnamed24102___U1 = (undefined);
     r0 = undefined;
     return leave(s, r0)
   default: oops()
@@ -3826,8 +3827,8 @@ function maze_EventManager_callHandlers__P7569_mk(s) {
   tmp_3: undefined,
   tmp_4: undefined,
   handler___10008: undefined,
-  unnamed20518___U1: undefined,
-  unnamed20519___U2: undefined,
+  unnamed24102___U1: undefined,
+  unnamed24103___U2: undefined,
   arg0: undefined,
   arg1: undefined,
 } }
@@ -3867,13 +3868,13 @@ switch (step) {
     s.tmp_4 = Sprite_x__P2354_mk(s);
     r0 = s.arg0.fields["sprite"];
     s.tmp_4.arg0 = r0;
-    s.callLocIdx = 452; s.pc = 8; return s.tmp_4;
+    s.callLocIdx = 453; s.pc = 8; return s.tmp_4;
   case 8:
     r0 = s.retval;
     s.tmp_3 = r0;
     r0 = (s.tmp_2 - s.tmp_3);
     s.tmp_1.arg0 = r0;
-    s.callLocIdx = 453; s.pc = 7; return s.tmp_1;
+    s.callLocIdx = 454; s.pc = 7; return s.tmp_1;
   case 7:
     r0 = s.retval;
     s.dx___10238 = (r0);
@@ -3886,13 +3887,13 @@ switch (step) {
     s.tmp_3 = Sprite_y__P2356_mk(s);
     r0 = s.arg0.fields["sprite"];
     s.tmp_3.arg0 = r0;
-    s.callLocIdx = 454; s.pc = 10; return s.tmp_3;
+    s.callLocIdx = 455; s.pc = 10; return s.tmp_3;
   case 10:
     r0 = s.retval;
     s.tmp_2 = r0;
     r0 = (s.tmp_1 - s.tmp_2);
     s.tmp_0.arg0 = r0;
-    s.callLocIdx = 455; s.pc = 9; return s.tmp_0;
+    s.callLocIdx = 456; s.pc = 9; return s.tmp_0;
   case 9:
     r0 = s.retval;
     s.dy___10250 = (r0);
@@ -3920,7 +3921,7 @@ switch (step) {
     r0 = r0.fields["events"];
     s.tmp_0.arg0 = r0;
     s.tmp_0.arg1 = 10;
-    s.callLocIdx = 456; s.pc = 11; return s.tmp_0;
+    s.callLocIdx = 457; s.pc = 11; return s.tmp_0;
   case 11:
     r0 = s.retval;
     s.tmp_0 = maze_EventManager_fire__P4547_mk(s);
@@ -3928,13 +3929,13 @@ switch (step) {
     r0 = r0.fields["events"];
     s.tmp_0.arg0 = r0;
     s.tmp_0.arg1 = 2;
-    s.callLocIdx = 457; s.pc = 12; return s.tmp_0;
+    s.callLocIdx = 458; s.pc = 12; return s.tmp_0;
   case 12:
     r0 = s.retval;
     s.tmp_0 = maze_Fruit_setVisible__P7608_mk(s);
     s.tmp_0.arg0 = s.arg0;
     s.tmp_0.arg1 = false;
-    s.callLocIdx = 458; s.pc = 13; return s.tmp_0;
+    s.callLocIdx = 459; s.pc = 13; return s.tmp_0;
   case 13:
     r0 = s.retval;
   case 3:
@@ -3992,7 +3993,7 @@ switch (step) {
     s.tmp_1 = r0;
     r0 = pxsim_Boolean__bang(s.tmp_1);
     s.tmp_0.arg2 = r0;
-    s.callLocIdx = 446; s.pc = 1; return s.tmp_0;
+    s.callLocIdx = 447; s.pc = 1; return s.tmp_0;
   case 1:
     r0 = s.retval;
     s.tmp_0 = Sprite_setFlag__P2419_mk(s);
@@ -4003,7 +4004,7 @@ switch (step) {
     s.tmp_1 = r0;
     r0 = pxsim_Boolean__bang(s.tmp_1);
     s.tmp_0.arg2 = r0;
-    s.callLocIdx = 447; s.pc = 2; return s.tmp_0;
+    s.callLocIdx = 448; s.pc = 2; return s.tmp_0;
   case 2:
     r0 = s.retval;
     r0 = undefined;
@@ -4142,8 +4143,8 @@ switch (step) {
   case 0:
 
     s.e___10109 = undefined;
-    s.unnamed20524___U1 = undefined;
-    s.unnamed20525___U2 = undefined;
+    s.unnamed24108___U1 = undefined;
+    s.unnamed24109___U2 = undefined;
     if (s.lambdaArgs) {
       s.arg0 = (s.lambdaArgs[0]);
       s.arg1 = (s.lambdaArgs[1]);
@@ -4153,15 +4154,15 @@ switch (step) {
     if (!checkSubtype(r0, maze_EventManager__C4540_VT)) failedCast(r0);
     s.e___10109 = (undefined);
     r0 = s.arg0.fields["timedEvents"];
-    s.unnamed20524___U1 = (r0);
-    s.unnamed20525___U2 = (0);
+    s.unnamed24108___U1 = (r0);
+    s.unnamed24109___U2 = (0);
   case 1:
-    s.tmp_0 = r0 = s.unnamed20525___U2;
-    r0 = pxsim_Array__length(s.unnamed20524___U1);
+    s.tmp_0 = r0 = s.unnamed24109___U2;
+    r0 = pxsim_Array__length(s.unnamed24108___U1);
     s.tmp_1 = r0;
     r0 = (s.tmp_0 < s.tmp_1);
     if (!r0) { step = 4; continue; }
-    r0 = pxsim_Array__getAt(s.unnamed20524___U1, s.unnamed20525___U2);
+    r0 = pxsim_Array__getAt(s.unnamed24108___U1, s.unnamed24109___U2);
     s.e___10109 = (r0);
     r0 = s.e___10109.fields["event"];
     s.tmp_3 = r0;
@@ -4172,11 +4173,11 @@ switch (step) {
     r0 = (s.e___10109).fields["time"] = (1000000000);
   case 2:
   case 3:
-    r0 = (s.unnamed20525___U2 + 1);
-    s.unnamed20525___U2 = (r0);
+    r0 = (s.unnamed24109___U2 + 1);
+    s.unnamed24109___U2 = (r0);
     { step = 1; continue; }
   case 4:
-    s.unnamed20524___U1 = (undefined);
+    s.unnamed24108___U1 = (undefined);
     r0 = undefined;
     return leave(s, r0)
   default: oops()
@@ -4193,8 +4194,8 @@ function maze_EventManager_cancel__P4552_mk(s) {
   tmp_2: undefined,
   tmp_3: undefined,
   e___10109: undefined,
-  unnamed20524___U1: undefined,
-  unnamed20525___U2: undefined,
+  unnamed24108___U1: undefined,
+  unnamed24109___U2: undefined,
   arg0: undefined,
   arg1: undefined,
 } }
@@ -4471,7 +4472,7 @@ switch (step) {
     s.tmp_3 = maze_Mover_isReady__P232030_mk(s);
     r0 = s.arg0.fields["mover"];
     s.tmp_3.arg0 = r0;
-    s.callLocIdx = 525; s.pc = 16; return s.tmp_3;
+    s.callLocIdx = 526; s.pc = 16; return s.tmp_3;
   case 16:
     r0 = s.retval;
     s.tmp_2 = r0;
@@ -4487,7 +4488,7 @@ switch (step) {
     s.update___201241 = (true);
     s.tmp_1 = maze_Chaser_checkMode__P200305_mk(s);
     s.tmp_1.arg0 = s.arg0;
-    s.callLocIdx = 526; s.pc = 17; return s.tmp_1;
+    s.callLocIdx = 527; s.pc = 17; return s.tmp_1;
   case 17:
     r0 = s.retval;
     s.tmp_0 = r0;
@@ -4495,7 +4496,7 @@ switch (step) {
     if (!r0) { step = 3; continue; }
     s.tmp_2 = maze_Chaser_doMode__P200306_mk(s);
     s.tmp_2.arg0 = s.arg0;
-    s.callLocIdx = 527; s.pc = 18; return s.tmp_2;
+    s.callLocIdx = 528; s.pc = 18; return s.tmp_2;
   case 18:
     r0 = s.retval;
     s.update___201241 = (r0);
@@ -4503,7 +4504,7 @@ switch (step) {
   case 4:
     s.tmp_0 = maze_Chaser_updateSpeed__P200307_mk(s);
     s.tmp_0.arg0 = s.arg0;
-    s.callLocIdx = 528; s.pc = 19; return s.tmp_0;
+    s.callLocIdx = 529; s.pc = 19; return s.tmp_0;
   case 19:
     r0 = s.retval;
     r0 = pxsim_numops_toBoolDecr(s.update___201241);
@@ -4511,7 +4512,7 @@ switch (step) {
     s.tmp_0 = maze_Mover_update__P232027_mk(s);
     r0 = s.arg0.fields["mover"];
     s.tmp_0.arg0 = r0;
-    s.callLocIdx = 529; s.pc = 20; return s.tmp_0;
+    s.callLocIdx = 530; s.pc = 20; return s.tmp_0;
   case 20:
     r0 = s.retval;
   case 5:
@@ -4531,7 +4532,7 @@ switch (step) {
     s.tmp_3.arg0 = r0;
     r0 = s.arg0.fields["imgWarn"];
     s.tmp_3.arg1 = r0;
-    s.callLocIdx = 530; s.pc = 21; return s.tmp_3;
+    s.callLocIdx = 531; s.pc = 21; return s.tmp_3;
   case 21:
     r0 = s.retval;
     { step = 8; continue; }
@@ -4541,7 +4542,7 @@ switch (step) {
     s.tmp_0.arg0 = r0;
     r0 = s.arg0.fields["imgFright"];
     s.tmp_0.arg1 = r0;
-    s.callLocIdx = 531; s.pc = 22; return s.tmp_0;
+    s.callLocIdx = 532; s.pc = 22; return s.tmp_0;
   case 22:
     r0 = s.retval;
   case 8:
@@ -4570,7 +4571,7 @@ switch (step) {
     s.tmp_4.arg0 = r0;
     r0 = s.arg0.fields["imgReturn"];
     s.tmp_4.arg1 = r0;
-    s.callLocIdx = 532; s.pc = 23; return s.tmp_4;
+    s.callLocIdx = 533; s.pc = 23; return s.tmp_4;
   case 23:
     r0 = s.retval;
     { step = 13; continue; }
@@ -4580,14 +4581,14 @@ switch (step) {
     s.tmp_0.arg0 = r0;
     r0 = s.arg0.fields["img"];
     s.tmp_0.arg1 = r0;
-    s.callLocIdx = 533; s.pc = 24; return s.tmp_0;
+    s.callLocIdx = 534; s.pc = 24; return s.tmp_0;
   case 24:
     r0 = s.retval;
   case 13:
     s.tmp_0 = maze_Mover_setImage__P232022_mk(s);
     r0 = s.arg0.fields["mover"];
     s.tmp_0.arg0 = r0;
-    s.callLocIdx = 534; s.pc = 25; return s.tmp_0;
+    s.callLocIdx = 535; s.pc = 25; return s.tmp_0;
   case 25:
     r0 = s.retval;
   case 14:
@@ -9906,8 +9907,8 @@ switch (step) {
   case 0:
 
     s.tunnel___8701 = undefined;
-    s.unnamed20508___U1 = undefined;
-    s.unnamed20509___U2 = undefined;
+    s.unnamed24092___U1 = undefined;
+    s.unnamed24093___U2 = undefined;
     if (s.lambdaArgs) {
       s.arg0 = (s.lambdaArgs[0]);
       s.arg1 = (s.lambdaArgs[1]);
@@ -9935,15 +9936,15 @@ switch (step) {
     if (!r0) { step = 13; continue; }
     s.tunnel___8701 = (undefined);
     r0 = s.arg0.fields["tunnels"];
-    s.unnamed20508___U1 = (r0);
-    s.unnamed20509___U2 = (0);
+    s.unnamed24092___U1 = (r0);
+    s.unnamed24093___U2 = (0);
   case 3:
-    s.tmp_0 = r0 = s.unnamed20509___U2;
-    r0 = pxsim_Array__length(s.unnamed20508___U1);
+    s.tmp_0 = r0 = s.unnamed24093___U2;
+    r0 = pxsim_Array__length(s.unnamed24092___U1);
     s.tmp_1 = r0;
     r0 = (s.tmp_0 < s.tmp_1);
     if (!r0) { step = 12; continue; }
-    r0 = pxsim_Array__getAt(s.unnamed20508___U1, s.unnamed20509___U2);
+    r0 = pxsim_Array__getAt(s.unnamed24092___U1, s.unnamed24093___U2);
     s.tunnel___8701 = (r0);
     r0 = s.tunnel___8701.fields["tx"];
     s.tmp_3 = r0;
@@ -9998,11 +9999,11 @@ switch (step) {
     { step = 15; continue; }
   case 10:
   case 11:
-    r0 = (s.unnamed20509___U2 + 1);
-    s.unnamed20509___U2 = (r0);
+    r0 = (s.unnamed24093___U2 + 1);
+    s.unnamed24093___U2 = (r0);
     { step = 3; continue; }
   case 12:
-    s.unnamed20508___U1 = (undefined);
+    s.unnamed24092___U1 = (undefined);
   case 13:
   case 14:
     r0 = null;
@@ -10033,8 +10034,8 @@ function maze_Map_useTunnel__P4454_mk(s) {
   tmp_13: undefined,
   tmp_14: undefined,
   tunnel___8701: undefined,
-  unnamed20508___U1: undefined,
-  unnamed20509___U2: undefined,
+  unnamed24092___U1: undefined,
+  unnamed24093___U2: undefined,
   arg0: undefined,
   arg1: undefined,
 } }
@@ -10787,49 +10788,49 @@ switch (step) {
   case 1:
     s.tmp_1 = maze_Chaser_doWait__P200297_mk(s);
     s.tmp_1.arg0 = s.arg0;
-    s.callLocIdx = 518; s.pc = 10; return s.tmp_1;
+    s.callLocIdx = 519; s.pc = 10; return s.tmp_1;
   case 10:
     r0 = s.retval;
     { step = 9; continue; }
   case 2:
     s.tmp_2 = maze_Chaser_doEnterBase__P200298_mk(s);
     s.tmp_2.arg0 = s.arg0;
-    s.callLocIdx = 519; s.pc = 11; return s.tmp_2;
+    s.callLocIdx = 520; s.pc = 11; return s.tmp_2;
   case 11:
     r0 = s.retval;
     { step = 9; continue; }
   case 3:
     s.tmp_3 = maze_Chaser_doExitBase__P200299_mk(s);
     s.tmp_3.arg0 = s.arg0;
-    s.callLocIdx = 520; s.pc = 12; return s.tmp_3;
+    s.callLocIdx = 521; s.pc = 12; return s.tmp_3;
   case 12:
     r0 = s.retval;
     { step = 9; continue; }
   case 4:
     s.tmp_4 = maze_Chaser_doScatter__P200301_mk(s);
     s.tmp_4.arg0 = s.arg0;
-    s.callLocIdx = 521; s.pc = 13; return s.tmp_4;
+    s.callLocIdx = 522; s.pc = 13; return s.tmp_4;
   case 13:
     r0 = s.retval;
     { step = 9; continue; }
   case 5:
     s.tmp_5 = maze_Chaser_doChase__P200302_mk(s);
     s.tmp_5.arg0 = s.arg0;
-    s.callLocIdx = 522; s.pc = 14; return s.tmp_5;
+    s.callLocIdx = 523; s.pc = 14; return s.tmp_5;
   case 14:
     r0 = s.retval;
     { step = 9; continue; }
   case 6:
     s.tmp_6 = maze_Chaser_doFright__P200303_mk(s);
     s.tmp_6.arg0 = s.arg0;
-    s.callLocIdx = 523; s.pc = 15; return s.tmp_6;
+    s.callLocIdx = 524; s.pc = 15; return s.tmp_6;
   case 15:
     r0 = s.retval;
     { step = 9; continue; }
   case 7:
     s.tmp_7 = maze_Chaser_doReturnToBase__P200304_mk(s);
     s.tmp_7.arg0 = s.arg0;
-    s.callLocIdx = 524; s.pc = 16; return s.tmp_7;
+    s.callLocIdx = 525; s.pc = 16; return s.tmp_7;
   case 16:
     r0 = s.retval;
     { step = 9; continue; }
@@ -10884,7 +10885,7 @@ switch (step) {
     r0 = (s.arg0).fields["target"] = (s.tmp_0);
     s.tmp_0 = maze_Chaser_doTarget__P200296_mk(s);
     s.tmp_0.arg0 = s.arg0;
-    s.callLocIdx = 511; s.pc = 1; return s.tmp_0;
+    s.callLocIdx = 512; s.pc = 1; return s.tmp_0;
   case 1:
     r0 = s.retval;
     r0 = true;
@@ -10922,8 +10923,8 @@ switch (step) {
     s.dirY___200741 = undefined;
     s.dirs___200747 = undefined;
     s.dir___200771 = undefined;
-    s.unnamed20526___U6 = undefined;
-    s.unnamed20527___U7 = undefined;
+    s.unnamed24110___U6 = undefined;
+    s.unnamed24111___U7 = undefined;
     if (s.lambdaArgs) {
       s.arg0 = (s.lambdaArgs[0]);
       s.lambdaArgs = null;
@@ -10974,13 +10975,13 @@ switch (step) {
     s.dirY___200741 = (s.tmp_1);
     s.tmp_2 = Math_abs__P128_mk(s);
     s.tmp_2.arg0 = s.dx___200714;
-    s.callLocIdx = 476; s.pc = 11; return s.tmp_2;
+    s.callLocIdx = 477; s.pc = 11; return s.tmp_2;
   case 11:
     r0 = s.retval;
     s.tmp_1 = r0;
     s.tmp_4 = Math_abs__P128_mk(s);
     s.tmp_4.arg0 = s.dy___200725;
-    s.callLocIdx = 477; s.pc = 12; return s.tmp_4;
+    s.callLocIdx = 478; s.pc = 12; return s.tmp_4;
   case 12:
     r0 = s.retval;
     s.tmp_3 = r0;
@@ -11022,20 +11023,20 @@ switch (step) {
     s.dirs___200747 = (s.tmp_0);
   case 6:
     s.dir___200771 = (undefined);
-    s.unnamed20526___U6 = (s.dirs___200747);
-    s.unnamed20527___U7 = (0);
+    s.unnamed24110___U6 = (s.dirs___200747);
+    s.unnamed24111___U7 = (0);
   case 7:
-    s.tmp_0 = r0 = s.unnamed20527___U7;
-    r0 = pxsim_Array__length(s.unnamed20526___U6);
+    s.tmp_0 = r0 = s.unnamed24111___U7;
+    r0 = pxsim_Array__length(s.unnamed24110___U6);
     s.tmp_1 = r0;
     r0 = (s.tmp_0 < s.tmp_1);
     if (!r0) { step = 10; continue; }
-    r0 = pxsim_Array__getAt(s.unnamed20526___U6, s.unnamed20527___U7);
+    r0 = pxsim_Array__getAt(s.unnamed24110___U6, s.unnamed24111___U7);
     s.dir___200771 = (r0);
     s.tmp_3 = maze_Chaser_isDirectionValid__P200289_mk(s);
     s.tmp_3.arg0 = s.arg0;
     s.tmp_3.arg1 = s.dir___200771;
-    s.callLocIdx = 482; s.pc = 13; return s.tmp_3;
+    s.callLocIdx = 483; s.pc = 13; return s.tmp_3;
   case 13:
     r0 = s.retval;
     s.tmp_2 = r0;
@@ -11047,11 +11048,11 @@ switch (step) {
     { step = 10; continue; }
   case 8:
   case 9:
-    r0 = (s.unnamed20527___U7 + 1);
-    s.unnamed20527___U7 = (r0);
+    r0 = (s.unnamed24111___U7 + 1);
+    s.unnamed24111___U7 = (r0);
     { step = 7; continue; }
   case 10:
-    s.unnamed20526___U6 = (undefined);
+    s.unnamed24110___U6 = (undefined);
     r0 = undefined;
     return leave(s, r0)
   default: oops()
@@ -11079,8 +11080,8 @@ function maze_Chaser_doTarget__P200296_mk(s) {
   dirY___200741: undefined,
   dirs___200747: undefined,
   dir___200771: undefined,
-  unnamed20526___U6: undefined,
-  unnamed20527___U7: undefined,
+  unnamed24110___U6: undefined,
+  unnamed24111___U7: undefined,
   arg0: undefined,
 } }
 
@@ -11177,7 +11178,7 @@ switch (step) {
     if (!checkSubtype(r0, maze_Chaser__C200286_VT)) failedCast(r0);
     s.tmp_1 = maze_Chaser_doReverse__P200300_mk(s);
     s.tmp_1.arg0 = s.arg0;
-    s.callLocIdx = 508; s.pc = 8; return s.tmp_1;
+    s.callLocIdx = 509; s.pc = 8; return s.tmp_1;
   case 8:
     r0 = s.retval;
     s.tmp_0 = r0;
@@ -11208,7 +11209,7 @@ switch (step) {
     s.tmp_1 = helpers_arrayForEach__P109_mk(s);
     s.tmp_1.arg0 = s.dirs___201135;
     s.tmp_1.arg1 = s.tmp_0;
-    s.callLocIdx = 510; s.pc = 9; return s.tmp_1;
+    s.callLocIdx = 511; s.pc = 9; return s.tmp_1;
   case 9:
     r0 = s.retval;
     r0 = pxsim_Array__length(s.options___201141);
@@ -11275,7 +11276,7 @@ switch (step) {
     s.tmp_1 = maze_Chaser_isDirectionValid__P200289_mk(s);
     s.tmp_1.arg0 = s.caps[0];
     s.tmp_1.arg1 = s.arg0;
-    s.callLocIdx = 509; s.pc = 3; return s.tmp_1;
+    s.callLocIdx = 510; s.pc = 3; return s.tmp_1;
   case 3:
     r0 = s.retval;
     s.tmp_0 = r0;
@@ -11473,7 +11474,7 @@ switch (step) {
     if (!checkSubtype(r0, maze_Chaser__C200286_VT)) failedCast(r0);
     s.tmp_1 = maze_Chaser_doReverse__P200300_mk(s);
     s.tmp_1.arg0 = s.arg0;
-    s.callLocIdx = 500; s.pc = 15; return s.tmp_1;
+    s.callLocIdx = 501; s.pc = 15; return s.tmp_1;
   case 15:
     r0 = s.retval;
     s.tmp_0 = r0;
@@ -11522,7 +11523,7 @@ switch (step) {
     r0 = r0.fields["dir"];
     s.tmp_2.arg1 = r0;
     s.tmp_2.arg2 = 4;
-    s.callLocIdx = 501; s.pc = 16; return s.tmp_2;
+    s.callLocIdx = 502; s.pc = 16; return s.tmp_2;
   case 16:
     r0 = s.retval;
     s.tmp_1 = r0;
@@ -11540,7 +11541,7 @@ switch (step) {
     s.tmp_4.arg0 = r0;
     s.tmp_4.arg1 = 2;
     s.tmp_4.arg2 = 4;
-    s.callLocIdx = 502; s.pc = 17; return s.tmp_4;
+    s.callLocIdx = 503; s.pc = 17; return s.tmp_4;
   case 17:
     r0 = s.retval;
     s.tmp_3 = r0;
@@ -11561,7 +11562,7 @@ switch (step) {
     r0 = r0.fields["dir"];
     s.tmp_0.arg1 = r0;
     s.tmp_0.arg2 = 2;
-    s.callLocIdx = 503; s.pc = 18; return s.tmp_0;
+    s.callLocIdx = 504; s.pc = 18; return s.tmp_0;
   case 18:
     r0 = s.retval;
     s.t1___201040 = (r0);
@@ -11596,7 +11597,7 @@ switch (step) {
     s.tmp_3 = r0;
     r0 = (s.tmp_3 + s.dy___201066);
     s.tmp_1.arg2 = r0;
-    s.callLocIdx = 504; s.pc = 19; return s.tmp_1;
+    s.callLocIdx = 505; s.pc = 19; return s.tmp_1;
   case 19:
     r0 = s.retval;
     r0 = (s.arg0).fields["target"] = (s.tmp_0);
@@ -11615,7 +11616,7 @@ switch (step) {
     s.tmp_2 = r0;
     r0 = (s.tmp_1 - s.tmp_2);
     s.tmp_0.arg0 = r0;
-    s.callLocIdx = 505; s.pc = 20; return s.tmp_0;
+    s.callLocIdx = 506; s.pc = 20; return s.tmp_0;
   case 20:
     r0 = s.retval;
     s.dx___201084 = (r0);
@@ -11632,7 +11633,7 @@ switch (step) {
     s.tmp_2 = r0;
     r0 = (s.tmp_1 - s.tmp_2);
     s.tmp_0.arg0 = r0;
-    s.callLocIdx = 506; s.pc = 21; return s.tmp_0;
+    s.callLocIdx = 507; s.pc = 21; return s.tmp_0;
   case 21:
     r0 = s.retval;
     s.dy___201098 = (r0);
@@ -11657,7 +11658,7 @@ switch (step) {
   case 11:
     s.tmp_0 = maze_Chaser_doTarget__P200296_mk(s);
     s.tmp_0.arg0 = s.arg0;
-    s.callLocIdx = 507; s.pc = 22; return s.tmp_0;
+    s.callLocIdx = 508; s.pc = 22; return s.tmp_0;
   case 22:
     r0 = s.retval;
   case 12:
@@ -11784,7 +11785,7 @@ switch (step) {
     if (!checkSubtype(r0, maze_Chaser__C200286_VT)) failedCast(r0);
     s.tmp_1 = maze_Chaser_doReverse__P200300_mk(s);
     s.tmp_1.arg0 = s.arg0;
-    s.callLocIdx = 498; s.pc = 6; return s.tmp_1;
+    s.callLocIdx = 499; s.pc = 6; return s.tmp_1;
   case 6:
     r0 = s.retval;
     s.tmp_0 = r0;
@@ -11804,7 +11805,7 @@ switch (step) {
     r0 = (s.arg0).fields["target"] = (s.tmp_3);
     s.tmp_0 = maze_Chaser_doTarget__P200296_mk(s);
     s.tmp_0.arg0 = s.arg0;
-    s.callLocIdx = 499; s.pc = 7; return s.tmp_0;
+    s.callLocIdx = 500; s.pc = 7; return s.tmp_0;
   case 7:
     r0 = s.retval;
   case 3:
@@ -11851,7 +11852,7 @@ switch (step) {
     s.tmp_0 = maze_Mover_updateState__P232019_mk(s);
     r0 = s.arg0.fields["mover"];
     s.tmp_0.arg0 = r0;
-    s.callLocIdx = 488; s.pc = 18; return s.tmp_0;
+    s.callLocIdx = 489; s.pc = 18; return s.tmp_0;
   case 18:
     r0 = s.retval;
     r0 = s.arg0.fields["waitDir"];
@@ -11905,7 +11906,7 @@ switch (step) {
     if (!r0) { step = 7; continue; }
     s.tmp_11 = maze_Chaser_doWait__P200297_mk(s);
     s.tmp_11.arg0 = s.arg0;
-    s.callLocIdx = 489; s.pc = 19; return s.tmp_11;
+    s.callLocIdx = 490; s.pc = 19; return s.tmp_11;
   case 19:
     r0 = s.retval;
     { step = 17; continue; }
@@ -11952,13 +11953,13 @@ switch (step) {
     r0 = s.arg0.fields["home"];
     r0 = r0.fields["y"];
     s.tmp_18.arg5 = r0;
-    s.callLocIdx = 490; s.pc = 20; return s.tmp_18;
+    s.callLocIdx = 491; s.pc = 20; return s.tmp_18;
   case 20:
     r0 = s.retval;
     s.tmp_0 = maze_Mover_setImage__P232022_mk(s);
     r0 = s.arg0.fields["mover"];
     s.tmp_0.arg0 = r0;
-    s.callLocIdx = 491; s.pc = 21; return s.tmp_0;
+    s.callLocIdx = 492; s.pc = 21; return s.tmp_0;
   case 21:
     r0 = s.retval;
     r0 = false;
@@ -12006,13 +12007,13 @@ switch (step) {
     r0 = s.arg0.fields["home"];
     r0 = r0.fields["y"];
     s.tmp_6.arg5 = r0;
-    s.callLocIdx = 492; s.pc = 22; return s.tmp_6;
+    s.callLocIdx = 493; s.pc = 22; return s.tmp_6;
   case 22:
     r0 = s.retval;
     s.tmp_0 = maze_Mover_setImage__P232022_mk(s);
     r0 = s.arg0.fields["mover"];
     s.tmp_0.arg0 = r0;
-    s.callLocIdx = 493; s.pc = 23; return s.tmp_0;
+    s.callLocIdx = 494; s.pc = 23; return s.tmp_0;
   case 23:
     r0 = s.retval;
     r0 = false;
@@ -12035,13 +12036,13 @@ switch (step) {
     r0 = s.arg0.fields["baseCentre"];
     r0 = r0.fields["y"];
     s.tmp_0.arg5 = r0;
-    s.callLocIdx = 494; s.pc = 24; return s.tmp_0;
+    s.callLocIdx = 495; s.pc = 24; return s.tmp_0;
   case 24:
     r0 = s.retval;
     s.tmp_0 = maze_Mover_setImage__P232022_mk(s);
     r0 = s.arg0.fields["mover"];
     s.tmp_0.arg0 = r0;
-    s.callLocIdx = 495; s.pc = 25; return s.tmp_0;
+    s.callLocIdx = 496; s.pc = 25; return s.tmp_0;
   case 25:
     r0 = s.retval;
     r0 = false;
@@ -12273,7 +12274,7 @@ switch (step) {
     s.tmp_0 = maze_Mover_updateState__P232019_mk(s);
     r0 = s.arg0.fields["mover"];
     s.tmp_0.arg0 = r0;
-    s.callLocIdx = 486; s.pc = 1; return s.tmp_0;
+    s.callLocIdx = 487; s.pc = 1; return s.tmp_0;
   case 1:
     r0 = s.retval;
     s.tmp_0 = maze_Mover_forceUpdate__P232028_mk(s);
@@ -12292,7 +12293,7 @@ switch (step) {
     r0 = s.arg0.fields["baseCentre"];
     r0 = r0.fields["y"];
     s.tmp_0.arg5 = r0;
-    s.callLocIdx = 487; s.pc = 2; return s.tmp_0;
+    s.callLocIdx = 488; s.pc = 2; return s.tmp_0;
   case 2:
     r0 = s.retval;
     r0 = false;
@@ -12335,7 +12336,7 @@ switch (step) {
     s.tmp_0 = maze_Mover_updateState__P232019_mk(s);
     r0 = s.arg0.fields["mover"];
     s.tmp_0.arg0 = r0;
-    s.callLocIdx = 483; s.pc = 5; return s.tmp_0;
+    s.callLocIdx = 484; s.pc = 5; return s.tmp_0;
   case 5:
     r0 = s.retval;
     r0 = s.arg0.fields["baseCentre"];
@@ -12361,13 +12362,13 @@ switch (step) {
     s.tmp_0.arg3 = r0;
     s.tmp_0.arg4 = s.minY___200783;
     s.tmp_0.arg5 = s.maxY___200788;
-    s.callLocIdx = 484; s.pc = 6; return s.tmp_0;
+    s.callLocIdx = 485; s.pc = 6; return s.tmp_0;
   case 6:
     r0 = s.retval;
     s.tmp_0 = maze_Mover_setImage__P232022_mk(s);
     r0 = s.arg0.fields["mover"];
     s.tmp_0.arg0 = r0;
-    s.callLocIdx = 485; s.pc = 7; return s.tmp_0;
+    s.callLocIdx = 486; s.pc = 7; return s.tmp_0;
   case 7:
     r0 = s.retval;
     r0 = s.arg0.fields["mover"];
@@ -12451,28 +12452,28 @@ switch (step) {
   case 1:
     s.tmp_1 = maze_Chaser_checkNone__P200290_mk(s);
     s.tmp_1.arg0 = s.arg0;
-    s.callLocIdx = 512; s.pc = 11; return s.tmp_1;
+    s.callLocIdx = 513; s.pc = 11; return s.tmp_1;
   case 11:
     r0 = s.retval;
     { step = 10; continue; }
   case 2:
     s.tmp_2 = maze_Chaser_checkWait__P200291_mk(s);
     s.tmp_2.arg0 = s.arg0;
-    s.callLocIdx = 513; s.pc = 12; return s.tmp_2;
+    s.callLocIdx = 514; s.pc = 12; return s.tmp_2;
   case 12:
     r0 = s.retval;
     { step = 10; continue; }
   case 3:
     s.tmp_3 = maze_Chaser_checkEnterBase__P200292_mk(s);
     s.tmp_3.arg0 = s.arg0;
-    s.callLocIdx = 514; s.pc = 13; return s.tmp_3;
+    s.callLocIdx = 515; s.pc = 13; return s.tmp_3;
   case 13:
     r0 = s.retval;
     { step = 10; continue; }
   case 4:
     s.tmp_4 = maze_Chaser_checkExitBase__P200293_mk(s);
     s.tmp_4.arg0 = s.arg0;
-    s.callLocIdx = 515; s.pc = 14; return s.tmp_4;
+    s.callLocIdx = 516; s.pc = 14; return s.tmp_4;
   case 14:
     r0 = s.retval;
     { step = 10; continue; }
@@ -12481,14 +12482,14 @@ switch (step) {
   case 7:
     s.tmp_5 = maze_Chaser_checkStandard__P200294_mk(s);
     s.tmp_5.arg0 = s.arg0;
-    s.callLocIdx = 516; s.pc = 15; return s.tmp_5;
+    s.callLocIdx = 517; s.pc = 15; return s.tmp_5;
   case 15:
     r0 = s.retval;
     { step = 10; continue; }
   case 8:
     s.tmp_6 = maze_Chaser_checkReturnTobase__P200295_mk(s);
     s.tmp_6.arg0 = s.arg0;
-    s.callLocIdx = 517; s.pc = 16; return s.tmp_6;
+    s.callLocIdx = 518; s.pc = 16; return s.tmp_6;
   case 16:
     r0 = s.retval;
     { step = 10; continue; }
@@ -12551,7 +12552,7 @@ switch (step) {
     s.tmp_3 = r0;
     r0 = (s.tmp_2 - s.tmp_3);
     s.tmp_1.arg0 = r0;
-    s.callLocIdx = 474; s.pc = 7; return s.tmp_1;
+    s.callLocIdx = 475; s.pc = 7; return s.tmp_1;
   case 7:
     r0 = s.retval;
     s.dx___200684 = (r0);
@@ -12564,7 +12565,7 @@ switch (step) {
     s.tmp_2 = r0;
     r0 = (s.tmp_1 - s.tmp_2);
     s.tmp_0.arg0 = r0;
-    s.callLocIdx = 475; s.pc = 8; return s.tmp_0;
+    s.callLocIdx = 476; s.pc = 8; return s.tmp_0;
   case 8:
     r0 = s.retval;
     s.dy___200694 = (r0);
@@ -12706,7 +12707,7 @@ switch (step) {
     r0 = s.arg0.fields["baseExit"];
     r0 = r0.fields["y"];
     s.tmp_3.arg2 = r0;
-    s.callLocIdx = 473; s.pc = 3; return s.tmp_3;
+    s.callLocIdx = 474; s.pc = 3; return s.tmp_3;
   case 3:
     r0 = s.retval;
     r0 = (s.arg0).fields["mode"] = (0);
@@ -13106,8 +13107,8 @@ switch (step) {
   case 0:
 
     s.chaser___7945 = undefined;
-    s.unnamed20500___U1 = undefined;
-    s.unnamed20501___U2 = undefined;
+    s.unnamed24084___U1 = undefined;
+    s.unnamed24085___U2 = undefined;
     s.dx___8000 = undefined;
     s.dy___8010 = undefined;
     if (s.lambdaArgs) {
@@ -13285,15 +13286,15 @@ switch (step) {
     s.chaser___7945 = (undefined);
     r0 = s.arg0.fields["maze"];
     r0 = r0.fields["chasers"];
-    s.unnamed20500___U1 = (r0);
-    s.unnamed20501___U2 = (0);
+    s.unnamed24084___U1 = (r0);
+    s.unnamed24085___U2 = (0);
   case 19:
-    s.tmp_0 = r0 = s.unnamed20501___U2;
-    r0 = pxsim_Array__length(s.unnamed20500___U1);
+    s.tmp_0 = r0 = s.unnamed24085___U2;
+    r0 = pxsim_Array__length(s.unnamed24084___U1);
     s.tmp_1 = r0;
     r0 = (s.tmp_0 < s.tmp_1);
     if (!r0) { step = 38; continue; }
-    r0 = pxsim_Array__getAt(s.unnamed20500___U1, s.unnamed20501___U2);
+    r0 = pxsim_Array__getAt(s.unnamed24084___U1, s.unnamed24085___U2);
     s.chaser___7945 = (r0);
     r0 = s.arg0.fields["mover"];
     r0 = r0.fields["tile"];
@@ -13449,11 +13450,11 @@ switch (step) {
   case 35:
   case 36:
   case 37:
-    r0 = (s.unnamed20501___U2 + 1);
-    s.unnamed20501___U2 = (r0);
+    r0 = (s.unnamed24085___U2 + 1);
+    s.unnamed24085___U2 = (r0);
     { step = 19; continue; }
   case 38:
-    s.unnamed20500___U1 = (undefined);
+    s.unnamed24084___U1 = (undefined);
   case 39:
     r0 = undefined;
     return leave(s, r0)
@@ -13483,8 +13484,8 @@ function maze_Hero_update__P4407_mk(s) {
   tmp_14: undefined,
   tmp_15: undefined,
   chaser___7945: undefined,
-  unnamed20500___U1: undefined,
-  unnamed20501___U2: undefined,
+  unnamed24084___U1: undefined,
+  unnamed24085___U2: undefined,
   dx___8000: undefined,
   dy___8010: undefined,
   arg0: undefined,
@@ -14896,7 +14897,7 @@ function controller_Button_isPressed__P2200_mk(s) {
 
 
 
-function maze_Game_update__P4522(s) {
+function maze_Game_update__P264837(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -14911,215 +14912,125 @@ switch (step) {
       s.lambdaArgs = null;
     }
     r0 = s.arg0;
-    if (!checkSubtype(r0, maze_Game__C4508_VT)) failedCast(r0);
-    s.tmp_1 = controller_Button__C2189_v0_1_mk(s);
-    s.tmp_1.arg0 = globals.A___2113;
-    if (!checkSubtype(s.tmp_1.arg0, controller_Button__C2189_VT)) failedCast(s.tmp_1.arg0);
-    s.tmp_1.fn = s.tmp_1.arg0.vtable.methods.isPressed;
-    s.pc = 3; return s.tmp_1;
-  case 3:
-    r0 = s.retval;
+    if (!checkSubtype(r0, maze_Game__C264821_VT)) failedCast(r0);
+    r0 = s.arg0.fields["freeze"];
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 1; continue; }
-    s.tmp_2 = maze_Game_levelNext__P7582_mk(s);
-    s.tmp_2.arg0 = s.arg0;
-    s.callLocIdx = 423; s.pc = 4; return s.tmp_2;
-  case 4:
-    r0 = s.retval;
+    { step = 7; continue; }
   case 1:
   case 2:
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-maze_Game_update__P4522.info = {"start":8351,"length":111,"line":241,"column":8,"endLine":245,"endColumn":9,"fileName":"maze_game.ts","functionName":"update","argumentNames":["this"]}
-
-function maze_Game_update__P4522_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: maze_Game_update__P4522, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  tmp_2: undefined,
-  arg0: undefined,
-} }
-
-
-
-
-
-function maze_Game_levelNext__P7582(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, maze_Game__C4508_VT)) failedCast(r0);
-    s.tmp_0 = r0 = s.arg0;
-    r0 = s.tmp_0.fields["levelCount"];
-    s.tmp_2 = r0;
-    r0 = (s.tmp_2 + 1);
-    s.tmp_1 = r0;
-    r0 = (s.tmp_0).fields["levelCount"] = (s.tmp_1);
-    s.tmp_0 = maze_Game_initLevel__P4521_mk(s);
-    s.tmp_0.arg0 = s.arg0;
-    s.callLocIdx = 418; s.pc = 1; return s.tmp_0;
-  case 1:
-    r0 = s.retval;
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-maze_Game_levelNext__P7582.info = {"start":7556,"length":98,"line":214,"column":8,"endLine":217,"endColumn":9,"fileName":"maze_game.ts","functionName":"levelNext","argumentNames":["this"]}
-
-function maze_Game_levelNext__P7582_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: maze_Game_levelNext__P7582, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  tmp_2: undefined,
-  arg0: undefined,
-} }
-
-
-
-
-
-function maze_Game_initLevel__P4521(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    s.chaser___9608 = undefined;
-    s.unnamed20510___U1 = undefined;
-    s.unnamed20511___U2 = undefined;
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, maze_Game__C4508_VT)) failedCast(r0);
-    s.tmp_0 = scene_cameraFollowSprite__P2890_mk(s);
-    r0 = s.arg0.fields["maze"];
-    r0 = r0.fields["hero"];
-    r0 = r0.fields["mover"];
-    r0 = r0.fields["sprite"];
-    s.tmp_0.arg0 = r0;
-    s.callLocIdx = 369; s.pc = 3; return s.tmp_0;
-  case 3:
-    r0 = s.retval;
-    s.tmp_0 = maze_Level_initLevel__P4633_mk(s);
-    s.tmp_0.arg0 = globals.level___4634;
-    r0 = s.arg0.fields["levelCount"];
-    s.tmp_0.arg1 = r0;
-    s.callLocIdx = 370; s.pc = 4; return s.tmp_0;
-  case 4:
-    r0 = s.retval;
-    r0 = (s.arg0).fields["pillsEaten"] = (0);
-    r0 = s.arg0.fields["maze"];
-    r0 = r0.fields["map"];
-    r0 = r0.fields["pillCount"];
-    s.tmp_0 = r0;
-    r0 = (s.arg0).fields["pillsRemaining"] = (s.tmp_0);
-    r0 = (s.arg0).fields["levelComplete"] = (false);
-    r0 = (s.arg0).fields["chaserEatCount"] = (0);
-    r0 = (s.arg0).fields["chaserWarn"] = (false);
-    s.tmp_0 = maze_Map_initLevel__P4451_mk(s);
-    r0 = s.arg0.fields["maze"];
-    r0 = r0.fields["map"];
-    s.tmp_0.arg0 = r0;
-    s.callLocIdx = 371; s.pc = 5; return s.tmp_0;
-  case 5:
-    r0 = s.retval;
-    s.tmp_0 = maze_Hero_initLevel__P4406_mk(s);
-    r0 = s.arg0.fields["maze"];
-    r0 = r0.fields["hero"];
-    s.tmp_0.arg0 = r0;
-    s.callLocIdx = 372; s.pc = 6; return s.tmp_0;
-  case 6:
-    r0 = s.retval;
-    s.chaser___9608 = (undefined);
-    r0 = s.arg0.fields["maze"];
-    r0 = r0.fields["chasers"];
-    s.unnamed20510___U1 = (r0);
-    s.unnamed20511___U2 = (0);
-  case 1:
-    s.tmp_0 = r0 = s.unnamed20511___U2;
-    r0 = pxsim_Array__length(s.unnamed20510___U1);
-    s.tmp_1 = r0;
-    r0 = (s.tmp_0 < s.tmp_1);
-    if (!r0) { step = 2; continue; }
-    r0 = pxsim_Array__getAt(s.unnamed20510___U1, s.unnamed20511___U2);
-    s.chaser___9608 = (r0);
-    s.tmp_2 = maze_Chaser_initLevel__P200288_mk(s);
-    s.tmp_2.arg0 = s.chaser___9608;
-    s.callLocIdx = 373; s.pc = 7; return s.tmp_2;
-  case 7:
-    r0 = s.retval;
-    r0 = (s.unnamed20511___U2 + 1);
-    s.unnamed20511___U2 = (r0);
-    { step = 1; continue; }
-  case 2:
-    s.unnamed20510___U1 = (undefined);
-    s.tmp_0 = maze_Fruit_initLevel__P4563_mk(s);
-    r0 = s.arg0.fields["maze"];
-    r0 = r0.fields["fruit"];
-    s.tmp_0.arg0 = r0;
-    s.callLocIdx = 374; s.pc = 8; return s.tmp_0;
+    s.tmp_2 = controller_Button__C2189_v0_1_mk(s);
+    s.tmp_2.arg0 = globals.A___2113;
+    if (!checkSubtype(s.tmp_2.arg0, controller_Button__C2189_VT)) failedCast(s.tmp_2.arg0);
+    s.tmp_2.fn = s.tmp_2.arg0.vtable.methods.isPressed;
+    s.pc = 8; return s.tmp_2;
   case 8:
     r0 = s.retval;
-    s.tmp_0 = maze_EventManager_cancelAll__P4553_mk(s);
-    r0 = s.arg0.fields["maze"];
-    r0 = r0.fields["events"];
-    s.tmp_0.arg0 = r0;
-    s.callLocIdx = 375; s.pc = 9; return s.tmp_0;
+    s.tmp_1 = r0;
+    r0 = pxsim_numops_toBool(s.tmp_1);
+    if (!r0) { step = 3; continue; }
+    r0 = s.tmp_1;
+    { step = 4; continue; }
+  case 3:
+    s.tmp_3 = controller_Button__C2189_v0_1_mk(s);
+    s.tmp_3.arg0 = globals.B___2114;
+    if (!checkSubtype(s.tmp_3.arg0, controller_Button__C2189_VT)) failedCast(s.tmp_3.arg0);
+    s.tmp_3.fn = s.tmp_3.arg0.vtable.methods.isPressed;
+    s.pc = 9; return s.tmp_3;
   case 9:
+    r0 = s.retval;
+  case 4:
+    // jmp value (already in r0)
+    s.tmp_4 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_4);
+    if (!r0) { step = 5; continue; }
+    s.tmp_5 = maze_ask__P4610_mk(s);
+    s.tmp_5.arg0 = "NicNac";
+    s.tmp_5.arg1 = "Game paused";
+    s.tmp_5.arg2 = "Press A to continue";
+    s.callLocIdx = 423; s.pc = 10; return s.tmp_5;
+  case 10:
+    r0 = s.retval;
+    s.tmp_0 = maze_Game_pause__P264825_mk(s);
+    s.tmp_0.arg0 = s.arg0;
+    s.tmp_0.arg1 = 1;
+    s.callLocIdx = 424; s.pc = 11; return s.tmp_0;
+  case 11:
+    r0 = s.retval;
+  case 5:
+  case 6:
+  case 7:
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+maze_Game_update__P264837.info = {"start":8439,"length":275,"line":244,"column":8,"endLine":253,"endColumn":9,"fileName":"maze_game.ts","functionName":"update","argumentNames":["this"]}
+
+function maze_Game_update__P264837_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: maze_Game_update__P264837, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  tmp_2: undefined,
+  tmp_3: undefined,
+  tmp_4: undefined,
+  tmp_5: undefined,
+  arg0: undefined,
+} }
+
+
+
+
+
+function maze_Game_pause__P264825(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.arg1 = (s.lambdaArgs[1]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, maze_Game__C264821_VT)) failedCast(r0);
+    s.tmp_0 = maze_Game_setFreeze__P264835_mk(s);
+    s.tmp_0.arg0 = s.arg0;
+    s.tmp_0.arg1 = true;
+    s.callLocIdx = 377; s.pc = 1; return s.tmp_0;
+  case 1:
     r0 = s.retval;
     s.tmp_0 = maze_EventManager_fireLater__P4548_mk(s);
     r0 = s.arg0.fields["maze"];
     r0 = r0.fields["events"];
     s.tmp_0.arg0 = r0;
-    s.tmp_0.arg1 = 4;
-    s.tmp_0.arg2 = 0;
-    s.callLocIdx = 376; s.pc = 10; return s.tmp_0;
-  case 10:
+    s.tmp_0.arg1 = 11;
+    s.tmp_0.arg2 = s.arg1;
+    s.callLocIdx = 378; s.pc = 2; return s.tmp_0;
+  case 2:
     r0 = s.retval;
     r0 = undefined;
     return leave(s, r0)
   default: oops()
 } } }
-maze_Game_initLevel__P4521.info = {"start":2547,"length":660,"line":71,"column":8,"endLine":91,"endColumn":9,"fileName":"maze_game.ts","functionName":"initLevel","argumentNames":["this"]}
+maze_Game_pause__P264825.info = {"start":3272,"length":132,"line":95,"column":8,"endLine":98,"endColumn":9,"fileName":"maze_game.ts","functionName":"pause","argumentNames":["this","time"]}
 
-function maze_Game_initLevel__P4521_mk(s) {
+function maze_Game_pause__P264825_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: maze_Game_initLevel__P4521, depth: s.depth + 1,
+        parent: s, fn: maze_Game_pause__P264825, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
-  tmp_1: undefined,
-  tmp_2: undefined,
-  chaser___9608: undefined,
-  unnamed20510___U1: undefined,
-  unnamed20511___U2: undefined,
   arg0: undefined,
+  arg1: undefined,
 } }
 
 
@@ -15138,8 +15049,8 @@ switch (step) {
 
     s.timedEvent___10027 = undefined;
     s.te___10030 = undefined;
-    s.unnamed20520___U2 = undefined;
-    s.unnamed20521___U3 = undefined;
+    s.unnamed24104___U2 = undefined;
+    s.unnamed24105___U3 = undefined;
     if (s.lambdaArgs) {
       s.arg0 = (s.lambdaArgs[0]);
       s.arg1 = (s.lambdaArgs[1]);
@@ -15151,15 +15062,15 @@ switch (step) {
     s.timedEvent___10027 = (null);
     s.te___10030 = (undefined);
     r0 = s.arg0.fields["timedEvents"];
-    s.unnamed20520___U2 = (r0);
-    s.unnamed20521___U3 = (0);
+    s.unnamed24104___U2 = (r0);
+    s.unnamed24105___U3 = (0);
   case 1:
-    s.tmp_0 = r0 = s.unnamed20521___U3;
-    r0 = pxsim_Array__length(s.unnamed20520___U2);
+    s.tmp_0 = r0 = s.unnamed24105___U3;
+    r0 = pxsim_Array__length(s.unnamed24104___U2);
     s.tmp_1 = r0;
     r0 = (s.tmp_0 < s.tmp_1);
     if (!r0) { step = 4; continue; }
-    r0 = pxsim_Array__getAt(s.unnamed20520___U2, s.unnamed20521___U3);
+    r0 = pxsim_Array__getAt(s.unnamed24104___U2, s.unnamed24105___U3);
     s.te___10030 = (r0);
     r0 = s.te___10030.fields["event"];
     s.tmp_3 = r0;
@@ -15171,11 +15082,11 @@ switch (step) {
     { step = 4; continue; }
   case 2:
   case 3:
-    r0 = (s.unnamed20521___U3 + 1);
-    s.unnamed20521___U3 = (r0);
+    r0 = (s.unnamed24105___U3 + 1);
+    s.unnamed24105___U3 = (r0);
     { step = 1; continue; }
   case 4:
-    s.unnamed20520___U2 = (undefined);
+    s.unnamed24104___U2 = (undefined);
     r0 = pxsim_numops_toBoolDecr(s.timedEvent___10027);
     s.tmp_1 = r0;
     r0 = pxsim_Boolean__bang(s.tmp_1);
@@ -15187,7 +15098,7 @@ switch (step) {
     s.tmp_3 = maze_TimedEvent_constructor__P9967_mk(s);
     s.tmp_3.arg0 = s.tmp_2;
     s.tmp_3.arg1 = s.arg1;
-    s.callLocIdx = 426; s.pc = 7; return s.tmp_3;
+    s.callLocIdx = 427; s.pc = 7; return s.tmp_3;
   case 7:
     r0 = s.retval;
     s.timedEvent___10027 = (s.tmp_2);
@@ -15222,8 +15133,8 @@ function maze_EventManager_fireLater__P4548_mk(s) {
   tmp_3: undefined,
   timedEvent___10027: undefined,
   te___10030: undefined,
-  unnamed20520___U2: undefined,
-  unnamed20521___U3: undefined,
+  unnamed24104___U2: undefined,
+  unnamed24105___U3: undefined,
   arg0: undefined,
   arg1: undefined,
   arg2: undefined,
@@ -15271,7 +15182,7 @@ function maze_TimedEvent_constructor__P9967_mk(s) {
 
 
 
-function maze_EventManager_cancelAll__P4553(s) {
+function maze_Game_setFreeze__P264835(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -15281,647 +15192,77 @@ if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) re
 switch (step) {
   case 0:
 
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, maze_EventManager__C4540_VT)) failedCast(r0);
-    s.tmp_0 = r0 = s.arg0;
-    r0 = pxsim_Array__mk();
-    s.tmp_1 = r0;
-    r0 = (s.tmp_0).fields["frameEvents"] = (s.tmp_1);
-    s.tmp_0 = r0 = s.arg0;
-    r0 = pxsim_Array__mk();
-    s.tmp_1 = r0;
-    r0 = (s.tmp_0).fields["timedEvents"] = (s.tmp_1);
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-maze_EventManager_cancelAll__P4553.info = {"start":3350,"length":91,"line":127,"column":8,"endLine":130,"endColumn":9,"fileName":"maze_events.ts","functionName":"cancelAll","argumentNames":["this"]}
-
-function maze_EventManager_cancelAll__P4553_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: maze_EventManager_cancelAll__P4553, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  arg0: undefined,
-} }
-
-
-
-
-
-function maze_Fruit_initLevel__P4563(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, maze_Fruit__C4555_VT)) failedCast(r0);
-    r0 = (s.arg0).fields["pillCount"] = (0);
-    s.tmp_0 = maze_Fruit_setVisible__P7608_mk(s);
-    s.tmp_0.arg0 = s.arg0;
-    s.tmp_0.arg1 = false;
-    s.callLocIdx = 435; s.pc = 1; return s.tmp_0;
-  case 1:
-    r0 = s.retval;
-    s.tmp_0 = Sprite_x__P2355_mk(s);
-    r0 = s.arg0.fields["sprite"];
-    s.tmp_0.arg0 = r0;
-    r0 = s.arg0.fields["maze"];
-    r0 = r0.fields["map"];
-    r0 = r0.fields["fruit"];
-    r0 = r0.fields["x"];
-    s.tmp_0.arg1 = r0;
-    s.callLocIdx = 436; s.pc = 2; return s.tmp_0;
-  case 2:
-    r0 = s.retval;
-    s.tmp_0 = Sprite_y__P2357_mk(s);
-    r0 = s.arg0.fields["sprite"];
-    s.tmp_0.arg0 = r0;
-    r0 = s.arg0.fields["maze"];
-    r0 = r0.fields["map"];
-    r0 = r0.fields["fruit"];
-    r0 = r0.fields["y"];
-    s.tmp_0.arg1 = r0;
-    s.callLocIdx = 437; s.pc = 3; return s.tmp_0;
-  case 3:
-    r0 = s.retval;
-    r0 = pxsim_pxtcore_mkAction(1, maze_Fruit_initLevel_inline__P10169);
-    s.tmp_0 = r0;
-    r0 = pxsim_pxtrt_stclo(s.tmp_0, 0, s.arg0);
-    s.tmp_1 = maze_EventManager_register__P4550_mk(s);
-    r0 = s.arg0.fields["maze"];
-    r0 = r0.fields["events"];
-    s.tmp_1.arg0 = r0;
-    s.tmp_1.arg1 = 0;
-    s.tmp_1.arg2 = s.tmp_0;
-    s.callLocIdx = 439; s.pc = 4; return s.tmp_1;
-  case 4:
-    r0 = s.retval;
-    r0 = pxsim_pxtcore_mkAction(1, maze_Fruit_initLevel_inline__P10176);
-    s.tmp_0 = r0;
-    r0 = pxsim_pxtrt_stclo(s.tmp_0, 0, s.arg0);
-    s.tmp_1 = maze_EventManager_register__P4550_mk(s);
-    r0 = s.arg0.fields["maze"];
-    r0 = r0.fields["events"];
-    s.tmp_1.arg0 = r0;
-    s.tmp_1.arg1 = 1;
-    s.tmp_1.arg2 = s.tmp_0;
-    s.callLocIdx = 441; s.pc = 5; return s.tmp_1;
-  case 5:
-    r0 = s.retval;
-    r0 = pxsim_pxtcore_mkAction(1, maze_Fruit_initLevel_inline__P10183);
-    s.tmp_0 = r0;
-    r0 = pxsim_pxtrt_stclo(s.tmp_0, 0, s.arg0);
-    s.tmp_1 = maze_EventManager_register__P4550_mk(s);
-    r0 = s.arg0.fields["maze"];
-    r0 = r0.fields["events"];
-    s.tmp_1.arg0 = r0;
-    s.tmp_1.arg1 = 2;
-    s.tmp_1.arg2 = s.tmp_0;
-    s.callLocIdx = 443; s.pc = 6; return s.tmp_1;
-  case 6:
-    r0 = s.retval;
-    r0 = pxsim_pxtcore_mkAction(1, maze_Fruit_initLevel_inline__P10190);
-    s.tmp_0 = r0;
-    r0 = pxsim_pxtrt_stclo(s.tmp_0, 0, s.arg0);
-    s.tmp_1 = maze_EventManager_register__P4550_mk(s);
-    r0 = s.arg0.fields["maze"];
-    r0 = r0.fields["events"];
-    s.tmp_1.arg0 = r0;
-    s.tmp_1.arg1 = 10;
-    s.tmp_1.arg2 = s.tmp_0;
-    s.callLocIdx = 445; s.pc = 7; return s.tmp_1;
-  case 7:
-    r0 = s.retval;
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-maze_Fruit_initLevel__P4563.info = {"start":463,"length":520,"line":20,"column":8,"endLine":31,"endColumn":9,"fileName":"maze_fruit.ts","functionName":"initLevel","argumentNames":["this"]}
-
-function maze_Fruit_initLevel__P4563_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: maze_Fruit_initLevel__P4563, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  arg0: undefined,
-} }
-
-
-
-
-
-function maze_Fruit_initLevel_inline__P10169(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    s.tmp_0 = maze_Fruit_checkSpawn__P7609_mk(s);
-    s.tmp_0.arg0 = s.caps[0];
-    s.callLocIdx = 438; s.pc = 1; return s.tmp_0;
-  case 1:
-    r0 = s.retval;
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-maze_Fruit_initLevel_inline__P10169.info = {"start":698,"length":23,"line":27,"column":53,"endLine":27,"endColumn":76,"fileName":"maze_fruit.ts","functionName":"inline","argumentNames":[]}
-
-function maze_Fruit_initLevel_inline__P10169_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: maze_Fruit_initLevel_inline__P10169, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-} }
-
-
-
-
-
-function maze_Fruit_initLevel_inline__P10176(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    s.tmp_0 = maze_Fruit_checkSpawn__P7609_mk(s);
-    s.tmp_0.arg0 = s.caps[0];
-    s.callLocIdx = 440; s.pc = 1; return s.tmp_0;
-  case 1:
-    r0 = s.retval;
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-maze_Fruit_initLevel_inline__P10176.info = {"start":777,"length":23,"line":28,"column":54,"endLine":28,"endColumn":77,"fileName":"maze_fruit.ts","functionName":"inline","argumentNames":[]}
-
-function maze_Fruit_initLevel_inline__P10176_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: maze_Fruit_initLevel_inline__P10176, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-} }
-
-
-
-
-
-function maze_Fruit_initLevel_inline__P10183(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    s.tmp_0 = maze_Fruit_setVisible__P7608_mk(s);
-    s.tmp_0.arg0 = s.caps[0];
-    s.tmp_0.arg1 = false;
-    s.callLocIdx = 442; s.pc = 1; return s.tmp_0;
-  case 1:
-    r0 = s.retval;
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-maze_Fruit_initLevel_inline__P10183.info = {"start":856,"length":28,"line":29,"column":54,"endLine":29,"endColumn":82,"fileName":"maze_fruit.ts","functionName":"inline","argumentNames":[]}
-
-function maze_Fruit_initLevel_inline__P10183_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: maze_Fruit_initLevel_inline__P10183, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-} }
-
-
-
-
-
-function maze_Fruit_initLevel_inline__P10190(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    s.tmp_0 = maze_Fruit_setVisible__P7608_mk(s);
-    s.tmp_0.arg0 = s.caps[0];
-    s.tmp_0.arg1 = false;
-    s.callLocIdx = 444; s.pc = 1; return s.tmp_0;
-  case 1:
-    r0 = s.retval;
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-maze_Fruit_initLevel_inline__P10190.info = {"start":944,"length":28,"line":30,"column":58,"endLine":30,"endColumn":86,"fileName":"maze_fruit.ts","functionName":"inline","argumentNames":[]}
-
-function maze_Fruit_initLevel_inline__P10190_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: maze_Fruit_initLevel_inline__P10190, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-} }
-
-
-
-
-
-function maze_Fruit_checkSpawn__P7609(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, maze_Fruit__C4555_VT)) failedCast(r0);
-    s.tmp_0 = r0 = s.arg0;
-    r0 = s.tmp_0.fields["pillCount"];
-    s.tmp_2 = r0;
-    r0 = (s.tmp_2 + 1);
-    s.tmp_1 = r0;
-    r0 = (s.tmp_0).fields["pillCount"] = (s.tmp_1);
-    r0 = pxsim_pxtcore_mkAction(1, maze_Fruit_checkSpawn_inline__P10216);
-    s.tmp_0 = r0;
-    r0 = pxsim_pxtrt_stclo(s.tmp_0, 0, s.arg0);
-    s.tmp_2 = helpers_arrayFind__P111_mk(s);
-    s.tmp_2.arg0 = globals.fruitSpawns___10128;
-    s.tmp_2.arg1 = s.tmp_0;
-    s.callLocIdx = 448; s.pc = 3; return s.tmp_2;
-  case 3:
-    r0 = s.retval;
-    s.tmp_1 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_1);
-    if (!r0) { step = 1; continue; }
-    s.tmp_3 = maze_Fruit_setVisible__P7608_mk(s);
-    s.tmp_3.arg0 = s.arg0;
-    s.tmp_3.arg1 = true;
-    s.callLocIdx = 449; s.pc = 4; return s.tmp_3;
-  case 4:
-    r0 = s.retval;
-    s.tmp_0 = maze_EventManager_fire__P4547_mk(s);
-    r0 = s.arg0.fields["maze"];
-    r0 = r0.fields["events"];
-    s.tmp_0.arg0 = r0;
-    s.tmp_0.arg1 = 9;
-    s.callLocIdx = 450; s.pc = 5; return s.tmp_0;
-  case 5:
-    r0 = s.retval;
-    s.tmp_0 = maze_EventManager_fireLater__P4548_mk(s);
-    r0 = s.arg0.fields["maze"];
-    r0 = r0.fields["events"];
-    s.tmp_0.arg0 = r0;
-    s.tmp_0.arg1 = 10;
-    r0 = globals.level___4634.fields["timeFruitDespawn"];
-    s.tmp_0.arg2 = r0;
-    s.callLocIdx = 451; s.pc = 6; return s.tmp_0;
-  case 6:
-    r0 = s.retval;
-  case 1:
-  case 2:
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-maze_Fruit_checkSpawn__P7609.info = {"start":1210,"length":338,"line":39,"column":8,"endLine":48,"endColumn":9,"fileName":"maze_fruit.ts","functionName":"checkSpawn","argumentNames":["this"]}
-
-function maze_Fruit_checkSpawn__P7609_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: maze_Fruit_checkSpawn__P7609, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  tmp_2: undefined,
-  tmp_3: undefined,
-  arg0: undefined,
-} }
-
-
-
-
-
-function maze_Fruit_checkSpawn_inline__P10216(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.caps[0].fields["pillCount"];
-    s.tmp_0 = r0;
-    r0 = (s.arg0 == s.tmp_0);
-    return leave(s, r0)
-  default: oops()
-} } }
-maze_Fruit_checkSpawn_inline__P10216.info = {"start":1296,"length":26,"line":42,"column":33,"endLine":42,"endColumn":59,"fileName":"maze_fruit.ts","functionName":"inline","argumentNames":["x"]}
-
-function maze_Fruit_checkSpawn_inline__P10216_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: maze_Fruit_checkSpawn_inline__P10216, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  arg0: undefined,
-} }
-
-
-
-
-
-function helpers_arrayFind__P111(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    s.len___14422 = undefined;
-    s.i___14425 = undefined;
-    s.v___14430 = undefined;
+    s.chaser___265462 = undefined;
+    s.unnamed24098___U1 = undefined;
+    s.unnamed24099___U2 = undefined;
     if (s.lambdaArgs) {
       s.arg0 = (s.lambdaArgs[0]);
       s.arg1 = (s.lambdaArgs[1]);
       s.lambdaArgs = null;
     }
-    r0 = pxsim_Array__length(s.arg0);
-    s.len___14422 = (r0);
-    s.i___14425 = (0);
-  case 1:
-    r0 = (s.i___14425 < s.len___14422);
-    s.tmp_0 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
-    if (!r0) { step = 4; continue; }
-    r0 = pxsim_Array__getAt(s.arg0, s.i___14425);
-    s.v___14430 = (r0);
-    s.tmp_1 = lambda_3_mk(s);
-    s.tmp_1.argL = s.arg1;
-    s.tmp_1.arg0 = s.v___14430;
-    s.tmp_1.arg1 = s.i___14425;
-    setupLambda(s.tmp_1, s.tmp_1.argL);
-    s.callLocIdx = 8; s.pc = 6; return s.tmp_1;
-  case 6:
+    r0 = s.arg0;
+    if (!checkSubtype(r0, maze_Game__C264821_VT)) failedCast(r0);
+    r0 = (s.arg0).fields["freeze"] = (s.arg1);
+    s.tmp_0 = maze_Mover_setFreeze__P232029_mk(s);
+    r0 = s.arg0.fields["maze"];
+    r0 = r0.fields["hero"];
+    r0 = r0.fields["mover"];
+    s.tmp_0.arg0 = r0;
+    s.tmp_0.arg1 = s.arg1;
+    s.callLocIdx = 420; s.pc = 3; return s.tmp_0;
+  case 3:
     r0 = s.retval;
-    s.tmp_0 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
+    s.chaser___265462 = (undefined);
+    r0 = s.arg0.fields["maze"];
+    r0 = r0.fields["chasers"];
+    s.unnamed24098___U1 = (r0);
+    s.unnamed24099___U2 = (0);
+  case 1:
+    s.tmp_0 = r0 = s.unnamed24099___U2;
+    r0 = pxsim_Array__length(s.unnamed24098___U1);
+    s.tmp_1 = r0;
+    r0 = (s.tmp_0 < s.tmp_1);
     if (!r0) { step = 2; continue; }
-    r0 = s.v___14430;
-    { step = 5; continue; }
-  case 2:
-  case 3:
-    r0 = (s.i___14425 + 1);
-    s.i___14425 = (r0);
-    { step = 1; continue; }
+    r0 = pxsim_Array__getAt(s.unnamed24098___U1, s.unnamed24099___U2);
+    s.chaser___265462 = (r0);
+    s.tmp_2 = maze_Mover_setFreeze__P232029_mk(s);
+    r0 = s.chaser___265462.fields["mover"];
+    s.tmp_2.arg0 = r0;
+    s.tmp_2.arg1 = s.arg1;
+    s.callLocIdx = 421; s.pc = 4; return s.tmp_2;
   case 4:
-    r0 = undefined;
-  case 5:
-    return leave(s, r0)
-  default: oops()
-} } }
-helpers_arrayFind__P111.info = {"start":8018,"length":292,"line":271,"column":4,"endLine":278,"endColumn":5,"fileName":"pxt_modules/base/pxt-helpers.ts","functionName":"arrayFind","argumentNames":["arr","callbackfn"]}
-
-function helpers_arrayFind__P111_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: helpers_arrayFind__P111, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  len___14422: undefined,
-  i___14425: undefined,
-  v___14430: undefined,
-  arg0: undefined,
-  arg1: undefined,
-} }
-
-
-
-
-
-function maze_EventManager_register__P4550(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    s.handler___10086 = undefined;
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.arg1 = (s.lambdaArgs[1]);
-      s.arg2 = (s.lambdaArgs[2]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, maze_EventManager__C4540_VT)) failedCast(r0);
-    r0 = pxsim_pxtcore_mkClassInstance(maze_Handler__C9978_VT);
-    s.tmp_0 = r0;
-    s.tmp_1 = maze_Handler_constructor__P9979_mk(s);
-    s.tmp_1.arg0 = s.tmp_0;
-    s.tmp_1.arg1 = s.arg1;
-    s.tmp_1.arg2 = s.arg2;
-    s.callLocIdx = 428; s.pc = 1; return s.tmp_1;
-  case 1:
     r0 = s.retval;
-    s.handler___10086 = (s.tmp_0);
-    r0 = s.arg0.fields["handlers"];
-    s.tmp_0 = r0;
-    r0 = pxsim_Array__push(s.tmp_0, s.handler___10086);
+    r0 = (s.unnamed24099___U2 + 1);
+    s.unnamed24099___U2 = (r0);
+    { step = 1; continue; }
+  case 2:
+    s.unnamed24098___U1 = (undefined);
     r0 = undefined;
     return leave(s, r0)
   default: oops()
 } } }
-maze_EventManager_register__P4550.info = {"start":2628,"length":153,"line":106,"column":8,"endLine":109,"endColumn":9,"fileName":"maze_events.ts","functionName":"register","argumentNames":["this","event","callback"]}
+maze_Game_setFreeze__P264835.info = {"start":7983,"length":245,"line":229,"column":8,"endLine":235,"endColumn":9,"fileName":"maze_game.ts","functionName":"setFreeze","argumentNames":["this","freeze"]}
 
-function maze_EventManager_register__P4550_mk(s) {
+function maze_Game_setFreeze__P264835_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: maze_EventManager_register__P4550, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  handler___10086: undefined,
-  arg0: undefined,
-  arg1: undefined,
-  arg2: undefined,
-} }
-
-
-
-
-
-function maze_Handler_constructor__P9979(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.arg1 = (s.lambdaArgs[1]);
-      s.arg2 = (s.lambdaArgs[2]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, maze_Handler__C9978_VT)) failedCast(r0);
-    r0 = (s.arg0).fields["event"] = (s.arg1);
-    r0 = (s.arg0).fields["callback"] = (s.arg2);
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-maze_Handler_constructor__P9979.info = {"start":657,"length":127,"line":35,"column":8,"endLine":38,"endColumn":9,"fileName":"maze_events.ts","functionName":"inline","argumentNames":["this","event","callback"]}
-
-function maze_Handler_constructor__P9979_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: maze_Handler_constructor__P9979, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  arg0: undefined,
-  arg1: undefined,
-  arg2: undefined,
-} }
-
-
-
-
-
-function maze_Chaser_initLevel__P200288(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, maze_Chaser__C200286_VT)) failedCast(r0);
-    s.tmp_0 = r0 = s.arg0;
-    r0 = s.arg0.fields["maze"];
-    r0 = r0.fields["map"];
-    r0 = r0.fields["scatterTargets"];
-    s.tmp_2 = r0;
-    r0 = s.arg0.fields["id"];
-    s.tmp_3 = r0;
-    r0 = pxsim_Array__getAt(s.tmp_2, s.tmp_3);
-    s.tmp_1 = r0;
-    r0 = (s.tmp_0).fields["scatterTarget"] = (s.tmp_1);
-    s.tmp_0 = r0 = s.arg0;
-    r0 = s.arg0.fields["maze"];
-    r0 = r0.fields["map"];
-    r0 = r0.fields["bases"];
-    s.tmp_2 = r0;
-    r0 = s.arg0.fields["id"];
-    s.tmp_3 = r0;
-    r0 = pxsim_Array__getAt(s.tmp_2, s.tmp_3);
-    s.tmp_1 = r0;
-    r0 = (s.tmp_0).fields["home"] = (s.tmp_1);
-    r0 = s.arg0.fields["maze"];
-    r0 = r0.fields["map"];
-    r0 = r0.fields["baseTop"];
-    s.tmp_0 = r0;
-    r0 = (s.arg0).fields["baseExit"] = (s.tmp_0);
-    r0 = s.arg0.fields["maze"];
-    r0 = r0.fields["map"];
-    r0 = r0.fields["baseCentre"];
-    s.tmp_0 = r0;
-    r0 = (s.arg0).fields["baseCentre"] = (s.tmp_0);
-    r0 = (s.arg0).fields["release"] = (false);
-    r0 = (s.arg0).fields["reverse"] = (false);
-    s.tmp_0 = maze_Chaser_place__P200312_mk(s);
-    s.tmp_0.arg0 = s.arg0;
-    s.callLocIdx = 470; s.pc = 1; return s.tmp_0;
-  case 1:
-    r0 = s.retval;
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-maze_Chaser_initLevel__P200288.info = {"start":1504,"length":343,"line":64,"column":8,"endLine":72,"endColumn":9,"fileName":"maze_chaser.ts","functionName":"initLevel","argumentNames":["this"]}
-
-function maze_Chaser_initLevel__P200288_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: maze_Chaser_initLevel__P200288, depth: s.depth + 1,
+        parent: s, fn: maze_Game_setFreeze__P264835, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
   tmp_2: undefined,
-  tmp_3: undefined,
+  chaser___265462: undefined,
+  unnamed24098___U1: undefined,
+  unnamed24099___U2: undefined,
   arg0: undefined,
+  arg1: undefined,
 } }
 
 
 
 
 
-function maze_Chaser_place__P200312(s) {
+function maze_Mover_setFreeze__P232029(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -15933,1147 +15274,95 @@ switch (step) {
 
     if (s.lambdaArgs) {
       s.arg0 = (s.lambdaArgs[0]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, maze_Chaser__C200286_VT)) failedCast(r0);
-    s.tmp_0 = maze_Mover_placeAtPos__P232025_mk(s);
-    r0 = s.arg0.fields["mover"];
-    s.tmp_0.arg0 = r0;
-    r0 = s.arg0.fields["home"];
-    r0 = r0.fields["x"];
-    s.tmp_0.arg1 = r0;
-    r0 = s.arg0.fields["home"];
-    r0 = r0.fields["y"];
-    s.tmp_0.arg2 = r0;
-    s.callLocIdx = 535; s.pc = 1; return s.tmp_0;
-  case 1:
-    r0 = s.retval;
-    s.tmp_0 = maze_Mover_setImage__P232022_mk(s);
-    r0 = s.arg0.fields["mover"];
-    s.tmp_0.arg0 = r0;
-    s.callLocIdx = 536; s.pc = 2; return s.tmp_0;
-  case 2:
-    r0 = s.retval;
-    r0 = (s.arg0).fields["mode"] = (1);
-    r0 = (s.arg0).fields["waitDir"] = (1);
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-maze_Chaser_place__P200312.info = {"start":14262,"length":194,"line":421,"column":8,"endLine":427,"endColumn":9,"fileName":"maze_chaser.ts","functionName":"place","argumentNames":["this"]}
-
-function maze_Chaser_place__P200312_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: maze_Chaser_place__P200312, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  arg0: undefined,
-} }
-
-
-
-
-
-function maze_Hero_initLevel__P4406(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, maze_Hero__C4400_VT)) failedCast(r0);
-    r0 = s.arg0.fields["mover"];
-    s.tmp_0 = r0;
-    r0 = s.arg0.fields["maze"];
-    r0 = r0.fields["map"];
-    r0 = r0.fields["home"];
-    r0 = r0.fields["x"];
-    s.tmp_1 = r0;
-    r0 = (s.tmp_0).fields["hx"] = (s.tmp_1);
-    r0 = s.arg0.fields["mover"];
-    s.tmp_0 = r0;
-    r0 = s.arg0.fields["maze"];
-    r0 = r0.fields["map"];
-    r0 = r0.fields["home"];
-    r0 = r0.fields["y"];
-    s.tmp_1 = r0;
-    r0 = (s.tmp_0).fields["hy"] = (s.tmp_1);
-    s.tmp_0 = maze_Mover_place__P232024_mk(s);
-    r0 = s.arg0.fields["mover"];
-    s.tmp_0.arg0 = r0;
-    s.callLocIdx = 121; s.pc = 1; return s.tmp_0;
-  case 1:
-    r0 = s.retval;
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-maze_Hero_initLevel__P4406.info = {"start":415,"length":152,"line":18,"column":8,"endLine":22,"endColumn":9,"fileName":"maze_hero.ts","functionName":"initLevel","argumentNames":["this"]}
-
-function maze_Hero_initLevel__P4406_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: maze_Hero_initLevel__P4406, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  arg0: undefined,
-} }
-
-
-
-
-
-function maze_Mover_place__P232024(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
+      s.arg1 = (s.lambdaArgs[1]);
       s.lambdaArgs = null;
     }
     r0 = s.arg0;
     if (!checkSubtype(r0, maze_Mover__C232017_VT)) failedCast(r0);
-    s.tmp_0 = maze_Mover_placeAtPos__P232025_mk(s);
-    s.tmp_0.arg0 = s.arg0;
-    r0 = s.arg0.fields["hx"];
-    s.tmp_0.arg1 = r0;
-    r0 = s.arg0.fields["hy"];
-    s.tmp_0.arg2 = r0;
-    s.callLocIdx = 261; s.pc = 1; return s.tmp_0;
-  case 1:
+    r0 = (s.arg0).fields["frozen"] = (s.arg1);
+    r0 = pxsim_numops_toBoolDecr(s.arg1);
+    if (!r0) { step = 1; continue; }
+    s.tmp_0 = r0 = s.arg0;
+    s.tmp_2 = Sprite_vx__P2358_mk(s);
+    r0 = s.arg0.fields["sprite"];
+    s.tmp_2.arg0 = r0;
+    s.callLocIdx = 298; s.pc = 3; return s.tmp_2;
+  case 3:
     r0 = s.retval;
-    s.tmp_0 = Sprite_setImage__P2391_mk(s);
+    s.tmp_1 = r0;
+    r0 = (s.tmp_0).fields["fvx"] = (s.tmp_1);
+    s.tmp_0 = r0 = s.arg0;
+    s.tmp_2 = Sprite_vy__P2360_mk(s);
+    r0 = s.arg0.fields["sprite"];
+    s.tmp_2.arg0 = r0;
+    s.callLocIdx = 299; s.pc = 4; return s.tmp_2;
+  case 4:
+    r0 = s.retval;
+    s.tmp_1 = r0;
+    r0 = (s.tmp_0).fields["fvy"] = (s.tmp_1);
+    s.tmp_0 = Sprite_vx__P2359_mk(s);
     r0 = s.arg0.fields["sprite"];
     s.tmp_0.arg0 = r0;
-    r0 = s.arg0.fields["images"];
-    r0 = r0.fields["img"];
-    s.tmp_0.arg1 = r0;
-    s.callLocIdx = 262; s.pc = 2; return s.tmp_0;
-  case 2:
-    r0 = s.retval;
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-maze_Mover_place__P232024.info = {"start":6876,"length":115,"line":210,"column":8,"endLine":213,"endColumn":9,"fileName":"maze_mover.ts","functionName":"place","argumentNames":["this"]}
-
-function maze_Mover_place__P232024_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: maze_Mover_place__P232024, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  arg0: undefined,
-} }
-
-
-
-
-
-function maze_Map_initLevel__P4451(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    s.i___8628 = undefined;
-    s.tile___8635 = undefined;
-    s.loc___8639 = undefined;
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, maze_Map__C4435_VT)) failedCast(r0);
-    s.i___8628 = (0);
-  case 1:
-    s.tmp_1 = r0 = s.i___8628;
-    r0 = s.arg0.fields["flags"];
-    s.tmp_3 = r0;
-    r0 = pxsim_Array__length(s.tmp_3);
-    s.tmp_2 = r0;
-    r0 = (s.tmp_1 < s.tmp_2);
-    s.tmp_0 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
-    if (!r0) { step = 6; continue; }
-    s.tmp_4 = maze_Map_getTile__P7592_mk(s);
-    s.tmp_4.arg0 = s.arg0;
-    s.tmp_4.arg1 = s.i___8628;
-    s.callLocIdx = 205; s.pc = 7; return s.tmp_4;
-  case 7:
-    r0 = s.retval;
-    s.tile___8635 = (r0);
-    s.tmp_0 = tiles_getTileLocation__P2767_mk(s);
-    r0 = s.tile___8635.fields["tx"];
-    s.tmp_0.arg0 = r0;
-    r0 = s.tile___8635.fields["ty"];
-    s.tmp_0.arg1 = r0;
-    s.callLocIdx = 206; s.pc = 8; return s.tmp_0;
-  case 8:
-    r0 = s.retval;
-    s.loc___8639 = (r0);
-    r0 = s.arg0.fields["flags"];
-    s.tmp_2 = r0;
-    r0 = pxsim_Array__getAt(s.tmp_2, s.i___8628);
-    s.tmp_1 = r0;
-    r0 = (s.tmp_1 & 256);
-    s.tmp_0 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
-    if (!r0) { step = 2; continue; }
-    r0 = s.arg0.fields["flags"];
-    s.tmp_3 = r0;
-    s.tmp_4 = r0 = s.i___8628;
-    r0 = pxsim_Array__getAt(s.tmp_3, s.i___8628);
-    s.tmp_6 = r0;
-    r0 = (s.tmp_6 | 2);
-    s.tmp_5 = r0;
-    r0 = pxsim_Array_.setAt(s.tmp_3, s.tmp_4, s.tmp_5);
-    s.tmp_0 = tiles_setTileAt__P2765_mk(s);
-    s.tmp_0.arg0 = s.loc___8639;
-    s.tmp_1 = helpers_getTileByName__P3338_mk(s);
-    s.tmp_1.arg0 = "tile_pill";
-    s.callLocIdx = 207; s.pc = 10; return s.tmp_1;
-  case 10:
-    r0 = s.retval;
-    s.tmp_0.arg1 = r0;
-    s.callLocIdx = 208; s.pc = 9; return s.tmp_0;
-  case 9:
-    r0 = s.retval;
-    { step = 5; continue; }
-  case 2:
-    r0 = s.arg0.fields["flags"];
-    s.tmp_2 = r0;
-    r0 = pxsim_Array__getAt(s.tmp_2, s.i___8628);
-    s.tmp_1 = r0;
-    r0 = (s.tmp_1 & 512);
-    s.tmp_0 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
-    if (!r0) { step = 3; continue; }
-    r0 = s.arg0.fields["flags"];
-    s.tmp_3 = r0;
-    s.tmp_4 = r0 = s.i___8628;
-    r0 = pxsim_Array__getAt(s.tmp_3, s.i___8628);
-    s.tmp_6 = r0;
-    r0 = (s.tmp_6 | 4);
-    s.tmp_5 = r0;
-    r0 = pxsim_Array_.setAt(s.tmp_3, s.tmp_4, s.tmp_5);
-    s.tmp_0 = tiles_setTileAt__P2765_mk(s);
-    s.tmp_0.arg0 = s.loc___8639;
-    s.tmp_1 = helpers_getTileByName__P3338_mk(s);
-    s.tmp_1.arg0 = "tile_power";
-    s.callLocIdx = 209; s.pc = 12; return s.tmp_1;
-  case 12:
-    r0 = s.retval;
-    s.tmp_0.arg1 = r0;
-    s.callLocIdx = 210; s.pc = 11; return s.tmp_0;
-  case 11:
-    r0 = s.retval;
-  case 3:
-  case 4:
-  case 5:
-    r0 = (s.i___8628 + 1);
-    s.i___8628 = (r0);
-    { step = 1; continue; }
-  case 6:
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-maze_Map_initLevel__P4451.info = {"start":8225,"length":582,"line":257,"column":8,"endLine":269,"endColumn":9,"fileName":"maze_map.ts","functionName":"initLevel","argumentNames":["this"]}
-
-function maze_Map_initLevel__P4451_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: maze_Map_initLevel__P4451, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  tmp_2: undefined,
-  tmp_3: undefined,
-  tmp_4: undefined,
-  tmp_5: undefined,
-  tmp_6: undefined,
-  i___8628: undefined,
-  tile___8635: undefined,
-  loc___8639: undefined,
-  arg0: undefined,
-} }
-
-
-
-
-
-function maze_Map_getTile__P7592(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    s.tx___8235 = undefined;
-    s.ty___8240 = undefined;
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.arg1 = (s.lambdaArgs[1]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, maze_Map__C4435_VT)) failedCast(r0);
-    r0 = s.arg0.fields["w"];
-    s.tmp_0 = r0;
-    r0 = (s.arg1 % s.tmp_0);
-    s.tx___8235 = (r0);
-    r0 = s.arg0.fields["w"];
-    s.tmp_1 = r0;
-    r0 = (s.arg1 / s.tmp_1);
-    s.tmp_0 = r0;
-    r0 = pxsim.Math_.floor(s.tmp_0);
-    s.ty___8240 = (r0);
-    r0 = pxsim_pxtcore_mkClassInstance(maze_Tile__C4422_VT);
-    s.tmp_0 = r0;
-    s.tmp_1 = maze_Tile_constructor__P4425_mk(s);
-    s.tmp_1.arg0 = s.tmp_0;
-    s.tmp_1.arg1 = s.tx___8235;
-    s.tmp_1.arg2 = s.ty___8240;
-    s.callLocIdx = 151; s.pc = 1; return s.tmp_1;
-  case 1:
-    r0 = s.retval;
-    r0 = s.tmp_0;
-    return leave(s, r0)
-  default: oops()
-} } }
-maze_Map_getTile__P7592.info = {"start":3048,"length":166,"line":114,"column":8,"endLine":118,"endColumn":9,"fileName":"maze_map.ts","functionName":"getTile","argumentNames":["this","index"]}
-
-function maze_Map_getTile__P7592_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: maze_Map_getTile__P7592, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  tx___8235: undefined,
-  ty___8240: undefined,
-  arg0: undefined,
-  arg1: undefined,
-} }
-
-
-
-
-
-function maze_Level_initLevel__P4633(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.arg1 = (s.lambdaArgs[1]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, maze_Level__C4613_VT)) failedCast(r0);
-    s.tmp_0 = maze_Level_init__P4632_mk(s);
-    s.tmp_0.arg0 = s.arg0;
-    s.callLocIdx = 550; s.pc = 5; return s.tmp_0;
-  case 5:
-    r0 = s.retval;
-    s.tmp_1 = maze_getMaze__P4396_mk(s);
-    s.callLocIdx = 551; s.pc = 6; return s.tmp_1;
-  case 6:
-    r0 = s.retval;
-    r0 = r0.fields["game"];
-    r0 = r0.fields["difficulty"];
-    s.tmp_0 = r0;
-    r0 = pxsim_pxtcore.switch_eq(1, s.tmp_0);
-    if (r0) { step = 1; continue; }
-    r0 = pxsim_pxtcore.switch_eq(2, s.tmp_0);
-    if (r0) { step = 2; continue; }
-    r0 = s.tmp_0;
-    { step = 3; continue; }
-  case 1:
-    s.tmp_2 = maze_Level_initEasy__P7558_mk(s);
-    s.tmp_2.arg0 = s.arg0;
-    s.tmp_2.arg1 = s.arg1;
-    s.callLocIdx = 552; s.pc = 7; return s.tmp_2;
-  case 7:
-    r0 = s.retval;
-    { step = 4; continue; }
-  case 2:
-    s.tmp_3 = maze_Level_initHard__P7559_mk(s);
-    s.tmp_3.arg0 = s.arg0;
-    s.tmp_3.arg1 = s.arg1;
-    s.callLocIdx = 553; s.pc = 8; return s.tmp_3;
-  case 8:
-    r0 = s.retval;
-  case 3:
-  case 4:
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-maze_Level_initLevel__P4633.info = {"start":1379,"length":256,"line":50,"column":8,"endLine":57,"endColumn":9,"fileName":"maze_levels.ts","functionName":"initLevel","argumentNames":["this","index"]}
-
-function maze_Level_initLevel__P4633_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: maze_Level_initLevel__P4633, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  tmp_2: undefined,
-  tmp_3: undefined,
-  arg0: undefined,
-  arg1: undefined,
-} }
-
-
-
-
-
-function maze_Level_initHard__P7559(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.arg1 = (s.lambdaArgs[1]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, maze_Level__C4613_VT)) failedCast(r0);
-    s.tmp_0 = console_log__P380_mk(s);
-    if ((s.arg1) && (s.arg1).vtable) {
-    setupResume(s, 8);
-    pxsim_String__stringConv(s.arg1);
-    checkResumeConsumed();
-    return;
-    } else { s.retval = (s.arg1) + ""; }
-  case 8:
-    r0 = s.retval;
-    s.tmp_1 = r0;
-    r0 = pxsim_String__concat("hard:", s.tmp_1);
-    s.tmp_0.arg0 = r0;
-    s.callLocIdx = 555; s.pc = 7; return s.tmp_0;
-  case 7:
-    r0 = s.retval;
-    s.tmp_0 = r0 = s.arg1;
-    r0 = pxsim_pxtcore.switch_eq(0, s.tmp_0);
-    if (r0) { step = 1; continue; }
-    r0 = pxsim_pxtcore.switch_eq(1, s.tmp_0);
-    if (r0) { step = 2; continue; }
-    r0 = pxsim_pxtcore.switch_eq(2, s.tmp_0);
-    if (r0) { step = 3; continue; }
-    r0 = pxsim_pxtcore.switch_eq(3, s.tmp_0);
-    if (r0) { step = 4; continue; }
-    r0 = s.tmp_0;
-    { step = 5; continue; }
-  case 1:
-    r0 = (s.arg0).fields["speedChaser"] = (65);
-    r0 = (s.arg0).fields["speedChaserFright"] = (45);
-    r0 = (s.arg0).fields["speedHero"] = (70);
-    r0 = (s.arg0).fields["speedHeroFright"] = (75);
-    r0 = (s.arg0).fields["timeFright"] = (10);
-    r0 = (s.arg0).fields["timeWarn"] = (8);
-    { step = 6; continue; }
-  case 2:
-    r0 = (s.arg0).fields["speedChaser"] = (75);
-    r0 = (s.arg0).fields["speedChaserFright"] = (50);
-    r0 = (s.arg0).fields["speedHero"] = (80);
-    r0 = (s.arg0).fields["speedHeroFright"] = (85);
-    r0 = (s.arg0).fields["timeFright"] = (9);
-    r0 = (s.arg0).fields["timeWarn"] = (7);
-    { step = 6; continue; }
-  case 3:
-    r0 = (s.arg0).fields["speedChaser"] = (75);
-    r0 = (s.arg0).fields["speedChaserFright"] = (50);
-    r0 = (s.arg0).fields["speedHero"] = (80);
-    r0 = (s.arg0).fields["speedHeroFright"] = (85);
-    r0 = (s.arg0).fields["timeFright"] = (8);
-    r0 = (s.arg0).fields["timeWarn"] = (6);
-    { step = 6; continue; }
-  case 4:
-    r0 = (s.arg0).fields["speedChaser"] = (75);
-    r0 = (s.arg0).fields["speedChaserFright"] = (50);
-    r0 = (s.arg0).fields["speedHero"] = (80);
-    r0 = (s.arg0).fields["speedHeroFright"] = (85);
-    r0 = (s.arg0).fields["timeFright"] = (5);
-    r0 = (s.arg0).fields["timeWarn"] = (3.5);
-    { step = 6; continue; }
-  case 5:
-    r0 = (s.arg0).fields["speedChaser"] = (85);
-    r0 = (s.arg0).fields["speedChaserFright"] = (55);
-    r0 = (s.arg0).fields["speedHero"] = (90);
-    r0 = (s.arg0).fields["speedHeroFright"] = (95);
-    r0 = (s.arg0).fields["timeFright"] = (4);
-    r0 = (s.arg0).fields["timeWarn"] = (3);
-  case 6:
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-maze_Level_initHard__P7559.info = {"start":2567,"length":1704,"line":90,"column":8,"endLine":136,"endColumn":9,"fileName":"maze_levels.ts","functionName":"initHard","argumentNames":["this","index"]}
-
-function maze_Level_initHard__P7559_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: maze_Level_initHard__P7559, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  arg0: undefined,
-  arg1: undefined,
-} }
-
-
-
-
-
-function console_log__P380(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.lambdaArgs = null;
-    }
-    s.tmp_0 = console_add__P376_mk(s);
-    s.tmp_0.arg0 = 1;
-    s.tmp_0.arg1 = s.arg0;
-    s.callLocIdx = 45; s.pc = 1; return s.tmp_0;
-  case 1:
-    r0 = s.retval;
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-console_log__P380.info = {"start":1450,"length":86,"line":58,"column":4,"endLine":60,"endColumn":5,"fileName":"pxt_modules/base/console.ts","functionName":"log","argumentNames":["value"]}
-
-function console_log__P380_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: console_log__P380, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  arg0: undefined,
-} }
-
-
-
-
-
-function console_add__P376(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    s.text___11369 = undefined;
-    s.i___11378 = undefined;
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.arg1 = (s.lambdaArgs[1]);
-      s.lambdaArgs = null;
-    }
-    r0 = (s.arg0 < globals.minPriority___375);
-    s.tmp_0 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
-    if (!r0) { step = 1; continue; }
-    { step = 5; continue; }
-  case 1:
-  case 2:
-    s.tmp_1 = console_inspect__P382_mk(s);
-    s.tmp_1.arg0 = s.arg1;
-    s.tmp_1.arg1 = 20;
-    s.callLocIdx = 43; s.pc = 6; return s.tmp_1;
-  case 6:
-    r0 = s.retval;
-    s.text___11369 = (r0);
-    if ((s.text___11369) && (s.text___11369).vtable) {
-    setupResume(s, 7);
-    pxsim_String__stringConv(s.text___11369);
-    checkResumeConsumed();
-    return;
-    } else { s.retval = (s.text___11369) + ""; }
-  case 7:
-    r0 = s.retval;
-    s.tmp_0 = r0;
-    r0 = pxsim_String__concat(s.tmp_0, "\n");
-    s.text___11369 = (r0);
-    s.i___11378 = (0);
-  case 3:
-    s.tmp_1 = r0 = s.i___11378;
-    r0 = pxsim_Array__length(globals.listeners___4700);
-    s.tmp_2 = r0;
-    r0 = (s.tmp_1 < s.tmp_2);
-    s.tmp_0 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
-    if (!r0) { step = 4; continue; }
-    s.tmp_3 = lambda_3_mk(s);
-    r0 = pxsim_Array__getAt(globals.listeners___4700, s.i___11378);
-    s.tmp_3.argL = r0;
-    s.tmp_3.arg0 = s.arg0;
-    s.tmp_3.arg1 = s.text___11369;
-    setupLambda(s.tmp_3, s.tmp_3.argL);
-    s.callLocIdx = 44; s.pc = 8; return s.tmp_3;
-  case 8:
-    r0 = s.retval;
-    r0 = (s.i___11378 + 1);
-    s.i___11378 = (r0);
-    { step = 3; continue; }
-  case 4:
-  case 5:
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-console_add__P376.info = {"start":632,"length":317,"line":28,"column":4,"endLine":36,"endColumn":5,"fileName":"pxt_modules/base/console.ts","functionName":"add","argumentNames":["priority","message"]}
-
-function console_add__P376_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: console_add__P376, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  tmp_2: undefined,
-  tmp_3: undefined,
-  text___11369: undefined,
-  i___11378: undefined,
-  arg0: undefined,
-  arg1: undefined,
-} }
-
-
-
-
-
-function listeners_inline__P4699(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.arg1 = (s.lambdaArgs[1]);
-      s.lambdaArgs = null;
-    }
-    r0 = pxsim.control.__log(s.arg0, s.arg1);
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-listeners_inline__P4699.info = {"start":534,"length":85,"line":25,"column":8,"endLine":25,"endColumn":93,"fileName":"pxt_modules/base/console.ts","functionName":"inline","argumentNames":["priority","text"]}
-
-function listeners_inline__P4699_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: listeners_inline__P4699, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  arg0: undefined,
-  arg1: undefined,
-} }
-
-
-
-
-
-function console_inspect__P382(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    s.asArr___11416 = undefined;
-    s.asString___11434 = undefined;
-    s.keys___11446 = undefined;
-    s.snipped___11450 = undefined;
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.arg1 = (s.lambdaArgs[1]);
-      s.lambdaArgs = null;
-    }
-    r0 = pxsim_pxtcore.typeOf(s.arg0);
-    s.tmp_1 = r0;
-    r0 = (s.tmp_1 == "string");
-    s.tmp_0 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
-    if (!r0) { step = 1; continue; }
-    r0 = s.arg0;
-    { step = 17; continue; }
-    { step = 16; continue; }
-  case 1:
-    r0 = pxsim_pxtcore.typeOf(s.arg0);
-    s.tmp_3 = r0;
-    r0 = (s.tmp_3 == "number");
-    s.tmp_2 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_2);
-    if (!r0) { step = 2; continue; }
-    r0 = pxsim_String_.mkEmpty();
-    s.tmp_4 = r0;
-    if ((s.arg0) && (s.arg0).vtable) {
-    setupResume(s, 18);
-    pxsim_String__stringConv(s.arg0);
-    checkResumeConsumed();
-    return;
-    } else { s.retval = (s.arg0) + ""; }
-  case 18:
-    r0 = s.retval;
-    s.tmp_5 = r0;
-    r0 = pxsim_String__concat(s.tmp_4, s.tmp_5);
-    { step = 17; continue; }
-    { step = 15; continue; }
-  case 2:
-    r0 = pxsim_Array_.isArray(s.arg0);
-    s.tmp_6 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_6);
-    if (!r0) { step = 5; continue; }
-    s.asArr___11416 = (s.arg0);
-    r0 = pxsim_Array__length(s.asArr___11416);
-    s.tmp_1 = r0;
-    r0 = (s.tmp_1 <= s.arg1);
-    s.tmp_0 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
-    if (!r0) { step = 3; continue; }
-    s.tmp_2 = helpers_arrayJoin__P103_mk(s);
-    s.tmp_2.arg0 = s.asArr___11416;
-    s.tmp_2.arg1 = ",";
-    s.callLocIdx = 46; s.pc = 19; return s.tmp_2;
-  case 19:
-    r0 = s.retval;
-    { step = 17; continue; }
-    { step = 4; continue; }
-  case 3:
-    r0 = pxsim_String_.mkEmpty();
-    s.tmp_4 = r0;
-    s.tmp_7 = helpers_arrayJoin__P103_mk(s);
-    s.tmp_8 = helpers_arraySlice__P115_mk(s);
-    s.tmp_8.arg0 = s.asArr___11416;
-    s.tmp_8.arg1 = 0;
-    s.tmp_8.arg2 = s.arg1;
-    s.callLocIdx = 47; s.pc = 21; return s.tmp_8;
-  case 21:
-    r0 = s.retval;
-    s.tmp_7.arg0 = r0;
-    s.tmp_7.arg1 = ",";
-    s.callLocIdx = 48; s.pc = 20; return s.tmp_7;
-  case 20:
-    r0 = s.retval;
-    s.tmp_6 = r0;
-    if ((s.tmp_6) && (s.tmp_6).vtable) {
-    setupResume(s, 22);
-    pxsim_String__stringConv(s.tmp_6);
-    checkResumeConsumed();
-    return;
-    } else { s.retval = (s.tmp_6) + ""; }
-  case 22:
-    r0 = s.retval;
-    s.tmp_5 = r0;
-    r0 = pxsim_String__concat(s.tmp_4, s.tmp_5);
-    s.tmp_3 = r0;
-    r0 = pxsim_String__concat(s.tmp_3, "...");
-    { step = 17; continue; }
-  case 4:
-    { step = 14; continue; }
-  case 5:
-    if ((s.arg0) && (s.arg0).vtable) {
-    setupResume(s, 23);
-    pxsim_String__stringConv(s.arg0);
-    checkResumeConsumed();
-    return;
-    } else { s.retval = (s.arg0) + ""; }
-  case 23:
-    r0 = s.retval;
-    s.tmp_9 = r0;
-    r0 = pxsim_String_.mkEmpty();
-    s.tmp_10 = r0;
-    r0 = pxsim_String__concat(s.tmp_9, s.tmp_10);
-    s.asString___11434 = (r0);
-    r0 = (s.asString___11434 != "[object Object]");
-    s.tmp_0 = r0;
-    r0 = pxsim_numops_toBool(s.tmp_0);
-    if (r0) { step = 6; continue; }
-    r0 = s.tmp_0;
-    { step = 7; continue; }
-  case 6:
-    r0 = (s.asString___11434 != "[Object]");
-  case 7:
-    // jmp value (already in r0)
-    s.tmp_1 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_1);
-    if (!r0) { step = 8; continue; }
-    r0 = s.asString___11434;
-    { step = 17; continue; }
-  case 8:
-  case 9:
-    r0 = pxsim_pxtrt.keysOf(s.arg0);
-    s.keys___11446 = (r0);
-    r0 = pxsim_Array__length(s.keys___11446);
-    s.tmp_0 = r0;
-    r0 = (s.tmp_0 > s.arg1);
-    s.snipped___11450 = (r0);
-    r0 = pxsim_numops_toBoolDecr(s.snipped___11450);
-    if (!r0) { step = 10; continue; }
-    s.tmp_0 = helpers_arraySlice__P115_mk(s);
-    s.tmp_0.arg0 = s.keys___11446;
     s.tmp_0.arg1 = 0;
-    s.tmp_0.arg2 = s.arg1;
-    s.callLocIdx = 49; s.pc = 24; return s.tmp_0;
-  case 24:
-    r0 = s.retval;
-    s.keys___11446 = (r0);
-  case 10:
-  case 11:
-    r0 = pxsim_pxtcore_mkAction(1, console_inspect_inline__P11467);
-    s.tmp_0 = r0;
-    r0 = pxsim_pxtrt_stclo(s.tmp_0, 0, s.arg0);
-    r0 = pxsim_numops_toBoolDecr(s.snipped___11450);
-    if (!r0) { step = 12; continue; }
-    r0 = "\n    ...";
-    { step = 13; continue; }
-  case 12:
-    r0 = pxsim_String_.mkEmpty();
-  case 13:
-    // jmp value (already in r0)
-    s.tmp_1 = r0;
-    s.tmp_7 = helpers_arrayReduce__P112_mk(s);
-    s.tmp_7.arg0 = s.keys___11446;
-    s.tmp_7.arg1 = s.tmp_0;
-    r0 = pxsim_String_.mkEmpty();
-    s.tmp_7.arg2 = r0;
-    s.callLocIdx = 50; s.pc = 25; return s.tmp_7;
-  case 25:
-    r0 = s.retval;
-    s.tmp_6 = r0;
-    if ((s.tmp_6) && (s.tmp_6).vtable) {
-    setupResume(s, 26);
-    pxsim_String__stringConv(s.tmp_6);
-    checkResumeConsumed();
-    return;
-    } else { s.retval = (s.tmp_6) + ""; }
-  case 26:
-    r0 = s.retval;
-    s.tmp_5 = r0;
-    if ((s.tmp_1) && (s.tmp_1).vtable) {
-    setupResume(s, 27);
-    pxsim_String__stringConv(s.tmp_1);
-    checkResumeConsumed();
-    return;
-    } else { s.retval = (s.tmp_1) + ""; }
-  case 27:
-    r0 = s.retval;
-    s.tmp_8 = r0;
-    r0 = pxsim_String__concat(s.tmp_5, s.tmp_8);
-    s.tmp_4 = r0;
-    if ((s.tmp_4) && (s.tmp_4).vtable) {
-    setupResume(s, 28);
-    pxsim_String__stringConv(s.tmp_4);
-    checkResumeConsumed();
-    return;
-    } else { s.retval = (s.tmp_4) + ""; }
-  case 28:
-    r0 = s.retval;
-    s.tmp_3 = r0;
-    r0 = pxsim_String__concat("{", s.tmp_3);
-    s.tmp_2 = r0;
-    r0 = pxsim_String__concat(s.tmp_2, "\n}");
-    { step = 17; continue; }
-  case 14:
-  case 15:
-  case 16:
-    r0 = undefined;
-  case 17:
-    return leave(s, r0)
-  default: oops()
-} } }
-console_inspect__P382.info = {"start":2271,"length":1190,"line":81,"column":4,"endLine":114,"endColumn":5,"fileName":"pxt_modules/base/console.ts","functionName":"inspect","argumentNames":["obj","maxElements"]}
-
-function console_inspect__P382_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: console_inspect__P382, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  tmp_2: undefined,
-  tmp_3: undefined,
-  tmp_4: undefined,
-  tmp_5: undefined,
-  tmp_6: undefined,
-  tmp_7: undefined,
-  tmp_8: undefined,
-  tmp_9: undefined,
-  tmp_10: undefined,
-  asArr___11416: undefined,
-  asString___11434: undefined,
-  keys___11446: undefined,
-  snipped___11450: undefined,
-  arg0: undefined,
-  arg1: undefined,
-} }
-
-
-
-
-
-function console_inspect_inline__P11467(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.arg1 = (s.lambdaArgs[1]);
-      s.lambdaArgs = null;
-    }
-    if ((s.arg0) && (s.arg0).vtable) {
-    setupResume(s, 1);
-    pxsim_String__stringConv(s.arg0);
-    checkResumeConsumed();
-    return;
-    } else { s.retval = (s.arg0) + ""; }
-  case 1:
-    r0 = s.retval;
-    s.tmp_0 = r0;
-    if ((s.arg1) && (s.arg1).vtable) {
-    setupResume(s, 2);
-    pxsim_String__stringConv(s.arg1);
-    checkResumeConsumed();
-    return;
-    } else { s.retval = (s.arg1) + ""; }
-  case 2:
-    r0 = s.retval;
-    s.tmp_5 = r0;
-    r0 = pxsim_String__concat("\n    ", s.tmp_5);
-    s.tmp_4 = r0;
-    r0 = pxsim_String__concat(s.tmp_4, ": ");
-    s.tmp_3 = r0;
-    r0 = pxsim_pxtrt.mapGetGeneric(s.caps[0], s.arg1);
-    s.tmp_7 = r0;
-    if ((s.tmp_7) && (s.tmp_7).vtable) {
-    setupResume(s, 3);
-    pxsim_String__stringConv(s.tmp_7);
-    checkResumeConsumed();
-    return;
-    } else { s.retval = (s.tmp_7) + ""; }
-  case 3:
-    r0 = s.retval;
-    s.tmp_6 = r0;
-    r0 = pxsim_String__concat(s.tmp_3, s.tmp_6);
-    s.tmp_2 = r0;
-    if ((s.tmp_2) && (s.tmp_2).vtable) {
-    setupResume(s, 4);
-    pxsim_String__stringConv(s.tmp_2);
-    checkResumeConsumed();
-    return;
-    } else { s.retval = (s.tmp_2) + ""; }
-  case 4:
-    r0 = s.retval;
-    s.tmp_1 = r0;
-    r0 = pxsim_String__concat(s.tmp_0, s.tmp_1);
-    return leave(s, r0)
-  default: oops()
-} } }
-console_inspect_inline__P11467.info = {"start":3293,"length":61,"line":108,"column":20,"endLine":108,"endColumn":81,"fileName":"pxt_modules/base/console.ts","functionName":"inline","argumentNames":["prev","currKey"]}
-
-function console_inspect_inline__P11467_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: console_inspect_inline__P11467, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  tmp_2: undefined,
-  tmp_3: undefined,
-  tmp_4: undefined,
-  tmp_5: undefined,
-  tmp_6: undefined,
-  tmp_7: undefined,
-  arg0: undefined,
-  arg1: undefined,
-} }
-
-
-
-
-
-function helpers_arraySlice__P115(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    s.res___11515 = undefined;
-    s.len___11517 = undefined;
-    s.i___11551 = undefined;
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.arg1 = (s.lambdaArgs[1]);
-      s.arg2 = (s.lambdaArgs[2]);
-      s.lambdaArgs = null;
-    }
-    r0 = pxsim_Array__mk();
-    s.res___11515 = (r0);
-    r0 = pxsim_Array__length(s.arg0);
-    s.len___11517 = (r0);
-    r0 = (s.arg1 === undefined);
-    s.tmp_0 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
-    if (!r0) { step = 1; continue; }
-    s.arg1 = (0);
-    { step = 4; continue; }
-  case 1:
-    r0 = (s.arg1 < 0);
-    s.tmp_0 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
-    if (!r0) { step = 2; continue; }
-    s.tmp_1 = Math_max__P130_mk(s);
-    r0 = (s.len___11517 + s.arg1);
-    s.tmp_1.arg0 = r0;
-    s.tmp_1.arg1 = 0;
-    s.callLocIdx = 10; s.pc = 16; return s.tmp_1;
-  case 16:
-    r0 = s.retval;
-    s.arg1 = (r0);
-  case 2:
-  case 3:
-  case 4:
-    r0 = (s.arg1 > s.len___11517);
-    s.tmp_0 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
-    if (!r0) { step = 5; continue; }
-    r0 = s.res___11515;
-    { step = 15; continue; }
+    s.callLocIdx = 300; s.pc = 5; return s.tmp_0;
   case 5:
+    r0 = s.retval;
+    s.tmp_0 = Sprite_vy__P2361_mk(s);
+    r0 = s.arg0.fields["sprite"];
+    s.tmp_0.arg0 = r0;
+    s.tmp_0.arg1 = 0;
+    s.callLocIdx = 301; s.pc = 6; return s.tmp_0;
   case 6:
-    r0 = (s.arg2 === undefined);
-    s.tmp_1 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_1);
-    if (!r0) { step = 7; continue; }
-    s.arg2 = (s.len___11517);
-    { step = 10; continue; }
+    r0 = s.retval;
+    { step = 2; continue; }
+  case 1:
+    s.tmp_0 = Sprite_vx__P2359_mk(s);
+    r0 = s.arg0.fields["sprite"];
+    s.tmp_0.arg0 = r0;
+    r0 = s.arg0.fields["fvx"];
+    s.tmp_0.arg1 = r0;
+    s.callLocIdx = 302; s.pc = 7; return s.tmp_0;
   case 7:
-    r0 = (s.arg2 < 0);
-    s.tmp_0 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
-    if (!r0) { step = 8; continue; }
-    r0 = (s.len___11517 + s.arg2);
-    s.arg2 = (r0);
+    r0 = s.retval;
+    s.tmp_0 = Sprite_vy__P2361_mk(s);
+    r0 = s.arg0.fields["sprite"];
+    s.tmp_0.arg0 = r0;
+    r0 = s.arg0.fields["fvy"];
+    s.tmp_0.arg1 = r0;
+    s.callLocIdx = 303; s.pc = 8; return s.tmp_0;
   case 8:
+    r0 = s.retval;
+  case 2:
+    s.tmp_0 = maze_DirImage_setFreeze__P232041_mk(s);
+    r0 = s.arg0.fields["images"];
+    s.tmp_0.arg0 = r0;
+    s.tmp_0.arg1 = s.arg1;
+    s.callLocIdx = 304; s.pc = 9; return s.tmp_0;
   case 9:
-  case 10:
-    r0 = (s.arg2 > s.len___11517);
-    s.tmp_0 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
-    if (!r0) { step = 11; continue; }
-    s.arg2 = (s.len___11517);
-  case 11:
-  case 12:
-    s.i___11551 = (s.arg1);
-  case 13:
-    r0 = (s.i___11551 < s.arg2);
-    s.tmp_0 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
-    if (!r0) { step = 14; continue; }
-    s.tmp_1 = r0 = s.res___11515;
-    r0 = pxsim_Array__getAt(s.arg0, s.i___11551);
-    s.tmp_2 = r0;
-    r0 = pxsim_Array__push(s.tmp_1, s.tmp_2);
-    r0 = (s.i___11551 + 1);
-    s.i___11551 = (r0);
-    { step = 13; continue; }
-  case 14:
-    r0 = s.res___11515;
-  case 15:
+    r0 = s.retval;
+    r0 = undefined;
     return leave(s, r0)
   default: oops()
 } } }
-helpers_arraySlice__P115.info = {"start":9027,"length":690,"line":303,"column":4,"endLine":328,"endColumn":5,"fileName":"pxt_modules/base/pxt-helpers.ts","functionName":"arraySlice","argumentNames":["arr","start","end"]}
+maze_Mover_setFreeze__P232029.info = {"start":9798,"length":412,"line":298,"column":8,"endLine":310,"endColumn":9,"fileName":"maze_mover.ts","functionName":"setFreeze","argumentNames":["this","freeze"]}
 
-function helpers_arraySlice__P115_mk(s) {
+function maze_Mover_setFreeze__P232029_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: helpers_arraySlice__P115, depth: s.depth + 1,
+        parent: s, fn: maze_Mover_setFreeze__P232029, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
   tmp_2: undefined,
-  res___11515: undefined,
-  len___11517: undefined,
-  i___11551: undefined,
   arg0: undefined,
   arg1: undefined,
-  arg2: undefined,
 } }
 
 
 
 
 
-function helpers_arrayReduce__P112(s) {
+function maze_ask__P4610(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -17083,52 +15372,81 @@ if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) re
 switch (step) {
   case 0:
 
-    s.len___11494 = undefined;
-    s.i___11497 = undefined;
+    s.answer___11116 = undefined;
+    s.aNotHeld___11118 = undefined;
+    s.bNotHeld___11119 = undefined;
     if (s.lambdaArgs) {
       s.arg0 = (s.lambdaArgs[0]);
       s.arg1 = (s.lambdaArgs[1]);
       s.arg2 = (s.lambdaArgs[2]);
       s.lambdaArgs = null;
     }
-    r0 = pxsim_Array__length(s.arg0);
-    s.len___11494 = (r0);
-    s.i___11497 = (0);
+    s.tmp_0 = controller__setUserEventsEnabled__P2206_mk(s);
+    s.tmp_0.arg0 = false;
+    s.callLocIdx = 538; s.pc = 1; return s.tmp_0;
   case 1:
-    r0 = (s.i___11497 < s.len___11494);
-    s.tmp_0 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
-    if (!r0) { step = 2; continue; }
-    s.tmp_1 = lambda_4_mk(s);
-    s.tmp_1.argL = s.arg1;
-    s.tmp_1.arg0 = s.arg2;
-    r0 = pxsim_Array__getAt(s.arg0, s.i___11497);
-    s.tmp_1.arg1 = r0;
-    s.tmp_1.arg2 = s.i___11497;
-    setupLambda(s.tmp_1, s.tmp_1.argL);
-    s.callLocIdx = 9; s.pc = 3; return s.tmp_1;
+    r0 = s.retval;
+    s.tmp_0 = control_pushEventContext__P409_mk(s);
+    s.callLocIdx = 539; s.pc = 2; return s.tmp_0;
+  case 2:
+    r0 = s.retval;
+    s.tmp_0 = game_showDialog__P3005_mk(s);
+    s.tmp_0.arg0 = s.arg0;
+    s.tmp_0.arg1 = s.arg1;
+    s.tmp_0.arg2 = s.arg2;
+    s.callLocIdx = 540; s.pc = 3; return s.tmp_0;
   case 3:
     r0 = s.retval;
-    s.arg2 = (r0);
-    r0 = (s.i___11497 + 1);
-    s.i___11497 = (r0);
-    { step = 1; continue; }
-  case 2:
-    r0 = s.arg2;
+    s.tmp_0 = pause__P413_mk(s);
+    s.tmp_0.arg0 = 250;
+    s.callLocIdx = 541; s.pc = 4; return s.tmp_0;
+  case 4:
+    r0 = s.retval;
+    r0 = pxsim_pxtrt.mklocRef();
+    s.answer___11116 = (r0);
+    r0 = pxsim_pxtrt_stlocRef(s.answer___11116, null);
+    r0 = pxsim_pxtrt.mklocRef();
+    s.aNotHeld___11118 = (r0);
+    r0 = pxsim_pxtrt_stlocRef(s.aNotHeld___11118, false);
+    r0 = pxsim_pxtrt.mklocRef();
+    s.bNotHeld___11119 = (r0);
+    r0 = pxsim_pxtrt_stlocRef(s.bNotHeld___11119, false);
+    r0 = pxsim_pxtcore_mkAction(3, maze_ask_inline__P11122);
+    s.tmp_0 = r0;
+    r0 = pxsim_pxtrt_stclo(s.tmp_0, 0, s.aNotHeld___11118);
+    r0 = pxsim_pxtrt_stclo(s.tmp_0, 1, s.bNotHeld___11119);
+    r0 = pxsim_pxtrt_stclo(s.tmp_0, 2, s.answer___11116);
+    s.tmp_1 = pauseUntil__P367_mk(s);
+    s.tmp_1.arg0 = s.tmp_0;
+    s.tmp_1.arg1 = undefined;
+    s.callLocIdx = 542; s.pc = 5; return s.tmp_1;
+  case 5:
+    r0 = s.retval;
+    s.tmp_0 = control_popEventContext__P410_mk(s);
+    s.callLocIdx = 543; s.pc = 6; return s.tmp_0;
+  case 6:
+    r0 = s.retval;
+    s.tmp_0 = controller__setUserEventsEnabled__P2206_mk(s);
+    s.tmp_0.arg0 = true;
+    s.callLocIdx = 544; s.pc = 7; return s.tmp_0;
+  case 7:
+    r0 = s.retval;
+    r0 = pxsim_pxtrt_ldlocRef(s.answer___11116);
     return leave(s, r0)
   default: oops()
 } } }
-helpers_arrayReduce__P112.info = {"start":8316,"length":317,"line":280,"column":4,"endLine":286,"endColumn":5,"fileName":"pxt_modules/base/pxt-helpers.ts","functionName":"arrayReduce","argumentNames":["arr","callbackfn","initialValue"]}
+maze_ask__P4610.info = {"start":99,"length":836,"line":3,"column":4,"endLine":25,"endColumn":5,"fileName":"maze_ui.ts","functionName":"ask","argumentNames":["title","subtitle","footer"]}
 
-function helpers_arrayReduce__P112_mk(s) {
+function maze_ask__P4610_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: helpers_arrayReduce__P112, depth: s.depth + 1,
+        parent: s, fn: maze_ask__P4610, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
-  len___11494: undefined,
-  i___11497: undefined,
+  answer___11116: undefined,
+  aNotHeld___11118: undefined,
+  bNotHeld___11119: undefined,
   arg0: undefined,
   arg1: undefined,
   arg2: undefined,
@@ -17138,7 +15456,7 @@ function helpers_arrayReduce__P112_mk(s) {
 
 
 
-function helpers_arrayJoin__P103(s) {
+function maze_ask_inline__P11122(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -17148,4483 +15466,747 @@ if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) re
 switch (step) {
   case 0:
 
-    s.r___11576 = undefined;
-    s.len___11577 = undefined;
-    s.i___11580 = undefined;
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.arg1 = (s.lambdaArgs[1]);
-      s.lambdaArgs = null;
-    }
-    r0 = (s.arg1 === undefined);
+    r0 = pxsim_pxtrt_ldlocRef(s.caps[0]);
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBool(s.tmp_0);
     if (!r0) { step = 1; continue; }
     r0 = s.tmp_0;
     { step = 2; continue; }
   case 1:
-    r0 = (s.arg1 === null);
-  case 2:
-    // jmp value (already in r0)
-    s.tmp_1 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_1);
-    if (!r0) { step = 3; continue; }
-    s.arg1 = (",");
-  case 3:
-  case 4:
-    r0 = pxsim_String_.mkEmpty();
-    s.r___11576 = (r0);
-    r0 = pxsim_Array__length(s.arg0);
-    s.len___11577 = (r0);
-    s.i___11580 = (0);
-  case 5:
-    r0 = (s.i___11580 < s.len___11577);
-    s.tmp_0 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
-    if (!r0) { step = 14; continue; }
-    r0 = (s.i___11580 > 0);
-    s.tmp_1 = r0;
-    r0 = pxsim_numops_toBool(s.tmp_1);
-    if (r0) { step = 6; continue; }
-    r0 = s.tmp_1;
-    { step = 7; continue; }
-  case 6:
-    r0 = s.arg1;
-  case 7:
-    // jmp value (already in r0)
+    s.tmp_3 = controller_Button__C2189_v0_1_mk(s);
+    s.tmp_3.arg0 = globals.A___2113;
+    if (!checkSubtype(s.tmp_3.arg0, controller_Button__C2189_VT)) failedCast(s.tmp_3.arg0);
+    s.tmp_3.fn = s.tmp_3.arg0.vtable.methods.isPressed;
+    s.pc = 13; return s.tmp_3;
+  case 13:
+    r0 = s.retval;
     s.tmp_2 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_2);
-    if (!r0) { step = 8; continue; }
-    if ((s.r___11576) && (s.r___11576).vtable) {
-    setupResume(s, 15);
-    pxsim_String__stringConv(s.r___11576);
-    checkResumeConsumed();
-    return;
-    } else { s.retval = (s.r___11576) + ""; }
-  case 15:
-    r0 = s.retval;
-    s.tmp_3 = r0;
-    if ((s.arg1) && (s.arg1).vtable) {
-    setupResume(s, 16);
-    pxsim_String__stringConv(s.arg1);
-    checkResumeConsumed();
-    return;
-    } else { s.retval = (s.arg1) + ""; }
-  case 16:
-    r0 = s.retval;
-    s.tmp_4 = r0;
-    r0 = pxsim_String__concat(s.tmp_3, s.tmp_4);
-    s.r___11576 = (r0);
-  case 8:
-  case 9:
-    r0 = pxsim_Array__getAt(s.arg0, s.i___11580);
-    s.tmp_1 = r0;
-    r0 = (s.tmp_1 === undefined);
-    s.tmp_0 = r0;
-    r0 = pxsim_numops_toBool(s.tmp_0);
-    if (!r0) { step = 10; continue; }
-    r0 = s.tmp_0;
-    { step = 11; continue; }
-  case 10:
-    r0 = pxsim_Array__getAt(s.arg0, s.i___11580);
-    s.tmp_2 = r0;
-    r0 = (s.tmp_2 === null);
-  case 11:
-    // jmp value (already in r0)
-    s.tmp_3 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_3);
-    if (!r0) { step = 12; continue; }
-    r0 = pxsim_String_.mkEmpty();
-    { step = 13; continue; }
-  case 12:
-    r0 = pxsim_Array__getAt(s.arg0, s.i___11580);
-  case 13:
-    // jmp value (already in r0)
-    s.tmp_4 = r0;
-    if ((s.r___11576) && (s.r___11576).vtable) {
-    setupResume(s, 17);
-    pxsim_String__stringConv(s.r___11576);
-    checkResumeConsumed();
-    return;
-    } else { s.retval = (s.r___11576) + ""; }
-  case 17:
-    r0 = s.retval;
-    s.tmp_5 = r0;
-    if ((s.tmp_4) && (s.tmp_4).vtable) {
-    setupResume(s, 18);
-    pxsim_String__stringConv(s.tmp_4);
-    checkResumeConsumed();
-    return;
-    } else { s.retval = (s.tmp_4) + ""; }
-  case 18:
-    r0 = s.retval;
-    s.tmp_6 = r0;
-    r0 = pxsim_String__concat(s.tmp_5, s.tmp_6);
-    s.r___11576 = (r0);
-    r0 = (s.i___11580 + 1);
-    s.i___11580 = (r0);
-    { step = 5; continue; }
-  case 14:
-    r0 = s.r___11576;
-    return leave(s, r0)
-  default: oops()
-} } }
-helpers_arrayJoin__P103.info = {"start":4133,"length":432,"line":157,"column":4,"endLine":170,"endColumn":5,"fileName":"pxt_modules/base/pxt-helpers.ts","functionName":"arrayJoin","argumentNames":["arr","sep"]}
-
-function helpers_arrayJoin__P103_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: helpers_arrayJoin__P103, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  tmp_2: undefined,
-  tmp_3: undefined,
-  tmp_4: undefined,
-  tmp_5: undefined,
-  tmp_6: undefined,
-  r___11576: undefined,
-  len___11577: undefined,
-  i___11580: undefined,
-  arg0: undefined,
-  arg1: undefined,
-} }
-
-
-
-
-
-function maze_Level_initEasy__P7558(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.arg1 = (s.lambdaArgs[1]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, maze_Level__C4613_VT)) failedCast(r0);
-    s.tmp_0 = console_log__P380_mk(s);
-    if ((s.arg1) && (s.arg1).vtable) {
-    setupResume(s, 7);
-    pxsim_String__stringConv(s.arg1);
-    checkResumeConsumed();
-    return;
-    } else { s.retval = (s.arg1) + ""; }
-  case 7:
-    r0 = s.retval;
-    s.tmp_1 = r0;
-    r0 = pxsim_String__concat("easy:", s.tmp_1);
-    s.tmp_0.arg0 = r0;
-    s.callLocIdx = 554; s.pc = 6; return s.tmp_0;
-  case 6:
-    r0 = s.retval;
-    r0 = (s.arg0).fields["timeScatter"] = (14);
-    r0 = (s.arg0).fields["timeFright"] = (20);
-    r0 = (s.arg0).fields["timeWarn"] = (17);
-    r0 = (s.arg0).fields["timeFruitDespawn"] = (20);
-    r0 = pxsim_Array__mk();
-    s.tmp_0 = r0;
-    r0 = pxsim_Array__push(s.tmp_0, 0);
-    r0 = pxsim_Array__push(s.tmp_0, 20);
-    r0 = pxsim_Array__push(s.tmp_0, 50);
-    r0 = pxsim_Array__push(s.tmp_0, 100);
-    r0 = (s.arg0).fields["pillReleaseCount"] = (s.tmp_0);
-    r0 = (s.arg0).fields["speedChaser"] = (45);
-    r0 = (s.arg0).fields["speedChaserFright"] = (25);
-    r0 = (s.arg0).fields["speedChaserWait"] = (25);
-    s.tmp_0 = r0 = s.arg1;
-    r0 = pxsim_pxtcore.switch_eq(0, s.tmp_0);
-    if (r0) { step = 1; continue; }
-    r0 = pxsim_pxtcore.switch_eq(1, s.tmp_0);
-    if (r0) { step = 2; continue; }
-    r0 = pxsim_pxtcore.switch_eq(2, s.tmp_0);
-    if (r0) { step = 3; continue; }
-    r0 = s.tmp_0;
-    { step = 4; continue; }
-  case 1:
-    r0 = (s.arg0).fields["speedHero"] = (50);
-    r0 = (s.arg0).fields["speedHeroFright"] = (60);
-    { step = 5; continue; }
-  case 2:
-  case 3:
-    r0 = (s.arg0).fields["speedHero"] = (55);
-    r0 = (s.arg0).fields["speedHeroFright"] = (60);
-    { step = 5; continue; }
-  case 4:
-    r0 = (s.arg0).fields["speedHero"] = (60);
-    r0 = (s.arg0).fields["speedHeroFright"] = (60);
-  case 5:
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-maze_Level_initEasy__P7558.info = {"start":1645,"length":912,"line":59,"column":8,"endLine":88,"endColumn":9,"fileName":"maze_levels.ts","functionName":"initEasy","argumentNames":["this","index"]}
-
-function maze_Level_initEasy__P7558_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: maze_Level_initEasy__P7558, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  arg0: undefined,
-  arg1: undefined,
-} }
-
-
-
-
-
-function scene_cameraFollowSprite__P2890(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    s.scene___19033 = undefined;
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.lambdaArgs = null;
-    }
-    s.tmp_0 = game_currentScene__P2999_mk(s);
-    s.callLocIdx = 1276; s.pc = 1; return s.tmp_0;
-  case 1:
-    r0 = s.retval;
-    s.scene___19033 = (r0);
-    r0 = s.scene___19033.fields["camera"];
-    s.tmp_0 = r0;
-    r0 = (s.tmp_0).fields["sprite"] = (s.arg0);
-    s.tmp_0 = scene_Camera_update__P2798_mk(s);
-    r0 = s.scene___19033.fields["camera"];
-    s.tmp_0.arg0 = r0;
-    s.callLocIdx = 1277; s.pc = 2; return s.tmp_0;
-  case 2:
-    r0 = s.retval;
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-scene_cameraFollowSprite__P2890.info = {"start":4010,"length":170,"line":143,"column":4,"endLine":147,"endColumn":5,"fileName":"pxt_modules/game/scenes.ts","functionName":"cameraFollowSprite","argumentNames":["sprite"]}
-
-function scene_cameraFollowSprite__P2890_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: scene_cameraFollowSprite__P2890, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  scene___19033: undefined,
-  arg0: undefined,
-} }
-
-
-
-
-
-function scene_Camera_update__P2798(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    s.elapsed___13661 = undefined;
-    s.percentComplete___13675 = undefined;
-    s.damp___13682 = undefined;
-    s.f___13691 = undefined;
-    s.x___13697 = undefined;
-    s.y___13704 = undefined;
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, scene_Camera__C2781_VT)) failedCast(r0);
-    r0 = s.arg0.fields["sprite"];
-    s.tmp_0 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
-    if (!r0) { step = 1; continue; }
-    s.tmp_1 = r0 = s.arg0;
-    s.tmp_3 = Sprite_x__P2354_mk(s);
-    r0 = s.arg0.fields["sprite"];
-    s.tmp_3.arg0 = r0;
-    s.callLocIdx = 1222; s.pc = 9; return s.tmp_3;
-  case 9:
-    r0 = s.retval;
-    s.tmp_2 = r0;
-    r0 = (s.tmp_1).fields["_lastUpdatedSpriteX"] = (s.tmp_2);
-    s.tmp_0 = r0 = s.arg0;
-    s.tmp_2 = Sprite_y__P2356_mk(s);
-    r0 = s.arg0.fields["sprite"];
-    s.tmp_2.arg0 = r0;
-    s.callLocIdx = 1223; s.pc = 10; return s.tmp_2;
-  case 10:
-    r0 = s.retval;
-    s.tmp_1 = r0;
-    r0 = (s.tmp_0).fields["_lastUpdatedSpriteY"] = (s.tmp_1);
-    s.tmp_0 = scene_Camera_offsetX__P2787_mk(s);
-    s.tmp_0.arg0 = s.arg0;
-    s.tmp_2 = Sprite_x__P2354_mk(s);
-    r0 = s.arg0.fields["sprite"];
-    s.tmp_2.arg0 = r0;
-    s.callLocIdx = 1224; s.pc = 12; return s.tmp_2;
-  case 12:
-    r0 = s.retval;
-    s.tmp_1 = r0;
-    r0 = pxsim_ImageMethods.width(globals.screen___2032);
-    s.tmp_4 = r0;
-    r0 = (s.tmp_4 >> 1);
-    s.tmp_3 = r0;
-    r0 = (s.tmp_1 - s.tmp_3);
-    s.tmp_0.arg1 = r0;
-    s.callLocIdx = 1225; s.pc = 11; return s.tmp_0;
-  case 11:
-    r0 = s.retval;
-    s.tmp_0 = scene_Camera_offsetY__P2789_mk(s);
-    s.tmp_0.arg0 = s.arg0;
-    s.tmp_2 = Sprite_y__P2356_mk(s);
-    r0 = s.arg0.fields["sprite"];
-    s.tmp_2.arg0 = r0;
-    s.callLocIdx = 1226; s.pc = 14; return s.tmp_2;
-  case 14:
-    r0 = s.retval;
-    s.tmp_1 = r0;
-    r0 = pxsim_ImageMethods.height(globals.screen___2032);
-    s.tmp_4 = r0;
-    r0 = (s.tmp_4 >> 1);
-    s.tmp_3 = r0;
-    r0 = (s.tmp_1 - s.tmp_3);
-    s.tmp_0.arg1 = r0;
-    s.callLocIdx = 1227; s.pc = 13; return s.tmp_0;
-  case 13:
-    r0 = s.retval;
-  case 1:
-  case 2:
-    s.tmp_0 = r0 = s.arg0;
-    r0 = s.arg0.fields["_offsetX"];
-    s.tmp_1 = r0;
-    r0 = (s.tmp_0).fields["drawOffsetX"] = (s.tmp_1);
-    s.tmp_0 = r0 = s.arg0;
-    r0 = s.arg0.fields["_offsetY"];
-    s.tmp_1 = r0;
-    r0 = (s.tmp_0).fields["drawOffsetY"] = (s.tmp_1);
-    r0 = s.arg0.fields["shakeStartTime"];
-    s.tmp_1 = r0;
-    r0 = (s.tmp_1 !== undefined);
-    s.tmp_0 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
-    if (!r0) { step = 7; continue; }
-    r0 = pxsim.control.millis();
-    s.tmp_2 = r0;
-    r0 = s.arg0.fields["shakeStartTime"];
-    s.tmp_3 = r0;
-    r0 = (s.tmp_2 - s.tmp_3);
-    s.elapsed___13661 = (r0);
-    r0 = s.arg0.fields["shakeDuration"];
-    s.tmp_1 = r0;
-    r0 = (s.elapsed___13661 >= s.tmp_1);
-    s.tmp_0 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
-    if (!r0) { step = 3; continue; }
-    r0 = (s.arg0).fields["shakeStartTime"] = (undefined);
-    { step = 6; continue; }
-  case 3:
-    r0 = s.arg0.fields["shakeDuration"];
-    s.tmp_0 = r0;
-    r0 = (s.elapsed___13661 / s.tmp_0);
-    s.percentComplete___13675 = (r0);
-    s.damp___13682 = (1);
-    r0 = (s.percentComplete___13675 >= 0.75);
-    s.tmp_0 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
-    if (!r0) { step = 4; continue; }
-    s.tmp_1 = Math_max__P130_mk(s);
-    s.tmp_1.arg0 = 0;
-    r0 = (1 - s.percentComplete___13675);
-    s.tmp_1.arg1 = r0;
-    s.callLocIdx = 1230; s.pc = 15; return s.tmp_1;
-  case 15:
-    r0 = s.retval;
-    s.damp___13682 = (r0);
-  case 4:
-  case 5:
-    r0 = s.arg0.fields["shakeAmplitude"];
-    s.tmp_0 = r0;
-    r0 = (s.tmp_0 * s.damp___13682);
-    s.f___13691 = (r0);
-    r0 = pxsim.Math_.random();
-    s.tmp_1 = r0;
-    r0 = (s.tmp_1 * s.f___13691);
-    s.tmp_0 = r0;
-    r0 = (s.tmp_0 >> 0);
-    s.x___13697 = (r0);
-    r0 = pxsim.Math_.random();
-    s.tmp_1 = r0;
-    r0 = (s.tmp_1 * s.f___13691);
-    s.tmp_0 = r0;
-    r0 = (s.tmp_0 >> 0);
-    s.y___13704 = (r0);
-    s.tmp_0 = r0 = s.arg0;
-    r0 = s.tmp_0.fields["drawOffsetX"];
-    s.tmp_2 = r0;
-    r0 = (s.tmp_2 + s.x___13697);
-    s.tmp_1 = r0;
-    r0 = (s.tmp_0).fields["drawOffsetX"] = (s.tmp_1);
-    s.tmp_0 = r0 = s.arg0;
-    r0 = s.tmp_0.fields["drawOffsetY"];
-    s.tmp_2 = r0;
-    r0 = (s.tmp_2 + s.y___13704);
-    s.tmp_1 = r0;
-    r0 = (s.tmp_0).fields["drawOffsetY"] = (s.tmp_1);
-  case 6:
-  case 7:
-  case 8:
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-scene_Camera_update__P2798.info = {"start":2563,"length":1418,"line":83,"column":8,"endLine":116,"endColumn":9,"fileName":"pxt_modules/game/camera.ts","functionName":"update","argumentNames":["this"]}
-
-function scene_Camera_update__P2798_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: scene_Camera_update__P2798, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  tmp_2: undefined,
-  tmp_3: undefined,
-  tmp_4: undefined,
-  elapsed___13661: undefined,
-  percentComplete___13675: undefined,
-  damp___13682: undefined,
-  f___13691: undefined,
-  x___13697: undefined,
-  y___13704: undefined,
-  arg0: undefined,
-} }
-
-
-
-
-
-function scene_Camera_offsetY__P2789(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    s.scene___13723 = undefined;
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.arg1 = (s.lambdaArgs[1]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, scene_Camera__C2781_VT)) failedCast(r0);
-    s.tmp_0 = game_currentScene__P2999_mk(s);
-    s.callLocIdx = 1213; s.pc = 5; return s.tmp_0;
-  case 5:
-    r0 = s.retval;
-    s.scene___13723 = (r0);
-    r0 = s.scene___13723.fields["tileMap"];
-    s.tmp_0 = r0;
-    r0 = pxsim_numops_toBool(s.tmp_0);
-    if (r0) { step = 1; continue; }
-    r0 = s.tmp_0;
-    { step = 2; continue; }
-  case 1:
-    r0 = s.scene___13723.fields["tileMap"];
-    s.tmp_1 = r0;
-    r0 = s.tmp_1.fields["_map"];
-    s.tmp_5 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_5);
-    s.tmp_4 = r0;
-    r0 = pxsim_Boolean__bang(s.tmp_4);
-    s.tmp_3 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_3);
-    s.tmp_2 = r0;
-    r0 = pxsim_Boolean__bang(s.tmp_2);
-  case 2:
-    // jmp value (already in r0)
-    s.tmp_6 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_6);
-    if (!r0) { step = 3; continue; }
-    s.tmp_7 = r0 = s.arg0;
-    s.tmp_10 = tiles_TileMap_offsetY__P2742_mk(s);
-    r0 = s.scene___13723.fields["tileMap"];
-    s.tmp_10.arg0 = r0;
-    s.tmp_10.arg1 = s.arg1;
-    s.callLocIdx = 1215; s.pc = 6; return s.tmp_10;
-  case 6:
-    r0 = s.retval;
-    s.tmp_9 = r0;
-    r0 = pxsim.Math_.floor(s.tmp_9);
-    s.tmp_8 = r0;
-    r0 = (s.tmp_7).fields["_offsetY"] = (s.tmp_8);
-    { step = 4; continue; }
-  case 3:
-    s.tmp_0 = r0 = s.arg0;
-    r0 = pxsim.Math_.floor(s.arg1);
-    s.tmp_1 = r0;
-    r0 = (s.tmp_0).fields["_offsetY"] = (s.tmp_1);
-  case 4:
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-scene_Camera_offsetY__P2789.info = {"start":1152,"length":291,"line":39,"column":8,"endLine":46,"endColumn":9,"fileName":"pxt_modules/game/camera.ts","functionName":"offsetY","argumentNames":["this","v"]}
-
-function scene_Camera_offsetY__P2789_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: scene_Camera_offsetY__P2789, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  tmp_2: undefined,
-  tmp_3: undefined,
-  tmp_4: undefined,
-  tmp_5: undefined,
-  tmp_6: undefined,
-  tmp_7: undefined,
-  tmp_8: undefined,
-  tmp_9: undefined,
-  tmp_10: undefined,
-  scene___13723: undefined,
-  arg0: undefined,
-  arg1: undefined,
-} }
-
-
-
-
-
-function tiles_TileMap_enabled__P2747(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, tiles_TileMap__C2735_VT)) failedCast(r0);
-    r0 = s.arg0.fields["_map"];
-    s.tmp_3 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_3);
-    s.tmp_2 = r0;
-    r0 = pxsim_Boolean__bang(s.tmp_2);
-    s.tmp_1 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_1);
-    s.tmp_0 = r0;
-    r0 = pxsim_Boolean__bang(s.tmp_0);
-    return leaveAccessor(s, r0)
-  default: oops()
-} } }
-tiles_TileMap_enabled__P2747.info = {"start":10177,"length":66,"line":351,"column":8,"endLine":353,"endColumn":9,"fileName":"pxt_modules/game/tilemap.ts","functionName":"enabled","argumentNames":["this"]}
-tiles_TileMap_enabled__P2747.isGetter = true;
-
-function tiles_TileMap_enabled__P2747_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: tiles_TileMap_enabled__P2747, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  tmp_2: undefined,
-  tmp_3: undefined,
-  arg0: undefined,
-} }
-
-
-
-
-
-function tiles_TileMap_offsetY__P2742(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.arg1 = (s.lambdaArgs[1]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, tiles_TileMap__C2735_VT)) failedCast(r0);
-    s.tmp_0 = Math_clamp__P127_mk(s);
-    s.tmp_0.arg0 = 0;
-    s.tmp_1 = Math_max__P130_mk(s);
-    s.tmp_3 = tiles_TileMap_areaHeight__P2744_mk(s);
-    s.tmp_3.arg0 = s.arg0;
-    s.callLocIdx = 1126; s.pc = 3; return s.tmp_3;
-  case 3:
-    r0 = s.retval;
-    s.tmp_2 = r0;
-    r0 = pxsim_ImageMethods.height(globals.screen___2032);
-    s.tmp_4 = r0;
-    r0 = (s.tmp_2 - s.tmp_4);
-    s.tmp_1.arg0 = r0;
-    s.tmp_1.arg1 = 0;
-    s.callLocIdx = 1127; s.pc = 2; return s.tmp_1;
-  case 2:
-    r0 = s.retval;
-    s.tmp_0.arg1 = r0;
-    s.tmp_0.arg2 = s.arg1;
-    s.callLocIdx = 1128; s.pc = 1; return s.tmp_0;
-  case 1:
-    r0 = s.retval;
-    return leave(s, r0)
-  default: oops()
-} } }
-tiles_TileMap_offsetY__P2742.info = {"start":9630,"length":123,"line":329,"column":8,"endLine":331,"endColumn":9,"fileName":"pxt_modules/game/tilemap.ts","functionName":"offsetY","argumentNames":["this","value"]}
-
-function tiles_TileMap_offsetY__P2742_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: tiles_TileMap_offsetY__P2742, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  tmp_2: undefined,
-  tmp_3: undefined,
-  tmp_4: undefined,
-  arg0: undefined,
-  arg1: undefined,
-} }
-
-
-
-
-
-function tiles_TileMap_areaHeight__P2744(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, tiles_TileMap__C2735_VT)) failedCast(r0);
-    r0 = s.arg0.fields["_map"];
-    s.tmp_0 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
-    if (!r0) { step = 1; continue; }
-    r0 = s.arg0.fields["_map"];
-    s.tmp_2 = r0;
-    r0 = s.tmp_2.fields["_height"];
-    s.tmp_1 = r0;
-    r0 = s.arg0.fields["_scale"];
-    s.tmp_3 = r0;
-    r0 = (s.tmp_1 << s.tmp_3);
-    { step = 2; continue; }
-  case 1:
-    r0 = 0;
-  case 2:
-    // jmp value (already in r0)
-    s.tmp_4 = r0;
-    r0 = s.tmp_4;
-    return leave(s, r0)
-  default: oops()
-} } }
-tiles_TileMap_areaHeight__P2744.info = {"start":9864,"length":93,"line":337,"column":8,"endLine":339,"endColumn":9,"fileName":"pxt_modules/game/tilemap.ts","functionName":"areaHeight","argumentNames":["this"]}
-
-function tiles_TileMap_areaHeight__P2744_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: tiles_TileMap_areaHeight__P2744, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  tmp_2: undefined,
-  tmp_3: undefined,
-  tmp_4: undefined,
-  arg0: undefined,
-} }
-
-
-
-
-
-function Math_clamp__P127(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.arg1 = (s.lambdaArgs[1]);
-      s.arg2 = (s.lambdaArgs[2]);
-      s.lambdaArgs = null;
-    }
-    s.tmp_0 = Math_min__P131_mk(s);
-    s.tmp_0.arg0 = s.arg1;
-    s.tmp_1 = Math_max__P130_mk(s);
-    s.tmp_1.arg0 = s.arg0;
-    s.tmp_1.arg1 = s.arg2;
-    s.callLocIdx = 26; s.pc = 2; return s.tmp_1;
-  case 2:
-    r0 = s.retval;
-    s.tmp_0.arg1 = r0;
-    s.callLocIdx = 27; s.pc = 1; return s.tmp_0;
-  case 1:
-    r0 = s.retval;
-    return leave(s, r0)
-  default: oops()
-} } }
-Math_clamp__P127.info = {"start":15643,"length":130,"line":528,"column":4,"endLine":530,"endColumn":5,"fileName":"pxt_modules/base/pxt-helpers.ts","functionName":"clamp","argumentNames":["min","max","value"]}
-
-function Math_clamp__P127_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: Math_clamp__P127, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  arg0: undefined,
-  arg1: undefined,
-  arg2: undefined,
-} }
-
-
-
-
-
-function Math_min__P131(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.arg1 = (s.lambdaArgs[1]);
-      s.lambdaArgs = null;
-    }
-    r0 = (s.arg0 <= s.arg1);
-    s.tmp_0 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
-    if (!r0) { step = 1; continue; }
-    r0 = s.arg0;
-    { step = 3; continue; }
-  case 1:
-  case 2:
-    r0 = s.arg1;
-  case 3:
-    return leave(s, r0)
-  default: oops()
-} } }
-Math_min__P131.info = {"start":16854,"length":105,"line":568,"column":4,"endLine":571,"endColumn":5,"fileName":"pxt_modules/base/pxt-helpers.ts","functionName":"min","argumentNames":["a","b"]}
-
-function Math_min__P131_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: Math_min__P131, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  arg0: undefined,
-  arg1: undefined,
-} }
-
-
-
-
-
-function scene_Camera_offsetY__P2788(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, scene_Camera__C2781_VT)) failedCast(r0);
-    r0 = s.arg0.fields["_offsetY"];
-    return leaveAccessor(s, r0)
-  default: oops()
-} } }
-scene_Camera_offsetY__P2788.info = {"start":1084,"length":59,"line":36,"column":8,"endLine":38,"endColumn":9,"fileName":"pxt_modules/game/camera.ts","functionName":"offsetY","argumentNames":["this"]}
-scene_Camera_offsetY__P2788.isGetter = true;
-
-function scene_Camera_offsetY__P2788_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: scene_Camera_offsetY__P2788, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  arg0: undefined,
-} }
-
-
-
-
-
-function scene_Camera_offsetX__P2787(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    s.scene___13779 = undefined;
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.arg1 = (s.lambdaArgs[1]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, scene_Camera__C2781_VT)) failedCast(r0);
-    s.tmp_0 = game_currentScene__P2999_mk(s);
-    s.callLocIdx = 1210; s.pc = 5; return s.tmp_0;
-  case 5:
-    r0 = s.retval;
-    s.scene___13779 = (r0);
-    r0 = s.scene___13779.fields["tileMap"];
-    s.tmp_0 = r0;
-    r0 = pxsim_numops_toBool(s.tmp_0);
-    if (r0) { step = 1; continue; }
-    r0 = s.tmp_0;
-    { step = 2; continue; }
-  case 1:
-    r0 = s.scene___13779.fields["tileMap"];
-    s.tmp_1 = r0;
-    r0 = s.tmp_1.fields["_map"];
-    s.tmp_5 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_5);
-    s.tmp_4 = r0;
-    r0 = pxsim_Boolean__bang(s.tmp_4);
-    s.tmp_3 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_3);
-    s.tmp_2 = r0;
-    r0 = pxsim_Boolean__bang(s.tmp_2);
-  case 2:
-    // jmp value (already in r0)
-    s.tmp_6 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_6);
-    if (!r0) { step = 3; continue; }
-    s.tmp_7 = r0 = s.arg0;
-    s.tmp_10 = tiles_TileMap_offsetX__P2741_mk(s);
-    r0 = s.scene___13779.fields["tileMap"];
-    s.tmp_10.arg0 = r0;
-    s.tmp_10.arg1 = s.arg1;
-    s.callLocIdx = 1212; s.pc = 6; return s.tmp_10;
-  case 6:
-    r0 = s.retval;
-    s.tmp_9 = r0;
-    r0 = pxsim.Math_.floor(s.tmp_9);
-    s.tmp_8 = r0;
-    r0 = (s.tmp_7).fields["_offsetX"] = (s.tmp_8);
-    { step = 4; continue; }
-  case 3:
-    s.tmp_0 = r0 = s.arg0;
-    r0 = pxsim.Math_.floor(s.arg1);
-    s.tmp_1 = r0;
-    r0 = (s.tmp_0).fields["_offsetX"] = (s.tmp_1);
-  case 4:
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-scene_Camera_offsetX__P2787.info = {"start":784,"length":291,"line":28,"column":8,"endLine":35,"endColumn":9,"fileName":"pxt_modules/game/camera.ts","functionName":"offsetX","argumentNames":["this","v"]}
-
-function scene_Camera_offsetX__P2787_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: scene_Camera_offsetX__P2787, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  tmp_2: undefined,
-  tmp_3: undefined,
-  tmp_4: undefined,
-  tmp_5: undefined,
-  tmp_6: undefined,
-  tmp_7: undefined,
-  tmp_8: undefined,
-  tmp_9: undefined,
-  tmp_10: undefined,
-  scene___13779: undefined,
-  arg0: undefined,
-  arg1: undefined,
-} }
-
-
-
-
-
-function tiles_TileMap_offsetX__P2741(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.arg1 = (s.lambdaArgs[1]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, tiles_TileMap__C2735_VT)) failedCast(r0);
-    s.tmp_0 = Math_clamp__P127_mk(s);
-    s.tmp_0.arg0 = 0;
-    s.tmp_1 = Math_max__P130_mk(s);
-    s.tmp_3 = tiles_TileMap_areaWidth__P2743_mk(s);
-    s.tmp_3.arg0 = s.arg0;
-    s.callLocIdx = 1123; s.pc = 3; return s.tmp_3;
-  case 3:
-    r0 = s.retval;
-    s.tmp_2 = r0;
-    r0 = pxsim_ImageMethods.width(globals.screen___2032);
-    s.tmp_4 = r0;
-    r0 = (s.tmp_2 - s.tmp_4);
-    s.tmp_1.arg0 = r0;
-    s.tmp_1.arg1 = 0;
-    s.callLocIdx = 1124; s.pc = 2; return s.tmp_1;
-  case 2:
-    r0 = s.retval;
-    s.tmp_0.arg1 = r0;
-    s.tmp_0.arg2 = s.arg1;
-    s.callLocIdx = 1125; s.pc = 1; return s.tmp_0;
-  case 1:
-    r0 = s.retval;
-    return leave(s, r0)
-  default: oops()
-} } }
-tiles_TileMap_offsetX__P2741.info = {"start":9499,"length":121,"line":325,"column":8,"endLine":327,"endColumn":9,"fileName":"pxt_modules/game/tilemap.ts","functionName":"offsetX","argumentNames":["this","value"]}
-
-function tiles_TileMap_offsetX__P2741_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: tiles_TileMap_offsetX__P2741, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  tmp_2: undefined,
-  tmp_3: undefined,
-  tmp_4: undefined,
-  arg0: undefined,
-  arg1: undefined,
-} }
-
-
-
-
-
-function tiles_TileMap_areaWidth__P2743(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, tiles_TileMap__C2735_VT)) failedCast(r0);
-    r0 = s.arg0.fields["_map"];
-    s.tmp_0 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
-    if (!r0) { step = 1; continue; }
-    r0 = s.arg0.fields["_map"];
-    s.tmp_2 = r0;
-    r0 = s.tmp_2.fields["_width"];
-    s.tmp_1 = r0;
-    r0 = s.arg0.fields["_scale"];
-    s.tmp_3 = r0;
-    r0 = (s.tmp_1 << s.tmp_3);
-    { step = 2; continue; }
-  case 1:
-    r0 = 0;
-  case 2:
-    // jmp value (already in r0)
-    s.tmp_4 = r0;
-    r0 = s.tmp_4;
-    return leave(s, r0)
-  default: oops()
-} } }
-tiles_TileMap_areaWidth__P2743.info = {"start":9763,"length":91,"line":333,"column":8,"endLine":335,"endColumn":9,"fileName":"pxt_modules/game/tilemap.ts","functionName":"areaWidth","argumentNames":["this"]}
-
-function tiles_TileMap_areaWidth__P2743_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: tiles_TileMap_areaWidth__P2743, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  tmp_2: undefined,
-  tmp_3: undefined,
-  tmp_4: undefined,
-  arg0: undefined,
-} }
-
-
-
-
-
-function scene_Camera_offsetX__P2786(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, scene_Camera__C2781_VT)) failedCast(r0);
-    r0 = s.arg0.fields["_offsetX"];
-    return leaveAccessor(s, r0)
-  default: oops()
-} } }
-scene_Camera_offsetX__P2786.info = {"start":716,"length":59,"line":25,"column":8,"endLine":27,"endColumn":9,"fileName":"pxt_modules/game/camera.ts","functionName":"offsetX","argumentNames":["this"]}
-scene_Camera_offsetX__P2786.isGetter = true;
-
-function scene_Camera_offsetX__P2786_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: scene_Camera_offsetX__P2786, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  arg0: undefined,
-} }
-
-
-
-
-
-function maze_EventManager_fireTimedEvents__P4549(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    s.te___10061 = undefined;
-    s.unnamed20522___U1 = undefined;
-    s.unnamed20523___U2 = undefined;
-    s.prevTime___10070 = undefined;
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, maze_EventManager__C4540_VT)) failedCast(r0);
-    s.te___10061 = (undefined);
-    r0 = s.arg0.fields["timedEvents"];
-    s.unnamed20522___U1 = (r0);
-    s.unnamed20523___U2 = (0);
-  case 1:
-    s.tmp_0 = r0 = s.unnamed20523___U2;
-    r0 = pxsim_Array__length(s.unnamed20522___U1);
-    s.tmp_1 = r0;
-    r0 = (s.tmp_0 < s.tmp_1);
-    if (!r0) { step = 6; continue; }
-    r0 = pxsim_Array__getAt(s.unnamed20522___U1, s.unnamed20523___U2);
-    s.te___10061 = (r0);
-    r0 = s.arg0.fields["maze"];
-    r0 = r0.fields["time"];
-    s.tmp_3 = r0;
-    r0 = s.te___10061.fields["time"];
-    s.tmp_4 = r0;
-    r0 = (s.tmp_3 >= s.tmp_4);
-    s.tmp_2 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_2);
-    if (!r0) { step = 4; continue; }
-    r0 = s.te___10061.fields["time"];
-    s.prevTime___10070 = (r0);
-    s.tmp_0 = maze_EventManager_callHandlers__P7569_mk(s);
-    s.tmp_0.arg0 = s.arg0;
-    r0 = s.te___10061.fields["event"];
-    s.tmp_0.arg1 = r0;
-    s.callLocIdx = 427; s.pc = 7; return s.tmp_0;
-  case 7:
-    r0 = s.retval;
-    r0 = s.te___10061.fields["time"];
-    s.tmp_1 = r0;
-    r0 = (s.tmp_1 == s.prevTime___10070);
-    s.tmp_0 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
-    if (!r0) { step = 2; continue; }
-    r0 = (s.te___10061).fields["time"] = (1000000000);
-  case 2:
-  case 3:
-  case 4:
-  case 5:
-    r0 = (s.unnamed20523___U2 + 1);
-    s.unnamed20523___U2 = (r0);
-    { step = 1; continue; }
-  case 6:
-    s.unnamed20522___U1 = (undefined);
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-maze_EventManager_fireTimedEvents__P4549.info = {"start":2126,"length":492,"line":90,"column":8,"endLine":104,"endColumn":9,"fileName":"maze_events.ts","functionName":"fireTimedEvents","argumentNames":["this"]}
-
-function maze_EventManager_fireTimedEvents__P4549_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: maze_EventManager_fireTimedEvents__P4549, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  tmp_2: undefined,
-  tmp_3: undefined,
-  tmp_4: undefined,
-  te___10061: undefined,
-  unnamed20522___U1: undefined,
-  unnamed20523___U2: undefined,
-  prevTime___10070: undefined,
-  arg0: undefined,
-} }
-
-
-
-
-
-function game_onUpdate__P3023(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.lambdaArgs = null;
-    }
-    r0 = pxsim_numops_toBoolDecr(s.arg0);
     s.tmp_1 = r0;
     r0 = pxsim_Boolean__bang(s.tmp_1);
-    s.tmp_0 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
-    if (!r0) { step = 1; continue; }
-    { step = 3; continue; }
-  case 1:
-  case 2:
-    s.tmp_2 = control_EventContext_registerFrameHandler__P403_mk(s);
-    s.tmp_3 = game_eventContext__P3002_mk(s);
-    s.callLocIdx = 1448; s.pc = 5; return s.tmp_3;
-  case 5:
-    r0 = s.retval;
-    s.tmp_2.arg0 = r0;
-    s.tmp_2.arg1 = 20;
-    s.tmp_2.arg2 = s.arg0;
-    s.callLocIdx = 1449; s.pc = 4; return s.tmp_2;
-  case 4:
-    r0 = s.retval;
-  case 3:
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-game_onUpdate__P3023.info = {"start":327,"length":153,"line":13,"column":4,"endLine":16,"endColumn":5,"fileName":"pxt_modules/game/gameutil.ts","functionName":"onUpdate","argumentNames":["a"]}
-
-function game_onUpdate__P3023_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: game_onUpdate__P3023, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  tmp_2: undefined,
-  tmp_3: undefined,
-  arg0: undefined,
-} }
-
-
-
-
-
-function maze_Fruit_init__P4562(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, maze_Fruit__C4555_VT)) failedCast(r0);
-    s.tmp_0 = r0 = s.arg0;
-    s.tmp_2 = maze_getMaze__P4396_mk(s);
-    s.callLocIdx = 431; s.pc = 1; return s.tmp_2;
-  case 1:
-    r0 = s.retval;
-    s.tmp_1 = r0;
-    r0 = (s.tmp_0).fields["maze"] = (s.tmp_1);
-    s.tmp_0 = r0 = s.arg0;
-    s.tmp_2 = sprites_create__P2275_mk(s);
-    s.tmp_3 = helpers_getImageByName__P3336_mk(s);
-    s.tmp_3.arg0 = "fruit";
-    s.callLocIdx = 432; s.pc = 3; return s.tmp_3;
-  case 3:
-    r0 = s.retval;
-    s.tmp_2.arg0 = r0;
-    s.tmp_2.arg1 = undefined;
-    s.callLocIdx = 433; s.pc = 2; return s.tmp_2;
-  case 2:
-    r0 = s.retval;
-    s.tmp_1 = r0;
-    r0 = (s.tmp_0).fields["sprite"] = (s.tmp_1);
-    s.tmp_0 = maze_Fruit_setVisible__P7608_mk(s);
-    s.tmp_0.arg0 = s.arg0;
-    s.tmp_0.arg1 = false;
-    s.callLocIdx = 434; s.pc = 4; return s.tmp_0;
-  case 4:
-    r0 = s.retval;
-    r0 = (s.arg0).fields["count"] = (0);
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-maze_Fruit_init__P4562.info = {"start":277,"length":176,"line":13,"column":8,"endLine":18,"endColumn":9,"fileName":"maze_fruit.ts","functionName":"init","argumentNames":["this"]}
-
-function maze_Fruit_init__P4562_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: maze_Fruit_init__P4562, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  tmp_2: undefined,
-  tmp_3: undefined,
-  arg0: undefined,
-} }
-
-
-
-
-
-function helpers_getImageByName__P3336(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.lambdaArgs = null;
-    }
-    s.tmp_0 = helpers__getFactoryInstance__P3333_mk(s);
-    s.tmp_0.arg0 = "image";
-    s.tmp_0.arg1 = s.arg0;
-    s.callLocIdx = 1781; s.pc = 1; return s.tmp_0;
-  case 1:
-    r0 = s.retval;
-    return leave(s, r0)
-  default: oops()
-} } }
-helpers_getImageByName__P3336.info = {"start":2881,"length":103,"line":87,"column":4,"endLine":89,"endColumn":5,"fileName":"pxt_modules/game/assetTemplates.ts","functionName":"getImageByName","argumentNames":["name"]}
-
-function helpers_getImageByName__P3336_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: helpers_getImageByName__P3336, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  arg0: undefined,
-} }
-
-
-
-
-
-function assets_image__P3327(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.arg1 = (s.lambdaArgs[1]);
-      s.lambdaArgs = null;
-    }
-    r0 = null;
-    return leave(s, r0)
-  default: oops()
-} } }
-assets_image__P3327.info = {"start":931,"length":71,"line":26,"column":4,"endLine":26,"endColumn":75,"fileName":"pxt_modules/game/assetTemplates.ts","functionName":"image","argumentNames":["lits","args"]}
-
-function assets_image__P3327_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: assets_image__P3327, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  arg0: undefined,
-  arg1: undefined,
-} }
-
-
-
-
-
-function sprites_create__P2275(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    s.scene___19819 = undefined;
-    s.sprite___19822 = undefined;
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.arg1 = (s.lambdaArgs[1]);
-      s.lambdaArgs = null;
-    }
-    s.tmp_0 = game_currentScene__P2999_mk(s);
-    s.callLocIdx = 467; s.pc = 1; return s.tmp_0;
-  case 1:
-    r0 = s.retval;
-    s.scene___19819 = (r0);
-    r0 = pxsim_pxtcore_mkClassInstance(Sprite__C2341_VT);
-    s.tmp_0 = r0;
-    s.tmp_1 = Sprite_constructor__P2388_mk(s);
-    s.tmp_1.arg0 = s.tmp_0;
-    s.tmp_1.arg1 = s.arg0;
-    s.callLocIdx = 468; s.pc = 2; return s.tmp_1;
-  case 2:
-    r0 = s.retval;
-    s.sprite___19822 = (s.tmp_0);
-    s.tmp_0 = Sprite_setKind__P2408_mk(s);
-    s.tmp_0.arg0 = s.sprite___19822;
-    s.tmp_0.arg1 = s.arg1;
-    s.callLocIdx = 469; s.pc = 3; return s.tmp_0;
-  case 3:
-    r0 = s.retval;
-    s.tmp_0 = PhysicsEngine__C2511_v0_2_mk(s);
-    r0 = s.scene___19819.fields["physicsEngine"];
-    s.tmp_0.arg0 = r0;
-    s.tmp_0.arg1 = s.sprite___19822;
-    if (!checkSubtype(s.tmp_0.arg0, PhysicsEngine__C2511_VT)) failedCast(s.tmp_0.arg0);
-    s.tmp_0.fn = s.tmp_0.arg0.vtable.methods.addSprite;
-    s.pc = 4; return s.tmp_0;
-  case 4:
-    r0 = s.retval;
-    r0 = pxsim_pxtcore_mkAction(1, forEach_inline__P19837);
-    s.tmp_0 = r0;
-    r0 = pxsim_pxtrt_stclo(s.tmp_0, 0, s.arg1);
-    r0 = pxsim_pxtcore_mkAction(1, sprites_create_inline__P19843);
-    s.tmp_1 = r0;
-    r0 = pxsim_pxtrt_stclo(s.tmp_1, 0, s.sprite___19822);
-    s.tmp_2 = helpers_arrayForEach__P109_mk(s);
-    s.tmp_3 = helpers_arrayFilter__P110_mk(s);
-    r0 = s.scene___19819.fields["createdHandlers"];
-    s.tmp_3.arg0 = r0;
-    s.tmp_3.arg1 = s.tmp_0;
-    s.callLocIdx = 470; s.pc = 6; return s.tmp_3;
-  case 6:
-    r0 = s.retval;
-    s.tmp_2.arg0 = r0;
-    s.tmp_2.arg1 = s.tmp_1;
-    s.callLocIdx = 472; s.pc = 5; return s.tmp_2;
-  case 5:
-    r0 = s.retval;
-    r0 = s.sprite___19822;
-    return leave(s, r0)
-  default: oops()
-} } }
-sprites_create__P2275.info = {"start":890,"length":400,"line":35,"column":4,"endLine":47,"endColumn":5,"fileName":"pxt_modules/game/sprites.ts","functionName":"create","argumentNames":["img","kind"]}
-
-function sprites_create__P2275_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: sprites_create__P2275, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  tmp_2: undefined,
-  tmp_3: undefined,
-  scene___19819: undefined,
-  sprite___19822: undefined,
-  arg0: undefined,
-  arg1: undefined,
-} }
-
-
-
-
-
-function forEach_inline__P19837(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0.fields["kind"];
-    s.tmp_0 = r0;
-    r0 = (s.tmp_0 == s.caps[0]);
-    return leave(s, r0)
-  default: oops()
-} } }
-forEach_inline__P19837.info = {"start":1195,"length":19,"line":43,"column":20,"endLine":43,"endColumn":39,"fileName":"pxt_modules/game/sprites.ts","functionName":"inline","argumentNames":["h"]}
-
-function forEach_inline__P19837_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: forEach_inline__P19837, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  arg0: undefined,
-} }
-
-
-
-
-
-function sprites_create_inline__P19843(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.lambdaArgs = null;
-    }
-    s.tmp_0 = if_handler_2_mk(s);
-    s.tmp_0.arg0 = s.arg0;
-    s.tmp_0.arg1 = s.caps[0];
-    if (!s.tmp_0.arg0.vtable.iface) {
-      setupLambda(s.tmp_0, pxsim_pxtrt.mapGetByString(s.tmp_0.arg0, "handler"), 2);
-      s.callLocIdx = 471; s.pc = 1; return s.tmp_0;
-    } else {
-      s.tmp_0.fn = s.tmp_0.arg0.vtable.iface["handler"];
-      if (s.tmp_0.fn == null) { setupLambda(s.tmp_0, s.tmp_0.arg0.fields["handler"], 2); s.callLocIdx = 471; s.pc = 1; return s.tmp_0; }
-      else if (s.tmp_0.fn.isGetter) { s.tmp_0.stage2Call = true; s.callLocIdx = 471; s.pc = 1; return s.tmp_0;; }
-     else { s.callLocIdx = 471; s.pc = 1; return s.tmp_0; }
-    }
-  case 1:
-    r0 = s.retval;
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-sprites_create_inline__P19843.info = {"start":1237,"length":22,"line":44,"column":21,"endLine":44,"endColumn":43,"fileName":"pxt_modules/game/sprites.ts","functionName":"inline","argumentNames":["h"]}
-
-function sprites_create_inline__P19843_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: sprites_create_inline__P19843, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  arg0: undefined,
-} }
-
-
-
-
-
-function PhysicsEngine_addSprite__P2513(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.arg1 = (s.lambdaArgs[1]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, PhysicsEngine__C2511_VT)) failedCast(r0);
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-PhysicsEngine_addSprite__P2513.info = {"start":124,"length":29,"line":8,"column":4,"endLine":8,"endColumn":33,"fileName":"pxt_modules/game/physics.ts","functionName":"addSprite","argumentNames":["this","sprite"]}
-
-function PhysicsEngine_addSprite__P2513_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: PhysicsEngine_addSprite__P2513, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  arg0: undefined,
-  arg1: undefined,
-} }
-
-
-
-
-
-function Sprite_setKind__P2408(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    s.spritesByKind___19861 = undefined;
-    s.overlapMap___19890 = undefined;
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.arg1 = (s.lambdaArgs[1]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, Sprite__C2341_VT)) failedCast(r0);
-    r0 = (s.arg1 == undefined);
-    s.tmp_0 = r0;
-    r0 = pxsim_numops_toBool(s.tmp_0);
-    if (!r0) { step = 1; continue; }
-    r0 = s.tmp_0;
-    { step = 2; continue; }
-  case 1:
-    r0 = s.arg0.fields["_kind"];
-    s.tmp_1 = r0;
-    r0 = (s.tmp_1 === s.arg1);
   case 2:
     // jmp value (already in r0)
+    s.tmp_4 = r0;
+    r0 = pxsim_pxtrt_stlocRef(s.caps[0], s.tmp_4);
+    r0 = pxsim_pxtrt_ldlocRef(s.caps[1]);
+    s.tmp_0 = r0;
+    r0 = pxsim_numops_toBool(s.tmp_0);
+    if (!r0) { step = 3; continue; }
+    r0 = s.tmp_0;
+    { step = 4; continue; }
+  case 3:
+    s.tmp_3 = controller_Button__C2189_v0_1_mk(s);
+    s.tmp_3.arg0 = globals.B___2114;
+    if (!checkSubtype(s.tmp_3.arg0, controller_Button__C2189_VT)) failedCast(s.tmp_3.arg0);
+    s.tmp_3.fn = s.tmp_3.arg0.vtable.methods.isPressed;
+    s.pc = 14; return s.tmp_3;
+  case 14:
+    r0 = s.retval;
     s.tmp_2 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_2);
-    if (!r0) { step = 3; continue; }
-    { step = 15; continue; }
-  case 3:
-  case 4:
-    s.tmp_3 = game_currentScene__P2999_mk(s);
-    s.callLocIdx = 537; s.pc = 16; return s.tmp_3;
-  case 16:
-    r0 = s.retval;
-    r0 = r0.fields["spritesByKind"];
-    s.spritesByKind___19861 = (r0);
-    r0 = s.arg0.fields["_kind"];
     s.tmp_1 = r0;
-    r0 = (s.tmp_1 >= 0);
+    r0 = pxsim_Boolean__bang(s.tmp_1);
+  case 4:
+    // jmp value (already in r0)
+    s.tmp_4 = r0;
+    r0 = pxsim_pxtrt_stlocRef(s.caps[1], s.tmp_4);
+    r0 = pxsim_pxtrt_ldlocRef(s.caps[0]);
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBool(s.tmp_0);
     if (r0) { step = 5; continue; }
     r0 = s.tmp_0;
     { step = 6; continue; }
   case 5:
-    r0 = s.arg0.fields["_kind"];
-    s.tmp_2 = r0;
-    r0 = pxsim_pxtrt.mapGetGeneric(s.spritesByKind___19861, s.tmp_2);
-  case 6:
-    // jmp value (already in r0)
-    s.tmp_3 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_3);
-    if (!r0) { step = 7; continue; }
-    s.tmp_4 = sprites_SpriteSet_remove__P2470_mk(s);
-    r0 = s.arg0.fields["_kind"];
-    s.tmp_5 = r0;
-    r0 = pxsim_pxtrt.mapGetGeneric(s.spritesByKind___19861, s.tmp_5);
-    s.tmp_4.arg0 = r0;
-    s.tmp_4.arg1 = s.arg0;
-    s.callLocIdx = 538; s.pc = 17; return s.tmp_4;
-  case 17:
-    r0 = s.retval;
-  case 7:
-  case 8:
-    r0 = (s.arg1 >= 0);
-    s.tmp_0 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
-    if (!r0) { step = 11; continue; }
-    r0 = pxsim_pxtrt.mapGetGeneric(s.spritesByKind___19861, s.arg1);
-    s.tmp_3 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_3);
-    s.tmp_2 = r0;
-    r0 = pxsim_Boolean__bang(s.tmp_2);
-    s.tmp_1 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_1);
-    if (!r0) { step = 9; continue; }
-    r0 = pxsim_pxtcore_mkClassInstance(sprites_SpriteSet__C2463_VT);
-    s.tmp_4 = r0;
-    s.tmp_5 = sprites_SpriteSet_constructor__P2465_mk(s);
-    s.tmp_5.arg0 = s.tmp_4;
-    s.callLocIdx = 539; s.pc = 18; return s.tmp_5;
-  case 18:
-    r0 = s.retval;
-    r0 = pxsim_pxtrt.mapSetGeneric(s.spritesByKind___19861, s.arg1, s.tmp_4);
-  case 9:
-  case 10:
-    s.tmp_0 = sprites_SpriteSet_add__P2468_mk(s);
-    r0 = pxsim_pxtrt.mapGetGeneric(s.spritesByKind___19861, s.arg1);
-    s.tmp_0.arg0 = r0;
-    s.tmp_0.arg1 = s.arg0;
-    s.callLocIdx = 540; s.pc = 19; return s.tmp_0;
-  case 19:
-    r0 = s.retval;
-  case 11:
-  case 12:
-    s.tmp_0 = game_currentScene__P2999_mk(s);
-    s.callLocIdx = 541; s.pc = 20; return s.tmp_0;
-  case 20:
-    r0 = s.retval;
-    r0 = r0.fields["overlapMap"];
-    s.overlapMap___19890 = (r0);
-    r0 = pxsim_pxtrt.mapGetGeneric(s.overlapMap___19890, s.arg1);
-    s.tmp_2 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_2);
-    s.tmp_1 = r0;
-    r0 = pxsim_Boolean__bang(s.tmp_1);
-    s.tmp_0 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
-    if (!r0) { step = 13; continue; }
-    s.tmp_3 = r0 = s.overlapMap___19890;
-    s.tmp_4 = r0 = s.arg1;
-    r0 = pxsim_Array__mk();
-    s.tmp_5 = r0;
-    r0 = pxsim_pxtrt.mapSetGeneric(s.tmp_3, s.tmp_4, s.tmp_5);
-  case 13:
-  case 14:
-    s.tmp_0 = r0 = s.arg0;
-    r0 = pxsim_pxtrt.mapGetGeneric(s.overlapMap___19890, s.arg1);
-    s.tmp_1 = r0;
-    r0 = (s.tmp_0).fields["_kindsOverlappedWith"] = (s.tmp_1);
-    r0 = (s.arg0).fields["_kind"] = (s.arg1);
+    s.tmp_1 = controller_Button__C2189_v0_1_mk(s);
+    s.tmp_1.arg0 = globals.A___2113;
+    if (!checkSubtype(s.tmp_1.arg0, controller_Button__C2189_VT)) failedCast(s.tmp_1.arg0);
+    s.tmp_1.fn = s.tmp_1.arg0.vtable.methods.isPressed;
+    s.pc = 15; return s.tmp_1;
   case 15:
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-Sprite_setKind__P2408.info = {"start":12841,"length":663,"line":464,"column":4,"endLine":484,"endColumn":5,"fileName":"pxt_modules/game/sprite.ts","functionName":"setKind","argumentNames":["this","value"]}
-
-function Sprite_setKind__P2408_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: Sprite_setKind__P2408, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  tmp_2: undefined,
-  tmp_3: undefined,
-  tmp_4: undefined,
-  tmp_5: undefined,
-  spritesByKind___19861: undefined,
-  overlapMap___19890: undefined,
-  arg0: undefined,
-  arg1: undefined,
-} }
-
-
-
-
-
-function sprites_SpriteSet_remove__P2470(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    s.i___18806 = undefined;
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.arg1 = (s.lambdaArgs[1]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, sprites_SpriteSet__C2463_VT)) failedCast(r0);
-    r0 = s.arg0.fields["_sprites"];
-    s.tmp_0 = r0;
-    r0 = pxsim_Array_.indexOf(s.tmp_0, s.arg1, undefined);
-    s.i___18806 = (r0);
-    r0 = (s.i___18806 > -1);
-    s.tmp_0 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
-    if (!r0) { step = 1; continue; }
-    s.tmp_1 = helpers_arraySplice__P100_mk(s);
-    r0 = s.arg0.fields["_sprites"];
-    s.tmp_1.arg0 = r0;
-    s.tmp_1.arg1 = s.i___18806;
-    s.tmp_1.arg2 = 1;
-    s.callLocIdx = 689; s.pc = 4; return s.tmp_1;
-  case 4:
     r0 = s.retval;
-    r0 = true;
-    { step = 3; continue; }
-  case 1:
-  case 2:
-    r0 = false;
-  case 3:
-    return leave(s, r0)
-  default: oops()
-} } }
-sprites_SpriteSet_remove__P2470.info = {"start":1827,"length":235,"line":66,"column":8,"endLine":73,"endColumn":9,"fileName":"pxt_modules/game/spriteset.ts","functionName":"remove","argumentNames":["this","sprite"]}
-
-function sprites_SpriteSet_remove__P2470_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: sprites_SpriteSet_remove__P2470, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  i___18806: undefined,
-  arg0: undefined,
-  arg1: undefined,
-} }
-
-
-
-
-
-function sprites_SpriteSet_add__P2468(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.arg1 = (s.lambdaArgs[1]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, sprites_SpriteSet__C2463_VT)) failedCast(r0);
-    r0 = pxsim_numops_toBoolDecr(s.arg1);
-    s.tmp_1 = r0;
-    r0 = pxsim_Boolean__bang(s.tmp_1);
-    s.tmp_0 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
-    if (!r0) { step = 1; continue; }
-    r0 = false;
-    { step = 5; continue; }
-  case 1:
-  case 2:
-    r0 = s.arg0.fields["_sprites"];
-    s.tmp_4 = r0;
-    r0 = pxsim_Array_.indexOf(s.tmp_4, s.arg1, undefined);
-    s.tmp_3 = r0;
-    r0 = (s.tmp_3 > -1);
+  case 6:
+    // jmp value (already in r0)
     s.tmp_2 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_2);
-    if (!r0) { step = 3; continue; }
-    r0 = false;
-    { step = 5; continue; }
-  case 3:
-  case 4:
-    r0 = s.arg0.fields["_sprites"];
-    s.tmp_5 = r0;
-    r0 = pxsim_Array__push(s.tmp_5, s.arg1);
-    r0 = true;
-  case 5:
-    return leave(s, r0)
-  default: oops()
-} } }
-sprites_SpriteSet_add__P2468.info = {"start":1041,"length":263,"line":41,"column":8,"endLine":49,"endColumn":9,"fileName":"pxt_modules/game/spriteset.ts","functionName":"add","argumentNames":["this","sprite"]}
-
-function sprites_SpriteSet_add__P2468_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: sprites_SpriteSet_add__P2468, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  tmp_2: undefined,
-  tmp_3: undefined,
-  tmp_4: undefined,
-  tmp_5: undefined,
-  arg0: undefined,
-  arg1: undefined,
-} }
-
-
-
-
-
-function sprites_SpriteSet_contains__P2471(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.arg1 = (s.lambdaArgs[1]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, sprites_SpriteSet__C2463_VT)) failedCast(r0);
-    r0 = s.arg0.fields["_sprites"];
-    s.tmp_1 = r0;
-    r0 = pxsim_Array_.indexOf(s.tmp_1, s.arg1, undefined);
-    s.tmp_0 = r0;
-    r0 = (s.tmp_0 > -1);
-    return leave(s, r0)
-  default: oops()
-} } }
-sprites_SpriteSet_contains__P2471.info = {"start":2172,"length":100,"line":79,"column":8,"endLine":81,"endColumn":9,"fileName":"pxt_modules/game/spriteset.ts","functionName":"contains","argumentNames":["this","sprite"]}
-
-function sprites_SpriteSet_contains__P2471_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: sprites_SpriteSet_contains__P2471, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  arg0: undefined,
-  arg1: undefined,
-} }
-
-
-
-
-
-function sprites_SpriteSet_constructor__P2465(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, sprites_SpriteSet__C2463_VT)) failedCast(r0);
-    s.tmp_0 = r0 = s.arg0;
-    r0 = pxsim_Array__mk();
-    s.tmp_1 = r0;
-    r0 = (s.tmp_0).fields["_sprites"] = (s.tmp_1);
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-sprites_SpriteSet_constructor__P2465.info = {"start":485,"length":57,"line":19,"column":8,"endLine":21,"endColumn":9,"fileName":"pxt_modules/game/spriteset.ts","functionName":"inline","argumentNames":["this"]}
-
-function sprites_SpriteSet_constructor__P2465_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: sprites_SpriteSet_constructor__P2465, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  arg0: undefined,
-} }
-
-
-
-
-
-function Sprite_constructor__P2388(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.arg1 = (s.lambdaArgs[1]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, Sprite__C2341_VT)) failedCast(r0);
-    s.tmp_0 = sprites_BaseSprite_constructor__P2096_mk(s);
-    s.tmp_0.arg0 = s.arg0;
-    s.tmp_0.arg1 = 0;
-    s.callLocIdx = 499; s.pc = 1; return s.tmp_0;
-  case 1:
-    r0 = s.retval;
-    s.tmp_0 = r0 = s.arg0;
-    r0 = pxsim_ImageMethods.width(globals.screen___2032);
-    s.tmp_4 = r0;
-    r0 = pxsim_ImageMethods.width(s.arg1);
-    s.tmp_5 = r0;
-    r0 = (s.tmp_4 - s.tmp_5);
-    s.tmp_3 = r0;
-    r0 = (s.tmp_3 >> 1);
-    s.tmp_2 = r0;
-    r0 = (s.tmp_2 * 256);
-    s.tmp_6 = r0;
-    r0 = (s.tmp_6 | 0);
-    s.tmp_1 = r0;
-    r0 = (s.tmp_0).fields["_x"] = (s.tmp_1);
-    s.tmp_0 = r0 = s.arg0;
-    r0 = pxsim_ImageMethods.height(globals.screen___2032);
-    s.tmp_4 = r0;
-    r0 = pxsim_ImageMethods.height(s.arg1);
-    s.tmp_5 = r0;
-    r0 = (s.tmp_4 - s.tmp_5);
-    s.tmp_3 = r0;
-    r0 = (s.tmp_3 >> 1);
-    s.tmp_2 = r0;
-    r0 = (s.tmp_2 * 256);
-    s.tmp_6 = r0;
-    r0 = (s.tmp_6 | 0);
-    s.tmp_1 = r0;
-    r0 = (s.tmp_0).fields["_y"] = (s.tmp_1);
-    r0 = s.arg0.fields["_x"];
-    s.tmp_0 = r0;
-    r0 = (s.arg0).fields["_lastX"] = (s.tmp_0);
-    r0 = s.arg0.fields["_y"];
-    s.tmp_0 = r0;
-    r0 = (s.arg0).fields["_lastY"] = (s.tmp_0);
-    s.tmp_0 = Sprite_vx__P2359_mk(s);
-    s.tmp_0.arg0 = s.arg0;
-    s.tmp_0.arg1 = 0;
-    s.callLocIdx = 502; s.pc = 2; return s.tmp_0;
-  case 2:
-    r0 = s.retval;
-    s.tmp_0 = Sprite_vy__P2361_mk(s);
-    s.tmp_0.arg0 = s.arg0;
-    s.tmp_0.arg1 = 0;
-    s.callLocIdx = 503; s.pc = 3; return s.tmp_0;
-  case 3:
-    r0 = s.retval;
-    s.tmp_0 = Sprite_ax__P2363_mk(s);
-    s.tmp_0.arg0 = s.arg0;
-    s.tmp_0.arg1 = 0;
-    s.callLocIdx = 504; s.pc = 4; return s.tmp_0;
-  case 4:
-    r0 = s.retval;
-    s.tmp_0 = Sprite_ay__P2365_mk(s);
-    s.tmp_0.arg0 = s.arg0;
-    s.tmp_0.arg1 = 0;
-    s.callLocIdx = 505; s.pc = 5; return s.tmp_0;
-  case 5:
-    r0 = s.retval;
-    s.tmp_0 = Sprite_fx__P2367_mk(s);
-    s.tmp_0.arg0 = s.arg0;
-    s.tmp_0.arg1 = 0;
-    s.callLocIdx = 506; s.pc = 6; return s.tmp_0;
-  case 6:
-    r0 = s.retval;
-    s.tmp_0 = Sprite_fy__P2369_mk(s);
-    s.tmp_0.arg0 = s.arg0;
-    s.tmp_0.arg1 = 0;
-    s.callLocIdx = 507; s.pc = 7; return s.tmp_0;
+    if (!r0) { step = 7; continue; }
+    r0 = pxsim_pxtrt_stlocRef(s.caps[2], true);
+    { step = 12; continue; }
   case 7:
-    r0 = s.retval;
-    r0 = (s.arg0).fields["_sx"] = (256);
-    r0 = (s.arg0).fields["_sy"] = (256);
-    r0 = (s.arg0).fields["flags"] = (0);
-    s.tmp_0 = Sprite_setImage__P2391_mk(s);
-    s.tmp_0.arg0 = s.arg0;
-    s.tmp_0.arg1 = s.arg1;
-    s.callLocIdx = 508; s.pc = 8; return s.tmp_0;
-  case 8:
-    r0 = s.retval;
-    s.tmp_0 = Sprite_setKind__P2408_mk(s);
-    s.tmp_0.arg0 = s.arg0;
-    s.tmp_0.arg1 = -1;
-    s.callLocIdx = 509; s.pc = 9; return s.tmp_0;
-  case 9:
-    r0 = s.retval;
-    r0 = (s.arg0).fields["layer"] = (1);
-    r0 = (s.arg0).fields["lifespan"] = (undefined);
-    s.tmp_0 = r0 = s.arg0;
-    r0 = pxsim_Array__mk();
-    s.tmp_1 = r0;
-    r0 = (s.tmp_0).fields["_overlappers"] = (s.tmp_1);
-    s.tmp_0 = r0 = s.arg0;
-    r0 = pxsim_Array__mk();
-    s.tmp_1 = r0;
-    r0 = (s.tmp_0).fields["_obstacles"] = (s.tmp_1);
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-Sprite_constructor__P2388.info = {"start":7406,"length":678,"line":278,"column":4,"endLine":300,"endColumn":5,"fileName":"pxt_modules/game/sprite.ts","functionName":"inline","argumentNames":["this","img"]}
-
-function Sprite_constructor__P2388_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: Sprite_constructor__P2388, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  tmp_2: undefined,
-  tmp_3: undefined,
-  tmp_4: undefined,
-  tmp_5: undefined,
-  tmp_6: undefined,
-  arg0: undefined,
-  arg1: undefined,
-} }
-
-
-
-
-
-function Sprite_fy__P2369(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.arg1 = (s.lambdaArgs[1]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, Sprite__C2341_VT)) failedCast(r0);
-    s.tmp_0 = r0 = s.arg0;
-    s.tmp_3 = Math_max__P130_mk(s);
-    s.tmp_3.arg0 = 0;
-    s.tmp_3.arg1 = s.arg1;
-    s.callLocIdx = 495; s.pc = 1; return s.tmp_3;
-  case 1:
-    r0 = s.retval;
-    s.tmp_2 = r0;
-    r0 = (s.tmp_2 * 256);
-    s.tmp_4 = r0;
-    r0 = (s.tmp_4 | 0);
-    s.tmp_1 = r0;
-    r0 = (s.tmp_0).fields["_fy"] = (s.tmp_1);
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-Sprite_fy__P2369.info = {"start":5109,"length":64,"line":191,"column":4,"endLine":193,"endColumn":5,"fileName":"pxt_modules/game/sprite.ts","functionName":"fy","argumentNames":["this","v"]}
-
-function Sprite_fy__P2369_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: Sprite_fy__P2369, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  tmp_2: undefined,
-  tmp_3: undefined,
-  tmp_4: undefined,
-  arg0: undefined,
-  arg1: undefined,
-} }
-
-
-
-
-
-function Sprite_fy__P2368(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, Sprite__C2341_VT)) failedCast(r0);
-    r0 = s.arg0.fields["_fy"];
+    r0 = pxsim_pxtrt_ldlocRef(s.caps[1]);
     s.tmp_0 = r0;
-    r0 = (s.tmp_0 / 256);
-    return leaveAccessor(s, r0)
-  default: oops()
-} } }
-Sprite_fy__P2368.info = {"start":4947,"length":60,"line":186,"column":4,"endLine":188,"endColumn":5,"fileName":"pxt_modules/game/sprite.ts","functionName":"fy","argumentNames":["this"]}
-Sprite_fy__P2368.isGetter = true;
-
-function Sprite_fy__P2368_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: Sprite_fy__P2368, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  arg0: undefined,
-} }
-
-
-
-
-
-function Sprite_fx__P2367(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.arg1 = (s.lambdaArgs[1]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, Sprite__C2341_VT)) failedCast(r0);
-    s.tmp_0 = r0 = s.arg0;
-    s.tmp_3 = Math_max__P130_mk(s);
-    s.tmp_3.arg0 = 0;
-    s.tmp_3.arg1 = s.arg1;
-    s.callLocIdx = 492; s.pc = 1; return s.tmp_3;
-  case 1:
-    r0 = s.retval;
-    s.tmp_2 = r0;
-    r0 = (s.tmp_2 * 256);
-    s.tmp_4 = r0;
-    r0 = (s.tmp_4 | 0);
-    s.tmp_1 = r0;
-    r0 = (s.tmp_0).fields["_fx"] = (s.tmp_1);
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-Sprite_fx__P2367.info = {"start":4766,"length":64,"line":181,"column":4,"endLine":183,"endColumn":5,"fileName":"pxt_modules/game/sprite.ts","functionName":"fx","argumentNames":["this","v"]}
-
-function Sprite_fx__P2367_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: Sprite_fx__P2367, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  tmp_2: undefined,
-  tmp_3: undefined,
-  tmp_4: undefined,
-  arg0: undefined,
-  arg1: undefined,
-} }
-
-
-
-
-
-function Sprite_fx__P2366(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, Sprite__C2341_VT)) failedCast(r0);
-    r0 = s.arg0.fields["_fx"];
-    s.tmp_0 = r0;
-    r0 = (s.tmp_0 / 256);
-    return leaveAccessor(s, r0)
-  default: oops()
-} } }
-Sprite_fx__P2366.info = {"start":4604,"length":60,"line":176,"column":4,"endLine":178,"endColumn":5,"fileName":"pxt_modules/game/sprite.ts","functionName":"fx","argumentNames":["this"]}
-Sprite_fx__P2366.isGetter = true;
-
-function Sprite_fx__P2366_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: Sprite_fx__P2366, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  arg0: undefined,
-} }
-
-
-
-
-
-function Sprite_ay__P2365(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.arg1 = (s.lambdaArgs[1]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, Sprite__C2341_VT)) failedCast(r0);
-    s.tmp_0 = r0 = s.arg0;
-    r0 = (s.arg1 * 256);
-    s.tmp_2 = r0;
-    r0 = (s.tmp_2 | 0);
-    s.tmp_1 = r0;
-    r0 = (s.tmp_0).fields["_ay"] = (s.tmp_1);
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-Sprite_ay__P2365.info = {"start":4435,"length":51,"line":170,"column":4,"endLine":172,"endColumn":5,"fileName":"pxt_modules/game/sprite.ts","functionName":"ay","argumentNames":["this","v"]}
-
-function Sprite_ay__P2365_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: Sprite_ay__P2365, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  tmp_2: undefined,
-  arg0: undefined,
-  arg1: undefined,
-} }
-
-
-
-
-
-function Sprite_ay__P2364(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, Sprite__C2341_VT)) failedCast(r0);
-    r0 = s.arg0.fields["_ay"];
-    s.tmp_0 = r0;
-    r0 = (s.tmp_0 / 256);
-    return leaveAccessor(s, r0)
-  default: oops()
-} } }
-Sprite_ay__P2364.info = {"start":4269,"length":60,"line":165,"column":4,"endLine":167,"endColumn":5,"fileName":"pxt_modules/game/sprite.ts","functionName":"ay","argumentNames":["this"]}
-Sprite_ay__P2364.isGetter = true;
-
-function Sprite_ay__P2364_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: Sprite_ay__P2364, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  arg0: undefined,
-} }
-
-
-
-
-
-function Sprite_ax__P2363(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.arg1 = (s.lambdaArgs[1]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, Sprite__C2341_VT)) failedCast(r0);
-    s.tmp_0 = r0 = s.arg0;
-    r0 = (s.arg1 * 256);
-    s.tmp_2 = r0;
-    r0 = (s.tmp_2 | 0);
-    s.tmp_1 = r0;
-    r0 = (s.tmp_0).fields["_ax"] = (s.tmp_1);
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-Sprite_ax__P2363.info = {"start":4096,"length":51,"line":159,"column":4,"endLine":161,"endColumn":5,"fileName":"pxt_modules/game/sprite.ts","functionName":"ax","argumentNames":["this","v"]}
-
-function Sprite_ax__P2363_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: Sprite_ax__P2363, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  tmp_2: undefined,
-  arg0: undefined,
-  arg1: undefined,
-} }
-
-
-
-
-
-function Sprite_ax__P2362(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, Sprite__C2341_VT)) failedCast(r0);
-    r0 = s.arg0.fields["_ax"];
-    s.tmp_0 = r0;
-    r0 = (s.tmp_0 / 256);
-    return leaveAccessor(s, r0)
-  default: oops()
-} } }
-Sprite_ax__P2362.info = {"start":3930,"length":60,"line":154,"column":4,"endLine":156,"endColumn":5,"fileName":"pxt_modules/game/sprite.ts","functionName":"ax","argumentNames":["this"]}
-Sprite_ax__P2362.isGetter = true;
-
-function Sprite_ax__P2362_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: Sprite_ax__P2362, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  arg0: undefined,
-} }
-
-
-
-
-
-function sprites_BaseSprite_constructor__P2096(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.arg1 = (s.lambdaArgs[1]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, sprites_BaseSprite__C2094_VT)) failedCast(r0);
-    s.tmp_0 = sprites_BaseSprite_z__P2099_mk(s);
-    s.tmp_0.arg0 = s.arg0;
-    s.tmp_0.arg1 = s.arg1;
-    s.callLocIdx = 238; s.pc = 1; return s.tmp_0;
-  case 1:
-    r0 = s.retval;
-    s.tmp_0 = scene_Scene_addSprite__P2870_mk(s);
-    s.tmp_1 = game_currentScene__P2999_mk(s);
-    s.callLocIdx = 239; s.pc = 3; return s.tmp_1;
-  case 3:
-    r0 = s.retval;
-    s.tmp_0.arg0 = r0;
-    s.tmp_0.arg1 = s.arg0;
-    s.callLocIdx = 240; s.pc = 2; return s.tmp_0;
-  case 2:
-    r0 = s.retval;
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-sprites_BaseSprite_constructor__P2096.info = {"start":344,"length":170,"line":15,"column":8,"endLine":20,"endColumn":9,"fileName":"pxt_modules/game/basesprite.ts","functionName":"inline","argumentNames":["this","z"]}
-
-function sprites_BaseSprite_constructor__P2096_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: sprites_BaseSprite_constructor__P2096, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  arg0: undefined,
-  arg1: undefined,
-} }
-
-
-
-
-
-function scene_Scene_addSprite__P2870(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.arg1 = (s.lambdaArgs[1]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, scene_Scene__C2843_VT)) failedCast(r0);
-    r0 = s.arg0.fields["allSprites"];
-    s.tmp_0 = r0;
-    r0 = pxsim_Array__push(s.tmp_0, s.arg1);
-    s.tmp_0 = r0 = s.arg0;
-    r0 = s.tmp_0.fields["spriteNextId"];
-    s.tmp_2 = r0;
-    r0 = (s.tmp_2 + 1);
-    s.tmp_1 = r0;
-    r0 = (s.tmp_0).fields["spriteNextId"] = (s.tmp_1);
-    s.tmp_3 = if_id_2_mk(s);
-    s.tmp_3.arg0 = s.arg1;
-    s.tmp_3.arg1 = s.tmp_2;
-    if (!s.tmp_3.arg0.vtable.iface) {
-      s.retval = pxsim_pxtrt.mapSetByString(s.tmp_3.arg0, "id", s.tmp_3.arg1);
-    } else {
-      s.tmp_3.fn = s.tmp_3.arg0.vtable.iface["set/id"];
-      if (s.tmp_3.fn === null) { s.tmp_3.arg0.fields["id"] = s.tmp_3.arg1; }
-      else if (s.tmp_3.fn === undefined) { failedCast(s.tmp_3.arg0) } 
-     else { s.callLocIdx = 1260; s.pc = 1; return s.tmp_3; }
-    }
-  case 1:
-    r0 = s.retval;
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-scene_Scene_addSprite__P2870.info = {"start":7218,"length":128,"line":200,"column":8,"endLine":203,"endColumn":9,"fileName":"pxt_modules/game/scene.ts","functionName":"addSprite","argumentNames":["this","sprite"]}
-
-function scene_Scene_addSprite__P2870_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: scene_Scene_addSprite__P2870, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  tmp_2: undefined,
-  tmp_3: undefined,
-  arg0: undefined,
-  arg1: undefined,
-} }
-
-
-
-
-
-function sprites_BaseSprite_z__P2099(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.arg1 = (s.lambdaArgs[1]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, sprites_BaseSprite__C2094_VT)) failedCast(r0);
-    r0 = s.arg0.fields["_z"];
-    s.tmp_1 = r0;
-    r0 = (s.tmp_1 !== s.arg1);
-    s.tmp_0 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
-    if (!r0) { step = 1; continue; }
-    r0 = (s.arg0).fields["_z"] = (s.arg1);
-    s.tmp_1 = game_currentScene__P2999_mk(s);
-    s.callLocIdx = 241; s.pc = 3; return s.tmp_1;
-  case 3:
-    r0 = s.retval;
-    s.tmp_0 = r0;
-    r0 = s.tmp_0.fields["flags"];
-    s.tmp_3 = r0;
-    r0 = (s.tmp_3 | 1);
-    s.tmp_2 = r0;
-    r0 = (s.tmp_0).fields["flags"] = (s.tmp_2);
-  case 1:
-  case 2:
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-sprites_BaseSprite_z__P2099.info = {"start":656,"length":174,"line":30,"column":8,"endLine":35,"endColumn":9,"fileName":"pxt_modules/game/basesprite.ts","functionName":"z","argumentNames":["this","v"]}
-
-function sprites_BaseSprite_z__P2099_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: sprites_BaseSprite_z__P2099, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  tmp_2: undefined,
-  tmp_3: undefined,
-  arg0: undefined,
-  arg1: undefined,
-} }
-
-
-
-
-
-function sprites_BaseSprite_z__P2098(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, sprites_BaseSprite__C2094_VT)) failedCast(r0);
-    r0 = s.arg0.fields["_z"];
-    return leaveAccessor(s, r0)
-  default: oops()
-} } }
-sprites_BaseSprite_z__P2098.info = {"start":591,"length":55,"line":26,"column":8,"endLine":28,"endColumn":9,"fileName":"pxt_modules/game/basesprite.ts","functionName":"z","argumentNames":["this"]}
-sprites_BaseSprite_z__P2098.isGetter = true;
-
-function sprites_BaseSprite_z__P2098_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: sprites_BaseSprite_z__P2098, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  arg0: undefined,
-} }
-
-
-
-
-
-function maze_Chaser_init__P200287(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, maze_Chaser__C200286_VT)) failedCast(r0);
-    s.tmp_0 = r0 = s.arg0;
-    s.tmp_2 = maze_getMaze__P4396_mk(s);
-    s.callLocIdx = 464; s.pc = 1; return s.tmp_2;
-  case 1:
-    r0 = s.retval;
-    s.tmp_1 = r0;
-    r0 = (s.tmp_0).fields["maze"] = (s.tmp_1);
-    s.tmp_0 = maze_DirImage_load__P232039_mk(s);
-    r0 = s.arg0.fields["img"];
-    s.tmp_0.arg0 = r0;
-    r0 = s.arg0.fields["id"];
-    s.tmp_2 = r0;
-    if ((s.tmp_2) && (s.tmp_2).vtable) {
-    setupResume(s, 3);
-    pxsim_String__stringConv(s.tmp_2);
-    checkResumeConsumed();
-    return;
-    } else { s.retval = (s.tmp_2) + ""; }
-  case 3:
-    r0 = s.retval;
-    s.tmp_1 = r0;
-    r0 = pxsim_String__concat("chaser", s.tmp_1);
-    s.tmp_0.arg1 = r0;
-    s.callLocIdx = 465; s.pc = 2; return s.tmp_0;
-  case 2:
-    r0 = s.retval;
-    s.tmp_0 = maze_Mover_init__P232018_mk(s);
-    r0 = s.arg0.fields["mover"];
-    s.tmp_0.arg0 = r0;
-    r0 = s.arg0.fields["img"];
-    s.tmp_0.arg1 = r0;
-    s.callLocIdx = 466; s.pc = 4; return s.tmp_0;
-  case 4:
-    r0 = s.retval;
-    r0 = s.arg0.fields["mover"];
-    s.tmp_0 = r0;
-    r0 = (s.tmp_0).fields["mapType"] = (64);
-    s.tmp_0 = maze_DirImage_load__P232039_mk(s);
-    r0 = s.arg0.fields["imgReturn"];
-    s.tmp_0.arg0 = r0;
-    s.tmp_0.arg1 = "eyes";
-    s.callLocIdx = 467; s.pc = 5; return s.tmp_0;
-  case 5:
-    r0 = s.retval;
-    s.tmp_0 = maze_DirImage_load__P232039_mk(s);
-    r0 = s.arg0.fields["imgFright"];
-    s.tmp_0.arg0 = r0;
-    s.tmp_0.arg1 = "chaser_fright";
-    s.callLocIdx = 468; s.pc = 6; return s.tmp_0;
-  case 6:
-    r0 = s.retval;
-    s.tmp_0 = maze_DirImage_load__P232039_mk(s);
-    r0 = s.arg0.fields["imgWarn"];
-    s.tmp_0.arg0 = r0;
-    s.tmp_0.arg1 = "chaser_warn";
-    s.callLocIdx = 469; s.pc = 7; return s.tmp_0;
-  case 7:
-    r0 = s.retval;
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-maze_Chaser_init__P200287.info = {"start":1162,"length":332,"line":51,"column":8,"endLine":62,"endColumn":9,"fileName":"maze_chaser.ts","functionName":"init","argumentNames":["this"]}
-
-function maze_Chaser_init__P200287_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: maze_Chaser_init__P200287, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  tmp_2: undefined,
-  arg0: undefined,
-} }
-
-
-
-
-
-function maze_Mover_init__P232018(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.arg1 = (s.lambdaArgs[1]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, maze_Mover__C232017_VT)) failedCast(r0);
-    s.tmp_0 = r0 = s.arg0;
-    s.tmp_2 = maze_getMaze__P4396_mk(s);
-    s.callLocIdx = 230; s.pc = 1; return s.tmp_2;
-  case 1:
-    r0 = s.retval;
-    s.tmp_1 = r0;
-    r0 = (s.tmp_0).fields["maze"] = (s.tmp_1);
-    r0 = (s.arg0).fields["images"] = (s.arg1);
-    s.tmp_0 = r0 = s.arg0;
-    s.tmp_2 = sprites_create__P2275_mk(s);
-    r0 = s.arg0.fields["images"];
-    r0 = r0.fields["img"];
-    s.tmp_2.arg0 = r0;
-    s.tmp_2.arg1 = undefined;
-    s.callLocIdx = 231; s.pc = 2; return s.tmp_2;
-  case 2:
-    r0 = s.retval;
-    s.tmp_1 = r0;
-    r0 = (s.tmp_0).fields["sprite"] = (s.tmp_1);
-    s.tmp_0 = maze_Mover_setVisible__P232026_mk(s);
-    s.tmp_0.arg0 = s.arg0;
-    s.tmp_0.arg1 = false;
-    s.callLocIdx = 232; s.pc = 3; return s.tmp_0;
-  case 3:
-    r0 = s.retval;
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-maze_Mover_init__P232018.info = {"start":3797,"length":240,"line":117,"column":8,"endLine":124,"endColumn":9,"fileName":"maze_mover.ts","functionName":"init","argumentNames":["this","images"]}
-
-function maze_Mover_init__P232018_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: maze_Mover_init__P232018, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  tmp_2: undefined,
-  arg0: undefined,
-  arg1: undefined,
-} }
-
-
-
-
-
-function maze_DirImage_load__P232039(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.arg1 = (s.lambdaArgs[1]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, maze_DirImage__C232036_VT)) failedCast(r0);
-    s.tmp_0 = r0 = s.arg0;
-    s.tmp_2 = helpers_getImageByName__P3336_mk(s);
-    s.tmp_2.arg0 = s.arg1;
-    s.callLocIdx = 216; s.pc = 1; return s.tmp_2;
-  case 1:
-    r0 = s.retval;
-    s.tmp_1 = r0;
-    r0 = (s.tmp_0).fields["img"] = (s.tmp_1);
-    s.tmp_0 = r0 = s.arg0;
-    s.tmp_2 = maze_DirImage_loadAnim__P232037_mk(s);
-    s.tmp_2.arg0 = s.arg0;
-    s.tmp_2.arg1 = s.arg1;
-    s.callLocIdx = 217; s.pc = 2; return s.tmp_2;
-  case 2:
-    r0 = s.retval;
-    s.tmp_1 = r0;
-    r0 = (s.tmp_0).fields["anim"] = (s.tmp_1);
-    s.tmp_0 = r0 = s.arg0;
-    s.tmp_2 = maze_DirImage_loadAnim__P232037_mk(s);
-    s.tmp_2.arg0 = s.arg0;
-    if ((s.arg1) && (s.arg1).vtable) {
-    setupResume(s, 4);
-    pxsim_String__stringConv(s.arg1);
-    checkResumeConsumed();
-    return;
-    } else { s.retval = (s.arg1) + ""; }
-  case 4:
-    r0 = s.retval;
-    s.tmp_3 = r0;
-    r0 = pxsim_String__concat(s.tmp_3, "_up");
-    s.tmp_2.arg1 = r0;
-    s.callLocIdx = 218; s.pc = 3; return s.tmp_2;
-  case 3:
-    r0 = s.retval;
-    s.tmp_1 = r0;
-    r0 = (s.tmp_0).fields["animUp"] = (s.tmp_1);
-    s.tmp_0 = r0 = s.arg0;
-    s.tmp_2 = maze_DirImage_loadAnim__P232037_mk(s);
-    s.tmp_2.arg0 = s.arg0;
-    if ((s.arg1) && (s.arg1).vtable) {
-    setupResume(s, 6);
-    pxsim_String__stringConv(s.arg1);
-    checkResumeConsumed();
-    return;
-    } else { s.retval = (s.arg1) + ""; }
-  case 6:
-    r0 = s.retval;
-    s.tmp_3 = r0;
-    r0 = pxsim_String__concat(s.tmp_3, "_down");
-    s.tmp_2.arg1 = r0;
-    s.callLocIdx = 219; s.pc = 5; return s.tmp_2;
-  case 5:
-    r0 = s.retval;
-    s.tmp_1 = r0;
-    r0 = (s.tmp_0).fields["animDown"] = (s.tmp_1);
-    s.tmp_0 = r0 = s.arg0;
-    s.tmp_2 = maze_DirImage_loadAnim__P232037_mk(s);
-    s.tmp_2.arg0 = s.arg0;
-    if ((s.arg1) && (s.arg1).vtable) {
-    setupResume(s, 8);
-    pxsim_String__stringConv(s.arg1);
-    checkResumeConsumed();
-    return;
-    } else { s.retval = (s.arg1) + ""; }
-  case 8:
-    r0 = s.retval;
-    s.tmp_3 = r0;
-    r0 = pxsim_String__concat(s.tmp_3, "_left");
-    s.tmp_2.arg1 = r0;
-    s.callLocIdx = 220; s.pc = 7; return s.tmp_2;
-  case 7:
-    r0 = s.retval;
-    s.tmp_1 = r0;
-    r0 = (s.tmp_0).fields["animLeft"] = (s.tmp_1);
-    s.tmp_0 = r0 = s.arg0;
-    s.tmp_2 = maze_DirImage_loadAnim__P232037_mk(s);
-    s.tmp_2.arg0 = s.arg0;
-    if ((s.arg1) && (s.arg1).vtable) {
-    setupResume(s, 10);
-    pxsim_String__stringConv(s.arg1);
-    checkResumeConsumed();
-    return;
-    } else { s.retval = (s.arg1) + ""; }
-  case 10:
-    r0 = s.retval;
-    s.tmp_3 = r0;
-    r0 = pxsim_String__concat(s.tmp_3, "_right");
-    s.tmp_2.arg1 = r0;
-    s.callLocIdx = 221; s.pc = 9; return s.tmp_2;
-  case 9:
-    r0 = s.retval;
-    s.tmp_1 = r0;
-    r0 = (s.tmp_0).fields["animRight"] = (s.tmp_1);
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-maze_DirImage_load__P232039.info = {"start":1261,"length":356,"line":39,"column":8,"endLine":46,"endColumn":9,"fileName":"maze_mover.ts","functionName":"load","argumentNames":["this","name"]}
-
-function maze_DirImage_load__P232039_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: maze_DirImage_load__P232039, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  tmp_2: undefined,
-  tmp_3: undefined,
-  arg0: undefined,
-  arg1: undefined,
-} }
-
-
-
-
-
-function maze_DirImage_loadAnim__P232037(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    s.images___232103 = undefined;
-    s.i___232105 = undefined;
-    s.img___232109 = undefined;
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.arg1 = (s.lambdaArgs[1]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, maze_DirImage__C232036_VT)) failedCast(r0);
-    r0 = pxsim_Array__mk();
-    s.images___232103 = (r0);
-    s.i___232105 = (0);
-  case 1:
-    r0 = (s.i___232105 < 32);
-    s.tmp_0 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
-    if (!r0) { step = 4; continue; }
-    s.tmp_1 = helpers_getImageByName__P3336_mk(s);
-    if ((s.arg1) && (s.arg1).vtable) {
-    setupResume(s, 8);
-    pxsim_String__stringConv(s.arg1);
-    checkResumeConsumed();
-    return;
-    } else { s.retval = (s.arg1) + ""; }
-  case 8:
-    r0 = s.retval;
-    s.tmp_2 = r0;
-    if ((s.i___232105) && (s.i___232105).vtable) {
-    setupResume(s, 9);
-    pxsim_String__stringConv(s.i___232105);
-    checkResumeConsumed();
-    return;
-    } else { s.retval = (s.i___232105) + ""; }
-  case 9:
-    r0 = s.retval;
-    s.tmp_3 = r0;
-    r0 = pxsim_String__concat(s.tmp_2, s.tmp_3);
-    s.tmp_1.arg0 = r0;
-    s.callLocIdx = 214; s.pc = 7; return s.tmp_1;
-  case 7:
-    r0 = s.retval;
-    s.img___232109 = (r0);
-    r0 = pxsim_numops_toBoolDecr(s.img___232109);
-    if (!r0) { step = 2; continue; }
-    r0 = pxsim_Array__push(s.images___232103, s.img___232109);
-    { step = 3; continue; }
-  case 2:
-    { step = 4; continue; }
-  case 3:
-    r0 = (s.i___232105 + 1);
-    s.i___232105 = (r0);
-    { step = 1; continue; }
-  case 4:
-    s.tmp_0 = console_log__P380_mk(s);
-    if ((s.arg1) && (s.arg1).vtable) {
-    setupResume(s, 11);
-    pxsim_String__stringConv(s.arg1);
-    checkResumeConsumed();
-    return;
-    } else { s.retval = (s.arg1) + ""; }
-  case 11:
-    r0 = s.retval;
-    s.tmp_3 = r0;
-    r0 = pxsim_String__concat(s.tmp_3, ":");
-    s.tmp_2 = r0;
-    if ((s.tmp_2) && (s.tmp_2).vtable) {
-    setupResume(s, 12);
-    pxsim_String__stringConv(s.tmp_2);
-    checkResumeConsumed();
-    return;
-    } else { s.retval = (s.tmp_2) + ""; }
-  case 12:
-    r0 = s.retval;
-    s.tmp_1 = r0;
-    r0 = pxsim_Array__length(s.images___232103);
-    s.tmp_5 = r0;
-    if ((s.tmp_5) && (s.tmp_5).vtable) {
-    setupResume(s, 13);
-    pxsim_String__stringConv(s.tmp_5);
-    checkResumeConsumed();
-    return;
-    } else { s.retval = (s.tmp_5) + ""; }
-  case 13:
-    r0 = s.retval;
-    s.tmp_4 = r0;
-    r0 = pxsim_String__concat(s.tmp_1, s.tmp_4);
-    s.tmp_0.arg0 = r0;
-    s.callLocIdx = 215; s.pc = 10; return s.tmp_0;
-  case 10:
-    r0 = s.retval;
-    r0 = pxsim_Array__length(s.images___232103);
-    s.tmp_1 = r0;
-    r0 = (s.tmp_1 > 0);
-    s.tmp_0 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
-    if (!r0) { step = 5; continue; }
-    r0 = s.images___232103;
-    { step = 6; continue; }
-  case 5:
-    r0 = null;
-  case 6:
-    // jmp value (already in r0)
-    s.tmp_2 = r0;
-    r0 = s.tmp_2;
-    return leave(s, r0)
-  default: oops()
-} } }
-maze_DirImage_loadAnim__P232037.info = {"start":317,"length":453,"line":15,"column":8,"endLine":27,"endColumn":9,"fileName":"maze_mover.ts","functionName":"loadAnim","argumentNames":["this","name"]}
-
-function maze_DirImage_loadAnim__P232037_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: maze_DirImage_loadAnim__P232037, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  tmp_2: undefined,
-  tmp_3: undefined,
-  tmp_4: undefined,
-  tmp_5: undefined,
-  images___232103: undefined,
-  i___232105: undefined,
-  img___232109: undefined,
-  arg0: undefined,
-  arg1: undefined,
-} }
-
-
-
-
-
-function maze_Hero_init__P4405(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, maze_Hero__C4400_VT)) failedCast(r0);
-    s.tmp_0 = r0 = s.arg0;
-    s.tmp_2 = maze_getMaze__P4396_mk(s);
-    s.callLocIdx = 118; s.pc = 1; return s.tmp_2;
-  case 1:
-    r0 = s.retval;
-    s.tmp_1 = r0;
-    r0 = (s.tmp_0).fields["maze"] = (s.tmp_1);
-    s.tmp_0 = maze_DirImage_load__P232039_mk(s);
-    r0 = s.arg0.fields["images"];
-    s.tmp_0.arg0 = r0;
-    s.tmp_0.arg1 = "hero";
-    s.callLocIdx = 119; s.pc = 2; return s.tmp_0;
-  case 2:
-    r0 = s.retval;
-    s.tmp_0 = maze_Mover_init__P232018_mk(s);
-    r0 = s.arg0.fields["mover"];
-    s.tmp_0.arg0 = r0;
-    r0 = s.arg0.fields["images"];
-    s.tmp_0.arg1 = r0;
-    s.callLocIdx = 120; s.pc = 3; return s.tmp_0;
-  case 3:
-    r0 = s.retval;
-    r0 = s.arg0.fields["mover"];
-    s.tmp_0 = r0;
-    r0 = (s.tmp_0).fields["mapType"] = (64);
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-maze_Hero_init__P4405.info = {"start":228,"length":177,"line":11,"column":8,"endLine":16,"endColumn":9,"fileName":"maze_hero.ts","functionName":"init","argumentNames":["this"]}
-
-function maze_Hero_init__P4405_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: maze_Hero_init__P4405, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  tmp_2: undefined,
-  arg0: undefined,
-} }
-
-
-
-
-
-function maze_Game_init__P4519(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, maze_Game__C4508_VT)) failedCast(r0);
-    s.tmp_0 = r0 = s.arg0;
-    s.tmp_2 = maze_getMaze__P4396_mk(s);
-    s.callLocIdx = 338; s.pc = 1; return s.tmp_2;
-  case 1:
-    r0 = s.retval;
-    s.tmp_1 = r0;
-    r0 = (s.tmp_0).fields["maze"] = (s.tmp_1);
-    r0 = (s.arg0).fields["pillsRemaining"] = (0);
-    r0 = (s.arg0).fields["pillsEaten"] = (0);
-    r0 = (s.arg0).fields["levelComplete"] = (false);
-    r0 = (s.arg0).fields["difficulty"] = (0);
-    r0 = (s.arg0).fields["levelCount"] = (0);
-    r0 = pxsim_pxtcore_mkAction(1, maze_Game_init_inline__P9455);
-    s.tmp_0 = r0;
-    r0 = pxsim_pxtrt_stclo(s.tmp_0, 0, s.arg0);
-    s.tmp_1 = maze_EventManager_register__P4550_mk(s);
-    r0 = s.arg0.fields["maze"];
-    r0 = r0.fields["events"];
-    s.tmp_1.arg0 = r0;
-    s.tmp_1.arg1 = 0;
-    s.tmp_1.arg2 = s.tmp_0;
-    s.callLocIdx = 340; s.pc = 2; return s.tmp_1;
-  case 2:
-    r0 = s.retval;
-    r0 = pxsim_pxtcore_mkAction(1, maze_Game_init_inline__P9463);
-    s.tmp_0 = r0;
-    r0 = pxsim_pxtrt_stclo(s.tmp_0, 0, s.arg0);
-    s.tmp_1 = maze_EventManager_register__P4550_mk(s);
-    r0 = s.arg0.fields["maze"];
-    r0 = r0.fields["events"];
-    s.tmp_1.arg0 = r0;
-    s.tmp_1.arg1 = 1;
-    s.tmp_1.arg2 = s.tmp_0;
-    s.callLocIdx = 342; s.pc = 3; return s.tmp_1;
-  case 3:
-    r0 = s.retval;
-    r0 = pxsim_pxtcore_mkAction(1, maze_Game_init_inline__P9471);
-    s.tmp_0 = r0;
-    r0 = pxsim_pxtrt_stclo(s.tmp_0, 0, s.arg0);
-    s.tmp_1 = maze_EventManager_register__P4550_mk(s);
-    r0 = s.arg0.fields["maze"];
-    r0 = r0.fields["events"];
-    s.tmp_1.arg0 = r0;
-    s.tmp_1.arg1 = 2;
-    s.tmp_1.arg2 = s.tmp_0;
-    s.callLocIdx = 344; s.pc = 4; return s.tmp_1;
-  case 4:
-    r0 = s.retval;
-    r0 = pxsim_pxtcore_mkAction(1, maze_Game_init_inline__P9479);
-    s.tmp_0 = r0;
-    r0 = pxsim_pxtrt_stclo(s.tmp_0, 0, s.arg0);
-    s.tmp_1 = maze_EventManager_register__P4550_mk(s);
-    r0 = s.arg0.fields["maze"];
-    r0 = r0.fields["events"];
-    s.tmp_1.arg0 = r0;
-    s.tmp_1.arg1 = 3;
-    s.tmp_1.arg2 = s.tmp_0;
-    s.callLocIdx = 346; s.pc = 5; return s.tmp_1;
-  case 5:
-    r0 = s.retval;
-    r0 = pxsim_pxtcore_mkAction(1, maze_Game_init_inline__P9487);
-    s.tmp_0 = r0;
-    r0 = pxsim_pxtrt_stclo(s.tmp_0, 0, s.arg0);
-    s.tmp_1 = maze_EventManager_register__P4550_mk(s);
-    r0 = s.arg0.fields["maze"];
-    r0 = r0.fields["events"];
-    s.tmp_1.arg0 = r0;
-    s.tmp_1.arg1 = 4;
-    s.tmp_1.arg2 = s.tmp_0;
-    s.callLocIdx = 348; s.pc = 6; return s.tmp_1;
-  case 6:
-    r0 = s.retval;
-    r0 = pxsim_pxtcore_mkAction(1, maze_Game_init_inline__P9494);
-    s.tmp_0 = r0;
-    r0 = pxsim_pxtrt_stclo(s.tmp_0, 0, s.arg0);
-    s.tmp_1 = maze_EventManager_register__P4550_mk(s);
-    r0 = s.arg0.fields["maze"];
-    r0 = r0.fields["events"];
-    s.tmp_1.arg0 = r0;
-    s.tmp_1.arg1 = 5;
-    s.tmp_1.arg2 = s.tmp_0;
-    s.callLocIdx = 350; s.pc = 7; return s.tmp_1;
-  case 7:
-    r0 = s.retval;
-    r0 = pxsim_pxtcore_mkAction(1, maze_Game_init_inline__P9501);
-    s.tmp_0 = r0;
-    r0 = pxsim_pxtrt_stclo(s.tmp_0, 0, s.arg0);
-    s.tmp_1 = maze_EventManager_register__P4550_mk(s);
-    r0 = s.arg0.fields["maze"];
-    r0 = r0.fields["events"];
-    s.tmp_1.arg0 = r0;
-    s.tmp_1.arg1 = 11;
-    s.tmp_1.arg2 = s.tmp_0;
-    s.callLocIdx = 352; s.pc = 8; return s.tmp_1;
-  case 8:
-    r0 = s.retval;
-    r0 = pxsim_pxtcore_mkAction(1, maze_Game_init_inline__P9508);
-    s.tmp_0 = r0;
-    r0 = pxsim_pxtrt_stclo(s.tmp_0, 0, s.arg0);
-    s.tmp_1 = maze_EventManager_register__P4550_mk(s);
-    r0 = s.arg0.fields["maze"];
-    r0 = r0.fields["events"];
-    s.tmp_1.arg0 = r0;
-    s.tmp_1.arg1 = 12;
-    s.tmp_1.arg2 = s.tmp_0;
-    s.callLocIdx = 354; s.pc = 9; return s.tmp_1;
-  case 9:
-    r0 = s.retval;
-    r0 = pxsim_pxtcore_mkAction(1, maze_Game_init_inline__P9515);
-    s.tmp_0 = r0;
-    r0 = pxsim_pxtrt_stclo(s.tmp_0, 0, s.arg0);
-    s.tmp_1 = maze_EventManager_register__P4550_mk(s);
-    r0 = s.arg0.fields["maze"];
-    r0 = r0.fields["events"];
-    s.tmp_1.arg0 = r0;
-    s.tmp_1.arg1 = 8;
-    s.tmp_1.arg2 = s.tmp_0;
-    s.callLocIdx = 356; s.pc = 10; return s.tmp_1;
-  case 10:
-    r0 = s.retval;
-    r0 = pxsim_pxtcore_mkAction(1, maze_Game_init_inline__P9522);
-    s.tmp_0 = r0;
-    r0 = pxsim_pxtrt_stclo(s.tmp_0, 0, s.arg0);
-    s.tmp_1 = maze_EventManager_register__P4550_mk(s);
-    r0 = s.arg0.fields["maze"];
-    r0 = r0.fields["events"];
-    s.tmp_1.arg0 = r0;
-    s.tmp_1.arg1 = 13;
-    s.tmp_1.arg2 = s.tmp_0;
-    s.callLocIdx = 358; s.pc = 11; return s.tmp_1;
-  case 11:
-    r0 = s.retval;
-    r0 = pxsim_pxtcore_mkAction(1, maze_Game_init_inline__P9529);
-    s.tmp_0 = r0;
-    r0 = pxsim_pxtrt_stclo(s.tmp_0, 0, s.arg0);
-    s.tmp_1 = maze_EventManager_register__P4550_mk(s);
-    r0 = s.arg0.fields["maze"];
-    r0 = r0.fields["events"];
-    s.tmp_1.arg0 = r0;
-    s.tmp_1.arg1 = 14;
-    s.tmp_1.arg2 = s.tmp_0;
-    s.callLocIdx = 360; s.pc = 12; return s.tmp_1;
-  case 12:
-    r0 = s.retval;
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-maze_Game_init__P4519.info = {"start":680,"length":1180,"line":29,"column":8,"endLine":49,"endColumn":9,"fileName":"maze_game.ts","functionName":"init","argumentNames":["this"]}
-
-function maze_Game_init__P4519_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: maze_Game_init__P4519, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  tmp_2: undefined,
-  arg0: undefined,
-} }
-
-
-
-
-
-function maze_Game_init_inline__P9455(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    s.tmp_0 = maze_Game_eat__P7575_mk(s);
-    s.tmp_0.arg0 = s.caps[0];
-    s.tmp_0.arg1 = 0;
-    s.callLocIdx = 339; s.pc = 1; return s.tmp_0;
-  case 1:
-    r0 = s.retval;
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-maze_Game_init_inline__P9455.info = {"start":997,"length":29,"line":38,"column":53,"endLine":38,"endColumn":82,"fileName":"maze_game.ts","functionName":"inline","argumentNames":[]}
-
-function maze_Game_init_inline__P9455_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: maze_Game_init_inline__P9455, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-} }
-
-
-
-
-
-function maze_Game_init_inline__P9463(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    s.tmp_0 = maze_Game_eat__P7575_mk(s);
-    s.tmp_0.arg0 = s.caps[0];
-    s.tmp_0.arg1 = 1;
-    s.callLocIdx = 341; s.pc = 1; return s.tmp_0;
-  case 1:
-    r0 = s.retval;
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-maze_Game_init_inline__P9463.info = {"start":1082,"length":30,"line":39,"column":54,"endLine":39,"endColumn":84,"fileName":"maze_game.ts","functionName":"inline","argumentNames":[]}
-
-function maze_Game_init_inline__P9463_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: maze_Game_init_inline__P9463, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-} }
-
-
-
-
-
-function maze_Game_init_inline__P9471(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    s.tmp_0 = maze_Game_eat__P7575_mk(s);
-    s.tmp_0.arg0 = s.caps[0];
-    s.tmp_0.arg1 = 2;
-    s.callLocIdx = 343; s.pc = 1; return s.tmp_0;
-  case 1:
-    r0 = s.retval;
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-maze_Game_init_inline__P9471.info = {"start":1168,"length":30,"line":40,"column":54,"endLine":40,"endColumn":84,"fileName":"maze_game.ts","functionName":"inline","argumentNames":[]}
-
-function maze_Game_init_inline__P9471_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: maze_Game_init_inline__P9471, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-} }
-
-
-
-
-
-function maze_Game_init_inline__P9479(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    s.tmp_0 = maze_Game_eat__P7575_mk(s);
-    s.tmp_0.arg0 = s.caps[0];
-    s.tmp_0.arg1 = 3;
-    s.callLocIdx = 345; s.pc = 1; return s.tmp_0;
-  case 1:
-    r0 = s.retval;
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-maze_Game_init_inline__P9479.info = {"start":1255,"length":31,"line":41,"column":55,"endLine":41,"endColumn":86,"fileName":"maze_game.ts","functionName":"inline","argumentNames":[]}
-
-function maze_Game_init_inline__P9479_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: maze_Game_init_inline__P9479, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-} }
-
-
-
-
-
-function maze_Game_init_inline__P9487(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    s.tmp_0 = maze_Game_levelStart__P7581_mk(s);
-    s.tmp_0.arg0 = s.caps[0];
-    s.callLocIdx = 347; s.pc = 1; return s.tmp_0;
-  case 1:
-    r0 = s.retval;
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-maze_Game_init_inline__P9487.info = {"start":1344,"length":23,"line":42,"column":56,"endLine":42,"endColumn":79,"fileName":"maze_game.ts","functionName":"inline","argumentNames":[]}
-
-function maze_Game_init_inline__P9487_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: maze_Game_init_inline__P9487, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-} }
-
-
-
-
-
-function maze_Game_init_inline__P9494(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    s.tmp_0 = maze_Game_levelNext__P7582_mk(s);
-    s.tmp_0.arg0 = s.caps[0];
-    s.callLocIdx = 349; s.pc = 1; return s.tmp_0;
-  case 1:
-    r0 = s.retval;
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-maze_Game_init_inline__P9494.info = {"start":1424,"length":22,"line":43,"column":55,"endLine":43,"endColumn":77,"fileName":"maze_game.ts","functionName":"inline","argumentNames":[]}
-
-function maze_Game_init_inline__P9494_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: maze_Game_init_inline__P9494, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-} }
-
-
-
-
-
-function maze_Game_init_inline__P9501(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    s.tmp_0 = maze_Game_setFreeze__P7584_mk(s);
-    s.tmp_0.arg0 = s.caps[0];
-    s.tmp_0.arg1 = false;
-    s.callLocIdx = 351; s.pc = 1; return s.tmp_0;
-  case 1:
-    r0 = s.retval;
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-maze_Game_init_inline__P9501.info = {"start":1501,"length":27,"line":44,"column":53,"endLine":44,"endColumn":80,"fileName":"maze_game.ts","functionName":"inline","argumentNames":[]}
-
-function maze_Game_init_inline__P9501_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: maze_Game_init_inline__P9501, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-} }
-
-
-
-
-
-function maze_Game_init_inline__P9508(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    s.tmp_0 = maze_Game_life__P7576_mk(s);
-    s.tmp_0.arg0 = s.caps[0];
-    s.callLocIdx = 353; s.pc = 1; return s.tmp_0;
-  case 1:
-    r0 = s.retval;
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-maze_Game_init_inline__P9508.info = {"start":1584,"length":17,"line":45,"column":54,"endLine":45,"endColumn":71,"fileName":"maze_game.ts","functionName":"inline","argumentNames":[]}
-
-function maze_Game_init_inline__P9508_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: maze_Game_init_inline__P9508, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-} }
-
-
-
-
-
-function maze_Game_init_inline__P9515(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    s.tmp_0 = maze_Game_gameOver__P7580_mk(s);
-    s.tmp_0.arg0 = s.caps[0];
-    s.callLocIdx = 355; s.pc = 1; return s.tmp_0;
-  case 1:
-    r0 = s.retval;
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-maze_Game_init_inline__P9515.info = {"start":1657,"length":21,"line":46,"column":54,"endLine":46,"endColumn":75,"fileName":"maze_game.ts","functionName":"inline","argumentNames":[]}
-
-function maze_Game_init_inline__P9515_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: maze_Game_init_inline__P9515, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-} }
-
-
-
-
-
-function maze_Game_init_inline__P9522(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    s.tmp_0 = maze_Game_chaserEndMode__P7577_mk(s);
-    s.tmp_0.arg0 = s.caps[0];
-    s.callLocIdx = 357; s.pc = 1; return s.tmp_0;
-  case 1:
-    r0 = s.retval;
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-maze_Game_init_inline__P9522.info = {"start":1739,"length":26,"line":47,"column":59,"endLine":47,"endColumn":85,"fileName":"maze_game.ts","functionName":"inline","argumentNames":[]}
-
-function maze_Game_init_inline__P9522_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: maze_Game_init_inline__P9522, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-} }
-
-
-
-
-
-function maze_Game_init_inline__P9529(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    s.tmp_0 = maze_Game_chaserSetWarn__P7578_mk(s);
-    s.tmp_0.arg0 = s.caps[0];
-    s.callLocIdx = 359; s.pc = 1; return s.tmp_0;
-  case 1:
-    r0 = s.retval;
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-maze_Game_init_inline__P9529.info = {"start":1823,"length":26,"line":48,"column":56,"endLine":48,"endColumn":82,"fileName":"maze_game.ts","functionName":"inline","argumentNames":[]}
-
-function maze_Game_init_inline__P9529_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: maze_Game_init_inline__P9529, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-} }
-
-
-
-
-
-function maze_Game_chaserSetWarn__P7578(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    s.chaser___9819 = undefined;
-    s.unnamed20512___U1 = undefined;
-    s.unnamed20513___U2 = undefined;
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, maze_Game__C4508_VT)) failedCast(r0);
-    s.tmp_0 = r0 = s.arg0;
-    r0 = s.arg0.fields["chaserWarn"];
-    s.tmp_3 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_3);
-    s.tmp_2 = r0;
-    r0 = pxsim_Boolean__bang(s.tmp_2);
-    s.tmp_1 = r0;
-    r0 = (s.tmp_0).fields["chaserWarn"] = (s.tmp_1);
-    s.chaser___9819 = (undefined);
-    r0 = s.arg0.fields["maze"];
-    r0 = r0.fields["chasers"];
-    s.unnamed20512___U1 = (r0);
-    s.unnamed20513___U2 = (0);
-  case 1:
-    s.tmp_0 = r0 = s.unnamed20513___U2;
-    r0 = pxsim_Array__length(s.unnamed20512___U1);
-    s.tmp_1 = r0;
-    r0 = (s.tmp_0 < s.tmp_1);
-    if (!r0) { step = 2; continue; }
-    r0 = pxsim_Array__getAt(s.unnamed20512___U1, s.unnamed20513___U2);
-    s.chaser___9819 = (r0);
-    s.tmp_2 = maze_Chaser_setWarn__P200311_mk(s);
-    s.tmp_2.arg0 = s.chaser___9819;
-    r0 = s.arg0.fields["chaserWarn"];
-    s.tmp_2.arg1 = r0;
-    s.callLocIdx = 403; s.pc = 3; return s.tmp_2;
-  case 3:
-    r0 = s.retval;
-    r0 = (s.unnamed20513___U2 + 1);
-    s.unnamed20513___U2 = (r0);
-    { step = 1; continue; }
-  case 2:
-    s.unnamed20512___U1 = (undefined);
-    s.tmp_0 = maze_EventManager_fireLater__P4548_mk(s);
-    r0 = s.arg0.fields["maze"];
-    r0 = r0.fields["events"];
-    s.tmp_0.arg0 = r0;
-    s.tmp_0.arg1 = 14;
-    r0 = globals.level___4634.fields["timeWarnFlash"];
-    s.tmp_0.arg2 = r0;
-    s.callLocIdx = 404; s.pc = 4; return s.tmp_0;
-  case 4:
-    r0 = s.retval;
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-maze_Game_chaserSetWarn__P7578.info = {"start":6220,"length":320,"line":174,"column":8,"endLine":182,"endColumn":9,"fileName":"maze_game.ts","functionName":"chaserSetWarn","argumentNames":["this"]}
-
-function maze_Game_chaserSetWarn__P7578_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: maze_Game_chaserSetWarn__P7578, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  tmp_2: undefined,
-  tmp_3: undefined,
-  chaser___9819: undefined,
-  unnamed20512___U1: undefined,
-  unnamed20513___U2: undefined,
-  arg0: undefined,
-} }
-
-
-
-
-
-function maze_Chaser_setWarn__P200311(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.arg1 = (s.lambdaArgs[1]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, maze_Chaser__C200286_VT)) failedCast(r0);
-    r0 = (s.arg0).fields["warn"] = (s.arg1);
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-maze_Chaser_setWarn__P200311.info = {"start":14189,"length":63,"line":417,"column":8,"endLine":419,"endColumn":9,"fileName":"maze_chaser.ts","functionName":"setWarn","argumentNames":["this","warn"]}
-
-function maze_Chaser_setWarn__P200311_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: maze_Chaser_setWarn__P200311, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  arg0: undefined,
-  arg1: undefined,
-} }
-
-
-
-
-
-function maze_Game_chaserEndMode__P7577(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, maze_Game__C4508_VT)) failedCast(r0);
-    s.tmp_0 = maze_EventManager_cancel__P4552_mk(s);
-    r0 = s.arg0.fields["maze"];
-    r0 = r0.fields["events"];
-    s.tmp_0.arg0 = r0;
-    s.tmp_0.arg1 = 14;
-    s.callLocIdx = 398; s.pc = 5; return s.tmp_0;
-  case 5:
-    r0 = s.retval;
-    r0 = s.arg0.fields["chaserMode"];
-    s.tmp_0 = r0;
-    r0 = pxsim_pxtcore.switch_eq(4, s.tmp_0);
-    if (r0) { step = 1; continue; }
-    r0 = pxsim_pxtcore.switch_eq(6, s.tmp_0);
-    if (r0) { step = 2; continue; }
-    r0 = pxsim_pxtcore.switch_eq(5, s.tmp_0);
-    if (r0) { step = 3; continue; }
-    r0 = s.tmp_0;
-    { step = 4; continue; }
-  case 1:
-  case 2:
-    s.tmp_1 = maze_Game_setChaserMode__P7585_mk(s);
-    s.tmp_1.arg0 = s.arg0;
-    s.tmp_1.arg1 = 5;
-    s.callLocIdx = 399; s.pc = 6; return s.tmp_1;
-  case 6:
-    r0 = s.retval;
-    s.tmp_0 = maze_EventManager_fireLater__P4548_mk(s);
-    r0 = s.arg0.fields["maze"];
-    r0 = r0.fields["events"];
-    s.tmp_0.arg0 = r0;
-    s.tmp_0.arg1 = 13;
-    r0 = globals.level___4634.fields["timeChase"];
-    s.tmp_0.arg2 = r0;
-    s.callLocIdx = 400; s.pc = 7; return s.tmp_0;
-  case 7:
-    r0 = s.retval;
-    { step = 4; continue; }
-  case 3:
-    s.tmp_0 = maze_Game_setChaserMode__P7585_mk(s);
-    s.tmp_0.arg0 = s.arg0;
-    s.tmp_0.arg1 = 4;
-    s.callLocIdx = 401; s.pc = 8; return s.tmp_0;
-  case 8:
-    r0 = s.retval;
-    s.tmp_0 = maze_EventManager_fireLater__P4548_mk(s);
-    r0 = s.arg0.fields["maze"];
-    r0 = r0.fields["events"];
-    s.tmp_0.arg0 = r0;
-    s.tmp_0.arg1 = 13;
-    r0 = globals.level___4634.fields["timeScatter"];
-    s.tmp_0.arg2 = r0;
-    s.callLocIdx = 402; s.pc = 9; return s.tmp_0;
-  case 9:
-    r0 = s.retval;
-  case 4:
-    r0 = (s.arg0).fields["chaserEatCount"] = (0);
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-maze_Game_chaserEndMode__P7577.info = {"start":5559,"length":651,"line":157,"column":8,"endLine":172,"endColumn":9,"fileName":"maze_game.ts","functionName":"chaserEndMode","argumentNames":["this"]}
-
-function maze_Game_chaserEndMode__P7577_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: maze_Game_chaserEndMode__P7577, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  arg0: undefined,
-} }
-
-
-
-
-
-function maze_Game_setChaserMode__P7585(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    s.chaser___9953 = undefined;
-    s.unnamed20516___U1 = undefined;
-    s.unnamed20517___U2 = undefined;
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.arg1 = (s.lambdaArgs[1]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, maze_Game__C4508_VT)) failedCast(r0);
-    r0 = (s.arg0).fields["chaserMode"] = (s.arg1);
-    s.chaser___9953 = (undefined);
-    r0 = s.arg0.fields["maze"];
-    r0 = r0.fields["chasers"];
-    s.unnamed20516___U1 = (r0);
-    s.unnamed20517___U2 = (0);
-  case 1:
-    s.tmp_0 = r0 = s.unnamed20517___U2;
-    r0 = pxsim_Array__length(s.unnamed20516___U1);
-    s.tmp_1 = r0;
-    r0 = (s.tmp_0 < s.tmp_1);
-    if (!r0) { step = 2; continue; }
-    r0 = pxsim_Array__getAt(s.unnamed20516___U1, s.unnamed20517___U2);
-    s.chaser___9953 = (r0);
-    s.tmp_2 = maze_Chaser_setMode__P200309_mk(s);
-    s.tmp_2.arg0 = s.chaser___9953;
-    s.tmp_2.arg1 = s.arg1;
-    s.callLocIdx = 422; s.pc = 3; return s.tmp_2;
-  case 3:
-    r0 = s.retval;
-    r0 = (s.unnamed20517___U2 + 1);
-    s.unnamed20517___U2 = (r0);
-    { step = 1; continue; }
-  case 2:
-    s.unnamed20516___U1 = (undefined);
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-maze_Game_setChaserMode__P7585.info = {"start":8150,"length":191,"line":234,"column":8,"endLine":239,"endColumn":9,"fileName":"maze_game.ts","functionName":"setChaserMode","argumentNames":["this","mode"]}
-
-function maze_Game_setChaserMode__P7585_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: maze_Game_setChaserMode__P7585, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  tmp_2: undefined,
-  chaser___9953: undefined,
-  unnamed20516___U1: undefined,
-  unnamed20517___U2: undefined,
-  arg0: undefined,
-  arg1: undefined,
-} }
-
-
-
-
-
-function maze_Chaser_setMode__P200309(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.arg1 = (s.lambdaArgs[1]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, maze_Chaser__C200286_VT)) failedCast(r0);
-    r0 = (s.arg0).fields["gameMode"] = (s.arg1);
-    r0 = (s.arg0).fields["warn"] = (false);
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-maze_Chaser_setMode__P200309.info = {"start":13888,"length":225,"line":406,"column":8,"endLine":411,"endColumn":9,"fileName":"maze_chaser.ts","functionName":"setMode","argumentNames":["this","mode"]}
-
-function maze_Chaser_setMode__P200309_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: maze_Chaser_setMode__P200309, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  arg0: undefined,
-  arg1: undefined,
-} }
-
-
-
-
-
-function maze_Game_gameOver__P7580(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, maze_Game__C4508_VT)) failedCast(r0);
-    s.tmp_0 = maze_Game_saveHighScore__P7579_mk(s);
-    s.tmp_0.arg0 = s.arg0;
-    s.callLocIdx = 409; s.pc = 1; return s.tmp_0;
-  case 1:
-    r0 = s.retval;
-    s.tmp_0 = game_setGameOverEffect__P3006_mk(s);
-    s.tmp_0.arg0 = false;
-    s.tmp_0.arg1 = globals.dissolve___3295;
-    s.callLocIdx = 410; s.pc = 2; return s.tmp_0;
-  case 2:
-    r0 = s.retval;
-    s.tmp_0 = game_gameOver__P3013_mk(s);
-    s.tmp_0.arg0 = false;
-    s.callLocIdx = 411; s.pc = 3; return s.tmp_0;
-  case 3:
-    r0 = s.retval;
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-maze_Game_gameOver__P7580.info = {"start":6935,"length":156,"line":194,"column":8,"endLine":198,"endColumn":9,"fileName":"maze_game.ts","functionName":"gameOver","argumentNames":["this"]}
-
-function maze_Game_gameOver__P7580_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: maze_Game_gameOver__P7580, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  arg0: undefined,
-} }
-
-
-
-
-
-function game_gameOver__P3013(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.lambdaArgs = null;
-    }
-    s.tmp_0 = game__gameOverImpl__P5232_mk(s);
-    s.tmp_0.arg0 = s.arg0;
-    s.tmp_0.arg1 = undefined;
-    s.callLocIdx = 1416; s.pc = 1; return s.tmp_0;
-  case 1:
-    r0 = s.retval;
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-game_gameOver__P3013.info = {"start":11084,"length":74,"line":342,"column":4,"endLine":344,"endColumn":5,"fileName":"pxt_modules/game/game.ts","functionName":"gameOver","argumentNames":["win"]}
-
-function game_gameOver__P3013_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: game_gameOver__P3013, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  arg0: undefined,
-} }
-
-
-
-
-
-function game__gameOverImpl__P5232(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    s.goc___14464 = undefined;
-    s.judged___14467 = undefined;
-    s.playersWithScores___14475 = undefined;
-    s.prevBestScore___14478 = undefined;
-    s.winner___14482 = undefined;
-    s.scores___14488 = undefined;
-    s.preferMultiplayer___14509 = undefined;
-    s.message___14517 = undefined;
-    s.effect___14523 = undefined;
-    s.sound___14528 = undefined;
-    s.looping___14533 = undefined;
-    s.playbackMode___14538 = undefined;
-    s.overDialog___14564 = undefined;
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.arg1 = (s.lambdaArgs[1]);
-      s.lambdaArgs = null;
-    }
-    s.tmp_0 = game_init__P5230_mk(s);
-    s.tmp_0.arg0 = undefined;
-    s.callLocIdx = 1417; s.pc = 32; return s.tmp_0;
-  case 32:
-    r0 = s.retval;
-    r0 = pxsim_numops_toBoolDecr(globals.__isOver___5229);
-    if (!r0) { step = 1; continue; }
-    { step = 31; continue; }
-  case 1:
-  case 2:
-    globals.__isOver___5229 = (true);
-    r0 = pxsim_numops_toBoolDecr(globals.__gameOverHandler___5227);
-    if (!r0) { step = 3; continue; }
-    s.tmp_0 = lambda_2_mk(s);
-    s.tmp_0.argL = globals.__gameOverHandler___5227;
-    s.tmp_0.arg0 = s.arg0;
-    setupLambda(s.tmp_0, s.tmp_0.argL);
-    s.callLocIdx = 1418; s.pc = 33; return s.tmp_0;
-  case 33:
-    r0 = s.retval;
-    { step = 30; continue; }
-  case 3:
-    s.tmp_0 = lambda_1_mk(s);
-    s.tmp_0.argL = globals.gameOverConfig___2998;
-    setupLambda(s.tmp_0, s.tmp_0.argL);
-    s.callLocIdx = 1419; s.pc = 34; return s.tmp_0;
-  case 34:
-    r0 = s.retval;
-    s.goc___14464 = (r0);
-    r0 = pxsim_numops_toBoolDecr(s.arg1);
-    s.tmp_1 = r0;
-    r0 = pxsim_Boolean__bang(s.tmp_1);
-    s.tmp_0 = r0;
-    r0 = pxsim_numops_toBool(s.tmp_0);
-    if (r0) { step = 4; continue; }
-    r0 = s.tmp_0;
-    { step = 5; continue; }
-  case 4:
-    r0 = s.goc___14464.fields["scoringType"];
-    s.tmp_2 = r0;
-    r0 = (s.tmp_2 !== 2);
-  case 5:
-    // jmp value (already in r0)
-    s.tmp_3 = r0;
-    s.judged___14467 = (s.tmp_3);
-    s.tmp_0 = info_playersWithScores__P2564_mk(s);
-    s.callLocIdx = 1420; s.pc = 35; return s.tmp_0;
-  case 35:
-    r0 = s.retval;
-    s.playersWithScores___14475 = (r0);
-    s.tmp_0 = r0 = s.judged___14467;
-    r0 = pxsim_numops_toBool(s.tmp_0);
-    if (r0) { step = 6; continue; }
-    r0 = s.tmp_0;
-    { step = 7; continue; }
-  case 6:
-    s.tmp_1 = info_highScore__P2571_mk(s);
-    s.callLocIdx = 1421; s.pc = 36; return s.tmp_1;
-  case 36:
-    r0 = s.retval;
-  case 7:
-    // jmp value (already in r0)
-    s.tmp_2 = r0;
-    s.prevBestScore___14478 = (s.tmp_2);
-    s.tmp_0 = r0 = s.judged___14467;
     r0 = pxsim_numops_toBool(s.tmp_0);
     if (r0) { step = 8; continue; }
     r0 = s.tmp_0;
     { step = 9; continue; }
   case 8:
-    r0 = s.arg0;
+    s.tmp_1 = controller_Button__C2189_v0_1_mk(s);
+    s.tmp_1.arg0 = globals.B___2114;
+    if (!checkSubtype(s.tmp_1.arg0, controller_Button__C2189_VT)) failedCast(s.tmp_1.arg0);
+    s.tmp_1.fn = s.tmp_1.arg0.vtable.methods.isPressed;
+    s.pc = 16; return s.tmp_1;
+  case 16:
+    r0 = s.retval;
   case 9:
     // jmp value (already in r0)
-    s.tmp_1 = r0;
-    r0 = pxsim_numops_toBool(s.tmp_1);
-    if (r0) { step = 10; continue; }
-    r0 = s.tmp_1;
-    { step = 11; continue; }
-  case 10:
-    s.tmp_2 = info_winningPlayer__P2566_mk(s);
-    s.callLocIdx = 1422; s.pc = 37; return s.tmp_2;
-  case 37:
-    r0 = s.retval;
-  case 11:
-    // jmp value (already in r0)
-    s.tmp_3 = r0;
-    s.winner___14482 = (s.tmp_3);
-    r0 = pxsim_pxtcore_mkAction(1, scores_inline__P14490);
-    s.tmp_0 = r0;
-    r0 = pxsim_pxtrt_stclo(s.tmp_0, 0, s.winner___14482);
-    s.tmp_1 = helpers_arrayMap__P106_mk(s);
-    s.tmp_1.arg0 = s.playersWithScores___14475;
-    s.tmp_1.arg1 = s.tmp_0;
-    s.callLocIdx = 1426; s.pc = 38; return s.tmp_1;
-  case 38:
-    r0 = s.retval;
-    s.scores___14488 = (r0);
-    s.tmp_0 = info_saveAllScores__P2565_mk(s);
-    s.callLocIdx = 1427; s.pc = 39; return s.tmp_0;
-  case 39:
-    r0 = s.retval;
-    s.tmp_0 = r0 = s.judged___14467;
-    r0 = pxsim_numops_toBool(s.tmp_0);
-    if (r0) { step = 12; continue; }
-    r0 = s.tmp_0;
-    { step = 13; continue; }
-  case 12:
-    r0 = s.winner___14482;
-  case 13:
-    // jmp value (already in r0)
-    s.tmp_1 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_1);
-    if (!r0) { step = 14; continue; }
-    s.tmp_2 = info_saveHighScore__P2568_mk(s);
-    s.callLocIdx = 1428; s.pc = 40; return s.tmp_2;
-  case 40:
-    r0 = s.retval;
-  case 14:
-  case 15:
-    r0 = pxsim_numops_toBoolDecr(s.arg1);
-    s.tmp_3 = r0;
-    r0 = pxsim_Boolean__bang(s.tmp_3);
     s.tmp_2 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_2);
+    if (!r0) { step = 10; continue; }
+    r0 = pxsim_pxtrt_stlocRef(s.caps[2], false);
+  case 10:
+  case 11:
+  case 12:
+    r0 = pxsim_pxtrt_ldlocRef(s.caps[2]);
+    s.tmp_0 = r0;
+    r0 = (s.tmp_0 !== null);
+    return leave(s, r0)
+  default: oops()
+} } }
+maze_ask_inline__P11122.info = {"start":448,"length":374,"line":11,"column":19,"endLine":21,"endColumn":9,"fileName":"maze_ui.ts","functionName":"inline","argumentNames":[]}
+
+function maze_ask_inline__P11122_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: maze_ask_inline__P11122, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  tmp_2: undefined,
+  tmp_3: undefined,
+  tmp_4: undefined,
+} }
+
+
+
+
+
+function control_popEventContext__P410(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    s.ctx___11620 = undefined;
+    s.context___11628 = undefined;
+    r0 = pxsim_numops_toBoolDecr(globals.eventContexts___4722);
     s.tmp_1 = r0;
     r0 = pxsim_Boolean__bang(s.tmp_1);
     s.tmp_0 = r0;
-    r0 = pxsim_numops_toBool(s.tmp_0);
-    if (!r0) { step = 16; continue; }
-    r0 = s.tmp_0;
-    { step = 19; continue; }
-  case 16:
-    s.tmp_4 = r0 = s.judged___14467;
-    r0 = pxsim_numops_toBool(s.tmp_4);
-    if (r0) { step = 17; continue; }
-    r0 = s.tmp_4;
-    { step = 18; continue; }
-  case 17:
-    s.tmp_5 = info_multiplayerScoring__P2563_mk(s);
-    s.callLocIdx = 1429; s.pc = 41; return s.tmp_5;
-  case 41:
-    r0 = s.retval;
-  case 18:
-    // jmp value (already in r0)
-    s.tmp_6 = r0;
-    r0 = s.tmp_6;
-  case 19:
-    // jmp value (already in r0)
-    s.tmp_7 = r0;
-    s.preferMultiplayer___14509 = (s.tmp_7);
-    s.tmp_0 = game_GameOverConfig_getMessage__P2997_mk(s);
-    s.tmp_0.arg0 = s.goc___14464;
-    s.tmp_0.arg1 = s.arg0;
-    s.tmp_0.arg2 = s.preferMultiplayer___14509;
-    s.callLocIdx = 1430; s.pc = 42; return s.tmp_0;
-  case 42:
-    r0 = s.retval;
-    s.message___14517 = (r0);
-    s.tmp_0 = game_GameOverConfig_getEffect__P2992_mk(s);
-    s.tmp_0.arg0 = s.goc___14464;
-    s.tmp_0.arg1 = s.arg0;
-    s.callLocIdx = 1431; s.pc = 43; return s.tmp_0;
-  case 43:
-    r0 = s.retval;
-    s.effect___14523 = (r0);
-    s.tmp_0 = game_GameOverConfig_getSound__P2994_mk(s);
-    s.tmp_0.arg0 = s.goc___14464;
-    s.tmp_0.arg1 = s.arg0;
-    s.callLocIdx = 1432; s.pc = 44; return s.tmp_0;
-  case 44:
-    r0 = s.retval;
-    s.sound___14528 = (r0);
-    s.tmp_0 = game_GameOverConfig_getSoundLooping__P2995_mk(s);
-    s.tmp_0.arg0 = s.goc___14464;
-    s.tmp_0.arg1 = s.arg0;
-    s.callLocIdx = 1433; s.pc = 45; return s.tmp_0;
-  case 45:
-    r0 = s.retval;
-    s.looping___14533 = (r0);
-    r0 = pxsim_numops_toBoolDecr(s.looping___14533);
-    if (!r0) { step = 20; continue; }
-    r0 = 2;
-    { step = 21; continue; }
-  case 20:
-    r0 = 1;
-  case 21:
-    // jmp value (already in r0)
-    s.tmp_0 = r0;
-    s.playbackMode___14538 = (s.tmp_0);
-  case 22:
-    s.tmp_0 = r0 = globals._sceneStack___5223;
-    r0 = pxsim_numops_toBool(s.tmp_0);
-    if (r0) { step = 23; continue; }
-    r0 = s.tmp_0;
-    { step = 24; continue; }
-  case 23:
-    r0 = pxsim_Array__length(globals._sceneStack___5223);
-  case 24:
-    // jmp value (already in r0)
+    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
+    if (!r0) { step = 1; continue; }
+    { step = 7; continue; }
+  case 1:
+  case 2:
+    r0 = pxsim_Array_.pop(globals.eventContexts___4722);
+    s.ctx___11620 = (r0);
+    r0 = pxsim_numops_toBoolDecr(s.ctx___11620);
     s.tmp_1 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_1);
-    if (!r0) { step = 25; continue; }
-    s.tmp_2 = scene_Scene_destroy__P2871_mk(s);
-    s.tmp_2.arg0 = globals._scene___5222;
-    s.callLocIdx = 1434; s.pc = 46; return s.tmp_2;
-  case 46:
-    r0 = s.retval;
-    s.tmp_0 = game_popScene__P3004_mk(s);
-    s.callLocIdx = 1435; s.pc = 47; return s.tmp_0;
-  case 47:
-    r0 = s.retval;
-    { step = 22; continue; }
-  case 25:
-    s.tmp_0 = game_pushScene__P3003_mk(s);
-    s.callLocIdx = 1436; s.pc = 48; return s.tmp_0;
-  case 48:
-    r0 = s.retval;
-    s.tmp_0 = scene_setBackgroundImage__P2885_mk(s);
-    r0 = pxsim_ImageMethods.clone(globals.screen___2032);
-    s.tmp_0.arg0 = r0;
-    s.callLocIdx = 1437; s.pc = 49; return s.tmp_0;
-  case 49:
-    r0 = s.retval;
-    r0 = pxsim_numops_toBoolDecr(s.sound___14528);
-    if (!r0) { step = 26; continue; }
-    s.tmp_0 = music_play__P1922_mk(s);
-    s.tmp_0.arg0 = s.sound___14528;
-    s.tmp_0.arg1 = s.playbackMode___14538;
-    s.callLocIdx = 1438; s.pc = 50; return s.tmp_0;
-  case 50:
-    r0 = s.retval;
-  case 26:
-  case 27:
-    r0 = pxsim_numops_toBoolDecr(s.effect___14523);
-    if (!r0) { step = 28; continue; }
-    s.tmp_0 = if_startScreenEffect_1_mk(s);
-    s.tmp_0.arg0 = s.effect___14523;
-    if (!s.tmp_0.arg0.vtable.iface) {
-      setupLambda(s.tmp_0, pxsim_pxtrt.mapGetByString(s.tmp_0.arg0, "startScreenEffect"), 1);
-      s.callLocIdx = 1439; s.pc = 51; return s.tmp_0;
-    } else {
-      s.tmp_0.fn = s.tmp_0.arg0.vtable.iface["startScreenEffect"];
-      if (s.tmp_0.fn == null) { setupLambda(s.tmp_0, s.tmp_0.arg0.fields["startScreenEffect"], 1); s.callLocIdx = 1439; s.pc = 51; return s.tmp_0; }
-      else if (s.tmp_0.fn.isGetter) { s.tmp_0.stage2Call = true; s.callLocIdx = 1439; s.pc = 51; return s.tmp_0;; }
-     else { s.callLocIdx = 1439; s.pc = 51; return s.tmp_0; }
-    }
-  case 51:
-    r0 = s.retval;
-  case 28:
-  case 29:
-    s.tmp_0 = pause__P413_mk(s);
-    s.tmp_0.arg0 = 400;
-    s.callLocIdx = 1440; s.pc = 52; return s.tmp_0;
-  case 52:
-    r0 = s.retval;
-    r0 = pxsim_pxtcore_mkClassInstance(game_GameOverDialog__C2946_VT);
+    r0 = pxsim_Boolean__bang(s.tmp_1);
     s.tmp_0 = r0;
-    s.tmp_1 = game_GameOverDialog_constructor__P2953_mk(s);
-    s.tmp_1.arg0 = s.tmp_0;
-    s.tmp_1.arg1 = s.arg0;
-    s.tmp_1.arg2 = s.message___14517;
-    s.tmp_1.arg3 = s.judged___14467;
-    s.tmp_1.arg4 = s.scores___14488;
-    s.tmp_1.arg5 = s.prevBestScore___14478;
-    s.tmp_1.arg6 = s.arg1;
-    s.callLocIdx = 1441; s.pc = 53; return s.tmp_1;
-  case 53:
+    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
+    if (!r0) { step = 3; continue; }
+    { step = 7; continue; }
+  case 3:
+  case 4:
+    s.tmp_2 = control_EventContext_unregister__P402_mk(s);
+    s.tmp_2.arg0 = s.ctx___11620;
+    s.callLocIdx = 75; s.pc = 8; return s.tmp_2;
+  case 8:
     r0 = s.retval;
-    s.overDialog___14564 = (s.tmp_0);
-    r0 = pxsim_pxtcore_mkAction(1, game__gameOverImpl_inline__P14576);
-    s.tmp_0 = r0;
-    r0 = pxsim_pxtrt_stclo(s.tmp_0, 0, s.overDialog___14564);
-    s.tmp_1 = scene_createRenderable__P2805_mk(s);
-    s.tmp_1.arg0 = 100;
-    s.tmp_1.arg1 = s.tmp_0;
-    s.tmp_1.arg2 = undefined;
-    s.callLocIdx = 1442; s.pc = 54; return s.tmp_1;
-  case 54:
+    s.tmp_0 = r0 = globals.eventContexts___4722;
+    r0 = pxsim_Array__length(globals.eventContexts___4722);
+    s.tmp_2 = r0;
+    r0 = (s.tmp_2 - 1);
+    s.tmp_1 = r0;
+    r0 = pxsim_Array__getAt(s.tmp_0, s.tmp_1);
+    s.context___11628 = (r0);
+    r0 = pxsim_numops_toBoolDecr(s.context___11628);
+    if (!r0) { step = 5; continue; }
+    s.tmp_0 = control_EventContext_register__P401_mk(s);
+    s.tmp_0.arg0 = s.context___11628;
+    s.callLocIdx = 76; s.pc = 9; return s.tmp_0;
+  case 9:
     r0 = s.retval;
-    s.tmp_0 = pause__P413_mk(s);
-    s.tmp_0.arg0 = 500;
-    s.callLocIdx = 1443; s.pc = 55; return s.tmp_0;
-  case 55:
-    r0 = s.retval;
-    s.tmp_0 = game_GameOverDialog_displayCursor__P2954_mk(s);
-    s.tmp_0.arg0 = s.overDialog___14564;
-    s.callLocIdx = 1444; s.pc = 56; return s.tmp_0;
-  case 56:
-    r0 = s.retval;
-    s.tmp_0 = game_waitAnyButton__P3001_mk(s);
-    s.callLocIdx = 1445; s.pc = 57; return s.tmp_0;
-  case 57:
-    r0 = s.retval;
-    setupResume(s, 58);
-    pxsim.control.reset();
-    checkResumeConsumed();
-    return;
-  case 58:
-    r0 = s.retval;
-  case 30:
-  case 31:
+    { step = 6; continue; }
+  case 5:
+    globals.eventContexts___4722 = (undefined);
+  case 6:
+  case 7:
     r0 = undefined;
     return leave(s, r0)
   default: oops()
 } } }
-game__gameOverImpl__P5232.info = {"start":11264,"length":2664,"line":350,"column":4,"endLine":410,"endColumn":5,"fileName":"pxt_modules/game/game.ts","functionName":"_gameOverImpl","argumentNames":["win","winnerOverride"]}
+control_popEventContext__P410.info = {"start":7755,"length":413,"line":236,"column":4,"endLine":250,"endColumn":5,"fileName":"pxt_modules/base/eventcontext.ts","functionName":"popEventContext","argumentNames":[]}
 
-function game__gameOverImpl__P5232_mk(s) {
+function control_popEventContext__P410_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: game__gameOverImpl__P5232, depth: s.depth + 1,
+        parent: s, fn: control_popEventContext__P410, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  tmp_2: undefined,
+  ctx___11620: undefined,
+  context___11628: undefined,
+} }
+
+
+
+
+
+function control_EventContext_unregister__P402(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    s.h___11841 = undefined;
+    s.unnamed98___U1 = undefined;
+    s.unnamed99___U2 = undefined;
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, control_EventContext__C395_VT)) failedCast(r0);
+    s.h___11841 = (undefined);
+    r0 = s.arg0.fields["handlers"];
+    s.unnamed98___U1 = (r0);
+    s.unnamed99___U2 = (0);
+  case 1:
+    s.tmp_0 = r0 = s.unnamed99___U2;
+    r0 = pxsim_Array__length(s.unnamed98___U1);
+    s.tmp_1 = r0;
+    r0 = (s.tmp_0 < s.tmp_1);
+    if (!r0) { step = 2; continue; }
+    r0 = pxsim_Array__getAt(s.unnamed98___U1, s.unnamed99___U2);
+    s.h___11841 = (r0);
+    s.tmp_2 = control_EventHandler_unregister__P4716_mk(s);
+    s.tmp_2.arg0 = s.h___11841;
+    s.callLocIdx = 68; s.pc = 3; return s.tmp_2;
+  case 3:
+    r0 = s.retval;
+    r0 = (s.unnamed99___U2 + 1);
+    s.unnamed99___U2 = (r0);
+    { step = 1; continue; }
+  case 2:
+    s.unnamed98___U1 = (undefined);
+    s.tmp_0 = r0 = s.arg0;
+    r0 = s.tmp_0.fields["frameWorker"];
+    s.tmp_2 = r0;
+    r0 = (s.tmp_2 + 1);
+    s.tmp_1 = r0;
+    r0 = (s.tmp_0).fields["frameWorker"] = (s.tmp_1);
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+control_EventContext_unregister__P402.info = {"start":4721,"length":131,"line":141,"column":8,"endLine":145,"endColumn":9,"fileName":"pxt_modules/base/eventcontext.ts","functionName":"unregister","argumentNames":["this"]}
+
+function control_EventContext_unregister__P402_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: control_EventContext_unregister__P402, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  tmp_2: undefined,
+  h___11841: undefined,
+  unnamed98___U1: undefined,
+  unnamed99___U2: undefined,
+  arg0: undefined,
+} }
+
+
+
+
+
+function control_EventHandler_unregister__P4716(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, control_EventHandler__C4714_VT)) failedCast(r0);
+    r0 = s.arg0.fields["src"];
+    s.tmp_0 = r0;
+    r0 = s.arg0.fields["value"];
+    s.tmp_1 = r0;
+    r0 = s.arg0.fields["flags"];
+    s.tmp_2 = r0;
+    r0 = pxsim.control.internalOnEvent(s.tmp_0, s.tmp_1, control_doNothing__P4718, s.tmp_2);
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+control_EventHandler_unregister__P4716.info = {"start":1136,"length":106,"line":36,"column":8,"endLine":38,"endColumn":9,"fileName":"pxt_modules/base/eventcontext.ts","functionName":"unregister","argumentNames":["this"]}
+
+function control_EventHandler_unregister__P4716_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: control_EventHandler_unregister__P4716, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  tmp_2: undefined,
+  arg0: undefined,
+} }
+
+
+
+
+
+function control_doNothing__P4718(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+control_doNothing__P4718.info = {"start":1254,"length":24,"line":41,"column":4,"endLine":41,"endColumn":28,"fileName":"pxt_modules/base/eventcontext.ts","functionName":"doNothing","argumentNames":[]}
+
+function control_doNothing__P4718_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: control_doNothing__P4718, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+} }
+
+
+
+
+
+function control_EventContext_register__P401(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    s.h___11641 = undefined;
+    s.unnamed96___U1 = undefined;
+    s.unnamed97___U2 = undefined;
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, control_EventContext__C395_VT)) failedCast(r0);
+    s.h___11641 = (undefined);
+    r0 = s.arg0.fields["handlers"];
+    s.unnamed96___U1 = (r0);
+    s.unnamed97___U2 = (0);
+  case 1:
+    s.tmp_0 = r0 = s.unnamed97___U2;
+    r0 = pxsim_Array__length(s.unnamed96___U1);
+    s.tmp_1 = r0;
+    r0 = (s.tmp_0 < s.tmp_1);
+    if (!r0) { step = 2; continue; }
+    r0 = pxsim_Array__getAt(s.unnamed96___U1, s.unnamed97___U2);
+    s.h___11641 = (r0);
+    s.tmp_2 = control_EventHandler_register__P4715_mk(s);
+    s.tmp_2.arg0 = s.h___11641;
+    s.callLocIdx = 66; s.pc = 3; return s.tmp_2;
+  case 3:
+    r0 = s.retval;
+    r0 = (s.unnamed97___U2 + 1);
+    s.unnamed97___U2 = (r0);
+    { step = 1; continue; }
+  case 2:
+    s.unnamed96___U1 = (undefined);
+    s.tmp_0 = control_EventContext_registerFrameCallbacks__P4720_mk(s);
+    s.tmp_0.arg0 = s.arg0;
+    s.callLocIdx = 67; s.pc = 4; return s.tmp_0;
+  case 4:
+    r0 = s.retval;
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+control_EventContext_register__P401.info = {"start":4573,"length":138,"line":135,"column":8,"endLine":139,"endColumn":9,"fileName":"pxt_modules/base/eventcontext.ts","functionName":"register","argumentNames":["this"]}
+
+function control_EventContext_register__P401_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: control_EventContext_register__P401, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  tmp_2: undefined,
+  h___11641: undefined,
+  unnamed96___U1: undefined,
+  unnamed97___U2: undefined,
+  arg0: undefined,
+} }
+
+
+
+
+
+function game_showDialog__P3005(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    s.titleFont___12086 = undefined;
+    s.subFont___12091 = undefined;
+    s.footerFont___12096 = undefined;
+    s.h___12101 = undefined;
+    s.top___12120 = undefined;
+    s.y___12124 = undefined;
+    s.footerTop___12161 = undefined;
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.arg1 = (s.lambdaArgs[1]);
+      s.arg2 = (s.lambdaArgs[2]);
+      s.lambdaArgs = null;
+    }
+    s.tmp_0 = game_init__P5230_mk(s);
+    s.tmp_0.arg0 = undefined;
+    s.callLocIdx = 1395; s.pc = 21; return s.tmp_0;
+  case 21:
+    r0 = s.retval;
+    s.tmp_0 = r0 = s.arg0;
+    r0 = pxsim_numops_toBool(s.tmp_0);
+    if (!r0) { step = 1; continue; }
+    r0 = s.tmp_0;
+    { step = 2; continue; }
+  case 1:
+    r0 = pxsim_String_.mkEmpty();
+  case 2:
+    // jmp value (already in r0)
+    s.tmp_1 = r0;
+    s.tmp_2 = image_getFontForText__P1977_mk(s);
+    s.tmp_2.arg0 = s.tmp_1;
+    s.callLocIdx = 1396; s.pc = 22; return s.tmp_2;
+  case 22:
+    r0 = s.retval;
+    s.titleFont___12086 = (r0);
+    s.tmp_0 = r0 = s.arg1;
+    r0 = pxsim_numops_toBool(s.tmp_0);
+    if (!r0) { step = 3; continue; }
+    r0 = s.tmp_0;
+    { step = 4; continue; }
+  case 3:
+    r0 = pxsim_String_.mkEmpty();
+  case 4:
+    // jmp value (already in r0)
+    s.tmp_1 = r0;
+    s.tmp_2 = image_getFontForText__P1977_mk(s);
+    s.tmp_2.arg0 = s.tmp_1;
+    s.callLocIdx = 1397; s.pc = 23; return s.tmp_2;
+  case 23:
+    r0 = s.retval;
+    s.subFont___12091 = (r0);
+    s.tmp_0 = r0 = s.arg2;
+    r0 = pxsim_numops_toBool(s.tmp_0);
+    if (!r0) { step = 5; continue; }
+    r0 = s.tmp_0;
+    { step = 6; continue; }
+  case 5:
+    r0 = pxsim_String_.mkEmpty();
+  case 6:
+    // jmp value (already in r0)
+    s.tmp_1 = r0;
+    s.tmp_2 = image_getFontForText__P1977_mk(s);
+    s.tmp_2.arg0 = s.tmp_1;
+    s.callLocIdx = 1398; s.pc = 24; return s.tmp_2;
+  case 24:
+    r0 = s.retval;
+    s.footerFont___12096 = (r0);
+    s.h___12101 = (8);
+    r0 = pxsim_numops_toBoolDecr(s.arg0);
+    if (!r0) { step = 7; continue; }
+    s.tmp_0 = r0 = s.h___12101;
+    s.tmp_2 = if_charHeight_1_mk(s);
+    s.tmp_2.arg0 = s.titleFont___12086;
+    if (!s.tmp_2.arg0.vtable.iface) {
+      s.retval = pxsim_pxtrt.mapGetByString(s.tmp_2.arg0, "charHeight");
+    } else {
+      s.tmp_2.fn = s.tmp_2.arg0.vtable.iface["charHeight"];
+      if (s.tmp_2.fn == null) { s.retval = s.tmp_2.arg0.fields["charHeight"]; }
+      else if (!s.tmp_2.fn.isGetter) { s.retval = bind(s.tmp_2); }
+     else { s.callLocIdx = 1399; s.pc = 25; return s.tmp_2; }
+    }
+  case 25:
+    r0 = s.retval;
+    s.tmp_1 = r0;
+    r0 = (s.tmp_0 + s.tmp_1);
+    s.h___12101 = (r0);
+  case 7:
+  case 8:
+    r0 = pxsim_numops_toBoolDecr(s.arg1);
+    if (!r0) { step = 9; continue; }
+    s.tmp_0 = r0 = s.h___12101;
+    s.tmp_3 = if_charHeight_1_mk(s);
+    s.tmp_3.arg0 = s.subFont___12091;
+    if (!s.tmp_3.arg0.vtable.iface) {
+      s.retval = pxsim_pxtrt.mapGetByString(s.tmp_3.arg0, "charHeight");
+    } else {
+      s.tmp_3.fn = s.tmp_3.arg0.vtable.iface["charHeight"];
+      if (s.tmp_3.fn == null) { s.retval = s.tmp_3.arg0.fields["charHeight"]; }
+      else if (!s.tmp_3.fn.isGetter) { s.retval = bind(s.tmp_3); }
+     else { s.callLocIdx = 1400; s.pc = 26; return s.tmp_3; }
+    }
+  case 26:
+    r0 = s.retval;
+    s.tmp_2 = r0;
+    r0 = (2 + s.tmp_2);
+    s.tmp_1 = r0;
+    r0 = (s.tmp_0 + s.tmp_1);
+    s.h___12101 = (r0);
+  case 9:
+  case 10:
+    r0 = (s.h___12101 + 8);
+    s.h___12101 = (r0);
+    s.tmp_0 = game_showDialogBackground__P5231_mk(s);
+    s.tmp_0.arg0 = s.h___12101;
+    s.tmp_0.arg1 = 9;
+    s.callLocIdx = 1401; s.pc = 27; return s.tmp_0;
+  case 27:
+    r0 = s.retval;
+    s.top___12120 = (r0);
+    r0 = (s.top___12120 + 8);
+    s.y___12124 = (r0);
+    r0 = pxsim_numops_toBoolDecr(s.arg0);
+    if (!r0) { step = 13; continue; }
+    r0 = pxsim_ImageMethods.isMono(globals.screen___2032);
+    s.tmp_0 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
+    if (!r0) { step = 11; continue; }
+    r0 = 1;
+    { step = 12; continue; }
+  case 11:
+    r0 = 7;
+  case 12:
+    // jmp value (already in r0)
+    s.tmp_1 = r0;
+    s.tmp_2 = helpers_imagePrint__P1990_mk(s);
+    s.tmp_2.arg0 = globals.screen___2032;
+    s.tmp_2.arg1 = s.arg0;
+    s.tmp_2.arg2 = 8;
+    s.tmp_2.arg3 = s.y___12124;
+    s.tmp_2.arg4 = s.tmp_1;
+    s.tmp_2.arg5 = s.titleFont___12086;
+    s.tmp_2.arg6 = undefined;
+    s.callLocIdx = 1402; s.pc = 28; return s.tmp_2;
+  case 28:
+    r0 = s.retval;
+    s.tmp_0 = r0 = s.y___12124;
+    s.tmp_3 = if_charHeight_1_mk(s);
+    s.tmp_3.arg0 = s.titleFont___12086;
+    if (!s.tmp_3.arg0.vtable.iface) {
+      s.retval = pxsim_pxtrt.mapGetByString(s.tmp_3.arg0, "charHeight");
+    } else {
+      s.tmp_3.fn = s.tmp_3.arg0.vtable.iface["charHeight"];
+      if (s.tmp_3.fn == null) { s.retval = s.tmp_3.arg0.fields["charHeight"]; }
+      else if (!s.tmp_3.fn.isGetter) { s.retval = bind(s.tmp_3); }
+     else { s.callLocIdx = 1403; s.pc = 29; return s.tmp_3; }
+    }
+  case 29:
+    r0 = s.retval;
+    s.tmp_2 = r0;
+    r0 = (s.tmp_2 + 2);
+    s.tmp_1 = r0;
+    r0 = (s.tmp_0 + s.tmp_1);
+    s.y___12124 = (r0);
+  case 13:
+  case 14:
+    r0 = pxsim_numops_toBoolDecr(s.arg1);
+    if (!r0) { step = 17; continue; }
+    r0 = pxsim_ImageMethods.isMono(globals.screen___2032);
+    s.tmp_0 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
+    if (!r0) { step = 15; continue; }
+    r0 = 1;
+    { step = 16; continue; }
+  case 15:
+    r0 = 6;
+  case 16:
+    // jmp value (already in r0)
+    s.tmp_1 = r0;
+    s.tmp_2 = helpers_imagePrint__P1990_mk(s);
+    s.tmp_2.arg0 = globals.screen___2032;
+    s.tmp_2.arg1 = s.arg1;
+    s.tmp_2.arg2 = 8;
+    s.tmp_2.arg3 = s.y___12124;
+    s.tmp_2.arg4 = s.tmp_1;
+    s.tmp_2.arg5 = s.subFont___12091;
+    s.tmp_2.arg6 = undefined;
+    s.callLocIdx = 1404; s.pc = 30; return s.tmp_2;
+  case 30:
+    r0 = s.retval;
+    s.tmp_0 = r0 = s.y___12124;
+    s.tmp_3 = if_charHeight_1_mk(s);
+    s.tmp_3.arg0 = s.subFont___12091;
+    if (!s.tmp_3.arg0.vtable.iface) {
+      s.retval = pxsim_pxtrt.mapGetByString(s.tmp_3.arg0, "charHeight");
+    } else {
+      s.tmp_3.fn = s.tmp_3.arg0.vtable.iface["charHeight"];
+      if (s.tmp_3.fn == null) { s.retval = s.tmp_3.arg0.fields["charHeight"]; }
+      else if (!s.tmp_3.fn.isGetter) { s.retval = bind(s.tmp_3); }
+     else { s.callLocIdx = 1405; s.pc = 31; return s.tmp_3; }
+    }
+  case 31:
+    r0 = s.retval;
+    s.tmp_2 = r0;
+    r0 = (s.tmp_2 + 2);
+    s.tmp_1 = r0;
+    r0 = (s.tmp_0 + s.tmp_1);
+    s.y___12124 = (r0);
+  case 17:
+  case 18:
+    r0 = pxsim_numops_toBoolDecr(s.arg2);
+    if (!r0) { step = 19; continue; }
+    r0 = pxsim_ImageMethods.height(globals.screen___2032);
+    s.tmp_1 = r0;
+    s.tmp_3 = if_charHeight_1_mk(s);
+    s.tmp_3.arg0 = s.footerFont___12096;
+    if (!s.tmp_3.arg0.vtable.iface) {
+      s.retval = pxsim_pxtrt.mapGetByString(s.tmp_3.arg0, "charHeight");
+    } else {
+      s.tmp_3.fn = s.tmp_3.arg0.vtable.iface["charHeight"];
+      if (s.tmp_3.fn == null) { s.retval = s.tmp_3.arg0.fields["charHeight"]; }
+      else if (!s.tmp_3.fn.isGetter) { s.retval = bind(s.tmp_3); }
+     else { s.callLocIdx = 1406; s.pc = 32; return s.tmp_3; }
+    }
+  case 32:
+    r0 = s.retval;
+    s.tmp_2 = r0;
+    r0 = (s.tmp_1 - s.tmp_2);
+    s.tmp_0 = r0;
+    r0 = (s.tmp_0 - 4);
+    s.footerTop___12161 = (r0);
+    s.tmp_0 = helpers_imageFillRect__P1956_mk(s);
+    s.tmp_0.arg0 = globals.screen___2032;
+    s.tmp_0.arg1 = 0;
+    s.tmp_0.arg2 = s.footerTop___12161;
+    r0 = pxsim_ImageMethods.width(globals.screen___2032);
+    s.tmp_0.arg3 = r0;
+    s.tmp_2 = if_charHeight_1_mk(s);
+    s.tmp_2.arg0 = s.footerFont___12096;
+    if (!s.tmp_2.arg0.vtable.iface) {
+      s.retval = pxsim_pxtrt.mapGetByString(s.tmp_2.arg0, "charHeight");
+    } else {
+      s.tmp_2.fn = s.tmp_2.arg0.vtable.iface["charHeight"];
+      if (s.tmp_2.fn == null) { s.retval = s.tmp_2.arg0.fields["charHeight"]; }
+      else if (!s.tmp_2.fn.isGetter) { s.retval = bind(s.tmp_2); }
+     else { s.callLocIdx = 1407; s.pc = 34; return s.tmp_2; }
+    }
+  case 34:
+    r0 = s.retval;
+    s.tmp_1 = r0;
+    r0 = (s.tmp_1 + 4);
+    s.tmp_0.arg4 = r0;
+    s.tmp_0.arg5 = 0;
+    s.callLocIdx = 1408; s.pc = 33; return s.tmp_0;
+  case 33:
+    r0 = s.retval;
+    s.tmp_0 = helpers_imageDrawLine__P1958_mk(s);
+    s.tmp_0.arg0 = globals.screen___2032;
+    s.tmp_0.arg1 = 0;
+    s.tmp_0.arg2 = s.footerTop___12161;
+    r0 = pxsim_ImageMethods.width(globals.screen___2032);
+    s.tmp_0.arg3 = r0;
+    s.tmp_0.arg4 = s.footerTop___12161;
+    s.tmp_0.arg5 = 1;
+    s.callLocIdx = 1409; s.pc = 35; return s.tmp_0;
+  case 35:
+    r0 = s.retval;
+    s.tmp_0 = helpers_imagePrint__P1990_mk(s);
+    s.tmp_0.arg0 = globals.screen___2032;
+    s.tmp_0.arg1 = s.arg2;
+    r0 = pxsim_ImageMethods.width(globals.screen___2032);
+    s.tmp_2 = r0;
+    r0 = pxsim_String_.length(s.arg2);
+    s.tmp_4 = r0;
+    s.tmp_6 = if_charWidth_1_mk(s);
+    s.tmp_6.arg0 = s.footerFont___12096;
+    if (!s.tmp_6.arg0.vtable.iface) {
+      s.retval = pxsim_pxtrt.mapGetByString(s.tmp_6.arg0, "charWidth");
+    } else {
+      s.tmp_6.fn = s.tmp_6.arg0.vtable.iface["charWidth"];
+      if (s.tmp_6.fn == null) { s.retval = s.tmp_6.arg0.fields["charWidth"]; }
+      else if (!s.tmp_6.fn.isGetter) { s.retval = bind(s.tmp_6); }
+     else { s.callLocIdx = 1410; s.pc = 37; return s.tmp_6; }
+    }
+  case 37:
+    r0 = s.retval;
+    s.tmp_5 = r0;
+    r0 = (s.tmp_4 * s.tmp_5);
+    s.tmp_3 = r0;
+    r0 = (s.tmp_2 - s.tmp_3);
+    s.tmp_1 = r0;
+    r0 = (s.tmp_1 - 8);
+    s.tmp_0.arg2 = r0;
+    r0 = pxsim_ImageMethods.height(globals.screen___2032);
+    s.tmp_8 = r0;
+    s.tmp_10 = if_charHeight_1_mk(s);
+    s.tmp_10.arg0 = s.footerFont___12096;
+    if (!s.tmp_10.arg0.vtable.iface) {
+      s.retval = pxsim_pxtrt.mapGetByString(s.tmp_10.arg0, "charHeight");
+    } else {
+      s.tmp_10.fn = s.tmp_10.arg0.vtable.iface["charHeight"];
+      if (s.tmp_10.fn == null) { s.retval = s.tmp_10.arg0.fields["charHeight"]; }
+      else if (!s.tmp_10.fn.isGetter) { s.retval = bind(s.tmp_10); }
+     else { s.callLocIdx = 1411; s.pc = 38; return s.tmp_10; }
+    }
+  case 38:
+    r0 = s.retval;
+    s.tmp_9 = r0;
+    r0 = (s.tmp_8 - s.tmp_9);
+    s.tmp_7 = r0;
+    r0 = (s.tmp_7 - 2);
+    s.tmp_0.arg3 = r0;
+    s.tmp_0.arg4 = 1;
+    s.tmp_0.arg5 = s.footerFont___12096;
+    s.tmp_0.arg6 = undefined;
+    s.callLocIdx = 1412; s.pc = 36; return s.tmp_0;
+  case 36:
+    r0 = s.retval;
+  case 19:
+  case 20:
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+game_showDialog__P3005.info = {"start":5995,"length":1313,"line":190,"column":4,"endLine":223,"endColumn":5,"fileName":"pxt_modules/game/game.ts","functionName":"showDialog","argumentNames":["title","subtitle","footer"]}
+
+function game_showDialog__P3005_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: game_showDialog__P3005, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
@@ -21634,28 +16216,26 @@ function game__gameOverImpl__P5232_mk(s) {
   tmp_5: undefined,
   tmp_6: undefined,
   tmp_7: undefined,
-  goc___14464: undefined,
-  judged___14467: undefined,
-  playersWithScores___14475: undefined,
-  prevBestScore___14478: undefined,
-  winner___14482: undefined,
-  scores___14488: undefined,
-  preferMultiplayer___14509: undefined,
-  message___14517: undefined,
-  effect___14523: undefined,
-  sound___14528: undefined,
-  looping___14533: undefined,
-  playbackMode___14538: undefined,
-  overDialog___14564: undefined,
+  tmp_8: undefined,
+  tmp_9: undefined,
+  tmp_10: undefined,
+  titleFont___12086: undefined,
+  subFont___12091: undefined,
+  footerFont___12096: undefined,
+  h___12101: undefined,
+  top___12120: undefined,
+  y___12124: undefined,
+  footerTop___12161: undefined,
   arg0: undefined,
   arg1: undefined,
+  arg2: undefined,
 } }
 
 
 
 
 
-function scores_inline__P14490(s) {
+function game_showDialogBackground__P5231(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -21665,103 +16245,74 @@ if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) re
 switch (step) {
   case 0:
 
+    s.top___12559 = undefined;
     if (s.lambdaArgs) {
       s.arg0 = (s.lambdaArgs[0]);
+      s.arg1 = (s.lambdaArgs[1]);
       s.lambdaArgs = null;
     }
-    r0 = pxsim_pxtcore_mkClassInstance(game_GameOverPlayerScore__C2943_VT);
+    r0 = pxsim_ImageMethods.height(globals.screen___2032);
+    s.tmp_1 = r0;
+    r0 = (s.tmp_1 - s.arg0);
     s.tmp_0 = r0;
-    s.tmp_1 = game_GameOverPlayerScore_constructor__P2945_mk(s);
-    s.tmp_1.arg0 = s.tmp_0;
-    r0 = s.arg0.fields["_player"];
-    s.tmp_1.arg1 = r0;
-    s.tmp_2 = info_PlayerInfoImpl_score__P2606_mk(s);
-    r0 = s.arg0.fields["impl"];
-    s.tmp_2.arg0 = r0;
-    s.callLocIdx = 1424; s.pc = 2; return s.tmp_2;
+    r0 = (s.tmp_0 >> 1);
+    s.top___12559 = (r0);
+    s.tmp_0 = helpers_imageFillRect__P1956_mk(s);
+    s.tmp_0.arg0 = globals.screen___2032;
+    s.tmp_0.arg1 = 0;
+    s.tmp_0.arg2 = s.top___12559;
+    r0 = pxsim_ImageMethods.width(globals.screen___2032);
+    s.tmp_0.arg3 = r0;
+    s.tmp_0.arg4 = s.arg0;
+    s.tmp_0.arg5 = 0;
+    s.callLocIdx = 1392; s.pc = 1; return s.tmp_0;
+  case 1:
+    r0 = s.retval;
+    s.tmp_0 = helpers_imageDrawLine__P1958_mk(s);
+    s.tmp_0.arg0 = globals.screen___2032;
+    s.tmp_0.arg1 = 0;
+    s.tmp_0.arg2 = s.top___12559;
+    r0 = pxsim_ImageMethods.width(globals.screen___2032);
+    s.tmp_0.arg3 = r0;
+    s.tmp_0.arg4 = s.top___12559;
+    s.tmp_0.arg5 = 1;
+    s.callLocIdx = 1393; s.pc = 2; return s.tmp_0;
   case 2:
     r0 = s.retval;
-    s.tmp_1.arg2 = r0;
-    r0 = (s.arg0 === s.caps[0]);
-    s.tmp_1.arg3 = r0;
-    s.callLocIdx = 1425; s.pc = 1; return s.tmp_1;
-  case 1:
-    r0 = s.retval;
-    r0 = s.tmp_0;
-    return leave(s, r0)
-  default: oops()
-} } }
-scores_inline__P14490.info = {"start":11859,"length":88,"line":364,"column":49,"endLine":364,"endColumn":137,"fileName":"pxt_modules/game/game.ts","functionName":"inline","argumentNames":["player"]}
-
-function scores_inline__P14490_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: scores_inline__P14490, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  tmp_2: undefined,
-  arg0: undefined,
-} }
-
-
-
-
-
-function game__gameOverImpl_inline__P14576(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.lambdaArgs = null;
-    }
-    s.tmp_0 = game_GameOverDialog__C2946_v0_1_mk(s);
-    s.tmp_0.arg0 = s.caps[0];
-    if (!checkSubtype(s.tmp_0.arg0, game_GameOverDialog__C2946_VT)) failedCast(s.tmp_0.arg0);
-    s.tmp_0.fn = s.tmp_0.arg0.vtable.methods.update;
-    s.pc = 1; return s.tmp_0;
-  case 1:
-    r0 = s.retval;
-    s.tmp_0 = r0 = s.arg0;
-    r0 = s.caps[0].fields["image"];
+    s.tmp_0 = helpers_imageDrawLine__P1958_mk(s);
+    s.tmp_0.arg0 = globals.screen___2032;
+    s.tmp_0.arg1 = 0;
+    r0 = (s.top___12559 + s.arg0);
     s.tmp_1 = r0;
-    r0 = pxsim_ImageMethods.height(globals.screen___2032);
-    s.tmp_4 = r0;
-    r0 = s.caps[0].fields["image"];
-    s.tmp_6 = r0;
-    r0 = pxsim_ImageMethods.height(s.tmp_6);
-    s.tmp_5 = r0;
-    r0 = (s.tmp_4 - s.tmp_5);
-    s.tmp_3 = r0;
-    r0 = (s.tmp_3 >> 1);
+    r0 = (s.tmp_1 - 1);
+    s.tmp_0.arg2 = r0;
+    r0 = pxsim_ImageMethods.width(globals.screen___2032);
+    s.tmp_0.arg3 = r0;
+    r0 = (s.top___12559 + s.arg0);
     s.tmp_2 = r0;
-    r0 = pxsim_ImageMethods.drawTransparentImage(s.tmp_0, s.tmp_1, 0, s.tmp_2);
-    r0 = undefined;
+    r0 = (s.tmp_2 - 1);
+    s.tmp_0.arg4 = r0;
+    s.tmp_0.arg5 = 1;
+    s.callLocIdx = 1394; s.pc = 3; return s.tmp_0;
+  case 3:
+    r0 = s.retval;
+    r0 = s.top___12559;
     return leave(s, r0)
   default: oops()
 } } }
-game__gameOverImpl_inline__P14576.info = {"start":13493,"length":254,"line":396,"column":48,"endLine":403,"endColumn":13,"fileName":"pxt_modules/game/game.ts","functionName":"inline","argumentNames":["target"]}
+game_showDialogBackground__P5231.info = {"start":5687,"length":302,"line":181,"column":4,"endLine":188,"endColumn":5,"fileName":"pxt_modules/game/game.ts","functionName":"showDialogBackground","argumentNames":["h","c"]}
 
-function game__gameOverImpl_inline__P14576_mk(s) {
+function game_showDialogBackground__P5231_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: game__gameOverImpl_inline__P14576, depth: s.depth + 1,
+        parent: s, fn: game_showDialogBackground__P5231, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
   tmp_2: undefined,
-  tmp_3: undefined,
-  tmp_4: undefined,
-  tmp_5: undefined,
-  tmp_6: undefined,
+  top___12559: undefined,
   arg0: undefined,
+  arg1: undefined,
 } }
 
 
@@ -23237,757 +17788,6 @@ function scene_systemMenu_isVisible__P3108_mk(s) {
 
 
 
-function helpers_imagePrint__P1990(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    s.x0___12282 = undefined;
-    s.cp___12284 = undefined;
-    s.mult___12285 = undefined;
-    s.dataW___12290 = undefined;
-    s.dataH___12296 = undefined;
-    s.byteHeight___12302 = undefined;
-    s.charSize___12308 = undefined;
-    s.dataSize___12312 = undefined;
-    s.fontdata___12316 = undefined;
-    s.lastchar___12319 = undefined;
-    s.imgBuf___12326 = undefined;
-    s.xOffset___12350 = undefined;
-    s.yOffset___12351 = undefined;
-    s.ch___12366 = undefined;
-    s.l___12385 = undefined;
-    s.r___12386 = undefined;
-    s.off___12388 = undefined;
-    s.guess___12389 = undefined;
-    s.m___12408 = undefined;
-    s.v___12417 = undefined;
-    s.i___12473 = undefined;
-    s.j___12478 = undefined;
-    s.mask___12479 = undefined;
-    s.c___12480 = undefined;
-    s.n___12497 = undefined;
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.arg1 = (s.lambdaArgs[1]);
-      s.arg2 = (s.lambdaArgs[2]);
-      s.arg3 = (s.lambdaArgs[3]);
-      s.arg4 = (s.lambdaArgs[4]);
-      s.arg5 = (s.lambdaArgs[5]);
-      s.arg6 = (s.lambdaArgs[6]);
-      s.lambdaArgs = null;
-    }
-    r0 = (s.arg2 | 0);
-    s.arg2 = (r0);
-    r0 = (s.arg3 | 0);
-    s.arg3 = (r0);
-    r0 = pxsim_numops_toBoolDecr(s.arg5);
-    s.tmp_1 = r0;
-    r0 = pxsim_Boolean__bang(s.tmp_1);
-    s.tmp_0 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
-    if (!r0) { step = 1; continue; }
-    s.tmp_2 = image_getFontForText__P1977_mk(s);
-    s.tmp_2.arg0 = s.arg1;
-    s.callLocIdx = 204; s.pc = 39; return s.tmp_2;
-  case 39:
-    r0 = s.retval;
-    s.arg5 = (r0);
-  case 1:
-  case 2:
-    r0 = pxsim_numops_toBoolDecr(s.arg4);
-    s.tmp_1 = r0;
-    r0 = pxsim_Boolean__bang(s.tmp_1);
-    s.tmp_0 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
-    if (!r0) { step = 3; continue; }
-    s.arg4 = (1);
-  case 3:
-  case 4:
-    s.x0___12282 = (s.arg2);
-    s.cp___12284 = (0);
-    s.tmp_1 = if_multiplier_1_mk(s);
-    s.tmp_1.arg0 = s.arg5;
-    if (!s.tmp_1.arg0.vtable.iface) {
-      s.retval = pxsim_pxtrt.mapGetByString(s.tmp_1.arg0, "multiplier");
-    } else {
-      s.tmp_1.fn = s.tmp_1.arg0.vtable.iface["multiplier"];
-      if (s.tmp_1.fn == null) { s.retval = s.tmp_1.arg0.fields["multiplier"]; }
-      else if (!s.tmp_1.fn.isGetter) { s.retval = bind(s.tmp_1); }
-     else { s.callLocIdx = 205; s.pc = 40; return s.tmp_1; }
-    }
-  case 40:
-    r0 = s.retval;
-    s.tmp_0 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
-    if (!r0) { step = 5; continue; }
-    s.tmp_2 = if_multiplier_1_mk(s);
-    s.tmp_2.arg0 = s.arg5;
-    if (!s.tmp_2.arg0.vtable.iface) {
-      s.retval = pxsim_pxtrt.mapGetByString(s.tmp_2.arg0, "multiplier");
-    } else {
-      s.tmp_2.fn = s.tmp_2.arg0.vtable.iface["multiplier"];
-      if (s.tmp_2.fn == null) { s.retval = s.tmp_2.arg0.fields["multiplier"]; }
-      else if (!s.tmp_2.fn.isGetter) { s.retval = bind(s.tmp_2); }
-     else { s.callLocIdx = 206; s.pc = 41; return s.tmp_2; }
-    }
-  case 41:
-    r0 = s.retval;
-    { step = 6; continue; }
-  case 5:
-    r0 = 1;
-  case 6:
-    // jmp value (already in r0)
-    s.tmp_3 = r0;
-    s.mult___12285 = (s.tmp_3);
-    s.tmp_1 = if_charWidth_1_mk(s);
-    s.tmp_1.arg0 = s.arg5;
-    if (!s.tmp_1.arg0.vtable.iface) {
-      s.retval = pxsim_pxtrt.mapGetByString(s.tmp_1.arg0, "charWidth");
-    } else {
-      s.tmp_1.fn = s.tmp_1.arg0.vtable.iface["charWidth"];
-      if (s.tmp_1.fn == null) { s.retval = s.tmp_1.arg0.fields["charWidth"]; }
-      else if (!s.tmp_1.fn.isGetter) { s.retval = bind(s.tmp_1); }
-     else { s.callLocIdx = 207; s.pc = 42; return s.tmp_1; }
-    }
-  case 42:
-    r0 = s.retval;
-    s.tmp_0 = r0;
-    r0 = pxsim.Math_.idiv(s.tmp_0, s.mult___12285);
-    s.dataW___12290 = (r0);
-    s.tmp_1 = if_charHeight_1_mk(s);
-    s.tmp_1.arg0 = s.arg5;
-    if (!s.tmp_1.arg0.vtable.iface) {
-      s.retval = pxsim_pxtrt.mapGetByString(s.tmp_1.arg0, "charHeight");
-    } else {
-      s.tmp_1.fn = s.tmp_1.arg0.vtable.iface["charHeight"];
-      if (s.tmp_1.fn == null) { s.retval = s.tmp_1.arg0.fields["charHeight"]; }
-      else if (!s.tmp_1.fn.isGetter) { s.retval = bind(s.tmp_1); }
-     else { s.callLocIdx = 208; s.pc = 43; return s.tmp_1; }
-    }
-  case 43:
-    r0 = s.retval;
-    s.tmp_0 = r0;
-    r0 = pxsim.Math_.idiv(s.tmp_0, s.mult___12285);
-    s.dataH___12296 = (r0);
-    r0 = (s.dataH___12296 + 7);
-    s.tmp_0 = r0;
-    r0 = (s.tmp_0 >> 3);
-    s.byteHeight___12302 = (r0);
-    r0 = (s.byteHeight___12302 * s.dataW___12290);
-    s.charSize___12308 = (r0);
-    r0 = (2 + s.charSize___12308);
-    s.dataSize___12312 = (r0);
-    s.tmp_0 = if_data_1_mk(s);
-    s.tmp_0.arg0 = s.arg5;
-    if (!s.tmp_0.arg0.vtable.iface) {
-      s.retval = pxsim_pxtrt.mapGetByString(s.tmp_0.arg0, "data");
-    } else {
-      s.tmp_0.fn = s.tmp_0.arg0.vtable.iface["data"];
-      if (s.tmp_0.fn == null) { s.retval = s.tmp_0.arg0.fields["data"]; }
-      else if (!s.tmp_0.fn.isGetter) { s.retval = bind(s.tmp_0); }
-     else { s.callLocIdx = 209; s.pc = 44; return s.tmp_0; }
-    }
-  case 44:
-    r0 = s.retval;
-    s.fontdata___12316 = (r0);
-    r0 = pxsim.BufferMethods.length(s.fontdata___12316);
-    s.tmp_1 = r0;
-    r0 = pxsim.Math_.idiv(s.tmp_1, s.dataSize___12312);
-    s.tmp_0 = r0;
-    r0 = (s.tmp_0 - 1);
-    s.lastchar___12319 = (r0);
-    r0 = (s.mult___12285 == 1);
-    s.tmp_0 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
-    if (!r0) { step = 7; continue; }
-    r0 = (8 + s.charSize___12308);
-    s.tmp_1 = r0;
-    r0 = pxsim.control.createBuffer(s.tmp_1);
-    s.imgBuf___12326 = (r0);
-    r0 = pxsim.BufferMethods.setByte(s.imgBuf___12326, 0, 135);
-    r0 = pxsim.BufferMethods.setByte(s.imgBuf___12326, 1, 1);
-    r0 = pxsim.BufferMethods.setByte(s.imgBuf___12326, 2, s.dataW___12290);
-    r0 = pxsim.BufferMethods.setByte(s.imgBuf___12326, 4, s.dataH___12296);
-  case 7:
-  case 8:
-  case 9:
-    s.tmp_1 = r0 = s.cp___12284;
-    r0 = pxsim_String_.length(s.arg1);
-    s.tmp_2 = r0;
-    r0 = (s.tmp_1 < s.tmp_2);
-    s.tmp_0 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
-    if (!r0) { step = 38; continue; }
-    s.xOffset___12350 = (0);
-    s.yOffset___12351 = (0);
-    s.tmp_0 = r0 = s.arg6;
-    r0 = pxsim_numops_toBool(s.tmp_0);
-    if (r0) { step = 10; continue; }
-    r0 = s.tmp_0;
-    { step = 11; continue; }
-  case 10:
-    s.tmp_1 = r0 = s.cp___12284;
-    r0 = pxsim_Array__length(s.arg6);
-    s.tmp_2 = r0;
-    r0 = (s.tmp_1 < s.tmp_2);
-  case 11:
-    // jmp value (already in r0)
-    s.tmp_3 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_3);
-    if (!r0) { step = 12; continue; }
-    s.tmp_4 = if_xOffset_1_mk(s);
-    r0 = pxsim_Array__getAt(s.arg6, s.cp___12284);
-    s.tmp_4.arg0 = r0;
-    if (!s.tmp_4.arg0.vtable.iface) {
-      s.retval = pxsim_pxtrt.mapGetByString(s.tmp_4.arg0, "xOffset");
-    } else {
-      s.tmp_4.fn = s.tmp_4.arg0.vtable.iface["xOffset"];
-      if (s.tmp_4.fn == null) { s.retval = s.tmp_4.arg0.fields["xOffset"]; }
-      else if (!s.tmp_4.fn.isGetter) { s.retval = bind(s.tmp_4); }
-     else { s.callLocIdx = 210; s.pc = 45; return s.tmp_4; }
-    }
-  case 45:
-    r0 = s.retval;
-    s.xOffset___12350 = (r0);
-    s.tmp_0 = if_yOffset_1_mk(s);
-    r0 = pxsim_Array__getAt(s.arg6, s.cp___12284);
-    s.tmp_0.arg0 = r0;
-    if (!s.tmp_0.arg0.vtable.iface) {
-      s.retval = pxsim_pxtrt.mapGetByString(s.tmp_0.arg0, "yOffset");
-    } else {
-      s.tmp_0.fn = s.tmp_0.arg0.vtable.iface["yOffset"];
-      if (s.tmp_0.fn == null) { s.retval = s.tmp_0.arg0.fields["yOffset"]; }
-      else if (!s.tmp_0.fn.isGetter) { s.retval = bind(s.tmp_0); }
-     else { s.callLocIdx = 211; s.pc = 46; return s.tmp_0; }
-    }
-  case 46:
-    r0 = s.retval;
-    s.yOffset___12351 = (r0);
-  case 12:
-  case 13:
-    s.tmp_0 = r0 = s.cp___12284;
-    r0 = (s.tmp_0 + 1);
-    s.cp___12284 = (r0);
-    r0 = pxsim_String_.charCodeAt(s.arg1, s.tmp_0);
-    s.ch___12366 = (r0);
-    r0 = (s.ch___12366 == 10);
-    s.tmp_0 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
-    if (!r0) { step = 14; continue; }
-    s.tmp_1 = r0 = s.arg3;
-    s.tmp_4 = if_charHeight_1_mk(s);
-    s.tmp_4.arg0 = s.arg5;
-    if (!s.tmp_4.arg0.vtable.iface) {
-      s.retval = pxsim_pxtrt.mapGetByString(s.tmp_4.arg0, "charHeight");
-    } else {
-      s.tmp_4.fn = s.tmp_4.arg0.vtable.iface["charHeight"];
-      if (s.tmp_4.fn == null) { s.retval = s.tmp_4.arg0.fields["charHeight"]; }
-      else if (!s.tmp_4.fn.isGetter) { s.retval = bind(s.tmp_4); }
-     else { s.callLocIdx = 212; s.pc = 47; return s.tmp_4; }
-    }
-  case 47:
-    r0 = s.retval;
-    s.tmp_3 = r0;
-    r0 = (s.tmp_3 + 2);
-    s.tmp_2 = r0;
-    r0 = (s.tmp_1 + s.tmp_2);
-    s.arg3 = (r0);
-    s.arg2 = (s.x0___12282);
-  case 14:
-  case 15:
-    r0 = (s.ch___12366 < 32);
-    s.tmp_0 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
-    if (!r0) { step = 16; continue; }
-    { step = 9; continue; }
-  case 16:
-  case 17:
-    s.l___12385 = (0);
-    s.r___12386 = (s.lastchar___12319);
-    s.off___12388 = (0);
-    r0 = (s.ch___12366 - 32);
-    s.tmp_0 = r0;
-    r0 = (s.tmp_0 * s.dataSize___12312);
-    s.guess___12389 = (r0);
-    r0 = pxsim.BufferMethods.getNumber(s.fontdata___12316, 4, s.guess___12389);
-    s.tmp_1 = r0;
-    r0 = (s.tmp_1 == s.ch___12366);
-    s.tmp_0 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
-    if (!r0) { step = 18; continue; }
-    s.off___12388 = (s.guess___12389);
-    { step = 25; continue; }
-  case 18:
-  case 19:
-    r0 = (s.l___12385 <= s.r___12386);
-    s.tmp_0 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
-    if (!r0) { step = 24; continue; }
-    s.tmp_1 = r0 = s.l___12385;
-    r0 = (s.r___12386 - s.l___12385);
-    s.tmp_3 = r0;
-    r0 = (s.tmp_3 >> 1);
-    s.tmp_2 = r0;
-    r0 = (s.tmp_1 + s.tmp_2);
-    s.m___12408 = (r0);
-    s.tmp_0 = r0 = s.fontdata___12316;
-    r0 = (s.m___12408 * s.dataSize___12312);
-    s.tmp_1 = r0;
-    r0 = pxsim.BufferMethods.getNumber(s.tmp_0, 4, s.tmp_1);
-    s.v___12417 = (r0);
-    r0 = (s.v___12417 == s.ch___12366);
-    s.tmp_0 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
-    if (!r0) { step = 20; continue; }
-    r0 = (s.m___12408 * s.dataSize___12312);
-    s.off___12388 = (r0);
-    { step = 24; continue; }
-  case 20:
-  case 21:
-    r0 = (s.v___12417 < s.ch___12366);
-    s.tmp_0 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
-    if (!r0) { step = 22; continue; }
-    r0 = (s.m___12408 + 1);
-    s.l___12385 = (r0);
-    { step = 23; continue; }
-  case 22:
-    r0 = (s.m___12408 - 1);
-    s.r___12386 = (r0);
-  case 23:
-    { step = 19; continue; }
-  case 24:
-  case 25:
-    r0 = (s.mult___12285 == 1);
-    s.tmp_0 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
-    if (!r0) { step = 26; continue; }
-    s.tmp_1 = r0 = s.imgBuf___12326;
-    s.tmp_3 = r0 = s.fontdata___12316;
-    r0 = (s.off___12388 + 2);
-    s.tmp_4 = r0;
-    r0 = pxsim.BufferMethods.slice(s.tmp_3, s.tmp_4, s.charSize___12308);
-    s.tmp_2 = r0;
-    r0 = pxsim.BufferMethods.write(s.tmp_1, 8, s.tmp_2);
-    s.tmp_0 = helpers_imageDrawIcon__P1955_mk(s);
-    s.tmp_0.arg0 = s.arg0;
-    s.tmp_0.arg1 = s.imgBuf___12326;
-    r0 = (s.arg2 + s.xOffset___12350);
-    s.tmp_0.arg2 = r0;
-    r0 = (s.arg3 + s.yOffset___12351);
-    s.tmp_0.arg3 = r0;
-    s.tmp_0.arg4 = s.arg4;
-    s.callLocIdx = 213; s.pc = 48; return s.tmp_0;
-  case 48:
-    r0 = s.retval;
-    s.tmp_0 = r0 = s.arg2;
-    s.tmp_2 = if_charWidth_1_mk(s);
-    s.tmp_2.arg0 = s.arg5;
-    if (!s.tmp_2.arg0.vtable.iface) {
-      s.retval = pxsim_pxtrt.mapGetByString(s.tmp_2.arg0, "charWidth");
-    } else {
-      s.tmp_2.fn = s.tmp_2.arg0.vtable.iface["charWidth"];
-      if (s.tmp_2.fn == null) { s.retval = s.tmp_2.arg0.fields["charWidth"]; }
-      else if (!s.tmp_2.fn.isGetter) { s.retval = bind(s.tmp_2); }
-     else { s.callLocIdx = 214; s.pc = 49; return s.tmp_2; }
-    }
-  case 49:
-    r0 = s.retval;
-    s.tmp_1 = r0;
-    r0 = (s.tmp_0 + s.tmp_1);
-    s.arg2 = (r0);
-    { step = 37; continue; }
-  case 26:
-    r0 = (s.off___12388 + 2);
-    s.off___12388 = (r0);
-    s.i___12473 = (0);
-  case 27:
-    r0 = (s.i___12473 < s.dataW___12290);
-    s.tmp_0 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
-    if (!r0) { step = 36; continue; }
-    s.j___12478 = (0);
-    s.mask___12479 = (1);
-    s.tmp_0 = r0 = s.off___12388;
-    r0 = (s.tmp_0 + 1);
-    s.off___12388 = (r0);
-    r0 = pxsim.BufferMethods.getByte(s.fontdata___12316, s.tmp_0);
-    s.c___12480 = (r0);
-  case 28:
-    r0 = (s.j___12478 < s.dataH___12296);
-    s.tmp_0 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
-    if (!r0) { step = 35; continue; }
-    r0 = (s.mask___12479 == 256);
-    s.tmp_1 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_1);
-    if (!r0) { step = 29; continue; }
-    s.tmp_2 = r0 = s.off___12388;
-    r0 = (s.tmp_2 + 1);
-    s.off___12388 = (r0);
-    r0 = pxsim.BufferMethods.getByte(s.fontdata___12316, s.tmp_2);
-    s.c___12480 = (r0);
-    s.mask___12479 = (1);
-  case 29:
-  case 30:
-    s.n___12497 = (0);
-  case 31:
-    r0 = (s.c___12480 & s.mask___12479);
-    s.tmp_0 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
-    if (!r0) { step = 32; continue; }
-    r0 = (s.n___12497 + 1);
-    s.n___12497 = (r0);
-    r0 = (s.mask___12479 << 1);
-    s.mask___12479 = (r0);
-    { step = 31; continue; }
-  case 32:
-    r0 = pxsim_numops_toBoolDecr(s.n___12497);
-    if (!r0) { step = 33; continue; }
-    s.tmp_0 = helpers_imageFillRect__P1956_mk(s);
-    s.tmp_0.arg0 = s.arg0;
-    s.tmp_1 = r0 = s.arg2;
-    r0 = (s.xOffset___12350 * s.mult___12285);
-    s.tmp_2 = r0;
-    r0 = (s.tmp_1 + s.tmp_2);
-    s.tmp_0.arg1 = r0;
-    s.tmp_3 = r0 = s.arg3;
-    r0 = (s.j___12478 + s.yOffset___12351);
-    s.tmp_5 = r0;
-    r0 = (s.tmp_5 * s.mult___12285);
-    s.tmp_4 = r0;
-    r0 = (s.tmp_3 + s.tmp_4);
-    s.tmp_0.arg2 = r0;
-    s.tmp_0.arg3 = s.mult___12285;
-    r0 = (s.mult___12285 * s.n___12497);
-    s.tmp_0.arg4 = r0;
-    s.tmp_0.arg5 = s.arg4;
-    s.callLocIdx = 215; s.pc = 50; return s.tmp_0;
-  case 50:
-    r0 = s.retval;
-    r0 = (s.j___12478 + s.n___12497);
-    s.j___12478 = (r0);
-    { step = 34; continue; }
-  case 33:
-    r0 = (s.mask___12479 << 1);
-    s.mask___12479 = (r0);
-    r0 = (s.j___12478 + 1);
-    s.j___12478 = (r0);
-  case 34:
-    { step = 28; continue; }
-  case 35:
-    r0 = (s.arg2 + s.mult___12285);
-    s.arg2 = (r0);
-    r0 = (s.i___12473 + 1);
-    s.i___12473 = (r0);
-    { step = 27; continue; }
-  case 36:
-  case 37:
-    { step = 9; continue; }
-  case 38:
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-helpers_imagePrint__P1990.info = {"start":15326,"length":3300,"line":213,"column":4,"endLine":306,"endColumn":5,"fileName":"pxt_modules/screen/text.ts","functionName":"imagePrint","argumentNames":["img","text","x","y","color","font","offsets"]}
-
-function helpers_imagePrint__P1990_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: helpers_imagePrint__P1990, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  tmp_2: undefined,
-  tmp_3: undefined,
-  tmp_4: undefined,
-  tmp_5: undefined,
-  x0___12282: undefined,
-  cp___12284: undefined,
-  mult___12285: undefined,
-  dataW___12290: undefined,
-  dataH___12296: undefined,
-  byteHeight___12302: undefined,
-  charSize___12308: undefined,
-  dataSize___12312: undefined,
-  fontdata___12316: undefined,
-  lastchar___12319: undefined,
-  imgBuf___12326: undefined,
-  xOffset___12350: undefined,
-  yOffset___12351: undefined,
-  ch___12366: undefined,
-  l___12385: undefined,
-  r___12386: undefined,
-  off___12388: undefined,
-  guess___12389: undefined,
-  m___12408: undefined,
-  v___12417: undefined,
-  i___12473: undefined,
-  j___12478: undefined,
-  mask___12479: undefined,
-  c___12480: undefined,
-  n___12497: undefined,
-  arg0: undefined,
-  arg1: undefined,
-  arg2: undefined,
-  arg3: undefined,
-  arg4: undefined,
-  arg5: undefined,
-  arg6: undefined,
-} }
-
-
-
-
-
-function image_getFontForText__P1977(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    s.i___12592 = undefined;
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.lambdaArgs = null;
-    }
-    s.i___12592 = (0);
-  case 1:
-    s.tmp_1 = r0 = s.i___12592;
-    r0 = pxsim_String_.length(s.arg0);
-    s.tmp_2 = r0;
-    r0 = (s.tmp_1 < s.tmp_2);
-    s.tmp_0 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
-    if (!r0) { step = 4; continue; }
-    r0 = pxsim_String_.charCodeAt(s.arg0, s.i___12592);
-    s.tmp_4 = r0;
-    r0 = (s.tmp_4 > 8192);
-    s.tmp_3 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_3);
-    if (!r0) { step = 2; continue; }
-    r0 = globals.font12___1976;
-    { step = 5; continue; }
-  case 2:
-  case 3:
-    r0 = (s.i___12592 + 1);
-    s.i___12592 = (r0);
-    { step = 1; continue; }
-  case 4:
-    r0 = globals.font8___1975;
-  case 5:
-    return leave(s, r0)
-  default: oops()
-} } }
-image_getFontForText__P1977.info = {"start":11713,"length":259,"line":136,"column":4,"endLine":143,"endColumn":5,"fileName":"pxt_modules/screen/text.ts","functionName":"getFontForText","argumentNames":["text"]}
-
-function image_getFontForText__P1977_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: image_getFontForText__P1977, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  tmp_2: undefined,
-  tmp_3: undefined,
-  tmp_4: undefined,
-  i___12592: undefined,
-  arg0: undefined,
-} }
-
-
-
-
-
-function helpers_imageFillRect__P1956(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.arg1 = (s.lambdaArgs[1]);
-      s.arg2 = (s.lambdaArgs[2]);
-      s.arg3 = (s.lambdaArgs[3]);
-      s.arg4 = (s.lambdaArgs[4]);
-      s.arg5 = (s.lambdaArgs[5]);
-      s.lambdaArgs = null;
-    }
-    s.tmp_0 = r0 = s.arg0;
-    s.tmp_2 = helpers_pack__P4859_mk(s);
-    s.tmp_2.arg0 = s.arg1;
-    s.tmp_2.arg1 = s.arg2;
-    s.callLocIdx = 186; s.pc = 1; return s.tmp_2;
-  case 1:
-    r0 = s.retval;
-    s.tmp_1 = r0;
-    s.tmp_4 = helpers_pack__P4859_mk(s);
-    s.tmp_4.arg0 = s.arg3;
-    s.tmp_4.arg1 = s.arg4;
-    s.callLocIdx = 187; s.pc = 2; return s.tmp_4;
-  case 2:
-    r0 = s.retval;
-    s.tmp_3 = r0;
-    r0 = pxsim_ImageMethods._fillRect(s.tmp_0, s.tmp_1, s.tmp_3, s.arg5);
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-helpers_imageFillRect__P1956.info = {"start":5454,"length":159,"line":176,"column":4,"endLine":178,"endColumn":5,"fileName":"pxt_modules/screen/image.ts","functionName":"imageFillRect","argumentNames":["img","x","y","w","h","c"]}
-
-function helpers_imageFillRect__P1956_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: helpers_imageFillRect__P1956, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  tmp_2: undefined,
-  tmp_3: undefined,
-  tmp_4: undefined,
-  arg0: undefined,
-  arg1: undefined,
-  arg2: undefined,
-  arg3: undefined,
-  arg4: undefined,
-  arg5: undefined,
-} }
-
-
-
-
-
-function helpers_pack__P4859(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.arg1 = (s.lambdaArgs[1]);
-      s.lambdaArgs = null;
-    }
-    s.tmp_2 = Math_clamp__P127_mk(s);
-    s.tmp_2.arg0 = -30000;
-    s.tmp_2.arg1 = 30000;
-    r0 = (s.arg0 | 0);
-    s.tmp_2.arg2 = r0;
-    s.callLocIdx = 183; s.pc = 1; return s.tmp_2;
-  case 1:
-    r0 = s.retval;
-    s.tmp_1 = r0;
-    r0 = (s.tmp_1 & 65535);
-    s.tmp_0 = r0;
-    s.tmp_5 = Math_clamp__P127_mk(s);
-    s.tmp_5.arg0 = -30000;
-    s.tmp_5.arg1 = 30000;
-    r0 = (s.arg1 | 0);
-    s.tmp_5.arg2 = r0;
-    s.callLocIdx = 184; s.pc = 2; return s.tmp_5;
-  case 2:
-    r0 = s.retval;
-    s.tmp_4 = r0;
-    r0 = (s.tmp_4 << 16);
-    s.tmp_3 = r0;
-    r0 = (s.tmp_0 | s.tmp_3);
-    return leave(s, r0)
-  default: oops()
-} } }
-helpers_pack__P4859.info = {"start":4278,"length":145,"line":148,"column":4,"endLine":150,"endColumn":5,"fileName":"pxt_modules/screen/image.ts","functionName":"pack","argumentNames":["x","y"]}
-
-function helpers_pack__P4859_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: helpers_pack__P4859, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  tmp_2: undefined,
-  tmp_3: undefined,
-  tmp_4: undefined,
-  tmp_5: undefined,
-  arg0: undefined,
-  arg1: undefined,
-} }
-
-
-
-
-
-function helpers_imageDrawIcon__P1955(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.arg1 = (s.lambdaArgs[1]);
-      s.arg2 = (s.lambdaArgs[2]);
-      s.arg3 = (s.lambdaArgs[3]);
-      s.arg4 = (s.lambdaArgs[4]);
-      s.lambdaArgs = null;
-    }
-    s.tmp_0 = r0 = s.arg0;
-    s.tmp_1 = r0 = s.arg1;
-    s.tmp_3 = helpers_pack__P4859_mk(s);
-    s.tmp_3.arg0 = s.arg2;
-    s.tmp_3.arg1 = s.arg3;
-    s.callLocIdx = 185; s.pc = 1; return s.tmp_3;
-  case 1:
-    r0 = s.retval;
-    s.tmp_2 = r0;
-    r0 = pxsim_ImageMethods._drawIcon(s.tmp_0, s.tmp_1, s.tmp_2, s.arg4);
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-helpers_imageDrawIcon__P1955.info = {"start":5304,"length":145,"line":173,"column":4,"endLine":175,"endColumn":5,"fileName":"pxt_modules/screen/image.ts","functionName":"imageDrawIcon","argumentNames":["img","icon","x","y","c"]}
-
-function helpers_imageDrawIcon__P1955_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: helpers_imageDrawIcon__P1955, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  tmp_2: undefined,
-  tmp_3: undefined,
-  arg0: undefined,
-  arg1: undefined,
-  arg2: undefined,
-  arg3: undefined,
-  arg4: undefined,
-} }
-
-
-
-
-
 function helpers_stringSplit__P122(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
@@ -24994,6 +18794,50 @@ function scene_BackgroundLayer_draw__P2687_mk(s) {
 
 
 
+function Math_min__P131(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.arg1 = (s.lambdaArgs[1]);
+      s.lambdaArgs = null;
+    }
+    r0 = (s.arg0 <= s.arg1);
+    s.tmp_0 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
+    if (!r0) { step = 1; continue; }
+    r0 = s.arg0;
+    { step = 3; continue; }
+  case 1:
+  case 2:
+    r0 = s.arg1;
+  case 3:
+    return leave(s, r0)
+  default: oops()
+} } }
+Math_min__P131.info = {"start":16854,"length":105,"line":568,"column":4,"endLine":571,"endColumn":5,"fileName":"pxt_modules/base/pxt-helpers.ts","functionName":"min","argumentNames":["a","b"]}
+
+function Math_min__P131_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: Math_min__P131, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  arg0: undefined,
+  arg1: undefined,
+} }
+
+
+
+
+
 function helpers_arraySort__P105(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
@@ -25362,6 +19206,790 @@ function helpers_swap__P4642_mk(s) {
   arg0: undefined,
   arg1: undefined,
   arg2: undefined,
+} }
+
+
+
+
+
+function scene_Camera_update__P2798(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    s.elapsed___13661 = undefined;
+    s.percentComplete___13675 = undefined;
+    s.damp___13682 = undefined;
+    s.f___13691 = undefined;
+    s.x___13697 = undefined;
+    s.y___13704 = undefined;
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, scene_Camera__C2781_VT)) failedCast(r0);
+    r0 = s.arg0.fields["sprite"];
+    s.tmp_0 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
+    if (!r0) { step = 1; continue; }
+    s.tmp_1 = r0 = s.arg0;
+    s.tmp_3 = Sprite_x__P2354_mk(s);
+    r0 = s.arg0.fields["sprite"];
+    s.tmp_3.arg0 = r0;
+    s.callLocIdx = 1222; s.pc = 9; return s.tmp_3;
+  case 9:
+    r0 = s.retval;
+    s.tmp_2 = r0;
+    r0 = (s.tmp_1).fields["_lastUpdatedSpriteX"] = (s.tmp_2);
+    s.tmp_0 = r0 = s.arg0;
+    s.tmp_2 = Sprite_y__P2356_mk(s);
+    r0 = s.arg0.fields["sprite"];
+    s.tmp_2.arg0 = r0;
+    s.callLocIdx = 1223; s.pc = 10; return s.tmp_2;
+  case 10:
+    r0 = s.retval;
+    s.tmp_1 = r0;
+    r0 = (s.tmp_0).fields["_lastUpdatedSpriteY"] = (s.tmp_1);
+    s.tmp_0 = scene_Camera_offsetX__P2787_mk(s);
+    s.tmp_0.arg0 = s.arg0;
+    s.tmp_2 = Sprite_x__P2354_mk(s);
+    r0 = s.arg0.fields["sprite"];
+    s.tmp_2.arg0 = r0;
+    s.callLocIdx = 1224; s.pc = 12; return s.tmp_2;
+  case 12:
+    r0 = s.retval;
+    s.tmp_1 = r0;
+    r0 = pxsim_ImageMethods.width(globals.screen___2032);
+    s.tmp_4 = r0;
+    r0 = (s.tmp_4 >> 1);
+    s.tmp_3 = r0;
+    r0 = (s.tmp_1 - s.tmp_3);
+    s.tmp_0.arg1 = r0;
+    s.callLocIdx = 1225; s.pc = 11; return s.tmp_0;
+  case 11:
+    r0 = s.retval;
+    s.tmp_0 = scene_Camera_offsetY__P2789_mk(s);
+    s.tmp_0.arg0 = s.arg0;
+    s.tmp_2 = Sprite_y__P2356_mk(s);
+    r0 = s.arg0.fields["sprite"];
+    s.tmp_2.arg0 = r0;
+    s.callLocIdx = 1226; s.pc = 14; return s.tmp_2;
+  case 14:
+    r0 = s.retval;
+    s.tmp_1 = r0;
+    r0 = pxsim_ImageMethods.height(globals.screen___2032);
+    s.tmp_4 = r0;
+    r0 = (s.tmp_4 >> 1);
+    s.tmp_3 = r0;
+    r0 = (s.tmp_1 - s.tmp_3);
+    s.tmp_0.arg1 = r0;
+    s.callLocIdx = 1227; s.pc = 13; return s.tmp_0;
+  case 13:
+    r0 = s.retval;
+  case 1:
+  case 2:
+    s.tmp_0 = r0 = s.arg0;
+    r0 = s.arg0.fields["_offsetX"];
+    s.tmp_1 = r0;
+    r0 = (s.tmp_0).fields["drawOffsetX"] = (s.tmp_1);
+    s.tmp_0 = r0 = s.arg0;
+    r0 = s.arg0.fields["_offsetY"];
+    s.tmp_1 = r0;
+    r0 = (s.tmp_0).fields["drawOffsetY"] = (s.tmp_1);
+    r0 = s.arg0.fields["shakeStartTime"];
+    s.tmp_1 = r0;
+    r0 = (s.tmp_1 !== undefined);
+    s.tmp_0 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
+    if (!r0) { step = 7; continue; }
+    r0 = pxsim.control.millis();
+    s.tmp_2 = r0;
+    r0 = s.arg0.fields["shakeStartTime"];
+    s.tmp_3 = r0;
+    r0 = (s.tmp_2 - s.tmp_3);
+    s.elapsed___13661 = (r0);
+    r0 = s.arg0.fields["shakeDuration"];
+    s.tmp_1 = r0;
+    r0 = (s.elapsed___13661 >= s.tmp_1);
+    s.tmp_0 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
+    if (!r0) { step = 3; continue; }
+    r0 = (s.arg0).fields["shakeStartTime"] = (undefined);
+    { step = 6; continue; }
+  case 3:
+    r0 = s.arg0.fields["shakeDuration"];
+    s.tmp_0 = r0;
+    r0 = (s.elapsed___13661 / s.tmp_0);
+    s.percentComplete___13675 = (r0);
+    s.damp___13682 = (1);
+    r0 = (s.percentComplete___13675 >= 0.75);
+    s.tmp_0 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
+    if (!r0) { step = 4; continue; }
+    s.tmp_1 = Math_max__P130_mk(s);
+    s.tmp_1.arg0 = 0;
+    r0 = (1 - s.percentComplete___13675);
+    s.tmp_1.arg1 = r0;
+    s.callLocIdx = 1230; s.pc = 15; return s.tmp_1;
+  case 15:
+    r0 = s.retval;
+    s.damp___13682 = (r0);
+  case 4:
+  case 5:
+    r0 = s.arg0.fields["shakeAmplitude"];
+    s.tmp_0 = r0;
+    r0 = (s.tmp_0 * s.damp___13682);
+    s.f___13691 = (r0);
+    r0 = pxsim.Math_.random();
+    s.tmp_1 = r0;
+    r0 = (s.tmp_1 * s.f___13691);
+    s.tmp_0 = r0;
+    r0 = (s.tmp_0 >> 0);
+    s.x___13697 = (r0);
+    r0 = pxsim.Math_.random();
+    s.tmp_1 = r0;
+    r0 = (s.tmp_1 * s.f___13691);
+    s.tmp_0 = r0;
+    r0 = (s.tmp_0 >> 0);
+    s.y___13704 = (r0);
+    s.tmp_0 = r0 = s.arg0;
+    r0 = s.tmp_0.fields["drawOffsetX"];
+    s.tmp_2 = r0;
+    r0 = (s.tmp_2 + s.x___13697);
+    s.tmp_1 = r0;
+    r0 = (s.tmp_0).fields["drawOffsetX"] = (s.tmp_1);
+    s.tmp_0 = r0 = s.arg0;
+    r0 = s.tmp_0.fields["drawOffsetY"];
+    s.tmp_2 = r0;
+    r0 = (s.tmp_2 + s.y___13704);
+    s.tmp_1 = r0;
+    r0 = (s.tmp_0).fields["drawOffsetY"] = (s.tmp_1);
+  case 6:
+  case 7:
+  case 8:
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+scene_Camera_update__P2798.info = {"start":2563,"length":1418,"line":83,"column":8,"endLine":116,"endColumn":9,"fileName":"pxt_modules/game/camera.ts","functionName":"update","argumentNames":["this"]}
+
+function scene_Camera_update__P2798_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: scene_Camera_update__P2798, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  tmp_2: undefined,
+  tmp_3: undefined,
+  tmp_4: undefined,
+  elapsed___13661: undefined,
+  percentComplete___13675: undefined,
+  damp___13682: undefined,
+  f___13691: undefined,
+  x___13697: undefined,
+  y___13704: undefined,
+  arg0: undefined,
+} }
+
+
+
+
+
+function scene_Camera_offsetY__P2789(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    s.scene___13723 = undefined;
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.arg1 = (s.lambdaArgs[1]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, scene_Camera__C2781_VT)) failedCast(r0);
+    s.tmp_0 = game_currentScene__P2999_mk(s);
+    s.callLocIdx = 1213; s.pc = 5; return s.tmp_0;
+  case 5:
+    r0 = s.retval;
+    s.scene___13723 = (r0);
+    r0 = s.scene___13723.fields["tileMap"];
+    s.tmp_0 = r0;
+    r0 = pxsim_numops_toBool(s.tmp_0);
+    if (r0) { step = 1; continue; }
+    r0 = s.tmp_0;
+    { step = 2; continue; }
+  case 1:
+    r0 = s.scene___13723.fields["tileMap"];
+    s.tmp_1 = r0;
+    r0 = s.tmp_1.fields["_map"];
+    s.tmp_5 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_5);
+    s.tmp_4 = r0;
+    r0 = pxsim_Boolean__bang(s.tmp_4);
+    s.tmp_3 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_3);
+    s.tmp_2 = r0;
+    r0 = pxsim_Boolean__bang(s.tmp_2);
+  case 2:
+    // jmp value (already in r0)
+    s.tmp_6 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_6);
+    if (!r0) { step = 3; continue; }
+    s.tmp_7 = r0 = s.arg0;
+    s.tmp_10 = tiles_TileMap_offsetY__P2742_mk(s);
+    r0 = s.scene___13723.fields["tileMap"];
+    s.tmp_10.arg0 = r0;
+    s.tmp_10.arg1 = s.arg1;
+    s.callLocIdx = 1215; s.pc = 6; return s.tmp_10;
+  case 6:
+    r0 = s.retval;
+    s.tmp_9 = r0;
+    r0 = pxsim.Math_.floor(s.tmp_9);
+    s.tmp_8 = r0;
+    r0 = (s.tmp_7).fields["_offsetY"] = (s.tmp_8);
+    { step = 4; continue; }
+  case 3:
+    s.tmp_0 = r0 = s.arg0;
+    r0 = pxsim.Math_.floor(s.arg1);
+    s.tmp_1 = r0;
+    r0 = (s.tmp_0).fields["_offsetY"] = (s.tmp_1);
+  case 4:
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+scene_Camera_offsetY__P2789.info = {"start":1152,"length":291,"line":39,"column":8,"endLine":46,"endColumn":9,"fileName":"pxt_modules/game/camera.ts","functionName":"offsetY","argumentNames":["this","v"]}
+
+function scene_Camera_offsetY__P2789_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: scene_Camera_offsetY__P2789, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  tmp_2: undefined,
+  tmp_3: undefined,
+  tmp_4: undefined,
+  tmp_5: undefined,
+  tmp_6: undefined,
+  tmp_7: undefined,
+  tmp_8: undefined,
+  tmp_9: undefined,
+  tmp_10: undefined,
+  scene___13723: undefined,
+  arg0: undefined,
+  arg1: undefined,
+} }
+
+
+
+
+
+function tiles_TileMap_enabled__P2747(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, tiles_TileMap__C2735_VT)) failedCast(r0);
+    r0 = s.arg0.fields["_map"];
+    s.tmp_3 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_3);
+    s.tmp_2 = r0;
+    r0 = pxsim_Boolean__bang(s.tmp_2);
+    s.tmp_1 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_1);
+    s.tmp_0 = r0;
+    r0 = pxsim_Boolean__bang(s.tmp_0);
+    return leaveAccessor(s, r0)
+  default: oops()
+} } }
+tiles_TileMap_enabled__P2747.info = {"start":10177,"length":66,"line":351,"column":8,"endLine":353,"endColumn":9,"fileName":"pxt_modules/game/tilemap.ts","functionName":"enabled","argumentNames":["this"]}
+tiles_TileMap_enabled__P2747.isGetter = true;
+
+function tiles_TileMap_enabled__P2747_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: tiles_TileMap_enabled__P2747, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  tmp_2: undefined,
+  tmp_3: undefined,
+  arg0: undefined,
+} }
+
+
+
+
+
+function tiles_TileMap_offsetY__P2742(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.arg1 = (s.lambdaArgs[1]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, tiles_TileMap__C2735_VT)) failedCast(r0);
+    s.tmp_0 = Math_clamp__P127_mk(s);
+    s.tmp_0.arg0 = 0;
+    s.tmp_1 = Math_max__P130_mk(s);
+    s.tmp_3 = tiles_TileMap_areaHeight__P2744_mk(s);
+    s.tmp_3.arg0 = s.arg0;
+    s.callLocIdx = 1126; s.pc = 3; return s.tmp_3;
+  case 3:
+    r0 = s.retval;
+    s.tmp_2 = r0;
+    r0 = pxsim_ImageMethods.height(globals.screen___2032);
+    s.tmp_4 = r0;
+    r0 = (s.tmp_2 - s.tmp_4);
+    s.tmp_1.arg0 = r0;
+    s.tmp_1.arg1 = 0;
+    s.callLocIdx = 1127; s.pc = 2; return s.tmp_1;
+  case 2:
+    r0 = s.retval;
+    s.tmp_0.arg1 = r0;
+    s.tmp_0.arg2 = s.arg1;
+    s.callLocIdx = 1128; s.pc = 1; return s.tmp_0;
+  case 1:
+    r0 = s.retval;
+    return leave(s, r0)
+  default: oops()
+} } }
+tiles_TileMap_offsetY__P2742.info = {"start":9630,"length":123,"line":329,"column":8,"endLine":331,"endColumn":9,"fileName":"pxt_modules/game/tilemap.ts","functionName":"offsetY","argumentNames":["this","value"]}
+
+function tiles_TileMap_offsetY__P2742_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: tiles_TileMap_offsetY__P2742, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  tmp_2: undefined,
+  tmp_3: undefined,
+  tmp_4: undefined,
+  arg0: undefined,
+  arg1: undefined,
+} }
+
+
+
+
+
+function tiles_TileMap_areaHeight__P2744(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, tiles_TileMap__C2735_VT)) failedCast(r0);
+    r0 = s.arg0.fields["_map"];
+    s.tmp_0 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
+    if (!r0) { step = 1; continue; }
+    r0 = s.arg0.fields["_map"];
+    s.tmp_2 = r0;
+    r0 = s.tmp_2.fields["_height"];
+    s.tmp_1 = r0;
+    r0 = s.arg0.fields["_scale"];
+    s.tmp_3 = r0;
+    r0 = (s.tmp_1 << s.tmp_3);
+    { step = 2; continue; }
+  case 1:
+    r0 = 0;
+  case 2:
+    // jmp value (already in r0)
+    s.tmp_4 = r0;
+    r0 = s.tmp_4;
+    return leave(s, r0)
+  default: oops()
+} } }
+tiles_TileMap_areaHeight__P2744.info = {"start":9864,"length":93,"line":337,"column":8,"endLine":339,"endColumn":9,"fileName":"pxt_modules/game/tilemap.ts","functionName":"areaHeight","argumentNames":["this"]}
+
+function tiles_TileMap_areaHeight__P2744_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: tiles_TileMap_areaHeight__P2744, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  tmp_2: undefined,
+  tmp_3: undefined,
+  tmp_4: undefined,
+  arg0: undefined,
+} }
+
+
+
+
+
+function Math_clamp__P127(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.arg1 = (s.lambdaArgs[1]);
+      s.arg2 = (s.lambdaArgs[2]);
+      s.lambdaArgs = null;
+    }
+    s.tmp_0 = Math_min__P131_mk(s);
+    s.tmp_0.arg0 = s.arg1;
+    s.tmp_1 = Math_max__P130_mk(s);
+    s.tmp_1.arg0 = s.arg0;
+    s.tmp_1.arg1 = s.arg2;
+    s.callLocIdx = 26; s.pc = 2; return s.tmp_1;
+  case 2:
+    r0 = s.retval;
+    s.tmp_0.arg1 = r0;
+    s.callLocIdx = 27; s.pc = 1; return s.tmp_0;
+  case 1:
+    r0 = s.retval;
+    return leave(s, r0)
+  default: oops()
+} } }
+Math_clamp__P127.info = {"start":15643,"length":130,"line":528,"column":4,"endLine":530,"endColumn":5,"fileName":"pxt_modules/base/pxt-helpers.ts","functionName":"clamp","argumentNames":["min","max","value"]}
+
+function Math_clamp__P127_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: Math_clamp__P127, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  arg0: undefined,
+  arg1: undefined,
+  arg2: undefined,
+} }
+
+
+
+
+
+function scene_Camera_offsetY__P2788(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, scene_Camera__C2781_VT)) failedCast(r0);
+    r0 = s.arg0.fields["_offsetY"];
+    return leaveAccessor(s, r0)
+  default: oops()
+} } }
+scene_Camera_offsetY__P2788.info = {"start":1084,"length":59,"line":36,"column":8,"endLine":38,"endColumn":9,"fileName":"pxt_modules/game/camera.ts","functionName":"offsetY","argumentNames":["this"]}
+scene_Camera_offsetY__P2788.isGetter = true;
+
+function scene_Camera_offsetY__P2788_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: scene_Camera_offsetY__P2788, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  arg0: undefined,
+} }
+
+
+
+
+
+function scene_Camera_offsetX__P2787(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    s.scene___13779 = undefined;
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.arg1 = (s.lambdaArgs[1]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, scene_Camera__C2781_VT)) failedCast(r0);
+    s.tmp_0 = game_currentScene__P2999_mk(s);
+    s.callLocIdx = 1210; s.pc = 5; return s.tmp_0;
+  case 5:
+    r0 = s.retval;
+    s.scene___13779 = (r0);
+    r0 = s.scene___13779.fields["tileMap"];
+    s.tmp_0 = r0;
+    r0 = pxsim_numops_toBool(s.tmp_0);
+    if (r0) { step = 1; continue; }
+    r0 = s.tmp_0;
+    { step = 2; continue; }
+  case 1:
+    r0 = s.scene___13779.fields["tileMap"];
+    s.tmp_1 = r0;
+    r0 = s.tmp_1.fields["_map"];
+    s.tmp_5 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_5);
+    s.tmp_4 = r0;
+    r0 = pxsim_Boolean__bang(s.tmp_4);
+    s.tmp_3 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_3);
+    s.tmp_2 = r0;
+    r0 = pxsim_Boolean__bang(s.tmp_2);
+  case 2:
+    // jmp value (already in r0)
+    s.tmp_6 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_6);
+    if (!r0) { step = 3; continue; }
+    s.tmp_7 = r0 = s.arg0;
+    s.tmp_10 = tiles_TileMap_offsetX__P2741_mk(s);
+    r0 = s.scene___13779.fields["tileMap"];
+    s.tmp_10.arg0 = r0;
+    s.tmp_10.arg1 = s.arg1;
+    s.callLocIdx = 1212; s.pc = 6; return s.tmp_10;
+  case 6:
+    r0 = s.retval;
+    s.tmp_9 = r0;
+    r0 = pxsim.Math_.floor(s.tmp_9);
+    s.tmp_8 = r0;
+    r0 = (s.tmp_7).fields["_offsetX"] = (s.tmp_8);
+    { step = 4; continue; }
+  case 3:
+    s.tmp_0 = r0 = s.arg0;
+    r0 = pxsim.Math_.floor(s.arg1);
+    s.tmp_1 = r0;
+    r0 = (s.tmp_0).fields["_offsetX"] = (s.tmp_1);
+  case 4:
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+scene_Camera_offsetX__P2787.info = {"start":784,"length":291,"line":28,"column":8,"endLine":35,"endColumn":9,"fileName":"pxt_modules/game/camera.ts","functionName":"offsetX","argumentNames":["this","v"]}
+
+function scene_Camera_offsetX__P2787_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: scene_Camera_offsetX__P2787, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  tmp_2: undefined,
+  tmp_3: undefined,
+  tmp_4: undefined,
+  tmp_5: undefined,
+  tmp_6: undefined,
+  tmp_7: undefined,
+  tmp_8: undefined,
+  tmp_9: undefined,
+  tmp_10: undefined,
+  scene___13779: undefined,
+  arg0: undefined,
+  arg1: undefined,
+} }
+
+
+
+
+
+function tiles_TileMap_offsetX__P2741(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.arg1 = (s.lambdaArgs[1]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, tiles_TileMap__C2735_VT)) failedCast(r0);
+    s.tmp_0 = Math_clamp__P127_mk(s);
+    s.tmp_0.arg0 = 0;
+    s.tmp_1 = Math_max__P130_mk(s);
+    s.tmp_3 = tiles_TileMap_areaWidth__P2743_mk(s);
+    s.tmp_3.arg0 = s.arg0;
+    s.callLocIdx = 1123; s.pc = 3; return s.tmp_3;
+  case 3:
+    r0 = s.retval;
+    s.tmp_2 = r0;
+    r0 = pxsim_ImageMethods.width(globals.screen___2032);
+    s.tmp_4 = r0;
+    r0 = (s.tmp_2 - s.tmp_4);
+    s.tmp_1.arg0 = r0;
+    s.tmp_1.arg1 = 0;
+    s.callLocIdx = 1124; s.pc = 2; return s.tmp_1;
+  case 2:
+    r0 = s.retval;
+    s.tmp_0.arg1 = r0;
+    s.tmp_0.arg2 = s.arg1;
+    s.callLocIdx = 1125; s.pc = 1; return s.tmp_0;
+  case 1:
+    r0 = s.retval;
+    return leave(s, r0)
+  default: oops()
+} } }
+tiles_TileMap_offsetX__P2741.info = {"start":9499,"length":121,"line":325,"column":8,"endLine":327,"endColumn":9,"fileName":"pxt_modules/game/tilemap.ts","functionName":"offsetX","argumentNames":["this","value"]}
+
+function tiles_TileMap_offsetX__P2741_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: tiles_TileMap_offsetX__P2741, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  tmp_2: undefined,
+  tmp_3: undefined,
+  tmp_4: undefined,
+  arg0: undefined,
+  arg1: undefined,
+} }
+
+
+
+
+
+function tiles_TileMap_areaWidth__P2743(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, tiles_TileMap__C2735_VT)) failedCast(r0);
+    r0 = s.arg0.fields["_map"];
+    s.tmp_0 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
+    if (!r0) { step = 1; continue; }
+    r0 = s.arg0.fields["_map"];
+    s.tmp_2 = r0;
+    r0 = s.tmp_2.fields["_width"];
+    s.tmp_1 = r0;
+    r0 = s.arg0.fields["_scale"];
+    s.tmp_3 = r0;
+    r0 = (s.tmp_1 << s.tmp_3);
+    { step = 2; continue; }
+  case 1:
+    r0 = 0;
+  case 2:
+    // jmp value (already in r0)
+    s.tmp_4 = r0;
+    r0 = s.tmp_4;
+    return leave(s, r0)
+  default: oops()
+} } }
+tiles_TileMap_areaWidth__P2743.info = {"start":9763,"length":91,"line":333,"column":8,"endLine":335,"endColumn":9,"fileName":"pxt_modules/game/tilemap.ts","functionName":"areaWidth","argumentNames":["this"]}
+
+function tiles_TileMap_areaWidth__P2743_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: tiles_TileMap_areaWidth__P2743, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  tmp_2: undefined,
+  tmp_3: undefined,
+  tmp_4: undefined,
+  arg0: undefined,
+} }
+
+
+
+
+
+function scene_Camera_offsetX__P2786(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, scene_Camera__C2781_VT)) failedCast(r0);
+    r0 = s.arg0.fields["_offsetX"];
+    return leaveAccessor(s, r0)
+  default: oops()
+} } }
+scene_Camera_offsetX__P2786.info = {"start":716,"length":59,"line":25,"column":8,"endLine":27,"endColumn":9,"fileName":"pxt_modules/game/camera.ts","functionName":"offsetX","argumentNames":["this"]}
+scene_Camera_offsetX__P2786.isGetter = true;
+
+function scene_Camera_offsetX__P2786_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: scene_Camera_offsetX__P2786, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  arg0: undefined,
 } }
 
 
@@ -27830,6 +22458,820 @@ function sprites_SpriteMap_constructor__P2447_mk(s) {
 
 
 
+function helpers_imagePrint__P1990(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    s.x0___12282 = undefined;
+    s.cp___12284 = undefined;
+    s.mult___12285 = undefined;
+    s.dataW___12290 = undefined;
+    s.dataH___12296 = undefined;
+    s.byteHeight___12302 = undefined;
+    s.charSize___12308 = undefined;
+    s.dataSize___12312 = undefined;
+    s.fontdata___12316 = undefined;
+    s.lastchar___12319 = undefined;
+    s.imgBuf___12326 = undefined;
+    s.xOffset___12350 = undefined;
+    s.yOffset___12351 = undefined;
+    s.ch___12366 = undefined;
+    s.l___12385 = undefined;
+    s.r___12386 = undefined;
+    s.off___12388 = undefined;
+    s.guess___12389 = undefined;
+    s.m___12408 = undefined;
+    s.v___12417 = undefined;
+    s.i___12473 = undefined;
+    s.j___12478 = undefined;
+    s.mask___12479 = undefined;
+    s.c___12480 = undefined;
+    s.n___12497 = undefined;
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.arg1 = (s.lambdaArgs[1]);
+      s.arg2 = (s.lambdaArgs[2]);
+      s.arg3 = (s.lambdaArgs[3]);
+      s.arg4 = (s.lambdaArgs[4]);
+      s.arg5 = (s.lambdaArgs[5]);
+      s.arg6 = (s.lambdaArgs[6]);
+      s.lambdaArgs = null;
+    }
+    r0 = (s.arg2 | 0);
+    s.arg2 = (r0);
+    r0 = (s.arg3 | 0);
+    s.arg3 = (r0);
+    r0 = pxsim_numops_toBoolDecr(s.arg5);
+    s.tmp_1 = r0;
+    r0 = pxsim_Boolean__bang(s.tmp_1);
+    s.tmp_0 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
+    if (!r0) { step = 1; continue; }
+    s.tmp_2 = image_getFontForText__P1977_mk(s);
+    s.tmp_2.arg0 = s.arg1;
+    s.callLocIdx = 204; s.pc = 39; return s.tmp_2;
+  case 39:
+    r0 = s.retval;
+    s.arg5 = (r0);
+  case 1:
+  case 2:
+    r0 = pxsim_numops_toBoolDecr(s.arg4);
+    s.tmp_1 = r0;
+    r0 = pxsim_Boolean__bang(s.tmp_1);
+    s.tmp_0 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
+    if (!r0) { step = 3; continue; }
+    s.arg4 = (1);
+  case 3:
+  case 4:
+    s.x0___12282 = (s.arg2);
+    s.cp___12284 = (0);
+    s.tmp_1 = if_multiplier_1_mk(s);
+    s.tmp_1.arg0 = s.arg5;
+    if (!s.tmp_1.arg0.vtable.iface) {
+      s.retval = pxsim_pxtrt.mapGetByString(s.tmp_1.arg0, "multiplier");
+    } else {
+      s.tmp_1.fn = s.tmp_1.arg0.vtable.iface["multiplier"];
+      if (s.tmp_1.fn == null) { s.retval = s.tmp_1.arg0.fields["multiplier"]; }
+      else if (!s.tmp_1.fn.isGetter) { s.retval = bind(s.tmp_1); }
+     else { s.callLocIdx = 205; s.pc = 40; return s.tmp_1; }
+    }
+  case 40:
+    r0 = s.retval;
+    s.tmp_0 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
+    if (!r0) { step = 5; continue; }
+    s.tmp_2 = if_multiplier_1_mk(s);
+    s.tmp_2.arg0 = s.arg5;
+    if (!s.tmp_2.arg0.vtable.iface) {
+      s.retval = pxsim_pxtrt.mapGetByString(s.tmp_2.arg0, "multiplier");
+    } else {
+      s.tmp_2.fn = s.tmp_2.arg0.vtable.iface["multiplier"];
+      if (s.tmp_2.fn == null) { s.retval = s.tmp_2.arg0.fields["multiplier"]; }
+      else if (!s.tmp_2.fn.isGetter) { s.retval = bind(s.tmp_2); }
+     else { s.callLocIdx = 206; s.pc = 41; return s.tmp_2; }
+    }
+  case 41:
+    r0 = s.retval;
+    { step = 6; continue; }
+  case 5:
+    r0 = 1;
+  case 6:
+    // jmp value (already in r0)
+    s.tmp_3 = r0;
+    s.mult___12285 = (s.tmp_3);
+    s.tmp_1 = if_charWidth_1_mk(s);
+    s.tmp_1.arg0 = s.arg5;
+    if (!s.tmp_1.arg0.vtable.iface) {
+      s.retval = pxsim_pxtrt.mapGetByString(s.tmp_1.arg0, "charWidth");
+    } else {
+      s.tmp_1.fn = s.tmp_1.arg0.vtable.iface["charWidth"];
+      if (s.tmp_1.fn == null) { s.retval = s.tmp_1.arg0.fields["charWidth"]; }
+      else if (!s.tmp_1.fn.isGetter) { s.retval = bind(s.tmp_1); }
+     else { s.callLocIdx = 207; s.pc = 42; return s.tmp_1; }
+    }
+  case 42:
+    r0 = s.retval;
+    s.tmp_0 = r0;
+    r0 = pxsim.Math_.idiv(s.tmp_0, s.mult___12285);
+    s.dataW___12290 = (r0);
+    s.tmp_1 = if_charHeight_1_mk(s);
+    s.tmp_1.arg0 = s.arg5;
+    if (!s.tmp_1.arg0.vtable.iface) {
+      s.retval = pxsim_pxtrt.mapGetByString(s.tmp_1.arg0, "charHeight");
+    } else {
+      s.tmp_1.fn = s.tmp_1.arg0.vtable.iface["charHeight"];
+      if (s.tmp_1.fn == null) { s.retval = s.tmp_1.arg0.fields["charHeight"]; }
+      else if (!s.tmp_1.fn.isGetter) { s.retval = bind(s.tmp_1); }
+     else { s.callLocIdx = 208; s.pc = 43; return s.tmp_1; }
+    }
+  case 43:
+    r0 = s.retval;
+    s.tmp_0 = r0;
+    r0 = pxsim.Math_.idiv(s.tmp_0, s.mult___12285);
+    s.dataH___12296 = (r0);
+    r0 = (s.dataH___12296 + 7);
+    s.tmp_0 = r0;
+    r0 = (s.tmp_0 >> 3);
+    s.byteHeight___12302 = (r0);
+    r0 = (s.byteHeight___12302 * s.dataW___12290);
+    s.charSize___12308 = (r0);
+    r0 = (2 + s.charSize___12308);
+    s.dataSize___12312 = (r0);
+    s.tmp_0 = if_data_1_mk(s);
+    s.tmp_0.arg0 = s.arg5;
+    if (!s.tmp_0.arg0.vtable.iface) {
+      s.retval = pxsim_pxtrt.mapGetByString(s.tmp_0.arg0, "data");
+    } else {
+      s.tmp_0.fn = s.tmp_0.arg0.vtable.iface["data"];
+      if (s.tmp_0.fn == null) { s.retval = s.tmp_0.arg0.fields["data"]; }
+      else if (!s.tmp_0.fn.isGetter) { s.retval = bind(s.tmp_0); }
+     else { s.callLocIdx = 209; s.pc = 44; return s.tmp_0; }
+    }
+  case 44:
+    r0 = s.retval;
+    s.fontdata___12316 = (r0);
+    r0 = pxsim.BufferMethods.length(s.fontdata___12316);
+    s.tmp_1 = r0;
+    r0 = pxsim.Math_.idiv(s.tmp_1, s.dataSize___12312);
+    s.tmp_0 = r0;
+    r0 = (s.tmp_0 - 1);
+    s.lastchar___12319 = (r0);
+    r0 = (s.mult___12285 == 1);
+    s.tmp_0 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
+    if (!r0) { step = 7; continue; }
+    r0 = (8 + s.charSize___12308);
+    s.tmp_1 = r0;
+    r0 = pxsim.control.createBuffer(s.tmp_1);
+    s.imgBuf___12326 = (r0);
+    r0 = pxsim.BufferMethods.setByte(s.imgBuf___12326, 0, 135);
+    r0 = pxsim.BufferMethods.setByte(s.imgBuf___12326, 1, 1);
+    r0 = pxsim.BufferMethods.setByte(s.imgBuf___12326, 2, s.dataW___12290);
+    r0 = pxsim.BufferMethods.setByte(s.imgBuf___12326, 4, s.dataH___12296);
+  case 7:
+  case 8:
+  case 9:
+    s.tmp_1 = r0 = s.cp___12284;
+    r0 = pxsim_String_.length(s.arg1);
+    s.tmp_2 = r0;
+    r0 = (s.tmp_1 < s.tmp_2);
+    s.tmp_0 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
+    if (!r0) { step = 38; continue; }
+    s.xOffset___12350 = (0);
+    s.yOffset___12351 = (0);
+    s.tmp_0 = r0 = s.arg6;
+    r0 = pxsim_numops_toBool(s.tmp_0);
+    if (r0) { step = 10; continue; }
+    r0 = s.tmp_0;
+    { step = 11; continue; }
+  case 10:
+    s.tmp_1 = r0 = s.cp___12284;
+    r0 = pxsim_Array__length(s.arg6);
+    s.tmp_2 = r0;
+    r0 = (s.tmp_1 < s.tmp_2);
+  case 11:
+    // jmp value (already in r0)
+    s.tmp_3 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_3);
+    if (!r0) { step = 12; continue; }
+    s.tmp_4 = if_xOffset_1_mk(s);
+    r0 = pxsim_Array__getAt(s.arg6, s.cp___12284);
+    s.tmp_4.arg0 = r0;
+    if (!s.tmp_4.arg0.vtable.iface) {
+      s.retval = pxsim_pxtrt.mapGetByString(s.tmp_4.arg0, "xOffset");
+    } else {
+      s.tmp_4.fn = s.tmp_4.arg0.vtable.iface["xOffset"];
+      if (s.tmp_4.fn == null) { s.retval = s.tmp_4.arg0.fields["xOffset"]; }
+      else if (!s.tmp_4.fn.isGetter) { s.retval = bind(s.tmp_4); }
+     else { s.callLocIdx = 210; s.pc = 45; return s.tmp_4; }
+    }
+  case 45:
+    r0 = s.retval;
+    s.xOffset___12350 = (r0);
+    s.tmp_0 = if_yOffset_1_mk(s);
+    r0 = pxsim_Array__getAt(s.arg6, s.cp___12284);
+    s.tmp_0.arg0 = r0;
+    if (!s.tmp_0.arg0.vtable.iface) {
+      s.retval = pxsim_pxtrt.mapGetByString(s.tmp_0.arg0, "yOffset");
+    } else {
+      s.tmp_0.fn = s.tmp_0.arg0.vtable.iface["yOffset"];
+      if (s.tmp_0.fn == null) { s.retval = s.tmp_0.arg0.fields["yOffset"]; }
+      else if (!s.tmp_0.fn.isGetter) { s.retval = bind(s.tmp_0); }
+     else { s.callLocIdx = 211; s.pc = 46; return s.tmp_0; }
+    }
+  case 46:
+    r0 = s.retval;
+    s.yOffset___12351 = (r0);
+  case 12:
+  case 13:
+    s.tmp_0 = r0 = s.cp___12284;
+    r0 = (s.tmp_0 + 1);
+    s.cp___12284 = (r0);
+    r0 = pxsim_String_.charCodeAt(s.arg1, s.tmp_0);
+    s.ch___12366 = (r0);
+    r0 = (s.ch___12366 == 10);
+    s.tmp_0 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
+    if (!r0) { step = 14; continue; }
+    s.tmp_1 = r0 = s.arg3;
+    s.tmp_4 = if_charHeight_1_mk(s);
+    s.tmp_4.arg0 = s.arg5;
+    if (!s.tmp_4.arg0.vtable.iface) {
+      s.retval = pxsim_pxtrt.mapGetByString(s.tmp_4.arg0, "charHeight");
+    } else {
+      s.tmp_4.fn = s.tmp_4.arg0.vtable.iface["charHeight"];
+      if (s.tmp_4.fn == null) { s.retval = s.tmp_4.arg0.fields["charHeight"]; }
+      else if (!s.tmp_4.fn.isGetter) { s.retval = bind(s.tmp_4); }
+     else { s.callLocIdx = 212; s.pc = 47; return s.tmp_4; }
+    }
+  case 47:
+    r0 = s.retval;
+    s.tmp_3 = r0;
+    r0 = (s.tmp_3 + 2);
+    s.tmp_2 = r0;
+    r0 = (s.tmp_1 + s.tmp_2);
+    s.arg3 = (r0);
+    s.arg2 = (s.x0___12282);
+  case 14:
+  case 15:
+    r0 = (s.ch___12366 < 32);
+    s.tmp_0 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
+    if (!r0) { step = 16; continue; }
+    { step = 9; continue; }
+  case 16:
+  case 17:
+    s.l___12385 = (0);
+    s.r___12386 = (s.lastchar___12319);
+    s.off___12388 = (0);
+    r0 = (s.ch___12366 - 32);
+    s.tmp_0 = r0;
+    r0 = (s.tmp_0 * s.dataSize___12312);
+    s.guess___12389 = (r0);
+    r0 = pxsim.BufferMethods.getNumber(s.fontdata___12316, 4, s.guess___12389);
+    s.tmp_1 = r0;
+    r0 = (s.tmp_1 == s.ch___12366);
+    s.tmp_0 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
+    if (!r0) { step = 18; continue; }
+    s.off___12388 = (s.guess___12389);
+    { step = 25; continue; }
+  case 18:
+  case 19:
+    r0 = (s.l___12385 <= s.r___12386);
+    s.tmp_0 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
+    if (!r0) { step = 24; continue; }
+    s.tmp_1 = r0 = s.l___12385;
+    r0 = (s.r___12386 - s.l___12385);
+    s.tmp_3 = r0;
+    r0 = (s.tmp_3 >> 1);
+    s.tmp_2 = r0;
+    r0 = (s.tmp_1 + s.tmp_2);
+    s.m___12408 = (r0);
+    s.tmp_0 = r0 = s.fontdata___12316;
+    r0 = (s.m___12408 * s.dataSize___12312);
+    s.tmp_1 = r0;
+    r0 = pxsim.BufferMethods.getNumber(s.tmp_0, 4, s.tmp_1);
+    s.v___12417 = (r0);
+    r0 = (s.v___12417 == s.ch___12366);
+    s.tmp_0 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
+    if (!r0) { step = 20; continue; }
+    r0 = (s.m___12408 * s.dataSize___12312);
+    s.off___12388 = (r0);
+    { step = 24; continue; }
+  case 20:
+  case 21:
+    r0 = (s.v___12417 < s.ch___12366);
+    s.tmp_0 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
+    if (!r0) { step = 22; continue; }
+    r0 = (s.m___12408 + 1);
+    s.l___12385 = (r0);
+    { step = 23; continue; }
+  case 22:
+    r0 = (s.m___12408 - 1);
+    s.r___12386 = (r0);
+  case 23:
+    { step = 19; continue; }
+  case 24:
+  case 25:
+    r0 = (s.mult___12285 == 1);
+    s.tmp_0 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
+    if (!r0) { step = 26; continue; }
+    s.tmp_1 = r0 = s.imgBuf___12326;
+    s.tmp_3 = r0 = s.fontdata___12316;
+    r0 = (s.off___12388 + 2);
+    s.tmp_4 = r0;
+    r0 = pxsim.BufferMethods.slice(s.tmp_3, s.tmp_4, s.charSize___12308);
+    s.tmp_2 = r0;
+    r0 = pxsim.BufferMethods.write(s.tmp_1, 8, s.tmp_2);
+    s.tmp_0 = helpers_imageDrawIcon__P1955_mk(s);
+    s.tmp_0.arg0 = s.arg0;
+    s.tmp_0.arg1 = s.imgBuf___12326;
+    r0 = (s.arg2 + s.xOffset___12350);
+    s.tmp_0.arg2 = r0;
+    r0 = (s.arg3 + s.yOffset___12351);
+    s.tmp_0.arg3 = r0;
+    s.tmp_0.arg4 = s.arg4;
+    s.callLocIdx = 213; s.pc = 48; return s.tmp_0;
+  case 48:
+    r0 = s.retval;
+    s.tmp_0 = r0 = s.arg2;
+    s.tmp_2 = if_charWidth_1_mk(s);
+    s.tmp_2.arg0 = s.arg5;
+    if (!s.tmp_2.arg0.vtable.iface) {
+      s.retval = pxsim_pxtrt.mapGetByString(s.tmp_2.arg0, "charWidth");
+    } else {
+      s.tmp_2.fn = s.tmp_2.arg0.vtable.iface["charWidth"];
+      if (s.tmp_2.fn == null) { s.retval = s.tmp_2.arg0.fields["charWidth"]; }
+      else if (!s.tmp_2.fn.isGetter) { s.retval = bind(s.tmp_2); }
+     else { s.callLocIdx = 214; s.pc = 49; return s.tmp_2; }
+    }
+  case 49:
+    r0 = s.retval;
+    s.tmp_1 = r0;
+    r0 = (s.tmp_0 + s.tmp_1);
+    s.arg2 = (r0);
+    { step = 37; continue; }
+  case 26:
+    r0 = (s.off___12388 + 2);
+    s.off___12388 = (r0);
+    s.i___12473 = (0);
+  case 27:
+    r0 = (s.i___12473 < s.dataW___12290);
+    s.tmp_0 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
+    if (!r0) { step = 36; continue; }
+    s.j___12478 = (0);
+    s.mask___12479 = (1);
+    s.tmp_0 = r0 = s.off___12388;
+    r0 = (s.tmp_0 + 1);
+    s.off___12388 = (r0);
+    r0 = pxsim.BufferMethods.getByte(s.fontdata___12316, s.tmp_0);
+    s.c___12480 = (r0);
+  case 28:
+    r0 = (s.j___12478 < s.dataH___12296);
+    s.tmp_0 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
+    if (!r0) { step = 35; continue; }
+    r0 = (s.mask___12479 == 256);
+    s.tmp_1 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_1);
+    if (!r0) { step = 29; continue; }
+    s.tmp_2 = r0 = s.off___12388;
+    r0 = (s.tmp_2 + 1);
+    s.off___12388 = (r0);
+    r0 = pxsim.BufferMethods.getByte(s.fontdata___12316, s.tmp_2);
+    s.c___12480 = (r0);
+    s.mask___12479 = (1);
+  case 29:
+  case 30:
+    s.n___12497 = (0);
+  case 31:
+    r0 = (s.c___12480 & s.mask___12479);
+    s.tmp_0 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
+    if (!r0) { step = 32; continue; }
+    r0 = (s.n___12497 + 1);
+    s.n___12497 = (r0);
+    r0 = (s.mask___12479 << 1);
+    s.mask___12479 = (r0);
+    { step = 31; continue; }
+  case 32:
+    r0 = pxsim_numops_toBoolDecr(s.n___12497);
+    if (!r0) { step = 33; continue; }
+    s.tmp_0 = helpers_imageFillRect__P1956_mk(s);
+    s.tmp_0.arg0 = s.arg0;
+    s.tmp_1 = r0 = s.arg2;
+    r0 = (s.xOffset___12350 * s.mult___12285);
+    s.tmp_2 = r0;
+    r0 = (s.tmp_1 + s.tmp_2);
+    s.tmp_0.arg1 = r0;
+    s.tmp_3 = r0 = s.arg3;
+    r0 = (s.j___12478 + s.yOffset___12351);
+    s.tmp_5 = r0;
+    r0 = (s.tmp_5 * s.mult___12285);
+    s.tmp_4 = r0;
+    r0 = (s.tmp_3 + s.tmp_4);
+    s.tmp_0.arg2 = r0;
+    s.tmp_0.arg3 = s.mult___12285;
+    r0 = (s.mult___12285 * s.n___12497);
+    s.tmp_0.arg4 = r0;
+    s.tmp_0.arg5 = s.arg4;
+    s.callLocIdx = 215; s.pc = 50; return s.tmp_0;
+  case 50:
+    r0 = s.retval;
+    r0 = (s.j___12478 + s.n___12497);
+    s.j___12478 = (r0);
+    { step = 34; continue; }
+  case 33:
+    r0 = (s.mask___12479 << 1);
+    s.mask___12479 = (r0);
+    r0 = (s.j___12478 + 1);
+    s.j___12478 = (r0);
+  case 34:
+    { step = 28; continue; }
+  case 35:
+    r0 = (s.arg2 + s.mult___12285);
+    s.arg2 = (r0);
+    r0 = (s.i___12473 + 1);
+    s.i___12473 = (r0);
+    { step = 27; continue; }
+  case 36:
+  case 37:
+    { step = 9; continue; }
+  case 38:
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+helpers_imagePrint__P1990.info = {"start":15326,"length":3300,"line":213,"column":4,"endLine":306,"endColumn":5,"fileName":"pxt_modules/screen/text.ts","functionName":"imagePrint","argumentNames":["img","text","x","y","color","font","offsets"]}
+
+function helpers_imagePrint__P1990_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: helpers_imagePrint__P1990, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  tmp_2: undefined,
+  tmp_3: undefined,
+  tmp_4: undefined,
+  tmp_5: undefined,
+  x0___12282: undefined,
+  cp___12284: undefined,
+  mult___12285: undefined,
+  dataW___12290: undefined,
+  dataH___12296: undefined,
+  byteHeight___12302: undefined,
+  charSize___12308: undefined,
+  dataSize___12312: undefined,
+  fontdata___12316: undefined,
+  lastchar___12319: undefined,
+  imgBuf___12326: undefined,
+  xOffset___12350: undefined,
+  yOffset___12351: undefined,
+  ch___12366: undefined,
+  l___12385: undefined,
+  r___12386: undefined,
+  off___12388: undefined,
+  guess___12389: undefined,
+  m___12408: undefined,
+  v___12417: undefined,
+  i___12473: undefined,
+  j___12478: undefined,
+  mask___12479: undefined,
+  c___12480: undefined,
+  n___12497: undefined,
+  arg0: undefined,
+  arg1: undefined,
+  arg2: undefined,
+  arg3: undefined,
+  arg4: undefined,
+  arg5: undefined,
+  arg6: undefined,
+} }
+
+
+
+
+
+function helpers_imageDrawIcon__P1955(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.arg1 = (s.lambdaArgs[1]);
+      s.arg2 = (s.lambdaArgs[2]);
+      s.arg3 = (s.lambdaArgs[3]);
+      s.arg4 = (s.lambdaArgs[4]);
+      s.lambdaArgs = null;
+    }
+    s.tmp_0 = r0 = s.arg0;
+    s.tmp_1 = r0 = s.arg1;
+    s.tmp_3 = helpers_pack__P4859_mk(s);
+    s.tmp_3.arg0 = s.arg2;
+    s.tmp_3.arg1 = s.arg3;
+    s.callLocIdx = 185; s.pc = 1; return s.tmp_3;
+  case 1:
+    r0 = s.retval;
+    s.tmp_2 = r0;
+    r0 = pxsim_ImageMethods._drawIcon(s.tmp_0, s.tmp_1, s.tmp_2, s.arg4);
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+helpers_imageDrawIcon__P1955.info = {"start":5304,"length":145,"line":173,"column":4,"endLine":175,"endColumn":5,"fileName":"pxt_modules/screen/image.ts","functionName":"imageDrawIcon","argumentNames":["img","icon","x","y","c"]}
+
+function helpers_imageDrawIcon__P1955_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: helpers_imageDrawIcon__P1955, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  tmp_2: undefined,
+  tmp_3: undefined,
+  arg0: undefined,
+  arg1: undefined,
+  arg2: undefined,
+  arg3: undefined,
+  arg4: undefined,
+} }
+
+
+
+
+
+function helpers_pack__P4859(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.arg1 = (s.lambdaArgs[1]);
+      s.lambdaArgs = null;
+    }
+    s.tmp_2 = Math_clamp__P127_mk(s);
+    s.tmp_2.arg0 = -30000;
+    s.tmp_2.arg1 = 30000;
+    r0 = (s.arg0 | 0);
+    s.tmp_2.arg2 = r0;
+    s.callLocIdx = 183; s.pc = 1; return s.tmp_2;
+  case 1:
+    r0 = s.retval;
+    s.tmp_1 = r0;
+    r0 = (s.tmp_1 & 65535);
+    s.tmp_0 = r0;
+    s.tmp_5 = Math_clamp__P127_mk(s);
+    s.tmp_5.arg0 = -30000;
+    s.tmp_5.arg1 = 30000;
+    r0 = (s.arg1 | 0);
+    s.tmp_5.arg2 = r0;
+    s.callLocIdx = 184; s.pc = 2; return s.tmp_5;
+  case 2:
+    r0 = s.retval;
+    s.tmp_4 = r0;
+    r0 = (s.tmp_4 << 16);
+    s.tmp_3 = r0;
+    r0 = (s.tmp_0 | s.tmp_3);
+    return leave(s, r0)
+  default: oops()
+} } }
+helpers_pack__P4859.info = {"start":4278,"length":145,"line":148,"column":4,"endLine":150,"endColumn":5,"fileName":"pxt_modules/screen/image.ts","functionName":"pack","argumentNames":["x","y"]}
+
+function helpers_pack__P4859_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: helpers_pack__P4859, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  tmp_2: undefined,
+  tmp_3: undefined,
+  tmp_4: undefined,
+  tmp_5: undefined,
+  arg0: undefined,
+  arg1: undefined,
+} }
+
+
+
+
+
+function image_getFontForText__P1977(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    s.i___12592 = undefined;
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.lambdaArgs = null;
+    }
+    s.i___12592 = (0);
+  case 1:
+    s.tmp_1 = r0 = s.i___12592;
+    r0 = pxsim_String_.length(s.arg0);
+    s.tmp_2 = r0;
+    r0 = (s.tmp_1 < s.tmp_2);
+    s.tmp_0 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
+    if (!r0) { step = 4; continue; }
+    r0 = pxsim_String_.charCodeAt(s.arg0, s.i___12592);
+    s.tmp_4 = r0;
+    r0 = (s.tmp_4 > 8192);
+    s.tmp_3 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_3);
+    if (!r0) { step = 2; continue; }
+    r0 = globals.font12___1976;
+    { step = 5; continue; }
+  case 2:
+  case 3:
+    r0 = (s.i___12592 + 1);
+    s.i___12592 = (r0);
+    { step = 1; continue; }
+  case 4:
+    r0 = globals.font8___1975;
+  case 5:
+    return leave(s, r0)
+  default: oops()
+} } }
+image_getFontForText__P1977.info = {"start":11713,"length":259,"line":136,"column":4,"endLine":143,"endColumn":5,"fileName":"pxt_modules/screen/text.ts","functionName":"getFontForText","argumentNames":["text"]}
+
+function image_getFontForText__P1977_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: image_getFontForText__P1977, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  tmp_2: undefined,
+  tmp_3: undefined,
+  tmp_4: undefined,
+  i___12592: undefined,
+  arg0: undefined,
+} }
+
+
+
+
+
+function helpers_imageDrawLine__P1958(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.arg1 = (s.lambdaArgs[1]);
+      s.arg2 = (s.lambdaArgs[2]);
+      s.arg3 = (s.lambdaArgs[3]);
+      s.arg4 = (s.lambdaArgs[4]);
+      s.arg5 = (s.lambdaArgs[5]);
+      s.lambdaArgs = null;
+    }
+    s.tmp_0 = r0 = s.arg0;
+    s.tmp_2 = helpers_pack__P4859_mk(s);
+    s.tmp_2.arg0 = s.arg1;
+    s.tmp_2.arg1 = s.arg2;
+    s.callLocIdx = 188; s.pc = 1; return s.tmp_2;
+  case 1:
+    r0 = s.retval;
+    s.tmp_1 = r0;
+    s.tmp_4 = helpers_pack__P4859_mk(s);
+    s.tmp_4.arg0 = s.arg3;
+    s.tmp_4.arg1 = s.arg4;
+    s.callLocIdx = 189; s.pc = 2; return s.tmp_4;
+  case 2:
+    r0 = s.retval;
+    s.tmp_3 = r0;
+    r0 = pxsim_ImageMethods._drawLine(s.tmp_0, s.tmp_1, s.tmp_3, s.arg5);
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+helpers_imageDrawLine__P1958.info = {"start":5781,"length":159,"line":182,"column":4,"endLine":184,"endColumn":5,"fileName":"pxt_modules/screen/image.ts","functionName":"imageDrawLine","argumentNames":["img","x","y","w","h","c"]}
+
+function helpers_imageDrawLine__P1958_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: helpers_imageDrawLine__P1958, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  tmp_2: undefined,
+  tmp_3: undefined,
+  tmp_4: undefined,
+  arg0: undefined,
+  arg1: undefined,
+  arg2: undefined,
+  arg3: undefined,
+  arg4: undefined,
+  arg5: undefined,
+} }
+
+
+
+
+
+function helpers_imageFillRect__P1956(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.arg1 = (s.lambdaArgs[1]);
+      s.arg2 = (s.lambdaArgs[2]);
+      s.arg3 = (s.lambdaArgs[3]);
+      s.arg4 = (s.lambdaArgs[4]);
+      s.arg5 = (s.lambdaArgs[5]);
+      s.lambdaArgs = null;
+    }
+    s.tmp_0 = r0 = s.arg0;
+    s.tmp_2 = helpers_pack__P4859_mk(s);
+    s.tmp_2.arg0 = s.arg1;
+    s.tmp_2.arg1 = s.arg2;
+    s.callLocIdx = 186; s.pc = 1; return s.tmp_2;
+  case 1:
+    r0 = s.retval;
+    s.tmp_1 = r0;
+    s.tmp_4 = helpers_pack__P4859_mk(s);
+    s.tmp_4.arg0 = s.arg3;
+    s.tmp_4.arg1 = s.arg4;
+    s.callLocIdx = 187; s.pc = 2; return s.tmp_4;
+  case 2:
+    r0 = s.retval;
+    s.tmp_3 = r0;
+    r0 = pxsim_ImageMethods._fillRect(s.tmp_0, s.tmp_1, s.tmp_3, s.arg5);
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+helpers_imageFillRect__P1956.info = {"start":5454,"length":159,"line":176,"column":4,"endLine":178,"endColumn":5,"fileName":"pxt_modules/screen/image.ts","functionName":"imageFillRect","argumentNames":["img","x","y","w","h","c"]}
+
+function helpers_imageFillRect__P1956_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: helpers_imageFillRect__P1956, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  tmp_2: undefined,
+  tmp_3: undefined,
+  tmp_4: undefined,
+  arg0: undefined,
+  arg1: undefined,
+  arg2: undefined,
+  arg3: undefined,
+  arg4: undefined,
+  arg5: undefined,
+} }
+
+
+
+
+
 function control_pushEventContext__P409(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
@@ -27896,148 +23338,6 @@ function control_pushEventContext__P409_mk(s) {
 
 
 
-function control_EventContext_unregister__P402(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    s.h___11841 = undefined;
-    s.unnamed98___U1 = undefined;
-    s.unnamed99___U2 = undefined;
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, control_EventContext__C395_VT)) failedCast(r0);
-    s.h___11841 = (undefined);
-    r0 = s.arg0.fields["handlers"];
-    s.unnamed98___U1 = (r0);
-    s.unnamed99___U2 = (0);
-  case 1:
-    s.tmp_0 = r0 = s.unnamed99___U2;
-    r0 = pxsim_Array__length(s.unnamed98___U1);
-    s.tmp_1 = r0;
-    r0 = (s.tmp_0 < s.tmp_1);
-    if (!r0) { step = 2; continue; }
-    r0 = pxsim_Array__getAt(s.unnamed98___U1, s.unnamed99___U2);
-    s.h___11841 = (r0);
-    s.tmp_2 = control_EventHandler_unregister__P4716_mk(s);
-    s.tmp_2.arg0 = s.h___11841;
-    s.callLocIdx = 68; s.pc = 3; return s.tmp_2;
-  case 3:
-    r0 = s.retval;
-    r0 = (s.unnamed99___U2 + 1);
-    s.unnamed99___U2 = (r0);
-    { step = 1; continue; }
-  case 2:
-    s.unnamed98___U1 = (undefined);
-    s.tmp_0 = r0 = s.arg0;
-    r0 = s.tmp_0.fields["frameWorker"];
-    s.tmp_2 = r0;
-    r0 = (s.tmp_2 + 1);
-    s.tmp_1 = r0;
-    r0 = (s.tmp_0).fields["frameWorker"] = (s.tmp_1);
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-control_EventContext_unregister__P402.info = {"start":4721,"length":131,"line":141,"column":8,"endLine":145,"endColumn":9,"fileName":"pxt_modules/base/eventcontext.ts","functionName":"unregister","argumentNames":["this"]}
-
-function control_EventContext_unregister__P402_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: control_EventContext_unregister__P402, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  tmp_2: undefined,
-  h___11841: undefined,
-  unnamed98___U1: undefined,
-  unnamed99___U2: undefined,
-  arg0: undefined,
-} }
-
-
-
-
-
-function control_EventHandler_unregister__P4716(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, control_EventHandler__C4714_VT)) failedCast(r0);
-    r0 = s.arg0.fields["src"];
-    s.tmp_0 = r0;
-    r0 = s.arg0.fields["value"];
-    s.tmp_1 = r0;
-    r0 = s.arg0.fields["flags"];
-    s.tmp_2 = r0;
-    r0 = pxsim.control.internalOnEvent(s.tmp_0, s.tmp_1, control_doNothing__P4718, s.tmp_2);
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-control_EventHandler_unregister__P4716.info = {"start":1136,"length":106,"line":36,"column":8,"endLine":38,"endColumn":9,"fileName":"pxt_modules/base/eventcontext.ts","functionName":"unregister","argumentNames":["this"]}
-
-function control_EventHandler_unregister__P4716_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: control_EventHandler_unregister__P4716, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  tmp_2: undefined,
-  arg0: undefined,
-} }
-
-
-
-
-
-function control_doNothing__P4718(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-control_doNothing__P4718.info = {"start":1254,"length":24,"line":41,"column":4,"endLine":41,"endColumn":28,"fileName":"pxt_modules/base/eventcontext.ts","functionName":"doNothing","argumentNames":[]}
-
-function control_doNothing__P4718_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: control_doNothing__P4718, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-} }
-
-
-
-
-
 function control_EventContext_constructor__P399(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
@@ -28086,6 +23386,4378 @@ function control_EventContext_constructor__P399_mk(s) {
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
+  arg0: undefined,
+} }
+
+
+
+
+
+function controller__setUserEventsEnabled__P2206(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.lambdaArgs = null;
+    }
+    globals._userEventsEnabled___5018 = (s.arg0);
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+controller__setUserEventsEnabled__P2206.info = {"start":10070,"length":101,"line":291,"column":4,"endLine":293,"endColumn":5,"fileName":"pxt_modules/game/controllerbutton.ts","functionName":"_setUserEventsEnabled","argumentNames":["enabled"]}
+
+function controller__setUserEventsEnabled__P2206_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: controller__setUserEventsEnabled__P2206, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  arg0: undefined,
+} }
+
+
+
+
+
+function maze_EventManager_fireTimedEvents__P4549(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    s.te___10061 = undefined;
+    s.unnamed24106___U1 = undefined;
+    s.unnamed24107___U2 = undefined;
+    s.prevTime___10070 = undefined;
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, maze_EventManager__C4540_VT)) failedCast(r0);
+    s.te___10061 = (undefined);
+    r0 = s.arg0.fields["timedEvents"];
+    s.unnamed24106___U1 = (r0);
+    s.unnamed24107___U2 = (0);
+  case 1:
+    s.tmp_0 = r0 = s.unnamed24107___U2;
+    r0 = pxsim_Array__length(s.unnamed24106___U1);
+    s.tmp_1 = r0;
+    r0 = (s.tmp_0 < s.tmp_1);
+    if (!r0) { step = 6; continue; }
+    r0 = pxsim_Array__getAt(s.unnamed24106___U1, s.unnamed24107___U2);
+    s.te___10061 = (r0);
+    r0 = s.arg0.fields["maze"];
+    r0 = r0.fields["time"];
+    s.tmp_3 = r0;
+    r0 = s.te___10061.fields["time"];
+    s.tmp_4 = r0;
+    r0 = (s.tmp_3 >= s.tmp_4);
+    s.tmp_2 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_2);
+    if (!r0) { step = 4; continue; }
+    r0 = s.te___10061.fields["time"];
+    s.prevTime___10070 = (r0);
+    s.tmp_0 = maze_EventManager_callHandlers__P7569_mk(s);
+    s.tmp_0.arg0 = s.arg0;
+    r0 = s.te___10061.fields["event"];
+    s.tmp_0.arg1 = r0;
+    s.callLocIdx = 428; s.pc = 7; return s.tmp_0;
+  case 7:
+    r0 = s.retval;
+    r0 = s.te___10061.fields["time"];
+    s.tmp_1 = r0;
+    r0 = (s.tmp_1 == s.prevTime___10070);
+    s.tmp_0 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
+    if (!r0) { step = 2; continue; }
+    r0 = (s.te___10061).fields["time"] = (1000000000);
+  case 2:
+  case 3:
+  case 4:
+  case 5:
+    r0 = (s.unnamed24107___U2 + 1);
+    s.unnamed24107___U2 = (r0);
+    { step = 1; continue; }
+  case 6:
+    s.unnamed24106___U1 = (undefined);
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+maze_EventManager_fireTimedEvents__P4549.info = {"start":2126,"length":492,"line":90,"column":8,"endLine":104,"endColumn":9,"fileName":"maze_events.ts","functionName":"fireTimedEvents","argumentNames":["this"]}
+
+function maze_EventManager_fireTimedEvents__P4549_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: maze_EventManager_fireTimedEvents__P4549, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  tmp_2: undefined,
+  tmp_3: undefined,
+  tmp_4: undefined,
+  te___10061: undefined,
+  unnamed24106___U1: undefined,
+  unnamed24107___U2: undefined,
+  prevTime___10070: undefined,
+  arg0: undefined,
+} }
+
+
+
+
+
+function game_onUpdate__P3023(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.lambdaArgs = null;
+    }
+    r0 = pxsim_numops_toBoolDecr(s.arg0);
+    s.tmp_1 = r0;
+    r0 = pxsim_Boolean__bang(s.tmp_1);
+    s.tmp_0 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
+    if (!r0) { step = 1; continue; }
+    { step = 3; continue; }
+  case 1:
+  case 2:
+    s.tmp_2 = control_EventContext_registerFrameHandler__P403_mk(s);
+    s.tmp_3 = game_eventContext__P3002_mk(s);
+    s.callLocIdx = 1448; s.pc = 5; return s.tmp_3;
+  case 5:
+    r0 = s.retval;
+    s.tmp_2.arg0 = r0;
+    s.tmp_2.arg1 = 20;
+    s.tmp_2.arg2 = s.arg0;
+    s.callLocIdx = 1449; s.pc = 4; return s.tmp_2;
+  case 4:
+    r0 = s.retval;
+  case 3:
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+game_onUpdate__P3023.info = {"start":327,"length":153,"line":13,"column":4,"endLine":16,"endColumn":5,"fileName":"pxt_modules/game/gameutil.ts","functionName":"onUpdate","argumentNames":["a"]}
+
+function game_onUpdate__P3023_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: game_onUpdate__P3023, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  tmp_2: undefined,
+  tmp_3: undefined,
+  arg0: undefined,
+} }
+
+
+
+
+
+function maze_Fruit_init__P4562(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, maze_Fruit__C4555_VT)) failedCast(r0);
+    s.tmp_0 = r0 = s.arg0;
+    s.tmp_2 = maze_getMaze__P4396_mk(s);
+    s.callLocIdx = 432; s.pc = 1; return s.tmp_2;
+  case 1:
+    r0 = s.retval;
+    s.tmp_1 = r0;
+    r0 = (s.tmp_0).fields["maze"] = (s.tmp_1);
+    s.tmp_0 = r0 = s.arg0;
+    s.tmp_2 = sprites_create__P2275_mk(s);
+    s.tmp_3 = helpers_getImageByName__P3336_mk(s);
+    s.tmp_3.arg0 = "fruit";
+    s.callLocIdx = 433; s.pc = 3; return s.tmp_3;
+  case 3:
+    r0 = s.retval;
+    s.tmp_2.arg0 = r0;
+    s.tmp_2.arg1 = undefined;
+    s.callLocIdx = 434; s.pc = 2; return s.tmp_2;
+  case 2:
+    r0 = s.retval;
+    s.tmp_1 = r0;
+    r0 = (s.tmp_0).fields["sprite"] = (s.tmp_1);
+    s.tmp_0 = maze_Fruit_setVisible__P7608_mk(s);
+    s.tmp_0.arg0 = s.arg0;
+    s.tmp_0.arg1 = false;
+    s.callLocIdx = 435; s.pc = 4; return s.tmp_0;
+  case 4:
+    r0 = s.retval;
+    r0 = (s.arg0).fields["count"] = (0);
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+maze_Fruit_init__P4562.info = {"start":277,"length":176,"line":13,"column":8,"endLine":18,"endColumn":9,"fileName":"maze_fruit.ts","functionName":"init","argumentNames":["this"]}
+
+function maze_Fruit_init__P4562_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: maze_Fruit_init__P4562, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  tmp_2: undefined,
+  tmp_3: undefined,
+  arg0: undefined,
+} }
+
+
+
+
+
+function helpers_getImageByName__P3336(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.lambdaArgs = null;
+    }
+    s.tmp_0 = helpers__getFactoryInstance__P3333_mk(s);
+    s.tmp_0.arg0 = "image";
+    s.tmp_0.arg1 = s.arg0;
+    s.callLocIdx = 1781; s.pc = 1; return s.tmp_0;
+  case 1:
+    r0 = s.retval;
+    return leave(s, r0)
+  default: oops()
+} } }
+helpers_getImageByName__P3336.info = {"start":2881,"length":103,"line":87,"column":4,"endLine":89,"endColumn":5,"fileName":"pxt_modules/game/assetTemplates.ts","functionName":"getImageByName","argumentNames":["name"]}
+
+function helpers_getImageByName__P3336_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: helpers_getImageByName__P3336, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  arg0: undefined,
+} }
+
+
+
+
+
+function assets_image__P3327(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.arg1 = (s.lambdaArgs[1]);
+      s.lambdaArgs = null;
+    }
+    r0 = null;
+    return leave(s, r0)
+  default: oops()
+} } }
+assets_image__P3327.info = {"start":931,"length":71,"line":26,"column":4,"endLine":26,"endColumn":75,"fileName":"pxt_modules/game/assetTemplates.ts","functionName":"image","argumentNames":["lits","args"]}
+
+function assets_image__P3327_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: assets_image__P3327, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  arg0: undefined,
+  arg1: undefined,
+} }
+
+
+
+
+
+function sprites_create__P2275(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    s.scene___19819 = undefined;
+    s.sprite___19822 = undefined;
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.arg1 = (s.lambdaArgs[1]);
+      s.lambdaArgs = null;
+    }
+    s.tmp_0 = game_currentScene__P2999_mk(s);
+    s.callLocIdx = 467; s.pc = 1; return s.tmp_0;
+  case 1:
+    r0 = s.retval;
+    s.scene___19819 = (r0);
+    r0 = pxsim_pxtcore_mkClassInstance(Sprite__C2341_VT);
+    s.tmp_0 = r0;
+    s.tmp_1 = Sprite_constructor__P2388_mk(s);
+    s.tmp_1.arg0 = s.tmp_0;
+    s.tmp_1.arg1 = s.arg0;
+    s.callLocIdx = 468; s.pc = 2; return s.tmp_1;
+  case 2:
+    r0 = s.retval;
+    s.sprite___19822 = (s.tmp_0);
+    s.tmp_0 = Sprite_setKind__P2408_mk(s);
+    s.tmp_0.arg0 = s.sprite___19822;
+    s.tmp_0.arg1 = s.arg1;
+    s.callLocIdx = 469; s.pc = 3; return s.tmp_0;
+  case 3:
+    r0 = s.retval;
+    s.tmp_0 = PhysicsEngine__C2511_v0_2_mk(s);
+    r0 = s.scene___19819.fields["physicsEngine"];
+    s.tmp_0.arg0 = r0;
+    s.tmp_0.arg1 = s.sprite___19822;
+    if (!checkSubtype(s.tmp_0.arg0, PhysicsEngine__C2511_VT)) failedCast(s.tmp_0.arg0);
+    s.tmp_0.fn = s.tmp_0.arg0.vtable.methods.addSprite;
+    s.pc = 4; return s.tmp_0;
+  case 4:
+    r0 = s.retval;
+    r0 = pxsim_pxtcore_mkAction(1, forEach_inline__P19837);
+    s.tmp_0 = r0;
+    r0 = pxsim_pxtrt_stclo(s.tmp_0, 0, s.arg1);
+    r0 = pxsim_pxtcore_mkAction(1, sprites_create_inline__P19843);
+    s.tmp_1 = r0;
+    r0 = pxsim_pxtrt_stclo(s.tmp_1, 0, s.sprite___19822);
+    s.tmp_2 = helpers_arrayForEach__P109_mk(s);
+    s.tmp_3 = helpers_arrayFilter__P110_mk(s);
+    r0 = s.scene___19819.fields["createdHandlers"];
+    s.tmp_3.arg0 = r0;
+    s.tmp_3.arg1 = s.tmp_0;
+    s.callLocIdx = 470; s.pc = 6; return s.tmp_3;
+  case 6:
+    r0 = s.retval;
+    s.tmp_2.arg0 = r0;
+    s.tmp_2.arg1 = s.tmp_1;
+    s.callLocIdx = 472; s.pc = 5; return s.tmp_2;
+  case 5:
+    r0 = s.retval;
+    r0 = s.sprite___19822;
+    return leave(s, r0)
+  default: oops()
+} } }
+sprites_create__P2275.info = {"start":890,"length":400,"line":35,"column":4,"endLine":47,"endColumn":5,"fileName":"pxt_modules/game/sprites.ts","functionName":"create","argumentNames":["img","kind"]}
+
+function sprites_create__P2275_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: sprites_create__P2275, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  tmp_2: undefined,
+  tmp_3: undefined,
+  scene___19819: undefined,
+  sprite___19822: undefined,
+  arg0: undefined,
+  arg1: undefined,
+} }
+
+
+
+
+
+function forEach_inline__P19837(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0.fields["kind"];
+    s.tmp_0 = r0;
+    r0 = (s.tmp_0 == s.caps[0]);
+    return leave(s, r0)
+  default: oops()
+} } }
+forEach_inline__P19837.info = {"start":1195,"length":19,"line":43,"column":20,"endLine":43,"endColumn":39,"fileName":"pxt_modules/game/sprites.ts","functionName":"inline","argumentNames":["h"]}
+
+function forEach_inline__P19837_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: forEach_inline__P19837, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  arg0: undefined,
+} }
+
+
+
+
+
+function sprites_create_inline__P19843(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.lambdaArgs = null;
+    }
+    s.tmp_0 = if_handler_2_mk(s);
+    s.tmp_0.arg0 = s.arg0;
+    s.tmp_0.arg1 = s.caps[0];
+    if (!s.tmp_0.arg0.vtable.iface) {
+      setupLambda(s.tmp_0, pxsim_pxtrt.mapGetByString(s.tmp_0.arg0, "handler"), 2);
+      s.callLocIdx = 471; s.pc = 1; return s.tmp_0;
+    } else {
+      s.tmp_0.fn = s.tmp_0.arg0.vtable.iface["handler"];
+      if (s.tmp_0.fn == null) { setupLambda(s.tmp_0, s.tmp_0.arg0.fields["handler"], 2); s.callLocIdx = 471; s.pc = 1; return s.tmp_0; }
+      else if (s.tmp_0.fn.isGetter) { s.tmp_0.stage2Call = true; s.callLocIdx = 471; s.pc = 1; return s.tmp_0;; }
+     else { s.callLocIdx = 471; s.pc = 1; return s.tmp_0; }
+    }
+  case 1:
+    r0 = s.retval;
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+sprites_create_inline__P19843.info = {"start":1237,"length":22,"line":44,"column":21,"endLine":44,"endColumn":43,"fileName":"pxt_modules/game/sprites.ts","functionName":"inline","argumentNames":["h"]}
+
+function sprites_create_inline__P19843_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: sprites_create_inline__P19843, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  arg0: undefined,
+} }
+
+
+
+
+
+function PhysicsEngine_addSprite__P2513(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.arg1 = (s.lambdaArgs[1]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, PhysicsEngine__C2511_VT)) failedCast(r0);
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+PhysicsEngine_addSprite__P2513.info = {"start":124,"length":29,"line":8,"column":4,"endLine":8,"endColumn":33,"fileName":"pxt_modules/game/physics.ts","functionName":"addSprite","argumentNames":["this","sprite"]}
+
+function PhysicsEngine_addSprite__P2513_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: PhysicsEngine_addSprite__P2513, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  arg0: undefined,
+  arg1: undefined,
+} }
+
+
+
+
+
+function Sprite_setKind__P2408(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    s.spritesByKind___19861 = undefined;
+    s.overlapMap___19890 = undefined;
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.arg1 = (s.lambdaArgs[1]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, Sprite__C2341_VT)) failedCast(r0);
+    r0 = (s.arg1 == undefined);
+    s.tmp_0 = r0;
+    r0 = pxsim_numops_toBool(s.tmp_0);
+    if (!r0) { step = 1; continue; }
+    r0 = s.tmp_0;
+    { step = 2; continue; }
+  case 1:
+    r0 = s.arg0.fields["_kind"];
+    s.tmp_1 = r0;
+    r0 = (s.tmp_1 === s.arg1);
+  case 2:
+    // jmp value (already in r0)
+    s.tmp_2 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_2);
+    if (!r0) { step = 3; continue; }
+    { step = 15; continue; }
+  case 3:
+  case 4:
+    s.tmp_3 = game_currentScene__P2999_mk(s);
+    s.callLocIdx = 537; s.pc = 16; return s.tmp_3;
+  case 16:
+    r0 = s.retval;
+    r0 = r0.fields["spritesByKind"];
+    s.spritesByKind___19861 = (r0);
+    r0 = s.arg0.fields["_kind"];
+    s.tmp_1 = r0;
+    r0 = (s.tmp_1 >= 0);
+    s.tmp_0 = r0;
+    r0 = pxsim_numops_toBool(s.tmp_0);
+    if (r0) { step = 5; continue; }
+    r0 = s.tmp_0;
+    { step = 6; continue; }
+  case 5:
+    r0 = s.arg0.fields["_kind"];
+    s.tmp_2 = r0;
+    r0 = pxsim_pxtrt.mapGetGeneric(s.spritesByKind___19861, s.tmp_2);
+  case 6:
+    // jmp value (already in r0)
+    s.tmp_3 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_3);
+    if (!r0) { step = 7; continue; }
+    s.tmp_4 = sprites_SpriteSet_remove__P2470_mk(s);
+    r0 = s.arg0.fields["_kind"];
+    s.tmp_5 = r0;
+    r0 = pxsim_pxtrt.mapGetGeneric(s.spritesByKind___19861, s.tmp_5);
+    s.tmp_4.arg0 = r0;
+    s.tmp_4.arg1 = s.arg0;
+    s.callLocIdx = 538; s.pc = 17; return s.tmp_4;
+  case 17:
+    r0 = s.retval;
+  case 7:
+  case 8:
+    r0 = (s.arg1 >= 0);
+    s.tmp_0 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
+    if (!r0) { step = 11; continue; }
+    r0 = pxsim_pxtrt.mapGetGeneric(s.spritesByKind___19861, s.arg1);
+    s.tmp_3 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_3);
+    s.tmp_2 = r0;
+    r0 = pxsim_Boolean__bang(s.tmp_2);
+    s.tmp_1 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_1);
+    if (!r0) { step = 9; continue; }
+    r0 = pxsim_pxtcore_mkClassInstance(sprites_SpriteSet__C2463_VT);
+    s.tmp_4 = r0;
+    s.tmp_5 = sprites_SpriteSet_constructor__P2465_mk(s);
+    s.tmp_5.arg0 = s.tmp_4;
+    s.callLocIdx = 539; s.pc = 18; return s.tmp_5;
+  case 18:
+    r0 = s.retval;
+    r0 = pxsim_pxtrt.mapSetGeneric(s.spritesByKind___19861, s.arg1, s.tmp_4);
+  case 9:
+  case 10:
+    s.tmp_0 = sprites_SpriteSet_add__P2468_mk(s);
+    r0 = pxsim_pxtrt.mapGetGeneric(s.spritesByKind___19861, s.arg1);
+    s.tmp_0.arg0 = r0;
+    s.tmp_0.arg1 = s.arg0;
+    s.callLocIdx = 540; s.pc = 19; return s.tmp_0;
+  case 19:
+    r0 = s.retval;
+  case 11:
+  case 12:
+    s.tmp_0 = game_currentScene__P2999_mk(s);
+    s.callLocIdx = 541; s.pc = 20; return s.tmp_0;
+  case 20:
+    r0 = s.retval;
+    r0 = r0.fields["overlapMap"];
+    s.overlapMap___19890 = (r0);
+    r0 = pxsim_pxtrt.mapGetGeneric(s.overlapMap___19890, s.arg1);
+    s.tmp_2 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_2);
+    s.tmp_1 = r0;
+    r0 = pxsim_Boolean__bang(s.tmp_1);
+    s.tmp_0 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
+    if (!r0) { step = 13; continue; }
+    s.tmp_3 = r0 = s.overlapMap___19890;
+    s.tmp_4 = r0 = s.arg1;
+    r0 = pxsim_Array__mk();
+    s.tmp_5 = r0;
+    r0 = pxsim_pxtrt.mapSetGeneric(s.tmp_3, s.tmp_4, s.tmp_5);
+  case 13:
+  case 14:
+    s.tmp_0 = r0 = s.arg0;
+    r0 = pxsim_pxtrt.mapGetGeneric(s.overlapMap___19890, s.arg1);
+    s.tmp_1 = r0;
+    r0 = (s.tmp_0).fields["_kindsOverlappedWith"] = (s.tmp_1);
+    r0 = (s.arg0).fields["_kind"] = (s.arg1);
+  case 15:
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+Sprite_setKind__P2408.info = {"start":12841,"length":663,"line":464,"column":4,"endLine":484,"endColumn":5,"fileName":"pxt_modules/game/sprite.ts","functionName":"setKind","argumentNames":["this","value"]}
+
+function Sprite_setKind__P2408_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: Sprite_setKind__P2408, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  tmp_2: undefined,
+  tmp_3: undefined,
+  tmp_4: undefined,
+  tmp_5: undefined,
+  spritesByKind___19861: undefined,
+  overlapMap___19890: undefined,
+  arg0: undefined,
+  arg1: undefined,
+} }
+
+
+
+
+
+function sprites_SpriteSet_remove__P2470(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    s.i___18806 = undefined;
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.arg1 = (s.lambdaArgs[1]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, sprites_SpriteSet__C2463_VT)) failedCast(r0);
+    r0 = s.arg0.fields["_sprites"];
+    s.tmp_0 = r0;
+    r0 = pxsim_Array_.indexOf(s.tmp_0, s.arg1, undefined);
+    s.i___18806 = (r0);
+    r0 = (s.i___18806 > -1);
+    s.tmp_0 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
+    if (!r0) { step = 1; continue; }
+    s.tmp_1 = helpers_arraySplice__P100_mk(s);
+    r0 = s.arg0.fields["_sprites"];
+    s.tmp_1.arg0 = r0;
+    s.tmp_1.arg1 = s.i___18806;
+    s.tmp_1.arg2 = 1;
+    s.callLocIdx = 689; s.pc = 4; return s.tmp_1;
+  case 4:
+    r0 = s.retval;
+    r0 = true;
+    { step = 3; continue; }
+  case 1:
+  case 2:
+    r0 = false;
+  case 3:
+    return leave(s, r0)
+  default: oops()
+} } }
+sprites_SpriteSet_remove__P2470.info = {"start":1827,"length":235,"line":66,"column":8,"endLine":73,"endColumn":9,"fileName":"pxt_modules/game/spriteset.ts","functionName":"remove","argumentNames":["this","sprite"]}
+
+function sprites_SpriteSet_remove__P2470_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: sprites_SpriteSet_remove__P2470, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  i___18806: undefined,
+  arg0: undefined,
+  arg1: undefined,
+} }
+
+
+
+
+
+function sprites_SpriteSet_add__P2468(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.arg1 = (s.lambdaArgs[1]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, sprites_SpriteSet__C2463_VT)) failedCast(r0);
+    r0 = pxsim_numops_toBoolDecr(s.arg1);
+    s.tmp_1 = r0;
+    r0 = pxsim_Boolean__bang(s.tmp_1);
+    s.tmp_0 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
+    if (!r0) { step = 1; continue; }
+    r0 = false;
+    { step = 5; continue; }
+  case 1:
+  case 2:
+    r0 = s.arg0.fields["_sprites"];
+    s.tmp_4 = r0;
+    r0 = pxsim_Array_.indexOf(s.tmp_4, s.arg1, undefined);
+    s.tmp_3 = r0;
+    r0 = (s.tmp_3 > -1);
+    s.tmp_2 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_2);
+    if (!r0) { step = 3; continue; }
+    r0 = false;
+    { step = 5; continue; }
+  case 3:
+  case 4:
+    r0 = s.arg0.fields["_sprites"];
+    s.tmp_5 = r0;
+    r0 = pxsim_Array__push(s.tmp_5, s.arg1);
+    r0 = true;
+  case 5:
+    return leave(s, r0)
+  default: oops()
+} } }
+sprites_SpriteSet_add__P2468.info = {"start":1041,"length":263,"line":41,"column":8,"endLine":49,"endColumn":9,"fileName":"pxt_modules/game/spriteset.ts","functionName":"add","argumentNames":["this","sprite"]}
+
+function sprites_SpriteSet_add__P2468_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: sprites_SpriteSet_add__P2468, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  tmp_2: undefined,
+  tmp_3: undefined,
+  tmp_4: undefined,
+  tmp_5: undefined,
+  arg0: undefined,
+  arg1: undefined,
+} }
+
+
+
+
+
+function sprites_SpriteSet_contains__P2471(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.arg1 = (s.lambdaArgs[1]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, sprites_SpriteSet__C2463_VT)) failedCast(r0);
+    r0 = s.arg0.fields["_sprites"];
+    s.tmp_1 = r0;
+    r0 = pxsim_Array_.indexOf(s.tmp_1, s.arg1, undefined);
+    s.tmp_0 = r0;
+    r0 = (s.tmp_0 > -1);
+    return leave(s, r0)
+  default: oops()
+} } }
+sprites_SpriteSet_contains__P2471.info = {"start":2172,"length":100,"line":79,"column":8,"endLine":81,"endColumn":9,"fileName":"pxt_modules/game/spriteset.ts","functionName":"contains","argumentNames":["this","sprite"]}
+
+function sprites_SpriteSet_contains__P2471_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: sprites_SpriteSet_contains__P2471, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  arg0: undefined,
+  arg1: undefined,
+} }
+
+
+
+
+
+function sprites_SpriteSet_constructor__P2465(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, sprites_SpriteSet__C2463_VT)) failedCast(r0);
+    s.tmp_0 = r0 = s.arg0;
+    r0 = pxsim_Array__mk();
+    s.tmp_1 = r0;
+    r0 = (s.tmp_0).fields["_sprites"] = (s.tmp_1);
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+sprites_SpriteSet_constructor__P2465.info = {"start":485,"length":57,"line":19,"column":8,"endLine":21,"endColumn":9,"fileName":"pxt_modules/game/spriteset.ts","functionName":"inline","argumentNames":["this"]}
+
+function sprites_SpriteSet_constructor__P2465_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: sprites_SpriteSet_constructor__P2465, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  arg0: undefined,
+} }
+
+
+
+
+
+function Sprite_constructor__P2388(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.arg1 = (s.lambdaArgs[1]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, Sprite__C2341_VT)) failedCast(r0);
+    s.tmp_0 = sprites_BaseSprite_constructor__P2096_mk(s);
+    s.tmp_0.arg0 = s.arg0;
+    s.tmp_0.arg1 = 0;
+    s.callLocIdx = 499; s.pc = 1; return s.tmp_0;
+  case 1:
+    r0 = s.retval;
+    s.tmp_0 = r0 = s.arg0;
+    r0 = pxsim_ImageMethods.width(globals.screen___2032);
+    s.tmp_4 = r0;
+    r0 = pxsim_ImageMethods.width(s.arg1);
+    s.tmp_5 = r0;
+    r0 = (s.tmp_4 - s.tmp_5);
+    s.tmp_3 = r0;
+    r0 = (s.tmp_3 >> 1);
+    s.tmp_2 = r0;
+    r0 = (s.tmp_2 * 256);
+    s.tmp_6 = r0;
+    r0 = (s.tmp_6 | 0);
+    s.tmp_1 = r0;
+    r0 = (s.tmp_0).fields["_x"] = (s.tmp_1);
+    s.tmp_0 = r0 = s.arg0;
+    r0 = pxsim_ImageMethods.height(globals.screen___2032);
+    s.tmp_4 = r0;
+    r0 = pxsim_ImageMethods.height(s.arg1);
+    s.tmp_5 = r0;
+    r0 = (s.tmp_4 - s.tmp_5);
+    s.tmp_3 = r0;
+    r0 = (s.tmp_3 >> 1);
+    s.tmp_2 = r0;
+    r0 = (s.tmp_2 * 256);
+    s.tmp_6 = r0;
+    r0 = (s.tmp_6 | 0);
+    s.tmp_1 = r0;
+    r0 = (s.tmp_0).fields["_y"] = (s.tmp_1);
+    r0 = s.arg0.fields["_x"];
+    s.tmp_0 = r0;
+    r0 = (s.arg0).fields["_lastX"] = (s.tmp_0);
+    r0 = s.arg0.fields["_y"];
+    s.tmp_0 = r0;
+    r0 = (s.arg0).fields["_lastY"] = (s.tmp_0);
+    s.tmp_0 = Sprite_vx__P2359_mk(s);
+    s.tmp_0.arg0 = s.arg0;
+    s.tmp_0.arg1 = 0;
+    s.callLocIdx = 502; s.pc = 2; return s.tmp_0;
+  case 2:
+    r0 = s.retval;
+    s.tmp_0 = Sprite_vy__P2361_mk(s);
+    s.tmp_0.arg0 = s.arg0;
+    s.tmp_0.arg1 = 0;
+    s.callLocIdx = 503; s.pc = 3; return s.tmp_0;
+  case 3:
+    r0 = s.retval;
+    s.tmp_0 = Sprite_ax__P2363_mk(s);
+    s.tmp_0.arg0 = s.arg0;
+    s.tmp_0.arg1 = 0;
+    s.callLocIdx = 504; s.pc = 4; return s.tmp_0;
+  case 4:
+    r0 = s.retval;
+    s.tmp_0 = Sprite_ay__P2365_mk(s);
+    s.tmp_0.arg0 = s.arg0;
+    s.tmp_0.arg1 = 0;
+    s.callLocIdx = 505; s.pc = 5; return s.tmp_0;
+  case 5:
+    r0 = s.retval;
+    s.tmp_0 = Sprite_fx__P2367_mk(s);
+    s.tmp_0.arg0 = s.arg0;
+    s.tmp_0.arg1 = 0;
+    s.callLocIdx = 506; s.pc = 6; return s.tmp_0;
+  case 6:
+    r0 = s.retval;
+    s.tmp_0 = Sprite_fy__P2369_mk(s);
+    s.tmp_0.arg0 = s.arg0;
+    s.tmp_0.arg1 = 0;
+    s.callLocIdx = 507; s.pc = 7; return s.tmp_0;
+  case 7:
+    r0 = s.retval;
+    r0 = (s.arg0).fields["_sx"] = (256);
+    r0 = (s.arg0).fields["_sy"] = (256);
+    r0 = (s.arg0).fields["flags"] = (0);
+    s.tmp_0 = Sprite_setImage__P2391_mk(s);
+    s.tmp_0.arg0 = s.arg0;
+    s.tmp_0.arg1 = s.arg1;
+    s.callLocIdx = 508; s.pc = 8; return s.tmp_0;
+  case 8:
+    r0 = s.retval;
+    s.tmp_0 = Sprite_setKind__P2408_mk(s);
+    s.tmp_0.arg0 = s.arg0;
+    s.tmp_0.arg1 = -1;
+    s.callLocIdx = 509; s.pc = 9; return s.tmp_0;
+  case 9:
+    r0 = s.retval;
+    r0 = (s.arg0).fields["layer"] = (1);
+    r0 = (s.arg0).fields["lifespan"] = (undefined);
+    s.tmp_0 = r0 = s.arg0;
+    r0 = pxsim_Array__mk();
+    s.tmp_1 = r0;
+    r0 = (s.tmp_0).fields["_overlappers"] = (s.tmp_1);
+    s.tmp_0 = r0 = s.arg0;
+    r0 = pxsim_Array__mk();
+    s.tmp_1 = r0;
+    r0 = (s.tmp_0).fields["_obstacles"] = (s.tmp_1);
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+Sprite_constructor__P2388.info = {"start":7406,"length":678,"line":278,"column":4,"endLine":300,"endColumn":5,"fileName":"pxt_modules/game/sprite.ts","functionName":"inline","argumentNames":["this","img"]}
+
+function Sprite_constructor__P2388_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: Sprite_constructor__P2388, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  tmp_2: undefined,
+  tmp_3: undefined,
+  tmp_4: undefined,
+  tmp_5: undefined,
+  tmp_6: undefined,
+  arg0: undefined,
+  arg1: undefined,
+} }
+
+
+
+
+
+function Sprite_fy__P2369(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.arg1 = (s.lambdaArgs[1]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, Sprite__C2341_VT)) failedCast(r0);
+    s.tmp_0 = r0 = s.arg0;
+    s.tmp_3 = Math_max__P130_mk(s);
+    s.tmp_3.arg0 = 0;
+    s.tmp_3.arg1 = s.arg1;
+    s.callLocIdx = 495; s.pc = 1; return s.tmp_3;
+  case 1:
+    r0 = s.retval;
+    s.tmp_2 = r0;
+    r0 = (s.tmp_2 * 256);
+    s.tmp_4 = r0;
+    r0 = (s.tmp_4 | 0);
+    s.tmp_1 = r0;
+    r0 = (s.tmp_0).fields["_fy"] = (s.tmp_1);
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+Sprite_fy__P2369.info = {"start":5109,"length":64,"line":191,"column":4,"endLine":193,"endColumn":5,"fileName":"pxt_modules/game/sprite.ts","functionName":"fy","argumentNames":["this","v"]}
+
+function Sprite_fy__P2369_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: Sprite_fy__P2369, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  tmp_2: undefined,
+  tmp_3: undefined,
+  tmp_4: undefined,
+  arg0: undefined,
+  arg1: undefined,
+} }
+
+
+
+
+
+function Sprite_fy__P2368(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, Sprite__C2341_VT)) failedCast(r0);
+    r0 = s.arg0.fields["_fy"];
+    s.tmp_0 = r0;
+    r0 = (s.tmp_0 / 256);
+    return leaveAccessor(s, r0)
+  default: oops()
+} } }
+Sprite_fy__P2368.info = {"start":4947,"length":60,"line":186,"column":4,"endLine":188,"endColumn":5,"fileName":"pxt_modules/game/sprite.ts","functionName":"fy","argumentNames":["this"]}
+Sprite_fy__P2368.isGetter = true;
+
+function Sprite_fy__P2368_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: Sprite_fy__P2368, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  arg0: undefined,
+} }
+
+
+
+
+
+function Sprite_fx__P2367(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.arg1 = (s.lambdaArgs[1]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, Sprite__C2341_VT)) failedCast(r0);
+    s.tmp_0 = r0 = s.arg0;
+    s.tmp_3 = Math_max__P130_mk(s);
+    s.tmp_3.arg0 = 0;
+    s.tmp_3.arg1 = s.arg1;
+    s.callLocIdx = 492; s.pc = 1; return s.tmp_3;
+  case 1:
+    r0 = s.retval;
+    s.tmp_2 = r0;
+    r0 = (s.tmp_2 * 256);
+    s.tmp_4 = r0;
+    r0 = (s.tmp_4 | 0);
+    s.tmp_1 = r0;
+    r0 = (s.tmp_0).fields["_fx"] = (s.tmp_1);
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+Sprite_fx__P2367.info = {"start":4766,"length":64,"line":181,"column":4,"endLine":183,"endColumn":5,"fileName":"pxt_modules/game/sprite.ts","functionName":"fx","argumentNames":["this","v"]}
+
+function Sprite_fx__P2367_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: Sprite_fx__P2367, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  tmp_2: undefined,
+  tmp_3: undefined,
+  tmp_4: undefined,
+  arg0: undefined,
+  arg1: undefined,
+} }
+
+
+
+
+
+function Sprite_fx__P2366(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, Sprite__C2341_VT)) failedCast(r0);
+    r0 = s.arg0.fields["_fx"];
+    s.tmp_0 = r0;
+    r0 = (s.tmp_0 / 256);
+    return leaveAccessor(s, r0)
+  default: oops()
+} } }
+Sprite_fx__P2366.info = {"start":4604,"length":60,"line":176,"column":4,"endLine":178,"endColumn":5,"fileName":"pxt_modules/game/sprite.ts","functionName":"fx","argumentNames":["this"]}
+Sprite_fx__P2366.isGetter = true;
+
+function Sprite_fx__P2366_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: Sprite_fx__P2366, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  arg0: undefined,
+} }
+
+
+
+
+
+function Sprite_ay__P2365(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.arg1 = (s.lambdaArgs[1]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, Sprite__C2341_VT)) failedCast(r0);
+    s.tmp_0 = r0 = s.arg0;
+    r0 = (s.arg1 * 256);
+    s.tmp_2 = r0;
+    r0 = (s.tmp_2 | 0);
+    s.tmp_1 = r0;
+    r0 = (s.tmp_0).fields["_ay"] = (s.tmp_1);
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+Sprite_ay__P2365.info = {"start":4435,"length":51,"line":170,"column":4,"endLine":172,"endColumn":5,"fileName":"pxt_modules/game/sprite.ts","functionName":"ay","argumentNames":["this","v"]}
+
+function Sprite_ay__P2365_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: Sprite_ay__P2365, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  tmp_2: undefined,
+  arg0: undefined,
+  arg1: undefined,
+} }
+
+
+
+
+
+function Sprite_ay__P2364(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, Sprite__C2341_VT)) failedCast(r0);
+    r0 = s.arg0.fields["_ay"];
+    s.tmp_0 = r0;
+    r0 = (s.tmp_0 / 256);
+    return leaveAccessor(s, r0)
+  default: oops()
+} } }
+Sprite_ay__P2364.info = {"start":4269,"length":60,"line":165,"column":4,"endLine":167,"endColumn":5,"fileName":"pxt_modules/game/sprite.ts","functionName":"ay","argumentNames":["this"]}
+Sprite_ay__P2364.isGetter = true;
+
+function Sprite_ay__P2364_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: Sprite_ay__P2364, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  arg0: undefined,
+} }
+
+
+
+
+
+function Sprite_ax__P2363(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.arg1 = (s.lambdaArgs[1]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, Sprite__C2341_VT)) failedCast(r0);
+    s.tmp_0 = r0 = s.arg0;
+    r0 = (s.arg1 * 256);
+    s.tmp_2 = r0;
+    r0 = (s.tmp_2 | 0);
+    s.tmp_1 = r0;
+    r0 = (s.tmp_0).fields["_ax"] = (s.tmp_1);
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+Sprite_ax__P2363.info = {"start":4096,"length":51,"line":159,"column":4,"endLine":161,"endColumn":5,"fileName":"pxt_modules/game/sprite.ts","functionName":"ax","argumentNames":["this","v"]}
+
+function Sprite_ax__P2363_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: Sprite_ax__P2363, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  tmp_2: undefined,
+  arg0: undefined,
+  arg1: undefined,
+} }
+
+
+
+
+
+function Sprite_ax__P2362(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, Sprite__C2341_VT)) failedCast(r0);
+    r0 = s.arg0.fields["_ax"];
+    s.tmp_0 = r0;
+    r0 = (s.tmp_0 / 256);
+    return leaveAccessor(s, r0)
+  default: oops()
+} } }
+Sprite_ax__P2362.info = {"start":3930,"length":60,"line":154,"column":4,"endLine":156,"endColumn":5,"fileName":"pxt_modules/game/sprite.ts","functionName":"ax","argumentNames":["this"]}
+Sprite_ax__P2362.isGetter = true;
+
+function Sprite_ax__P2362_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: Sprite_ax__P2362, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  arg0: undefined,
+} }
+
+
+
+
+
+function sprites_BaseSprite_constructor__P2096(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.arg1 = (s.lambdaArgs[1]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, sprites_BaseSprite__C2094_VT)) failedCast(r0);
+    s.tmp_0 = sprites_BaseSprite_z__P2099_mk(s);
+    s.tmp_0.arg0 = s.arg0;
+    s.tmp_0.arg1 = s.arg1;
+    s.callLocIdx = 238; s.pc = 1; return s.tmp_0;
+  case 1:
+    r0 = s.retval;
+    s.tmp_0 = scene_Scene_addSprite__P2870_mk(s);
+    s.tmp_1 = game_currentScene__P2999_mk(s);
+    s.callLocIdx = 239; s.pc = 3; return s.tmp_1;
+  case 3:
+    r0 = s.retval;
+    s.tmp_0.arg0 = r0;
+    s.tmp_0.arg1 = s.arg0;
+    s.callLocIdx = 240; s.pc = 2; return s.tmp_0;
+  case 2:
+    r0 = s.retval;
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+sprites_BaseSprite_constructor__P2096.info = {"start":344,"length":170,"line":15,"column":8,"endLine":20,"endColumn":9,"fileName":"pxt_modules/game/basesprite.ts","functionName":"inline","argumentNames":["this","z"]}
+
+function sprites_BaseSprite_constructor__P2096_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: sprites_BaseSprite_constructor__P2096, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  arg0: undefined,
+  arg1: undefined,
+} }
+
+
+
+
+
+function scene_Scene_addSprite__P2870(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.arg1 = (s.lambdaArgs[1]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, scene_Scene__C2843_VT)) failedCast(r0);
+    r0 = s.arg0.fields["allSprites"];
+    s.tmp_0 = r0;
+    r0 = pxsim_Array__push(s.tmp_0, s.arg1);
+    s.tmp_0 = r0 = s.arg0;
+    r0 = s.tmp_0.fields["spriteNextId"];
+    s.tmp_2 = r0;
+    r0 = (s.tmp_2 + 1);
+    s.tmp_1 = r0;
+    r0 = (s.tmp_0).fields["spriteNextId"] = (s.tmp_1);
+    s.tmp_3 = if_id_2_mk(s);
+    s.tmp_3.arg0 = s.arg1;
+    s.tmp_3.arg1 = s.tmp_2;
+    if (!s.tmp_3.arg0.vtable.iface) {
+      s.retval = pxsim_pxtrt.mapSetByString(s.tmp_3.arg0, "id", s.tmp_3.arg1);
+    } else {
+      s.tmp_3.fn = s.tmp_3.arg0.vtable.iface["set/id"];
+      if (s.tmp_3.fn === null) { s.tmp_3.arg0.fields["id"] = s.tmp_3.arg1; }
+      else if (s.tmp_3.fn === undefined) { failedCast(s.tmp_3.arg0) } 
+     else { s.callLocIdx = 1260; s.pc = 1; return s.tmp_3; }
+    }
+  case 1:
+    r0 = s.retval;
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+scene_Scene_addSprite__P2870.info = {"start":7218,"length":128,"line":200,"column":8,"endLine":203,"endColumn":9,"fileName":"pxt_modules/game/scene.ts","functionName":"addSprite","argumentNames":["this","sprite"]}
+
+function scene_Scene_addSprite__P2870_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: scene_Scene_addSprite__P2870, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  tmp_2: undefined,
+  tmp_3: undefined,
+  arg0: undefined,
+  arg1: undefined,
+} }
+
+
+
+
+
+function sprites_BaseSprite_z__P2099(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.arg1 = (s.lambdaArgs[1]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, sprites_BaseSprite__C2094_VT)) failedCast(r0);
+    r0 = s.arg0.fields["_z"];
+    s.tmp_1 = r0;
+    r0 = (s.tmp_1 !== s.arg1);
+    s.tmp_0 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
+    if (!r0) { step = 1; continue; }
+    r0 = (s.arg0).fields["_z"] = (s.arg1);
+    s.tmp_1 = game_currentScene__P2999_mk(s);
+    s.callLocIdx = 241; s.pc = 3; return s.tmp_1;
+  case 3:
+    r0 = s.retval;
+    s.tmp_0 = r0;
+    r0 = s.tmp_0.fields["flags"];
+    s.tmp_3 = r0;
+    r0 = (s.tmp_3 | 1);
+    s.tmp_2 = r0;
+    r0 = (s.tmp_0).fields["flags"] = (s.tmp_2);
+  case 1:
+  case 2:
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+sprites_BaseSprite_z__P2099.info = {"start":656,"length":174,"line":30,"column":8,"endLine":35,"endColumn":9,"fileName":"pxt_modules/game/basesprite.ts","functionName":"z","argumentNames":["this","v"]}
+
+function sprites_BaseSprite_z__P2099_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: sprites_BaseSprite_z__P2099, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  tmp_2: undefined,
+  tmp_3: undefined,
+  arg0: undefined,
+  arg1: undefined,
+} }
+
+
+
+
+
+function sprites_BaseSprite_z__P2098(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, sprites_BaseSprite__C2094_VT)) failedCast(r0);
+    r0 = s.arg0.fields["_z"];
+    return leaveAccessor(s, r0)
+  default: oops()
+} } }
+sprites_BaseSprite_z__P2098.info = {"start":591,"length":55,"line":26,"column":8,"endLine":28,"endColumn":9,"fileName":"pxt_modules/game/basesprite.ts","functionName":"z","argumentNames":["this"]}
+sprites_BaseSprite_z__P2098.isGetter = true;
+
+function sprites_BaseSprite_z__P2098_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: sprites_BaseSprite_z__P2098, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  arg0: undefined,
+} }
+
+
+
+
+
+function maze_Chaser_init__P200287(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, maze_Chaser__C200286_VT)) failedCast(r0);
+    s.tmp_0 = r0 = s.arg0;
+    s.tmp_2 = maze_getMaze__P4396_mk(s);
+    s.callLocIdx = 465; s.pc = 1; return s.tmp_2;
+  case 1:
+    r0 = s.retval;
+    s.tmp_1 = r0;
+    r0 = (s.tmp_0).fields["maze"] = (s.tmp_1);
+    s.tmp_0 = maze_DirImage_load__P232039_mk(s);
+    r0 = s.arg0.fields["img"];
+    s.tmp_0.arg0 = r0;
+    r0 = s.arg0.fields["id"];
+    s.tmp_2 = r0;
+    if ((s.tmp_2) && (s.tmp_2).vtable) {
+    setupResume(s, 3);
+    pxsim_String__stringConv(s.tmp_2);
+    checkResumeConsumed();
+    return;
+    } else { s.retval = (s.tmp_2) + ""; }
+  case 3:
+    r0 = s.retval;
+    s.tmp_1 = r0;
+    r0 = pxsim_String__concat("chaser", s.tmp_1);
+    s.tmp_0.arg1 = r0;
+    s.callLocIdx = 466; s.pc = 2; return s.tmp_0;
+  case 2:
+    r0 = s.retval;
+    s.tmp_0 = maze_Mover_init__P232018_mk(s);
+    r0 = s.arg0.fields["mover"];
+    s.tmp_0.arg0 = r0;
+    r0 = s.arg0.fields["img"];
+    s.tmp_0.arg1 = r0;
+    s.callLocIdx = 467; s.pc = 4; return s.tmp_0;
+  case 4:
+    r0 = s.retval;
+    r0 = s.arg0.fields["mover"];
+    s.tmp_0 = r0;
+    r0 = (s.tmp_0).fields["mapType"] = (64);
+    s.tmp_0 = maze_DirImage_load__P232039_mk(s);
+    r0 = s.arg0.fields["imgReturn"];
+    s.tmp_0.arg0 = r0;
+    s.tmp_0.arg1 = "eyes";
+    s.callLocIdx = 468; s.pc = 5; return s.tmp_0;
+  case 5:
+    r0 = s.retval;
+    s.tmp_0 = maze_DirImage_load__P232039_mk(s);
+    r0 = s.arg0.fields["imgFright"];
+    s.tmp_0.arg0 = r0;
+    s.tmp_0.arg1 = "chaser_fright";
+    s.callLocIdx = 469; s.pc = 6; return s.tmp_0;
+  case 6:
+    r0 = s.retval;
+    s.tmp_0 = maze_DirImage_load__P232039_mk(s);
+    r0 = s.arg0.fields["imgWarn"];
+    s.tmp_0.arg0 = r0;
+    s.tmp_0.arg1 = "chaser_warn";
+    s.callLocIdx = 470; s.pc = 7; return s.tmp_0;
+  case 7:
+    r0 = s.retval;
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+maze_Chaser_init__P200287.info = {"start":1162,"length":332,"line":51,"column":8,"endLine":62,"endColumn":9,"fileName":"maze_chaser.ts","functionName":"init","argumentNames":["this"]}
+
+function maze_Chaser_init__P200287_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: maze_Chaser_init__P200287, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  tmp_2: undefined,
+  arg0: undefined,
+} }
+
+
+
+
+
+function maze_Mover_init__P232018(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.arg1 = (s.lambdaArgs[1]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, maze_Mover__C232017_VT)) failedCast(r0);
+    s.tmp_0 = r0 = s.arg0;
+    s.tmp_2 = maze_getMaze__P4396_mk(s);
+    s.callLocIdx = 230; s.pc = 1; return s.tmp_2;
+  case 1:
+    r0 = s.retval;
+    s.tmp_1 = r0;
+    r0 = (s.tmp_0).fields["maze"] = (s.tmp_1);
+    r0 = (s.arg0).fields["images"] = (s.arg1);
+    s.tmp_0 = r0 = s.arg0;
+    s.tmp_2 = sprites_create__P2275_mk(s);
+    r0 = s.arg0.fields["images"];
+    r0 = r0.fields["img"];
+    s.tmp_2.arg0 = r0;
+    s.tmp_2.arg1 = undefined;
+    s.callLocIdx = 231; s.pc = 2; return s.tmp_2;
+  case 2:
+    r0 = s.retval;
+    s.tmp_1 = r0;
+    r0 = (s.tmp_0).fields["sprite"] = (s.tmp_1);
+    s.tmp_0 = maze_Mover_setVisible__P232026_mk(s);
+    s.tmp_0.arg0 = s.arg0;
+    s.tmp_0.arg1 = false;
+    s.callLocIdx = 232; s.pc = 3; return s.tmp_0;
+  case 3:
+    r0 = s.retval;
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+maze_Mover_init__P232018.info = {"start":3797,"length":240,"line":117,"column":8,"endLine":124,"endColumn":9,"fileName":"maze_mover.ts","functionName":"init","argumentNames":["this","images"]}
+
+function maze_Mover_init__P232018_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: maze_Mover_init__P232018, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  tmp_2: undefined,
+  arg0: undefined,
+  arg1: undefined,
+} }
+
+
+
+
+
+function maze_DirImage_load__P232039(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.arg1 = (s.lambdaArgs[1]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, maze_DirImage__C232036_VT)) failedCast(r0);
+    s.tmp_0 = r0 = s.arg0;
+    s.tmp_2 = helpers_getImageByName__P3336_mk(s);
+    s.tmp_2.arg0 = s.arg1;
+    s.callLocIdx = 216; s.pc = 1; return s.tmp_2;
+  case 1:
+    r0 = s.retval;
+    s.tmp_1 = r0;
+    r0 = (s.tmp_0).fields["img"] = (s.tmp_1);
+    s.tmp_0 = r0 = s.arg0;
+    s.tmp_2 = maze_DirImage_loadAnim__P232037_mk(s);
+    s.tmp_2.arg0 = s.arg0;
+    s.tmp_2.arg1 = s.arg1;
+    s.callLocIdx = 217; s.pc = 2; return s.tmp_2;
+  case 2:
+    r0 = s.retval;
+    s.tmp_1 = r0;
+    r0 = (s.tmp_0).fields["anim"] = (s.tmp_1);
+    s.tmp_0 = r0 = s.arg0;
+    s.tmp_2 = maze_DirImage_loadAnim__P232037_mk(s);
+    s.tmp_2.arg0 = s.arg0;
+    if ((s.arg1) && (s.arg1).vtable) {
+    setupResume(s, 4);
+    pxsim_String__stringConv(s.arg1);
+    checkResumeConsumed();
+    return;
+    } else { s.retval = (s.arg1) + ""; }
+  case 4:
+    r0 = s.retval;
+    s.tmp_3 = r0;
+    r0 = pxsim_String__concat(s.tmp_3, "_up");
+    s.tmp_2.arg1 = r0;
+    s.callLocIdx = 218; s.pc = 3; return s.tmp_2;
+  case 3:
+    r0 = s.retval;
+    s.tmp_1 = r0;
+    r0 = (s.tmp_0).fields["animUp"] = (s.tmp_1);
+    s.tmp_0 = r0 = s.arg0;
+    s.tmp_2 = maze_DirImage_loadAnim__P232037_mk(s);
+    s.tmp_2.arg0 = s.arg0;
+    if ((s.arg1) && (s.arg1).vtable) {
+    setupResume(s, 6);
+    pxsim_String__stringConv(s.arg1);
+    checkResumeConsumed();
+    return;
+    } else { s.retval = (s.arg1) + ""; }
+  case 6:
+    r0 = s.retval;
+    s.tmp_3 = r0;
+    r0 = pxsim_String__concat(s.tmp_3, "_down");
+    s.tmp_2.arg1 = r0;
+    s.callLocIdx = 219; s.pc = 5; return s.tmp_2;
+  case 5:
+    r0 = s.retval;
+    s.tmp_1 = r0;
+    r0 = (s.tmp_0).fields["animDown"] = (s.tmp_1);
+    s.tmp_0 = r0 = s.arg0;
+    s.tmp_2 = maze_DirImage_loadAnim__P232037_mk(s);
+    s.tmp_2.arg0 = s.arg0;
+    if ((s.arg1) && (s.arg1).vtable) {
+    setupResume(s, 8);
+    pxsim_String__stringConv(s.arg1);
+    checkResumeConsumed();
+    return;
+    } else { s.retval = (s.arg1) + ""; }
+  case 8:
+    r0 = s.retval;
+    s.tmp_3 = r0;
+    r0 = pxsim_String__concat(s.tmp_3, "_left");
+    s.tmp_2.arg1 = r0;
+    s.callLocIdx = 220; s.pc = 7; return s.tmp_2;
+  case 7:
+    r0 = s.retval;
+    s.tmp_1 = r0;
+    r0 = (s.tmp_0).fields["animLeft"] = (s.tmp_1);
+    s.tmp_0 = r0 = s.arg0;
+    s.tmp_2 = maze_DirImage_loadAnim__P232037_mk(s);
+    s.tmp_2.arg0 = s.arg0;
+    if ((s.arg1) && (s.arg1).vtable) {
+    setupResume(s, 10);
+    pxsim_String__stringConv(s.arg1);
+    checkResumeConsumed();
+    return;
+    } else { s.retval = (s.arg1) + ""; }
+  case 10:
+    r0 = s.retval;
+    s.tmp_3 = r0;
+    r0 = pxsim_String__concat(s.tmp_3, "_right");
+    s.tmp_2.arg1 = r0;
+    s.callLocIdx = 221; s.pc = 9; return s.tmp_2;
+  case 9:
+    r0 = s.retval;
+    s.tmp_1 = r0;
+    r0 = (s.tmp_0).fields["animRight"] = (s.tmp_1);
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+maze_DirImage_load__P232039.info = {"start":1261,"length":356,"line":39,"column":8,"endLine":46,"endColumn":9,"fileName":"maze_mover.ts","functionName":"load","argumentNames":["this","name"]}
+
+function maze_DirImage_load__P232039_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: maze_DirImage_load__P232039, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  tmp_2: undefined,
+  tmp_3: undefined,
+  arg0: undefined,
+  arg1: undefined,
+} }
+
+
+
+
+
+function maze_DirImage_loadAnim__P232037(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    s.images___232103 = undefined;
+    s.i___232105 = undefined;
+    s.img___232109 = undefined;
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.arg1 = (s.lambdaArgs[1]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, maze_DirImage__C232036_VT)) failedCast(r0);
+    r0 = pxsim_Array__mk();
+    s.images___232103 = (r0);
+    s.i___232105 = (0);
+  case 1:
+    r0 = (s.i___232105 < 32);
+    s.tmp_0 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
+    if (!r0) { step = 4; continue; }
+    s.tmp_1 = helpers_getImageByName__P3336_mk(s);
+    if ((s.arg1) && (s.arg1).vtable) {
+    setupResume(s, 8);
+    pxsim_String__stringConv(s.arg1);
+    checkResumeConsumed();
+    return;
+    } else { s.retval = (s.arg1) + ""; }
+  case 8:
+    r0 = s.retval;
+    s.tmp_2 = r0;
+    if ((s.i___232105) && (s.i___232105).vtable) {
+    setupResume(s, 9);
+    pxsim_String__stringConv(s.i___232105);
+    checkResumeConsumed();
+    return;
+    } else { s.retval = (s.i___232105) + ""; }
+  case 9:
+    r0 = s.retval;
+    s.tmp_3 = r0;
+    r0 = pxsim_String__concat(s.tmp_2, s.tmp_3);
+    s.tmp_1.arg0 = r0;
+    s.callLocIdx = 214; s.pc = 7; return s.tmp_1;
+  case 7:
+    r0 = s.retval;
+    s.img___232109 = (r0);
+    r0 = pxsim_numops_toBoolDecr(s.img___232109);
+    if (!r0) { step = 2; continue; }
+    r0 = pxsim_Array__push(s.images___232103, s.img___232109);
+    { step = 3; continue; }
+  case 2:
+    { step = 4; continue; }
+  case 3:
+    r0 = (s.i___232105 + 1);
+    s.i___232105 = (r0);
+    { step = 1; continue; }
+  case 4:
+    s.tmp_0 = console_log__P380_mk(s);
+    if ((s.arg1) && (s.arg1).vtable) {
+    setupResume(s, 11);
+    pxsim_String__stringConv(s.arg1);
+    checkResumeConsumed();
+    return;
+    } else { s.retval = (s.arg1) + ""; }
+  case 11:
+    r0 = s.retval;
+    s.tmp_3 = r0;
+    r0 = pxsim_String__concat(s.tmp_3, ":");
+    s.tmp_2 = r0;
+    if ((s.tmp_2) && (s.tmp_2).vtable) {
+    setupResume(s, 12);
+    pxsim_String__stringConv(s.tmp_2);
+    checkResumeConsumed();
+    return;
+    } else { s.retval = (s.tmp_2) + ""; }
+  case 12:
+    r0 = s.retval;
+    s.tmp_1 = r0;
+    r0 = pxsim_Array__length(s.images___232103);
+    s.tmp_5 = r0;
+    if ((s.tmp_5) && (s.tmp_5).vtable) {
+    setupResume(s, 13);
+    pxsim_String__stringConv(s.tmp_5);
+    checkResumeConsumed();
+    return;
+    } else { s.retval = (s.tmp_5) + ""; }
+  case 13:
+    r0 = s.retval;
+    s.tmp_4 = r0;
+    r0 = pxsim_String__concat(s.tmp_1, s.tmp_4);
+    s.tmp_0.arg0 = r0;
+    s.callLocIdx = 215; s.pc = 10; return s.tmp_0;
+  case 10:
+    r0 = s.retval;
+    r0 = pxsim_Array__length(s.images___232103);
+    s.tmp_1 = r0;
+    r0 = (s.tmp_1 > 0);
+    s.tmp_0 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
+    if (!r0) { step = 5; continue; }
+    r0 = s.images___232103;
+    { step = 6; continue; }
+  case 5:
+    r0 = null;
+  case 6:
+    // jmp value (already in r0)
+    s.tmp_2 = r0;
+    r0 = s.tmp_2;
+    return leave(s, r0)
+  default: oops()
+} } }
+maze_DirImage_loadAnim__P232037.info = {"start":317,"length":453,"line":15,"column":8,"endLine":27,"endColumn":9,"fileName":"maze_mover.ts","functionName":"loadAnim","argumentNames":["this","name"]}
+
+function maze_DirImage_loadAnim__P232037_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: maze_DirImage_loadAnim__P232037, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  tmp_2: undefined,
+  tmp_3: undefined,
+  tmp_4: undefined,
+  tmp_5: undefined,
+  images___232103: undefined,
+  i___232105: undefined,
+  img___232109: undefined,
+  arg0: undefined,
+  arg1: undefined,
+} }
+
+
+
+
+
+function console_log__P380(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.lambdaArgs = null;
+    }
+    s.tmp_0 = console_add__P376_mk(s);
+    s.tmp_0.arg0 = 1;
+    s.tmp_0.arg1 = s.arg0;
+    s.callLocIdx = 45; s.pc = 1; return s.tmp_0;
+  case 1:
+    r0 = s.retval;
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+console_log__P380.info = {"start":1450,"length":86,"line":58,"column":4,"endLine":60,"endColumn":5,"fileName":"pxt_modules/base/console.ts","functionName":"log","argumentNames":["value"]}
+
+function console_log__P380_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: console_log__P380, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  arg0: undefined,
+} }
+
+
+
+
+
+function console_add__P376(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    s.text___11369 = undefined;
+    s.i___11378 = undefined;
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.arg1 = (s.lambdaArgs[1]);
+      s.lambdaArgs = null;
+    }
+    r0 = (s.arg0 < globals.minPriority___375);
+    s.tmp_0 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
+    if (!r0) { step = 1; continue; }
+    { step = 5; continue; }
+  case 1:
+  case 2:
+    s.tmp_1 = console_inspect__P382_mk(s);
+    s.tmp_1.arg0 = s.arg1;
+    s.tmp_1.arg1 = 20;
+    s.callLocIdx = 43; s.pc = 6; return s.tmp_1;
+  case 6:
+    r0 = s.retval;
+    s.text___11369 = (r0);
+    if ((s.text___11369) && (s.text___11369).vtable) {
+    setupResume(s, 7);
+    pxsim_String__stringConv(s.text___11369);
+    checkResumeConsumed();
+    return;
+    } else { s.retval = (s.text___11369) + ""; }
+  case 7:
+    r0 = s.retval;
+    s.tmp_0 = r0;
+    r0 = pxsim_String__concat(s.tmp_0, "\n");
+    s.text___11369 = (r0);
+    s.i___11378 = (0);
+  case 3:
+    s.tmp_1 = r0 = s.i___11378;
+    r0 = pxsim_Array__length(globals.listeners___4700);
+    s.tmp_2 = r0;
+    r0 = (s.tmp_1 < s.tmp_2);
+    s.tmp_0 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
+    if (!r0) { step = 4; continue; }
+    s.tmp_3 = lambda_3_mk(s);
+    r0 = pxsim_Array__getAt(globals.listeners___4700, s.i___11378);
+    s.tmp_3.argL = r0;
+    s.tmp_3.arg0 = s.arg0;
+    s.tmp_3.arg1 = s.text___11369;
+    setupLambda(s.tmp_3, s.tmp_3.argL);
+    s.callLocIdx = 44; s.pc = 8; return s.tmp_3;
+  case 8:
+    r0 = s.retval;
+    r0 = (s.i___11378 + 1);
+    s.i___11378 = (r0);
+    { step = 3; continue; }
+  case 4:
+  case 5:
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+console_add__P376.info = {"start":632,"length":317,"line":28,"column":4,"endLine":36,"endColumn":5,"fileName":"pxt_modules/base/console.ts","functionName":"add","argumentNames":["priority","message"]}
+
+function console_add__P376_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: console_add__P376, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  tmp_2: undefined,
+  tmp_3: undefined,
+  text___11369: undefined,
+  i___11378: undefined,
+  arg0: undefined,
+  arg1: undefined,
+} }
+
+
+
+
+
+function listeners_inline__P4699(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.arg1 = (s.lambdaArgs[1]);
+      s.lambdaArgs = null;
+    }
+    r0 = pxsim.control.__log(s.arg0, s.arg1);
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+listeners_inline__P4699.info = {"start":534,"length":85,"line":25,"column":8,"endLine":25,"endColumn":93,"fileName":"pxt_modules/base/console.ts","functionName":"inline","argumentNames":["priority","text"]}
+
+function listeners_inline__P4699_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: listeners_inline__P4699, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  arg0: undefined,
+  arg1: undefined,
+} }
+
+
+
+
+
+function console_inspect__P382(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    s.asArr___11416 = undefined;
+    s.asString___11434 = undefined;
+    s.keys___11446 = undefined;
+    s.snipped___11450 = undefined;
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.arg1 = (s.lambdaArgs[1]);
+      s.lambdaArgs = null;
+    }
+    r0 = pxsim_pxtcore.typeOf(s.arg0);
+    s.tmp_1 = r0;
+    r0 = (s.tmp_1 == "string");
+    s.tmp_0 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
+    if (!r0) { step = 1; continue; }
+    r0 = s.arg0;
+    { step = 17; continue; }
+    { step = 16; continue; }
+  case 1:
+    r0 = pxsim_pxtcore.typeOf(s.arg0);
+    s.tmp_3 = r0;
+    r0 = (s.tmp_3 == "number");
+    s.tmp_2 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_2);
+    if (!r0) { step = 2; continue; }
+    r0 = pxsim_String_.mkEmpty();
+    s.tmp_4 = r0;
+    if ((s.arg0) && (s.arg0).vtable) {
+    setupResume(s, 18);
+    pxsim_String__stringConv(s.arg0);
+    checkResumeConsumed();
+    return;
+    } else { s.retval = (s.arg0) + ""; }
+  case 18:
+    r0 = s.retval;
+    s.tmp_5 = r0;
+    r0 = pxsim_String__concat(s.tmp_4, s.tmp_5);
+    { step = 17; continue; }
+    { step = 15; continue; }
+  case 2:
+    r0 = pxsim_Array_.isArray(s.arg0);
+    s.tmp_6 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_6);
+    if (!r0) { step = 5; continue; }
+    s.asArr___11416 = (s.arg0);
+    r0 = pxsim_Array__length(s.asArr___11416);
+    s.tmp_1 = r0;
+    r0 = (s.tmp_1 <= s.arg1);
+    s.tmp_0 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
+    if (!r0) { step = 3; continue; }
+    s.tmp_2 = helpers_arrayJoin__P103_mk(s);
+    s.tmp_2.arg0 = s.asArr___11416;
+    s.tmp_2.arg1 = ",";
+    s.callLocIdx = 46; s.pc = 19; return s.tmp_2;
+  case 19:
+    r0 = s.retval;
+    { step = 17; continue; }
+    { step = 4; continue; }
+  case 3:
+    r0 = pxsim_String_.mkEmpty();
+    s.tmp_4 = r0;
+    s.tmp_7 = helpers_arrayJoin__P103_mk(s);
+    s.tmp_8 = helpers_arraySlice__P115_mk(s);
+    s.tmp_8.arg0 = s.asArr___11416;
+    s.tmp_8.arg1 = 0;
+    s.tmp_8.arg2 = s.arg1;
+    s.callLocIdx = 47; s.pc = 21; return s.tmp_8;
+  case 21:
+    r0 = s.retval;
+    s.tmp_7.arg0 = r0;
+    s.tmp_7.arg1 = ",";
+    s.callLocIdx = 48; s.pc = 20; return s.tmp_7;
+  case 20:
+    r0 = s.retval;
+    s.tmp_6 = r0;
+    if ((s.tmp_6) && (s.tmp_6).vtable) {
+    setupResume(s, 22);
+    pxsim_String__stringConv(s.tmp_6);
+    checkResumeConsumed();
+    return;
+    } else { s.retval = (s.tmp_6) + ""; }
+  case 22:
+    r0 = s.retval;
+    s.tmp_5 = r0;
+    r0 = pxsim_String__concat(s.tmp_4, s.tmp_5);
+    s.tmp_3 = r0;
+    r0 = pxsim_String__concat(s.tmp_3, "...");
+    { step = 17; continue; }
+  case 4:
+    { step = 14; continue; }
+  case 5:
+    if ((s.arg0) && (s.arg0).vtable) {
+    setupResume(s, 23);
+    pxsim_String__stringConv(s.arg0);
+    checkResumeConsumed();
+    return;
+    } else { s.retval = (s.arg0) + ""; }
+  case 23:
+    r0 = s.retval;
+    s.tmp_9 = r0;
+    r0 = pxsim_String_.mkEmpty();
+    s.tmp_10 = r0;
+    r0 = pxsim_String__concat(s.tmp_9, s.tmp_10);
+    s.asString___11434 = (r0);
+    r0 = (s.asString___11434 != "[object Object]");
+    s.tmp_0 = r0;
+    r0 = pxsim_numops_toBool(s.tmp_0);
+    if (r0) { step = 6; continue; }
+    r0 = s.tmp_0;
+    { step = 7; continue; }
+  case 6:
+    r0 = (s.asString___11434 != "[Object]");
+  case 7:
+    // jmp value (already in r0)
+    s.tmp_1 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_1);
+    if (!r0) { step = 8; continue; }
+    r0 = s.asString___11434;
+    { step = 17; continue; }
+  case 8:
+  case 9:
+    r0 = pxsim_pxtrt.keysOf(s.arg0);
+    s.keys___11446 = (r0);
+    r0 = pxsim_Array__length(s.keys___11446);
+    s.tmp_0 = r0;
+    r0 = (s.tmp_0 > s.arg1);
+    s.snipped___11450 = (r0);
+    r0 = pxsim_numops_toBoolDecr(s.snipped___11450);
+    if (!r0) { step = 10; continue; }
+    s.tmp_0 = helpers_arraySlice__P115_mk(s);
+    s.tmp_0.arg0 = s.keys___11446;
+    s.tmp_0.arg1 = 0;
+    s.tmp_0.arg2 = s.arg1;
+    s.callLocIdx = 49; s.pc = 24; return s.tmp_0;
+  case 24:
+    r0 = s.retval;
+    s.keys___11446 = (r0);
+  case 10:
+  case 11:
+    r0 = pxsim_pxtcore_mkAction(1, console_inspect_inline__P11467);
+    s.tmp_0 = r0;
+    r0 = pxsim_pxtrt_stclo(s.tmp_0, 0, s.arg0);
+    r0 = pxsim_numops_toBoolDecr(s.snipped___11450);
+    if (!r0) { step = 12; continue; }
+    r0 = "\n    ...";
+    { step = 13; continue; }
+  case 12:
+    r0 = pxsim_String_.mkEmpty();
+  case 13:
+    // jmp value (already in r0)
+    s.tmp_1 = r0;
+    s.tmp_7 = helpers_arrayReduce__P112_mk(s);
+    s.tmp_7.arg0 = s.keys___11446;
+    s.tmp_7.arg1 = s.tmp_0;
+    r0 = pxsim_String_.mkEmpty();
+    s.tmp_7.arg2 = r0;
+    s.callLocIdx = 50; s.pc = 25; return s.tmp_7;
+  case 25:
+    r0 = s.retval;
+    s.tmp_6 = r0;
+    if ((s.tmp_6) && (s.tmp_6).vtable) {
+    setupResume(s, 26);
+    pxsim_String__stringConv(s.tmp_6);
+    checkResumeConsumed();
+    return;
+    } else { s.retval = (s.tmp_6) + ""; }
+  case 26:
+    r0 = s.retval;
+    s.tmp_5 = r0;
+    if ((s.tmp_1) && (s.tmp_1).vtable) {
+    setupResume(s, 27);
+    pxsim_String__stringConv(s.tmp_1);
+    checkResumeConsumed();
+    return;
+    } else { s.retval = (s.tmp_1) + ""; }
+  case 27:
+    r0 = s.retval;
+    s.tmp_8 = r0;
+    r0 = pxsim_String__concat(s.tmp_5, s.tmp_8);
+    s.tmp_4 = r0;
+    if ((s.tmp_4) && (s.tmp_4).vtable) {
+    setupResume(s, 28);
+    pxsim_String__stringConv(s.tmp_4);
+    checkResumeConsumed();
+    return;
+    } else { s.retval = (s.tmp_4) + ""; }
+  case 28:
+    r0 = s.retval;
+    s.tmp_3 = r0;
+    r0 = pxsim_String__concat("{", s.tmp_3);
+    s.tmp_2 = r0;
+    r0 = pxsim_String__concat(s.tmp_2, "\n}");
+    { step = 17; continue; }
+  case 14:
+  case 15:
+  case 16:
+    r0 = undefined;
+  case 17:
+    return leave(s, r0)
+  default: oops()
+} } }
+console_inspect__P382.info = {"start":2271,"length":1190,"line":81,"column":4,"endLine":114,"endColumn":5,"fileName":"pxt_modules/base/console.ts","functionName":"inspect","argumentNames":["obj","maxElements"]}
+
+function console_inspect__P382_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: console_inspect__P382, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  tmp_2: undefined,
+  tmp_3: undefined,
+  tmp_4: undefined,
+  tmp_5: undefined,
+  tmp_6: undefined,
+  tmp_7: undefined,
+  tmp_8: undefined,
+  tmp_9: undefined,
+  tmp_10: undefined,
+  asArr___11416: undefined,
+  asString___11434: undefined,
+  keys___11446: undefined,
+  snipped___11450: undefined,
+  arg0: undefined,
+  arg1: undefined,
+} }
+
+
+
+
+
+function console_inspect_inline__P11467(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.arg1 = (s.lambdaArgs[1]);
+      s.lambdaArgs = null;
+    }
+    if ((s.arg0) && (s.arg0).vtable) {
+    setupResume(s, 1);
+    pxsim_String__stringConv(s.arg0);
+    checkResumeConsumed();
+    return;
+    } else { s.retval = (s.arg0) + ""; }
+  case 1:
+    r0 = s.retval;
+    s.tmp_0 = r0;
+    if ((s.arg1) && (s.arg1).vtable) {
+    setupResume(s, 2);
+    pxsim_String__stringConv(s.arg1);
+    checkResumeConsumed();
+    return;
+    } else { s.retval = (s.arg1) + ""; }
+  case 2:
+    r0 = s.retval;
+    s.tmp_5 = r0;
+    r0 = pxsim_String__concat("\n    ", s.tmp_5);
+    s.tmp_4 = r0;
+    r0 = pxsim_String__concat(s.tmp_4, ": ");
+    s.tmp_3 = r0;
+    r0 = pxsim_pxtrt.mapGetGeneric(s.caps[0], s.arg1);
+    s.tmp_7 = r0;
+    if ((s.tmp_7) && (s.tmp_7).vtable) {
+    setupResume(s, 3);
+    pxsim_String__stringConv(s.tmp_7);
+    checkResumeConsumed();
+    return;
+    } else { s.retval = (s.tmp_7) + ""; }
+  case 3:
+    r0 = s.retval;
+    s.tmp_6 = r0;
+    r0 = pxsim_String__concat(s.tmp_3, s.tmp_6);
+    s.tmp_2 = r0;
+    if ((s.tmp_2) && (s.tmp_2).vtable) {
+    setupResume(s, 4);
+    pxsim_String__stringConv(s.tmp_2);
+    checkResumeConsumed();
+    return;
+    } else { s.retval = (s.tmp_2) + ""; }
+  case 4:
+    r0 = s.retval;
+    s.tmp_1 = r0;
+    r0 = pxsim_String__concat(s.tmp_0, s.tmp_1);
+    return leave(s, r0)
+  default: oops()
+} } }
+console_inspect_inline__P11467.info = {"start":3293,"length":61,"line":108,"column":20,"endLine":108,"endColumn":81,"fileName":"pxt_modules/base/console.ts","functionName":"inline","argumentNames":["prev","currKey"]}
+
+function console_inspect_inline__P11467_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: console_inspect_inline__P11467, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  tmp_2: undefined,
+  tmp_3: undefined,
+  tmp_4: undefined,
+  tmp_5: undefined,
+  tmp_6: undefined,
+  tmp_7: undefined,
+  arg0: undefined,
+  arg1: undefined,
+} }
+
+
+
+
+
+function helpers_arraySlice__P115(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    s.res___11515 = undefined;
+    s.len___11517 = undefined;
+    s.i___11551 = undefined;
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.arg1 = (s.lambdaArgs[1]);
+      s.arg2 = (s.lambdaArgs[2]);
+      s.lambdaArgs = null;
+    }
+    r0 = pxsim_Array__mk();
+    s.res___11515 = (r0);
+    r0 = pxsim_Array__length(s.arg0);
+    s.len___11517 = (r0);
+    r0 = (s.arg1 === undefined);
+    s.tmp_0 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
+    if (!r0) { step = 1; continue; }
+    s.arg1 = (0);
+    { step = 4; continue; }
+  case 1:
+    r0 = (s.arg1 < 0);
+    s.tmp_0 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
+    if (!r0) { step = 2; continue; }
+    s.tmp_1 = Math_max__P130_mk(s);
+    r0 = (s.len___11517 + s.arg1);
+    s.tmp_1.arg0 = r0;
+    s.tmp_1.arg1 = 0;
+    s.callLocIdx = 10; s.pc = 16; return s.tmp_1;
+  case 16:
+    r0 = s.retval;
+    s.arg1 = (r0);
+  case 2:
+  case 3:
+  case 4:
+    r0 = (s.arg1 > s.len___11517);
+    s.tmp_0 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
+    if (!r0) { step = 5; continue; }
+    r0 = s.res___11515;
+    { step = 15; continue; }
+  case 5:
+  case 6:
+    r0 = (s.arg2 === undefined);
+    s.tmp_1 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_1);
+    if (!r0) { step = 7; continue; }
+    s.arg2 = (s.len___11517);
+    { step = 10; continue; }
+  case 7:
+    r0 = (s.arg2 < 0);
+    s.tmp_0 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
+    if (!r0) { step = 8; continue; }
+    r0 = (s.len___11517 + s.arg2);
+    s.arg2 = (r0);
+  case 8:
+  case 9:
+  case 10:
+    r0 = (s.arg2 > s.len___11517);
+    s.tmp_0 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
+    if (!r0) { step = 11; continue; }
+    s.arg2 = (s.len___11517);
+  case 11:
+  case 12:
+    s.i___11551 = (s.arg1);
+  case 13:
+    r0 = (s.i___11551 < s.arg2);
+    s.tmp_0 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
+    if (!r0) { step = 14; continue; }
+    s.tmp_1 = r0 = s.res___11515;
+    r0 = pxsim_Array__getAt(s.arg0, s.i___11551);
+    s.tmp_2 = r0;
+    r0 = pxsim_Array__push(s.tmp_1, s.tmp_2);
+    r0 = (s.i___11551 + 1);
+    s.i___11551 = (r0);
+    { step = 13; continue; }
+  case 14:
+    r0 = s.res___11515;
+  case 15:
+    return leave(s, r0)
+  default: oops()
+} } }
+helpers_arraySlice__P115.info = {"start":9027,"length":690,"line":303,"column":4,"endLine":328,"endColumn":5,"fileName":"pxt_modules/base/pxt-helpers.ts","functionName":"arraySlice","argumentNames":["arr","start","end"]}
+
+function helpers_arraySlice__P115_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: helpers_arraySlice__P115, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  tmp_2: undefined,
+  res___11515: undefined,
+  len___11517: undefined,
+  i___11551: undefined,
+  arg0: undefined,
+  arg1: undefined,
+  arg2: undefined,
+} }
+
+
+
+
+
+function helpers_arrayReduce__P112(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    s.len___11494 = undefined;
+    s.i___11497 = undefined;
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.arg1 = (s.lambdaArgs[1]);
+      s.arg2 = (s.lambdaArgs[2]);
+      s.lambdaArgs = null;
+    }
+    r0 = pxsim_Array__length(s.arg0);
+    s.len___11494 = (r0);
+    s.i___11497 = (0);
+  case 1:
+    r0 = (s.i___11497 < s.len___11494);
+    s.tmp_0 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
+    if (!r0) { step = 2; continue; }
+    s.tmp_1 = lambda_4_mk(s);
+    s.tmp_1.argL = s.arg1;
+    s.tmp_1.arg0 = s.arg2;
+    r0 = pxsim_Array__getAt(s.arg0, s.i___11497);
+    s.tmp_1.arg1 = r0;
+    s.tmp_1.arg2 = s.i___11497;
+    setupLambda(s.tmp_1, s.tmp_1.argL);
+    s.callLocIdx = 9; s.pc = 3; return s.tmp_1;
+  case 3:
+    r0 = s.retval;
+    s.arg2 = (r0);
+    r0 = (s.i___11497 + 1);
+    s.i___11497 = (r0);
+    { step = 1; continue; }
+  case 2:
+    r0 = s.arg2;
+    return leave(s, r0)
+  default: oops()
+} } }
+helpers_arrayReduce__P112.info = {"start":8316,"length":317,"line":280,"column":4,"endLine":286,"endColumn":5,"fileName":"pxt_modules/base/pxt-helpers.ts","functionName":"arrayReduce","argumentNames":["arr","callbackfn","initialValue"]}
+
+function helpers_arrayReduce__P112_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: helpers_arrayReduce__P112, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  len___11494: undefined,
+  i___11497: undefined,
+  arg0: undefined,
+  arg1: undefined,
+  arg2: undefined,
+} }
+
+
+
+
+
+function helpers_arrayJoin__P103(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    s.r___11576 = undefined;
+    s.len___11577 = undefined;
+    s.i___11580 = undefined;
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.arg1 = (s.lambdaArgs[1]);
+      s.lambdaArgs = null;
+    }
+    r0 = (s.arg1 === undefined);
+    s.tmp_0 = r0;
+    r0 = pxsim_numops_toBool(s.tmp_0);
+    if (!r0) { step = 1; continue; }
+    r0 = s.tmp_0;
+    { step = 2; continue; }
+  case 1:
+    r0 = (s.arg1 === null);
+  case 2:
+    // jmp value (already in r0)
+    s.tmp_1 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_1);
+    if (!r0) { step = 3; continue; }
+    s.arg1 = (",");
+  case 3:
+  case 4:
+    r0 = pxsim_String_.mkEmpty();
+    s.r___11576 = (r0);
+    r0 = pxsim_Array__length(s.arg0);
+    s.len___11577 = (r0);
+    s.i___11580 = (0);
+  case 5:
+    r0 = (s.i___11580 < s.len___11577);
+    s.tmp_0 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
+    if (!r0) { step = 14; continue; }
+    r0 = (s.i___11580 > 0);
+    s.tmp_1 = r0;
+    r0 = pxsim_numops_toBool(s.tmp_1);
+    if (r0) { step = 6; continue; }
+    r0 = s.tmp_1;
+    { step = 7; continue; }
+  case 6:
+    r0 = s.arg1;
+  case 7:
+    // jmp value (already in r0)
+    s.tmp_2 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_2);
+    if (!r0) { step = 8; continue; }
+    if ((s.r___11576) && (s.r___11576).vtable) {
+    setupResume(s, 15);
+    pxsim_String__stringConv(s.r___11576);
+    checkResumeConsumed();
+    return;
+    } else { s.retval = (s.r___11576) + ""; }
+  case 15:
+    r0 = s.retval;
+    s.tmp_3 = r0;
+    if ((s.arg1) && (s.arg1).vtable) {
+    setupResume(s, 16);
+    pxsim_String__stringConv(s.arg1);
+    checkResumeConsumed();
+    return;
+    } else { s.retval = (s.arg1) + ""; }
+  case 16:
+    r0 = s.retval;
+    s.tmp_4 = r0;
+    r0 = pxsim_String__concat(s.tmp_3, s.tmp_4);
+    s.r___11576 = (r0);
+  case 8:
+  case 9:
+    r0 = pxsim_Array__getAt(s.arg0, s.i___11580);
+    s.tmp_1 = r0;
+    r0 = (s.tmp_1 === undefined);
+    s.tmp_0 = r0;
+    r0 = pxsim_numops_toBool(s.tmp_0);
+    if (!r0) { step = 10; continue; }
+    r0 = s.tmp_0;
+    { step = 11; continue; }
+  case 10:
+    r0 = pxsim_Array__getAt(s.arg0, s.i___11580);
+    s.tmp_2 = r0;
+    r0 = (s.tmp_2 === null);
+  case 11:
+    // jmp value (already in r0)
+    s.tmp_3 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_3);
+    if (!r0) { step = 12; continue; }
+    r0 = pxsim_String_.mkEmpty();
+    { step = 13; continue; }
+  case 12:
+    r0 = pxsim_Array__getAt(s.arg0, s.i___11580);
+  case 13:
+    // jmp value (already in r0)
+    s.tmp_4 = r0;
+    if ((s.r___11576) && (s.r___11576).vtable) {
+    setupResume(s, 17);
+    pxsim_String__stringConv(s.r___11576);
+    checkResumeConsumed();
+    return;
+    } else { s.retval = (s.r___11576) + ""; }
+  case 17:
+    r0 = s.retval;
+    s.tmp_5 = r0;
+    if ((s.tmp_4) && (s.tmp_4).vtable) {
+    setupResume(s, 18);
+    pxsim_String__stringConv(s.tmp_4);
+    checkResumeConsumed();
+    return;
+    } else { s.retval = (s.tmp_4) + ""; }
+  case 18:
+    r0 = s.retval;
+    s.tmp_6 = r0;
+    r0 = pxsim_String__concat(s.tmp_5, s.tmp_6);
+    s.r___11576 = (r0);
+    r0 = (s.i___11580 + 1);
+    s.i___11580 = (r0);
+    { step = 5; continue; }
+  case 14:
+    r0 = s.r___11576;
+    return leave(s, r0)
+  default: oops()
+} } }
+helpers_arrayJoin__P103.info = {"start":4133,"length":432,"line":157,"column":4,"endLine":170,"endColumn":5,"fileName":"pxt_modules/base/pxt-helpers.ts","functionName":"arrayJoin","argumentNames":["arr","sep"]}
+
+function helpers_arrayJoin__P103_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: helpers_arrayJoin__P103, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  tmp_2: undefined,
+  tmp_3: undefined,
+  tmp_4: undefined,
+  tmp_5: undefined,
+  tmp_6: undefined,
+  r___11576: undefined,
+  len___11577: undefined,
+  i___11580: undefined,
+  arg0: undefined,
+  arg1: undefined,
+} }
+
+
+
+
+
+function maze_Hero_init__P4405(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, maze_Hero__C4400_VT)) failedCast(r0);
+    s.tmp_0 = r0 = s.arg0;
+    s.tmp_2 = maze_getMaze__P4396_mk(s);
+    s.callLocIdx = 118; s.pc = 1; return s.tmp_2;
+  case 1:
+    r0 = s.retval;
+    s.tmp_1 = r0;
+    r0 = (s.tmp_0).fields["maze"] = (s.tmp_1);
+    s.tmp_0 = maze_DirImage_load__P232039_mk(s);
+    r0 = s.arg0.fields["images"];
+    s.tmp_0.arg0 = r0;
+    s.tmp_0.arg1 = "hero";
+    s.callLocIdx = 119; s.pc = 2; return s.tmp_0;
+  case 2:
+    r0 = s.retval;
+    s.tmp_0 = maze_Mover_init__P232018_mk(s);
+    r0 = s.arg0.fields["mover"];
+    s.tmp_0.arg0 = r0;
+    r0 = s.arg0.fields["images"];
+    s.tmp_0.arg1 = r0;
+    s.callLocIdx = 120; s.pc = 3; return s.tmp_0;
+  case 3:
+    r0 = s.retval;
+    r0 = s.arg0.fields["mover"];
+    s.tmp_0 = r0;
+    r0 = (s.tmp_0).fields["mapType"] = (64);
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+maze_Hero_init__P4405.info = {"start":228,"length":177,"line":11,"column":8,"endLine":16,"endColumn":9,"fileName":"maze_hero.ts","functionName":"init","argumentNames":["this"]}
+
+function maze_Hero_init__P4405_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: maze_Hero_init__P4405, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  tmp_2: undefined,
+  arg0: undefined,
+} }
+
+
+
+
+
+function maze_Game_init__P264822(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, maze_Game__C264821_VT)) failedCast(r0);
+    s.tmp_0 = r0 = s.arg0;
+    s.tmp_2 = maze_getMaze__P4396_mk(s);
+    s.callLocIdx = 338; s.pc = 1; return s.tmp_2;
+  case 1:
+    r0 = s.retval;
+    s.tmp_1 = r0;
+    r0 = (s.tmp_0).fields["maze"] = (s.tmp_1);
+    r0 = (s.arg0).fields["pillsRemaining"] = (0);
+    r0 = (s.arg0).fields["pillsEaten"] = (0);
+    r0 = (s.arg0).fields["levelComplete"] = (false);
+    r0 = (s.arg0).fields["difficulty"] = (0);
+    r0 = (s.arg0).fields["levelCount"] = (0);
+    r0 = (s.arg0).fields["freeze"] = (true);
+    r0 = pxsim_pxtcore_mkAction(1, maze_Game_init_inline__P264973);
+    s.tmp_0 = r0;
+    r0 = pxsim_pxtrt_stclo(s.tmp_0, 0, s.arg0);
+    s.tmp_1 = maze_EventManager_register__P4550_mk(s);
+    r0 = s.arg0.fields["maze"];
+    r0 = r0.fields["events"];
+    s.tmp_1.arg0 = r0;
+    s.tmp_1.arg1 = 0;
+    s.tmp_1.arg2 = s.tmp_0;
+    s.callLocIdx = 340; s.pc = 2; return s.tmp_1;
+  case 2:
+    r0 = s.retval;
+    r0 = pxsim_pxtcore_mkAction(1, maze_Game_init_inline__P264981);
+    s.tmp_0 = r0;
+    r0 = pxsim_pxtrt_stclo(s.tmp_0, 0, s.arg0);
+    s.tmp_1 = maze_EventManager_register__P4550_mk(s);
+    r0 = s.arg0.fields["maze"];
+    r0 = r0.fields["events"];
+    s.tmp_1.arg0 = r0;
+    s.tmp_1.arg1 = 1;
+    s.tmp_1.arg2 = s.tmp_0;
+    s.callLocIdx = 342; s.pc = 3; return s.tmp_1;
+  case 3:
+    r0 = s.retval;
+    r0 = pxsim_pxtcore_mkAction(1, maze_Game_init_inline__P264989);
+    s.tmp_0 = r0;
+    r0 = pxsim_pxtrt_stclo(s.tmp_0, 0, s.arg0);
+    s.tmp_1 = maze_EventManager_register__P4550_mk(s);
+    r0 = s.arg0.fields["maze"];
+    r0 = r0.fields["events"];
+    s.tmp_1.arg0 = r0;
+    s.tmp_1.arg1 = 2;
+    s.tmp_1.arg2 = s.tmp_0;
+    s.callLocIdx = 344; s.pc = 4; return s.tmp_1;
+  case 4:
+    r0 = s.retval;
+    r0 = pxsim_pxtcore_mkAction(1, maze_Game_init_inline__P264997);
+    s.tmp_0 = r0;
+    r0 = pxsim_pxtrt_stclo(s.tmp_0, 0, s.arg0);
+    s.tmp_1 = maze_EventManager_register__P4550_mk(s);
+    r0 = s.arg0.fields["maze"];
+    r0 = r0.fields["events"];
+    s.tmp_1.arg0 = r0;
+    s.tmp_1.arg1 = 3;
+    s.tmp_1.arg2 = s.tmp_0;
+    s.callLocIdx = 346; s.pc = 5; return s.tmp_1;
+  case 5:
+    r0 = s.retval;
+    r0 = pxsim_pxtcore_mkAction(1, maze_Game_init_inline__P265005);
+    s.tmp_0 = r0;
+    r0 = pxsim_pxtrt_stclo(s.tmp_0, 0, s.arg0);
+    s.tmp_1 = maze_EventManager_register__P4550_mk(s);
+    r0 = s.arg0.fields["maze"];
+    r0 = r0.fields["events"];
+    s.tmp_1.arg0 = r0;
+    s.tmp_1.arg1 = 4;
+    s.tmp_1.arg2 = s.tmp_0;
+    s.callLocIdx = 348; s.pc = 6; return s.tmp_1;
+  case 6:
+    r0 = s.retval;
+    r0 = pxsim_pxtcore_mkAction(1, maze_Game_init_inline__P265012);
+    s.tmp_0 = r0;
+    r0 = pxsim_pxtrt_stclo(s.tmp_0, 0, s.arg0);
+    s.tmp_1 = maze_EventManager_register__P4550_mk(s);
+    r0 = s.arg0.fields["maze"];
+    r0 = r0.fields["events"];
+    s.tmp_1.arg0 = r0;
+    s.tmp_1.arg1 = 5;
+    s.tmp_1.arg2 = s.tmp_0;
+    s.callLocIdx = 350; s.pc = 7; return s.tmp_1;
+  case 7:
+    r0 = s.retval;
+    r0 = pxsim_pxtcore_mkAction(1, maze_Game_init_inline__P265019);
+    s.tmp_0 = r0;
+    r0 = pxsim_pxtrt_stclo(s.tmp_0, 0, s.arg0);
+    s.tmp_1 = maze_EventManager_register__P4550_mk(s);
+    r0 = s.arg0.fields["maze"];
+    r0 = r0.fields["events"];
+    s.tmp_1.arg0 = r0;
+    s.tmp_1.arg1 = 11;
+    s.tmp_1.arg2 = s.tmp_0;
+    s.callLocIdx = 352; s.pc = 8; return s.tmp_1;
+  case 8:
+    r0 = s.retval;
+    r0 = pxsim_pxtcore_mkAction(1, maze_Game_init_inline__P265026);
+    s.tmp_0 = r0;
+    r0 = pxsim_pxtrt_stclo(s.tmp_0, 0, s.arg0);
+    s.tmp_1 = maze_EventManager_register__P4550_mk(s);
+    r0 = s.arg0.fields["maze"];
+    r0 = r0.fields["events"];
+    s.tmp_1.arg0 = r0;
+    s.tmp_1.arg1 = 12;
+    s.tmp_1.arg2 = s.tmp_0;
+    s.callLocIdx = 354; s.pc = 9; return s.tmp_1;
+  case 9:
+    r0 = s.retval;
+    r0 = pxsim_pxtcore_mkAction(1, maze_Game_init_inline__P265033);
+    s.tmp_0 = r0;
+    r0 = pxsim_pxtrt_stclo(s.tmp_0, 0, s.arg0);
+    s.tmp_1 = maze_EventManager_register__P4550_mk(s);
+    r0 = s.arg0.fields["maze"];
+    r0 = r0.fields["events"];
+    s.tmp_1.arg0 = r0;
+    s.tmp_1.arg1 = 8;
+    s.tmp_1.arg2 = s.tmp_0;
+    s.callLocIdx = 356; s.pc = 10; return s.tmp_1;
+  case 10:
+    r0 = s.retval;
+    r0 = pxsim_pxtcore_mkAction(1, maze_Game_init_inline__P265040);
+    s.tmp_0 = r0;
+    r0 = pxsim_pxtrt_stclo(s.tmp_0, 0, s.arg0);
+    s.tmp_1 = maze_EventManager_register__P4550_mk(s);
+    r0 = s.arg0.fields["maze"];
+    r0 = r0.fields["events"];
+    s.tmp_1.arg0 = r0;
+    s.tmp_1.arg1 = 13;
+    s.tmp_1.arg2 = s.tmp_0;
+    s.callLocIdx = 358; s.pc = 11; return s.tmp_1;
+  case 11:
+    r0 = s.retval;
+    r0 = pxsim_pxtcore_mkAction(1, maze_Game_init_inline__P265047);
+    s.tmp_0 = r0;
+    r0 = pxsim_pxtrt_stclo(s.tmp_0, 0, s.arg0);
+    s.tmp_1 = maze_EventManager_register__P4550_mk(s);
+    r0 = s.arg0.fields["maze"];
+    r0 = r0.fields["events"];
+    s.tmp_1.arg0 = r0;
+    s.tmp_1.arg1 = 14;
+    s.tmp_1.arg2 = s.tmp_0;
+    s.callLocIdx = 360; s.pc = 12; return s.tmp_1;
+  case 12:
+    r0 = s.retval;
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+maze_Game_init__P264822.info = {"start":704,"length":1211,"line":30,"column":8,"endLine":51,"endColumn":9,"fileName":"maze_game.ts","functionName":"init","argumentNames":["this"]}
+
+function maze_Game_init__P264822_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: maze_Game_init__P264822, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  tmp_2: undefined,
+  arg0: undefined,
+} }
+
+
+
+
+
+function maze_Game_init_inline__P264973(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    s.tmp_0 = maze_Game_eat__P264826_mk(s);
+    s.tmp_0.arg0 = s.caps[0];
+    s.tmp_0.arg1 = 0;
+    s.callLocIdx = 339; s.pc = 1; return s.tmp_0;
+  case 1:
+    r0 = s.retval;
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+maze_Game_init_inline__P264973.info = {"start":1052,"length":29,"line":40,"column":53,"endLine":40,"endColumn":82,"fileName":"maze_game.ts","functionName":"inline","argumentNames":[]}
+
+function maze_Game_init_inline__P264973_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: maze_Game_init_inline__P264973, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+} }
+
+
+
+
+
+function maze_Game_init_inline__P264981(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    s.tmp_0 = maze_Game_eat__P264826_mk(s);
+    s.tmp_0.arg0 = s.caps[0];
+    s.tmp_0.arg1 = 1;
+    s.callLocIdx = 341; s.pc = 1; return s.tmp_0;
+  case 1:
+    r0 = s.retval;
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+maze_Game_init_inline__P264981.info = {"start":1137,"length":30,"line":41,"column":54,"endLine":41,"endColumn":84,"fileName":"maze_game.ts","functionName":"inline","argumentNames":[]}
+
+function maze_Game_init_inline__P264981_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: maze_Game_init_inline__P264981, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+} }
+
+
+
+
+
+function maze_Game_init_inline__P264989(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    s.tmp_0 = maze_Game_eat__P264826_mk(s);
+    s.tmp_0.arg0 = s.caps[0];
+    s.tmp_0.arg1 = 2;
+    s.callLocIdx = 343; s.pc = 1; return s.tmp_0;
+  case 1:
+    r0 = s.retval;
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+maze_Game_init_inline__P264989.info = {"start":1223,"length":30,"line":42,"column":54,"endLine":42,"endColumn":84,"fileName":"maze_game.ts","functionName":"inline","argumentNames":[]}
+
+function maze_Game_init_inline__P264989_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: maze_Game_init_inline__P264989, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+} }
+
+
+
+
+
+function maze_Game_init_inline__P264997(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    s.tmp_0 = maze_Game_eat__P264826_mk(s);
+    s.tmp_0.arg0 = s.caps[0];
+    s.tmp_0.arg1 = 3;
+    s.callLocIdx = 345; s.pc = 1; return s.tmp_0;
+  case 1:
+    r0 = s.retval;
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+maze_Game_init_inline__P264997.info = {"start":1310,"length":31,"line":43,"column":55,"endLine":43,"endColumn":86,"fileName":"maze_game.ts","functionName":"inline","argumentNames":[]}
+
+function maze_Game_init_inline__P264997_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: maze_Game_init_inline__P264997, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+} }
+
+
+
+
+
+function maze_Game_init_inline__P265005(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    s.tmp_0 = maze_Game_levelStart__P264832_mk(s);
+    s.tmp_0.arg0 = s.caps[0];
+    s.callLocIdx = 347; s.pc = 1; return s.tmp_0;
+  case 1:
+    r0 = s.retval;
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+maze_Game_init_inline__P265005.info = {"start":1399,"length":23,"line":44,"column":56,"endLine":44,"endColumn":79,"fileName":"maze_game.ts","functionName":"inline","argumentNames":[]}
+
+function maze_Game_init_inline__P265005_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: maze_Game_init_inline__P265005, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+} }
+
+
+
+
+
+function maze_Game_init_inline__P265012(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    s.tmp_0 = maze_Game_levelNext__P264833_mk(s);
+    s.tmp_0.arg0 = s.caps[0];
+    s.callLocIdx = 349; s.pc = 1; return s.tmp_0;
+  case 1:
+    r0 = s.retval;
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+maze_Game_init_inline__P265012.info = {"start":1479,"length":22,"line":45,"column":55,"endLine":45,"endColumn":77,"fileName":"maze_game.ts","functionName":"inline","argumentNames":[]}
+
+function maze_Game_init_inline__P265012_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: maze_Game_init_inline__P265012, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+} }
+
+
+
+
+
+function maze_Game_init_inline__P265019(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    s.tmp_0 = maze_Game_setFreeze__P264835_mk(s);
+    s.tmp_0.arg0 = s.caps[0];
+    s.tmp_0.arg1 = false;
+    s.callLocIdx = 351; s.pc = 1; return s.tmp_0;
+  case 1:
+    r0 = s.retval;
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+maze_Game_init_inline__P265019.info = {"start":1556,"length":27,"line":46,"column":53,"endLine":46,"endColumn":80,"fileName":"maze_game.ts","functionName":"inline","argumentNames":[]}
+
+function maze_Game_init_inline__P265019_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: maze_Game_init_inline__P265019, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+} }
+
+
+
+
+
+function maze_Game_init_inline__P265026(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    s.tmp_0 = maze_Game_life__P264827_mk(s);
+    s.tmp_0.arg0 = s.caps[0];
+    s.callLocIdx = 353; s.pc = 1; return s.tmp_0;
+  case 1:
+    r0 = s.retval;
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+maze_Game_init_inline__P265026.info = {"start":1639,"length":17,"line":47,"column":54,"endLine":47,"endColumn":71,"fileName":"maze_game.ts","functionName":"inline","argumentNames":[]}
+
+function maze_Game_init_inline__P265026_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: maze_Game_init_inline__P265026, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+} }
+
+
+
+
+
+function maze_Game_init_inline__P265033(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    s.tmp_0 = maze_Game_gameOver__P264831_mk(s);
+    s.tmp_0.arg0 = s.caps[0];
+    s.callLocIdx = 355; s.pc = 1; return s.tmp_0;
+  case 1:
+    r0 = s.retval;
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+maze_Game_init_inline__P265033.info = {"start":1712,"length":21,"line":48,"column":54,"endLine":48,"endColumn":75,"fileName":"maze_game.ts","functionName":"inline","argumentNames":[]}
+
+function maze_Game_init_inline__P265033_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: maze_Game_init_inline__P265033, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+} }
+
+
+
+
+
+function maze_Game_init_inline__P265040(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    s.tmp_0 = maze_Game_chaserEndMode__P264828_mk(s);
+    s.tmp_0.arg0 = s.caps[0];
+    s.callLocIdx = 357; s.pc = 1; return s.tmp_0;
+  case 1:
+    r0 = s.retval;
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+maze_Game_init_inline__P265040.info = {"start":1794,"length":26,"line":49,"column":59,"endLine":49,"endColumn":85,"fileName":"maze_game.ts","functionName":"inline","argumentNames":[]}
+
+function maze_Game_init_inline__P265040_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: maze_Game_init_inline__P265040, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+} }
+
+
+
+
+
+function maze_Game_init_inline__P265047(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    s.tmp_0 = maze_Game_chaserSetWarn__P264829_mk(s);
+    s.tmp_0.arg0 = s.caps[0];
+    s.callLocIdx = 359; s.pc = 1; return s.tmp_0;
+  case 1:
+    r0 = s.retval;
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+maze_Game_init_inline__P265047.info = {"start":1878,"length":26,"line":50,"column":56,"endLine":50,"endColumn":82,"fileName":"maze_game.ts","functionName":"inline","argumentNames":[]}
+
+function maze_Game_init_inline__P265047_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: maze_Game_init_inline__P265047, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+} }
+
+
+
+
+
+function maze_Game_chaserSetWarn__P264829(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    s.chaser___265339 = undefined;
+    s.unnamed24096___U1 = undefined;
+    s.unnamed24097___U2 = undefined;
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, maze_Game__C264821_VT)) failedCast(r0);
+    s.tmp_0 = r0 = s.arg0;
+    r0 = s.arg0.fields["chaserWarn"];
+    s.tmp_3 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_3);
+    s.tmp_2 = r0;
+    r0 = pxsim_Boolean__bang(s.tmp_2);
+    s.tmp_1 = r0;
+    r0 = (s.tmp_0).fields["chaserWarn"] = (s.tmp_1);
+    s.chaser___265339 = (undefined);
+    r0 = s.arg0.fields["maze"];
+    r0 = r0.fields["chasers"];
+    s.unnamed24096___U1 = (r0);
+    s.unnamed24097___U2 = (0);
+  case 1:
+    s.tmp_0 = r0 = s.unnamed24097___U2;
+    r0 = pxsim_Array__length(s.unnamed24096___U1);
+    s.tmp_1 = r0;
+    r0 = (s.tmp_0 < s.tmp_1);
+    if (!r0) { step = 2; continue; }
+    r0 = pxsim_Array__getAt(s.unnamed24096___U1, s.unnamed24097___U2);
+    s.chaser___265339 = (r0);
+    s.tmp_2 = maze_Chaser_setWarn__P200311_mk(s);
+    s.tmp_2.arg0 = s.chaser___265339;
+    r0 = s.arg0.fields["chaserWarn"];
+    s.tmp_2.arg1 = r0;
+    s.callLocIdx = 403; s.pc = 3; return s.tmp_2;
+  case 3:
+    r0 = s.retval;
+    r0 = (s.unnamed24097___U2 + 1);
+    s.unnamed24097___U2 = (r0);
+    { step = 1; continue; }
+  case 2:
+    s.unnamed24096___U1 = (undefined);
+    s.tmp_0 = maze_EventManager_fireLater__P4548_mk(s);
+    r0 = s.arg0.fields["maze"];
+    r0 = r0.fields["events"];
+    s.tmp_0.arg0 = r0;
+    s.tmp_0.arg1 = 14;
+    r0 = globals.level___4634.fields["timeWarnFlash"];
+    s.tmp_0.arg2 = r0;
+    s.callLocIdx = 404; s.pc = 4; return s.tmp_0;
+  case 4:
+    r0 = s.retval;
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+maze_Game_chaserSetWarn__P264829.info = {"start":6275,"length":320,"line":176,"column":8,"endLine":184,"endColumn":9,"fileName":"maze_game.ts","functionName":"chaserSetWarn","argumentNames":["this"]}
+
+function maze_Game_chaserSetWarn__P264829_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: maze_Game_chaserSetWarn__P264829, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  tmp_2: undefined,
+  tmp_3: undefined,
+  chaser___265339: undefined,
+  unnamed24096___U1: undefined,
+  unnamed24097___U2: undefined,
+  arg0: undefined,
+} }
+
+
+
+
+
+function maze_Chaser_setWarn__P200311(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.arg1 = (s.lambdaArgs[1]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, maze_Chaser__C200286_VT)) failedCast(r0);
+    r0 = (s.arg0).fields["warn"] = (s.arg1);
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+maze_Chaser_setWarn__P200311.info = {"start":14189,"length":63,"line":417,"column":8,"endLine":419,"endColumn":9,"fileName":"maze_chaser.ts","functionName":"setWarn","argumentNames":["this","warn"]}
+
+function maze_Chaser_setWarn__P200311_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: maze_Chaser_setWarn__P200311, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  arg0: undefined,
+  arg1: undefined,
+} }
+
+
+
+
+
+function maze_Game_chaserEndMode__P264828(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, maze_Game__C264821_VT)) failedCast(r0);
+    s.tmp_0 = maze_EventManager_cancel__P4552_mk(s);
+    r0 = s.arg0.fields["maze"];
+    r0 = r0.fields["events"];
+    s.tmp_0.arg0 = r0;
+    s.tmp_0.arg1 = 14;
+    s.callLocIdx = 398; s.pc = 5; return s.tmp_0;
+  case 5:
+    r0 = s.retval;
+    r0 = s.arg0.fields["chaserMode"];
+    s.tmp_0 = r0;
+    r0 = pxsim_pxtcore.switch_eq(4, s.tmp_0);
+    if (r0) { step = 1; continue; }
+    r0 = pxsim_pxtcore.switch_eq(6, s.tmp_0);
+    if (r0) { step = 2; continue; }
+    r0 = pxsim_pxtcore.switch_eq(5, s.tmp_0);
+    if (r0) { step = 3; continue; }
+    r0 = s.tmp_0;
+    { step = 4; continue; }
+  case 1:
+  case 2:
+    s.tmp_1 = maze_Game_setChaserMode__P264836_mk(s);
+    s.tmp_1.arg0 = s.arg0;
+    s.tmp_1.arg1 = 5;
+    s.callLocIdx = 399; s.pc = 6; return s.tmp_1;
+  case 6:
+    r0 = s.retval;
+    s.tmp_0 = maze_EventManager_fireLater__P4548_mk(s);
+    r0 = s.arg0.fields["maze"];
+    r0 = r0.fields["events"];
+    s.tmp_0.arg0 = r0;
+    s.tmp_0.arg1 = 13;
+    r0 = globals.level___4634.fields["timeChase"];
+    s.tmp_0.arg2 = r0;
+    s.callLocIdx = 400; s.pc = 7; return s.tmp_0;
+  case 7:
+    r0 = s.retval;
+    { step = 4; continue; }
+  case 3:
+    s.tmp_0 = maze_Game_setChaserMode__P264836_mk(s);
+    s.tmp_0.arg0 = s.arg0;
+    s.tmp_0.arg1 = 4;
+    s.callLocIdx = 401; s.pc = 8; return s.tmp_0;
+  case 8:
+    r0 = s.retval;
+    s.tmp_0 = maze_EventManager_fireLater__P4548_mk(s);
+    r0 = s.arg0.fields["maze"];
+    r0 = r0.fields["events"];
+    s.tmp_0.arg0 = r0;
+    s.tmp_0.arg1 = 13;
+    r0 = globals.level___4634.fields["timeScatter"];
+    s.tmp_0.arg2 = r0;
+    s.callLocIdx = 402; s.pc = 9; return s.tmp_0;
+  case 9:
+    r0 = s.retval;
+  case 4:
+    r0 = (s.arg0).fields["chaserEatCount"] = (0);
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+maze_Game_chaserEndMode__P264828.info = {"start":5614,"length":651,"line":159,"column":8,"endLine":174,"endColumn":9,"fileName":"maze_game.ts","functionName":"chaserEndMode","argumentNames":["this"]}
+
+function maze_Game_chaserEndMode__P264828_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: maze_Game_chaserEndMode__P264828, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  arg0: undefined,
+} }
+
+
+
+
+
+function maze_Game_setChaserMode__P264836(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    s.chaser___265476 = undefined;
+    s.unnamed24100___U1 = undefined;
+    s.unnamed24101___U2 = undefined;
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.arg1 = (s.lambdaArgs[1]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, maze_Game__C264821_VT)) failedCast(r0);
+    r0 = (s.arg0).fields["chaserMode"] = (s.arg1);
+    s.chaser___265476 = (undefined);
+    r0 = s.arg0.fields["maze"];
+    r0 = r0.fields["chasers"];
+    s.unnamed24100___U1 = (r0);
+    s.unnamed24101___U2 = (0);
+  case 1:
+    s.tmp_0 = r0 = s.unnamed24101___U2;
+    r0 = pxsim_Array__length(s.unnamed24100___U1);
+    s.tmp_1 = r0;
+    r0 = (s.tmp_0 < s.tmp_1);
+    if (!r0) { step = 2; continue; }
+    r0 = pxsim_Array__getAt(s.unnamed24100___U1, s.unnamed24101___U2);
+    s.chaser___265476 = (r0);
+    s.tmp_2 = maze_Chaser_setMode__P200309_mk(s);
+    s.tmp_2.arg0 = s.chaser___265476;
+    s.tmp_2.arg1 = s.arg1;
+    s.callLocIdx = 422; s.pc = 3; return s.tmp_2;
+  case 3:
+    r0 = s.retval;
+    r0 = (s.unnamed24101___U2 + 1);
+    s.unnamed24101___U2 = (r0);
+    { step = 1; continue; }
+  case 2:
+    s.unnamed24100___U1 = (undefined);
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+maze_Game_setChaserMode__P264836.info = {"start":8238,"length":191,"line":237,"column":8,"endLine":242,"endColumn":9,"fileName":"maze_game.ts","functionName":"setChaserMode","argumentNames":["this","mode"]}
+
+function maze_Game_setChaserMode__P264836_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: maze_Game_setChaserMode__P264836, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  tmp_2: undefined,
+  chaser___265476: undefined,
+  unnamed24100___U1: undefined,
+  unnamed24101___U2: undefined,
+  arg0: undefined,
+  arg1: undefined,
+} }
+
+
+
+
+
+function maze_Chaser_setMode__P200309(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.arg1 = (s.lambdaArgs[1]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, maze_Chaser__C200286_VT)) failedCast(r0);
+    r0 = (s.arg0).fields["gameMode"] = (s.arg1);
+    r0 = (s.arg0).fields["warn"] = (false);
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+maze_Chaser_setMode__P200309.info = {"start":13888,"length":225,"line":406,"column":8,"endLine":411,"endColumn":9,"fileName":"maze_chaser.ts","functionName":"setMode","argumentNames":["this","mode"]}
+
+function maze_Chaser_setMode__P200309_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: maze_Chaser_setMode__P200309, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  arg0: undefined,
+  arg1: undefined,
+} }
+
+
+
+
+
+function maze_Game_gameOver__P264831(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, maze_Game__C264821_VT)) failedCast(r0);
+    s.tmp_0 = maze_Game_saveHighScore__P264830_mk(s);
+    s.tmp_0.arg0 = s.arg0;
+    s.callLocIdx = 409; s.pc = 1; return s.tmp_0;
+  case 1:
+    r0 = s.retval;
+    s.tmp_0 = game_setGameOverEffect__P3006_mk(s);
+    s.tmp_0.arg0 = false;
+    s.tmp_0.arg1 = globals.dissolve___3295;
+    s.callLocIdx = 410; s.pc = 2; return s.tmp_0;
+  case 2:
+    r0 = s.retval;
+    s.tmp_0 = game_gameOver__P3013_mk(s);
+    s.tmp_0.arg0 = false;
+    s.callLocIdx = 411; s.pc = 3; return s.tmp_0;
+  case 3:
+    r0 = s.retval;
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+maze_Game_gameOver__P264831.info = {"start":6990,"length":156,"line":196,"column":8,"endLine":200,"endColumn":9,"fileName":"maze_game.ts","functionName":"gameOver","argumentNames":["this"]}
+
+function maze_Game_gameOver__P264831_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: maze_Game_gameOver__P264831, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  arg0: undefined,
+} }
+
+
+
+
+
+function game_gameOver__P3013(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.lambdaArgs = null;
+    }
+    s.tmp_0 = game__gameOverImpl__P5232_mk(s);
+    s.tmp_0.arg0 = s.arg0;
+    s.tmp_0.arg1 = undefined;
+    s.callLocIdx = 1416; s.pc = 1; return s.tmp_0;
+  case 1:
+    r0 = s.retval;
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+game_gameOver__P3013.info = {"start":11084,"length":74,"line":342,"column":4,"endLine":344,"endColumn":5,"fileName":"pxt_modules/game/game.ts","functionName":"gameOver","argumentNames":["win"]}
+
+function game_gameOver__P3013_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: game_gameOver__P3013, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  arg0: undefined,
+} }
+
+
+
+
+
+function game__gameOverImpl__P5232(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    s.goc___14464 = undefined;
+    s.judged___14467 = undefined;
+    s.playersWithScores___14475 = undefined;
+    s.prevBestScore___14478 = undefined;
+    s.winner___14482 = undefined;
+    s.scores___14488 = undefined;
+    s.preferMultiplayer___14509 = undefined;
+    s.message___14517 = undefined;
+    s.effect___14523 = undefined;
+    s.sound___14528 = undefined;
+    s.looping___14533 = undefined;
+    s.playbackMode___14538 = undefined;
+    s.overDialog___14564 = undefined;
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.arg1 = (s.lambdaArgs[1]);
+      s.lambdaArgs = null;
+    }
+    s.tmp_0 = game_init__P5230_mk(s);
+    s.tmp_0.arg0 = undefined;
+    s.callLocIdx = 1417; s.pc = 32; return s.tmp_0;
+  case 32:
+    r0 = s.retval;
+    r0 = pxsim_numops_toBoolDecr(globals.__isOver___5229);
+    if (!r0) { step = 1; continue; }
+    { step = 31; continue; }
+  case 1:
+  case 2:
+    globals.__isOver___5229 = (true);
+    r0 = pxsim_numops_toBoolDecr(globals.__gameOverHandler___5227);
+    if (!r0) { step = 3; continue; }
+    s.tmp_0 = lambda_2_mk(s);
+    s.tmp_0.argL = globals.__gameOverHandler___5227;
+    s.tmp_0.arg0 = s.arg0;
+    setupLambda(s.tmp_0, s.tmp_0.argL);
+    s.callLocIdx = 1418; s.pc = 33; return s.tmp_0;
+  case 33:
+    r0 = s.retval;
+    { step = 30; continue; }
+  case 3:
+    s.tmp_0 = lambda_1_mk(s);
+    s.tmp_0.argL = globals.gameOverConfig___2998;
+    setupLambda(s.tmp_0, s.tmp_0.argL);
+    s.callLocIdx = 1419; s.pc = 34; return s.tmp_0;
+  case 34:
+    r0 = s.retval;
+    s.goc___14464 = (r0);
+    r0 = pxsim_numops_toBoolDecr(s.arg1);
+    s.tmp_1 = r0;
+    r0 = pxsim_Boolean__bang(s.tmp_1);
+    s.tmp_0 = r0;
+    r0 = pxsim_numops_toBool(s.tmp_0);
+    if (r0) { step = 4; continue; }
+    r0 = s.tmp_0;
+    { step = 5; continue; }
+  case 4:
+    r0 = s.goc___14464.fields["scoringType"];
+    s.tmp_2 = r0;
+    r0 = (s.tmp_2 !== 2);
+  case 5:
+    // jmp value (already in r0)
+    s.tmp_3 = r0;
+    s.judged___14467 = (s.tmp_3);
+    s.tmp_0 = info_playersWithScores__P2564_mk(s);
+    s.callLocIdx = 1420; s.pc = 35; return s.tmp_0;
+  case 35:
+    r0 = s.retval;
+    s.playersWithScores___14475 = (r0);
+    s.tmp_0 = r0 = s.judged___14467;
+    r0 = pxsim_numops_toBool(s.tmp_0);
+    if (r0) { step = 6; continue; }
+    r0 = s.tmp_0;
+    { step = 7; continue; }
+  case 6:
+    s.tmp_1 = info_highScore__P2571_mk(s);
+    s.callLocIdx = 1421; s.pc = 36; return s.tmp_1;
+  case 36:
+    r0 = s.retval;
+  case 7:
+    // jmp value (already in r0)
+    s.tmp_2 = r0;
+    s.prevBestScore___14478 = (s.tmp_2);
+    s.tmp_0 = r0 = s.judged___14467;
+    r0 = pxsim_numops_toBool(s.tmp_0);
+    if (r0) { step = 8; continue; }
+    r0 = s.tmp_0;
+    { step = 9; continue; }
+  case 8:
+    r0 = s.arg0;
+  case 9:
+    // jmp value (already in r0)
+    s.tmp_1 = r0;
+    r0 = pxsim_numops_toBool(s.tmp_1);
+    if (r0) { step = 10; continue; }
+    r0 = s.tmp_1;
+    { step = 11; continue; }
+  case 10:
+    s.tmp_2 = info_winningPlayer__P2566_mk(s);
+    s.callLocIdx = 1422; s.pc = 37; return s.tmp_2;
+  case 37:
+    r0 = s.retval;
+  case 11:
+    // jmp value (already in r0)
+    s.tmp_3 = r0;
+    s.winner___14482 = (s.tmp_3);
+    r0 = pxsim_pxtcore_mkAction(1, scores_inline__P14490);
+    s.tmp_0 = r0;
+    r0 = pxsim_pxtrt_stclo(s.tmp_0, 0, s.winner___14482);
+    s.tmp_1 = helpers_arrayMap__P106_mk(s);
+    s.tmp_1.arg0 = s.playersWithScores___14475;
+    s.tmp_1.arg1 = s.tmp_0;
+    s.callLocIdx = 1426; s.pc = 38; return s.tmp_1;
+  case 38:
+    r0 = s.retval;
+    s.scores___14488 = (r0);
+    s.tmp_0 = info_saveAllScores__P2565_mk(s);
+    s.callLocIdx = 1427; s.pc = 39; return s.tmp_0;
+  case 39:
+    r0 = s.retval;
+    s.tmp_0 = r0 = s.judged___14467;
+    r0 = pxsim_numops_toBool(s.tmp_0);
+    if (r0) { step = 12; continue; }
+    r0 = s.tmp_0;
+    { step = 13; continue; }
+  case 12:
+    r0 = s.winner___14482;
+  case 13:
+    // jmp value (already in r0)
+    s.tmp_1 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_1);
+    if (!r0) { step = 14; continue; }
+    s.tmp_2 = info_saveHighScore__P2568_mk(s);
+    s.callLocIdx = 1428; s.pc = 40; return s.tmp_2;
+  case 40:
+    r0 = s.retval;
+  case 14:
+  case 15:
+    r0 = pxsim_numops_toBoolDecr(s.arg1);
+    s.tmp_3 = r0;
+    r0 = pxsim_Boolean__bang(s.tmp_3);
+    s.tmp_2 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_2);
+    s.tmp_1 = r0;
+    r0 = pxsim_Boolean__bang(s.tmp_1);
+    s.tmp_0 = r0;
+    r0 = pxsim_numops_toBool(s.tmp_0);
+    if (!r0) { step = 16; continue; }
+    r0 = s.tmp_0;
+    { step = 19; continue; }
+  case 16:
+    s.tmp_4 = r0 = s.judged___14467;
+    r0 = pxsim_numops_toBool(s.tmp_4);
+    if (r0) { step = 17; continue; }
+    r0 = s.tmp_4;
+    { step = 18; continue; }
+  case 17:
+    s.tmp_5 = info_multiplayerScoring__P2563_mk(s);
+    s.callLocIdx = 1429; s.pc = 41; return s.tmp_5;
+  case 41:
+    r0 = s.retval;
+  case 18:
+    // jmp value (already in r0)
+    s.tmp_6 = r0;
+    r0 = s.tmp_6;
+  case 19:
+    // jmp value (already in r0)
+    s.tmp_7 = r0;
+    s.preferMultiplayer___14509 = (s.tmp_7);
+    s.tmp_0 = game_GameOverConfig_getMessage__P2997_mk(s);
+    s.tmp_0.arg0 = s.goc___14464;
+    s.tmp_0.arg1 = s.arg0;
+    s.tmp_0.arg2 = s.preferMultiplayer___14509;
+    s.callLocIdx = 1430; s.pc = 42; return s.tmp_0;
+  case 42:
+    r0 = s.retval;
+    s.message___14517 = (r0);
+    s.tmp_0 = game_GameOverConfig_getEffect__P2992_mk(s);
+    s.tmp_0.arg0 = s.goc___14464;
+    s.tmp_0.arg1 = s.arg0;
+    s.callLocIdx = 1431; s.pc = 43; return s.tmp_0;
+  case 43:
+    r0 = s.retval;
+    s.effect___14523 = (r0);
+    s.tmp_0 = game_GameOverConfig_getSound__P2994_mk(s);
+    s.tmp_0.arg0 = s.goc___14464;
+    s.tmp_0.arg1 = s.arg0;
+    s.callLocIdx = 1432; s.pc = 44; return s.tmp_0;
+  case 44:
+    r0 = s.retval;
+    s.sound___14528 = (r0);
+    s.tmp_0 = game_GameOverConfig_getSoundLooping__P2995_mk(s);
+    s.tmp_0.arg0 = s.goc___14464;
+    s.tmp_0.arg1 = s.arg0;
+    s.callLocIdx = 1433; s.pc = 45; return s.tmp_0;
+  case 45:
+    r0 = s.retval;
+    s.looping___14533 = (r0);
+    r0 = pxsim_numops_toBoolDecr(s.looping___14533);
+    if (!r0) { step = 20; continue; }
+    r0 = 2;
+    { step = 21; continue; }
+  case 20:
+    r0 = 1;
+  case 21:
+    // jmp value (already in r0)
+    s.tmp_0 = r0;
+    s.playbackMode___14538 = (s.tmp_0);
+  case 22:
+    s.tmp_0 = r0 = globals._sceneStack___5223;
+    r0 = pxsim_numops_toBool(s.tmp_0);
+    if (r0) { step = 23; continue; }
+    r0 = s.tmp_0;
+    { step = 24; continue; }
+  case 23:
+    r0 = pxsim_Array__length(globals._sceneStack___5223);
+  case 24:
+    // jmp value (already in r0)
+    s.tmp_1 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_1);
+    if (!r0) { step = 25; continue; }
+    s.tmp_2 = scene_Scene_destroy__P2871_mk(s);
+    s.tmp_2.arg0 = globals._scene___5222;
+    s.callLocIdx = 1434; s.pc = 46; return s.tmp_2;
+  case 46:
+    r0 = s.retval;
+    s.tmp_0 = game_popScene__P3004_mk(s);
+    s.callLocIdx = 1435; s.pc = 47; return s.tmp_0;
+  case 47:
+    r0 = s.retval;
+    { step = 22; continue; }
+  case 25:
+    s.tmp_0 = game_pushScene__P3003_mk(s);
+    s.callLocIdx = 1436; s.pc = 48; return s.tmp_0;
+  case 48:
+    r0 = s.retval;
+    s.tmp_0 = scene_setBackgroundImage__P2885_mk(s);
+    r0 = pxsim_ImageMethods.clone(globals.screen___2032);
+    s.tmp_0.arg0 = r0;
+    s.callLocIdx = 1437; s.pc = 49; return s.tmp_0;
+  case 49:
+    r0 = s.retval;
+    r0 = pxsim_numops_toBoolDecr(s.sound___14528);
+    if (!r0) { step = 26; continue; }
+    s.tmp_0 = music_play__P1922_mk(s);
+    s.tmp_0.arg0 = s.sound___14528;
+    s.tmp_0.arg1 = s.playbackMode___14538;
+    s.callLocIdx = 1438; s.pc = 50; return s.tmp_0;
+  case 50:
+    r0 = s.retval;
+  case 26:
+  case 27:
+    r0 = pxsim_numops_toBoolDecr(s.effect___14523);
+    if (!r0) { step = 28; continue; }
+    s.tmp_0 = if_startScreenEffect_1_mk(s);
+    s.tmp_0.arg0 = s.effect___14523;
+    if (!s.tmp_0.arg0.vtable.iface) {
+      setupLambda(s.tmp_0, pxsim_pxtrt.mapGetByString(s.tmp_0.arg0, "startScreenEffect"), 1);
+      s.callLocIdx = 1439; s.pc = 51; return s.tmp_0;
+    } else {
+      s.tmp_0.fn = s.tmp_0.arg0.vtable.iface["startScreenEffect"];
+      if (s.tmp_0.fn == null) { setupLambda(s.tmp_0, s.tmp_0.arg0.fields["startScreenEffect"], 1); s.callLocIdx = 1439; s.pc = 51; return s.tmp_0; }
+      else if (s.tmp_0.fn.isGetter) { s.tmp_0.stage2Call = true; s.callLocIdx = 1439; s.pc = 51; return s.tmp_0;; }
+     else { s.callLocIdx = 1439; s.pc = 51; return s.tmp_0; }
+    }
+  case 51:
+    r0 = s.retval;
+  case 28:
+  case 29:
+    s.tmp_0 = pause__P413_mk(s);
+    s.tmp_0.arg0 = 400;
+    s.callLocIdx = 1440; s.pc = 52; return s.tmp_0;
+  case 52:
+    r0 = s.retval;
+    r0 = pxsim_pxtcore_mkClassInstance(game_GameOverDialog__C2946_VT);
+    s.tmp_0 = r0;
+    s.tmp_1 = game_GameOverDialog_constructor__P2953_mk(s);
+    s.tmp_1.arg0 = s.tmp_0;
+    s.tmp_1.arg1 = s.arg0;
+    s.tmp_1.arg2 = s.message___14517;
+    s.tmp_1.arg3 = s.judged___14467;
+    s.tmp_1.arg4 = s.scores___14488;
+    s.tmp_1.arg5 = s.prevBestScore___14478;
+    s.tmp_1.arg6 = s.arg1;
+    s.callLocIdx = 1441; s.pc = 53; return s.tmp_1;
+  case 53:
+    r0 = s.retval;
+    s.overDialog___14564 = (s.tmp_0);
+    r0 = pxsim_pxtcore_mkAction(1, game__gameOverImpl_inline__P14576);
+    s.tmp_0 = r0;
+    r0 = pxsim_pxtrt_stclo(s.tmp_0, 0, s.overDialog___14564);
+    s.tmp_1 = scene_createRenderable__P2805_mk(s);
+    s.tmp_1.arg0 = 100;
+    s.tmp_1.arg1 = s.tmp_0;
+    s.tmp_1.arg2 = undefined;
+    s.callLocIdx = 1442; s.pc = 54; return s.tmp_1;
+  case 54:
+    r0 = s.retval;
+    s.tmp_0 = pause__P413_mk(s);
+    s.tmp_0.arg0 = 500;
+    s.callLocIdx = 1443; s.pc = 55; return s.tmp_0;
+  case 55:
+    r0 = s.retval;
+    s.tmp_0 = game_GameOverDialog_displayCursor__P2954_mk(s);
+    s.tmp_0.arg0 = s.overDialog___14564;
+    s.callLocIdx = 1444; s.pc = 56; return s.tmp_0;
+  case 56:
+    r0 = s.retval;
+    s.tmp_0 = game_waitAnyButton__P3001_mk(s);
+    s.callLocIdx = 1445; s.pc = 57; return s.tmp_0;
+  case 57:
+    r0 = s.retval;
+    setupResume(s, 58);
+    pxsim.control.reset();
+    checkResumeConsumed();
+    return;
+  case 58:
+    r0 = s.retval;
+  case 30:
+  case 31:
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+game__gameOverImpl__P5232.info = {"start":11264,"length":2664,"line":350,"column":4,"endLine":410,"endColumn":5,"fileName":"pxt_modules/game/game.ts","functionName":"_gameOverImpl","argumentNames":["win","winnerOverride"]}
+
+function game__gameOverImpl__P5232_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: game__gameOverImpl__P5232, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  tmp_2: undefined,
+  tmp_3: undefined,
+  tmp_4: undefined,
+  tmp_5: undefined,
+  tmp_6: undefined,
+  tmp_7: undefined,
+  goc___14464: undefined,
+  judged___14467: undefined,
+  playersWithScores___14475: undefined,
+  prevBestScore___14478: undefined,
+  winner___14482: undefined,
+  scores___14488: undefined,
+  preferMultiplayer___14509: undefined,
+  message___14517: undefined,
+  effect___14523: undefined,
+  sound___14528: undefined,
+  looping___14533: undefined,
+  playbackMode___14538: undefined,
+  overDialog___14564: undefined,
+  arg0: undefined,
+  arg1: undefined,
+} }
+
+
+
+
+
+function scores_inline__P14490(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.lambdaArgs = null;
+    }
+    r0 = pxsim_pxtcore_mkClassInstance(game_GameOverPlayerScore__C2943_VT);
+    s.tmp_0 = r0;
+    s.tmp_1 = game_GameOverPlayerScore_constructor__P2945_mk(s);
+    s.tmp_1.arg0 = s.tmp_0;
+    r0 = s.arg0.fields["_player"];
+    s.tmp_1.arg1 = r0;
+    s.tmp_2 = info_PlayerInfoImpl_score__P2606_mk(s);
+    r0 = s.arg0.fields["impl"];
+    s.tmp_2.arg0 = r0;
+    s.callLocIdx = 1424; s.pc = 2; return s.tmp_2;
+  case 2:
+    r0 = s.retval;
+    s.tmp_1.arg2 = r0;
+    r0 = (s.arg0 === s.caps[0]);
+    s.tmp_1.arg3 = r0;
+    s.callLocIdx = 1425; s.pc = 1; return s.tmp_1;
+  case 1:
+    r0 = s.retval;
+    r0 = s.tmp_0;
+    return leave(s, r0)
+  default: oops()
+} } }
+scores_inline__P14490.info = {"start":11859,"length":88,"line":364,"column":49,"endLine":364,"endColumn":137,"fileName":"pxt_modules/game/game.ts","functionName":"inline","argumentNames":["player"]}
+
+function scores_inline__P14490_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: scores_inline__P14490, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  tmp_2: undefined,
+  arg0: undefined,
+} }
+
+
+
+
+
+function game__gameOverImpl_inline__P14576(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.lambdaArgs = null;
+    }
+    s.tmp_0 = game_GameOverDialog__C2946_v0_1_mk(s);
+    s.tmp_0.arg0 = s.caps[0];
+    if (!checkSubtype(s.tmp_0.arg0, game_GameOverDialog__C2946_VT)) failedCast(s.tmp_0.arg0);
+    s.tmp_0.fn = s.tmp_0.arg0.vtable.methods.update;
+    s.pc = 1; return s.tmp_0;
+  case 1:
+    r0 = s.retval;
+    s.tmp_0 = r0 = s.arg0;
+    r0 = s.caps[0].fields["image"];
+    s.tmp_1 = r0;
+    r0 = pxsim_ImageMethods.height(globals.screen___2032);
+    s.tmp_4 = r0;
+    r0 = s.caps[0].fields["image"];
+    s.tmp_6 = r0;
+    r0 = pxsim_ImageMethods.height(s.tmp_6);
+    s.tmp_5 = r0;
+    r0 = (s.tmp_4 - s.tmp_5);
+    s.tmp_3 = r0;
+    r0 = (s.tmp_3 >> 1);
+    s.tmp_2 = r0;
+    r0 = pxsim_ImageMethods.drawTransparentImage(s.tmp_0, s.tmp_1, 0, s.tmp_2);
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+game__gameOverImpl_inline__P14576.info = {"start":13493,"length":254,"line":396,"column":48,"endLine":403,"endColumn":13,"fileName":"pxt_modules/game/game.ts","functionName":"inline","argumentNames":["target"]}
+
+function game__gameOverImpl_inline__P14576_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: game__gameOverImpl_inline__P14576, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  tmp_2: undefined,
+  tmp_3: undefined,
+  tmp_4: undefined,
+  tmp_5: undefined,
+  tmp_6: undefined,
   arg0: undefined,
 } }
 
@@ -28708,154 +28380,6 @@ function particles_ParticleSource_enabled__P3163_mk(s) {
   tmp_2: undefined,
   tmp_3: undefined,
   tmp_4: undefined,
-  arg0: undefined,
-} }
-
-
-
-
-
-function control_popEventContext__P410(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    s.ctx___11620 = undefined;
-    s.context___11628 = undefined;
-    r0 = pxsim_numops_toBoolDecr(globals.eventContexts___4722);
-    s.tmp_1 = r0;
-    r0 = pxsim_Boolean__bang(s.tmp_1);
-    s.tmp_0 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
-    if (!r0) { step = 1; continue; }
-    { step = 7; continue; }
-  case 1:
-  case 2:
-    r0 = pxsim_Array_.pop(globals.eventContexts___4722);
-    s.ctx___11620 = (r0);
-    r0 = pxsim_numops_toBoolDecr(s.ctx___11620);
-    s.tmp_1 = r0;
-    r0 = pxsim_Boolean__bang(s.tmp_1);
-    s.tmp_0 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
-    if (!r0) { step = 3; continue; }
-    { step = 7; continue; }
-  case 3:
-  case 4:
-    s.tmp_2 = control_EventContext_unregister__P402_mk(s);
-    s.tmp_2.arg0 = s.ctx___11620;
-    s.callLocIdx = 75; s.pc = 8; return s.tmp_2;
-  case 8:
-    r0 = s.retval;
-    s.tmp_0 = r0 = globals.eventContexts___4722;
-    r0 = pxsim_Array__length(globals.eventContexts___4722);
-    s.tmp_2 = r0;
-    r0 = (s.tmp_2 - 1);
-    s.tmp_1 = r0;
-    r0 = pxsim_Array__getAt(s.tmp_0, s.tmp_1);
-    s.context___11628 = (r0);
-    r0 = pxsim_numops_toBoolDecr(s.context___11628);
-    if (!r0) { step = 5; continue; }
-    s.tmp_0 = control_EventContext_register__P401_mk(s);
-    s.tmp_0.arg0 = s.context___11628;
-    s.callLocIdx = 76; s.pc = 9; return s.tmp_0;
-  case 9:
-    r0 = s.retval;
-    { step = 6; continue; }
-  case 5:
-    globals.eventContexts___4722 = (undefined);
-  case 6:
-  case 7:
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-control_popEventContext__P410.info = {"start":7755,"length":413,"line":236,"column":4,"endLine":250,"endColumn":5,"fileName":"pxt_modules/base/eventcontext.ts","functionName":"popEventContext","argumentNames":[]}
-
-function control_popEventContext__P410_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: control_popEventContext__P410, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  tmp_2: undefined,
-  ctx___11620: undefined,
-  context___11628: undefined,
-} }
-
-
-
-
-
-function control_EventContext_register__P401(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    s.h___11641 = undefined;
-    s.unnamed96___U1 = undefined;
-    s.unnamed97___U2 = undefined;
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, control_EventContext__C395_VT)) failedCast(r0);
-    s.h___11641 = (undefined);
-    r0 = s.arg0.fields["handlers"];
-    s.unnamed96___U1 = (r0);
-    s.unnamed97___U2 = (0);
-  case 1:
-    s.tmp_0 = r0 = s.unnamed97___U2;
-    r0 = pxsim_Array__length(s.unnamed96___U1);
-    s.tmp_1 = r0;
-    r0 = (s.tmp_0 < s.tmp_1);
-    if (!r0) { step = 2; continue; }
-    r0 = pxsim_Array__getAt(s.unnamed96___U1, s.unnamed97___U2);
-    s.h___11641 = (r0);
-    s.tmp_2 = control_EventHandler_register__P4715_mk(s);
-    s.tmp_2.arg0 = s.h___11641;
-    s.callLocIdx = 66; s.pc = 3; return s.tmp_2;
-  case 3:
-    r0 = s.retval;
-    r0 = (s.unnamed97___U2 + 1);
-    s.unnamed97___U2 = (r0);
-    { step = 1; continue; }
-  case 2:
-    s.unnamed96___U1 = (undefined);
-    s.tmp_0 = control_EventContext_registerFrameCallbacks__P4720_mk(s);
-    s.tmp_0.arg0 = s.arg0;
-    s.callLocIdx = 67; s.pc = 4; return s.tmp_0;
-  case 4:
-    r0 = s.retval;
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-control_EventContext_register__P401.info = {"start":4573,"length":138,"line":135,"column":8,"endLine":139,"endColumn":9,"fileName":"pxt_modules/base/eventcontext.ts","functionName":"register","argumentNames":["this"]}
-
-function control_EventContext_register__P401_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: control_EventContext_register__P401, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  tmp_2: undefined,
-  h___11641: undefined,
-  unnamed96___U1: undefined,
-  unnamed97___U2: undefined,
   arg0: undefined,
 } }
 
@@ -33528,6 +33052,78 @@ function helpers_stringEmpty__P125_mk(s) {
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   arg0: undefined,
+} }
+
+
+
+
+
+function helpers_arrayFind__P111(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    s.len___14422 = undefined;
+    s.i___14425 = undefined;
+    s.v___14430 = undefined;
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.arg1 = (s.lambdaArgs[1]);
+      s.lambdaArgs = null;
+    }
+    r0 = pxsim_Array__length(s.arg0);
+    s.len___14422 = (r0);
+    s.i___14425 = (0);
+  case 1:
+    r0 = (s.i___14425 < s.len___14422);
+    s.tmp_0 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
+    if (!r0) { step = 4; continue; }
+    r0 = pxsim_Array__getAt(s.arg0, s.i___14425);
+    s.v___14430 = (r0);
+    s.tmp_1 = lambda_3_mk(s);
+    s.tmp_1.argL = s.arg1;
+    s.tmp_1.arg0 = s.v___14430;
+    s.tmp_1.arg1 = s.i___14425;
+    setupLambda(s.tmp_1, s.tmp_1.argL);
+    s.callLocIdx = 8; s.pc = 6; return s.tmp_1;
+  case 6:
+    r0 = s.retval;
+    s.tmp_0 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
+    if (!r0) { step = 2; continue; }
+    r0 = s.v___14430;
+    { step = 5; continue; }
+  case 2:
+  case 3:
+    r0 = (s.i___14425 + 1);
+    s.i___14425 = (r0);
+    { step = 1; continue; }
+  case 4:
+    r0 = undefined;
+  case 5:
+    return leave(s, r0)
+  default: oops()
+} } }
+helpers_arrayFind__P111.info = {"start":8018,"length":292,"line":271,"column":4,"endLine":278,"endColumn":5,"fileName":"pxt_modules/base/pxt-helpers.ts","functionName":"arrayFind","argumentNames":["arr","callbackfn"]}
+
+function helpers_arrayFind__P111_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: helpers_arrayFind__P111, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  len___14422: undefined,
+  i___14425: undefined,
+  v___14430: undefined,
+  arg0: undefined,
+  arg1: undefined,
 } }
 
 
@@ -39767,69 +39363,6 @@ function helpers_imageDrawRect__P1959_mk(s) {
 
 
 
-function helpers_imageDrawLine__P1958(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.arg1 = (s.lambdaArgs[1]);
-      s.arg2 = (s.lambdaArgs[2]);
-      s.arg3 = (s.lambdaArgs[3]);
-      s.arg4 = (s.lambdaArgs[4]);
-      s.arg5 = (s.lambdaArgs[5]);
-      s.lambdaArgs = null;
-    }
-    s.tmp_0 = r0 = s.arg0;
-    s.tmp_2 = helpers_pack__P4859_mk(s);
-    s.tmp_2.arg0 = s.arg1;
-    s.tmp_2.arg1 = s.arg2;
-    s.callLocIdx = 188; s.pc = 1; return s.tmp_2;
-  case 1:
-    r0 = s.retval;
-    s.tmp_1 = r0;
-    s.tmp_4 = helpers_pack__P4859_mk(s);
-    s.tmp_4.arg0 = s.arg3;
-    s.tmp_4.arg1 = s.arg4;
-    s.callLocIdx = 189; s.pc = 2; return s.tmp_4;
-  case 2:
-    r0 = s.retval;
-    s.tmp_3 = r0;
-    r0 = pxsim_ImageMethods._drawLine(s.tmp_0, s.tmp_1, s.tmp_3, s.arg5);
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-helpers_imageDrawLine__P1958.info = {"start":5781,"length":159,"line":182,"column":4,"endLine":184,"endColumn":5,"fileName":"pxt_modules/screen/image.ts","functionName":"imageDrawLine","argumentNames":["img","x","y","w","h","c"]}
-
-function helpers_imageDrawLine__P1958_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: helpers_imageDrawLine__P1958, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  tmp_2: undefined,
-  tmp_3: undefined,
-  tmp_4: undefined,
-  arg0: undefined,
-  arg1: undefined,
-  arg2: undefined,
-  arg3: undefined,
-  arg4: undefined,
-  arg5: undefined,
-} }
-
-
-
-
-
 function Math_FastRandom_randomRange__P3063(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
@@ -40062,7 +39595,7 @@ function game_setGameOverEffect__P3006_mk(s) {
 
 
 
-function maze_Game_saveHighScore__P7579(s) {
+function maze_Game_saveHighScore__P264830(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -40072,16 +39605,16 @@ if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) re
 switch (step) {
   case 0:
 
-    s.diff___9835 = undefined;
-    s.highScore___9844 = undefined;
-    s.score___9848 = undefined;
+    s.diff___265355 = undefined;
+    s.highScore___265364 = undefined;
+    s.score___265368 = undefined;
     if (s.lambdaArgs) {
       s.arg0 = (s.lambdaArgs[0]);
       s.lambdaArgs = null;
     }
     r0 = s.arg0;
-    if (!checkSubtype(r0, maze_Game__C4508_VT)) failedCast(r0);
-    s.tmp_2 = maze_difficultyString__P4507_mk(s);
+    if (!checkSubtype(r0, maze_Game__C264821_VT)) failedCast(r0);
+    s.tmp_2 = maze_difficultyString__P264932_mk(s);
     r0 = s.arg0.fields["difficulty"];
     s.tmp_2.arg0 = r0;
     s.callLocIdx = 405; s.pc = 5; return s.tmp_2;
@@ -40098,19 +39631,19 @@ switch (step) {
     r0 = s.retval;
     s.tmp_0 = r0;
     r0 = pxsim_String__concat("high_score_", s.tmp_0);
-    s.diff___9835 = (r0);
+    s.diff___265355 = (r0);
     s.tmp_0 = settings_readNumber__P2068_mk(s);
-    s.tmp_0.arg0 = s.diff___9835;
+    s.tmp_0.arg0 = s.diff___265355;
     s.callLocIdx = 406; s.pc = 7; return s.tmp_0;
   case 7:
     r0 = s.retval;
-    s.highScore___9844 = (r0);
+    s.highScore___265364 = (r0);
     s.tmp_0 = info_score__P2569_mk(s);
     s.callLocIdx = 407; s.pc = 8; return s.tmp_0;
   case 8:
     r0 = s.retval;
-    s.score___9848 = (r0);
-    r0 = pxsim_numops_toBoolDecr(s.highScore___9844);
+    s.score___265368 = (r0);
+    r0 = pxsim_numops_toBoolDecr(s.highScore___265364);
     s.tmp_1 = r0;
     r0 = pxsim_Boolean__bang(s.tmp_1);
     s.tmp_0 = r0;
@@ -40119,15 +39652,15 @@ switch (step) {
     r0 = s.tmp_0;
     { step = 2; continue; }
   case 1:
-    r0 = (s.score___9848 > s.highScore___9844);
+    r0 = (s.score___265368 > s.highScore___265364);
   case 2:
     // jmp value (already in r0)
     s.tmp_2 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_2);
     if (!r0) { step = 3; continue; }
     s.tmp_3 = settings_writeNumber__P2063_mk(s);
-    s.tmp_3.arg0 = s.diff___9835;
-    s.tmp_3.arg1 = s.score___9848;
+    s.tmp_3.arg0 = s.diff___265355;
+    s.tmp_3.arg1 = s.score___265368;
     s.callLocIdx = 408; s.pc = 9; return s.tmp_3;
   case 9:
     r0 = s.retval;
@@ -40137,20 +39670,20 @@ switch (step) {
     return leave(s, r0)
   default: oops()
 } } }
-maze_Game_saveHighScore__P7579.info = {"start":6550,"length":375,"line":184,"column":8,"endLine":192,"endColumn":9,"fileName":"maze_game.ts","functionName":"saveHighScore","argumentNames":["this"]}
+maze_Game_saveHighScore__P264830.info = {"start":6605,"length":375,"line":186,"column":8,"endLine":194,"endColumn":9,"fileName":"maze_game.ts","functionName":"saveHighScore","argumentNames":["this"]}
 
-function maze_Game_saveHighScore__P7579_mk(s) {
+function maze_Game_saveHighScore__P264830_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: maze_Game_saveHighScore__P7579, depth: s.depth + 1,
+        parent: s, fn: maze_Game_saveHighScore__P264830, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
   tmp_2: undefined,
   tmp_3: undefined,
-  diff___9835: undefined,
-  highScore___9844: undefined,
-  score___9848: undefined,
+  diff___265355: undefined,
+  highScore___265364: undefined,
+  score___265368: undefined,
   arg0: undefined,
 } }
 
@@ -40191,7 +39724,7 @@ function info_score__P2569_mk(s) {
 
 
 
-function maze_difficultyString__P4507(s) {
+function maze_difficultyString__P264932(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -40229,12 +39762,12 @@ switch (step) {
     return leave(s, r0)
   default: oops()
 } } }
-maze_difficultyString__P4507.info = {"start":98,"length":256,"line":6,"column":4,"endLine":13,"endColumn":5,"fileName":"maze_game.ts","functionName":"difficultyString","argumentNames":["diff"]}
+maze_difficultyString__P264932.info = {"start":98,"length":256,"line":6,"column":4,"endLine":13,"endColumn":5,"fileName":"maze_game.ts","functionName":"difficultyString","argumentNames":["diff"]}
 
-function maze_difficultyString__P4507_mk(s) {
+function maze_difficultyString__P264932_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: maze_difficultyString__P4507, depth: s.depth + 1,
+        parent: s, fn: maze_difficultyString__P264932, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   arg0: undefined,
@@ -40244,7 +39777,7 @@ function maze_difficultyString__P4507_mk(s) {
 
 
 
-function maze_Game_life__P7576(s) {
+function maze_Game_life__P264827(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -40259,8 +39792,8 @@ switch (step) {
       s.lambdaArgs = null;
     }
     r0 = s.arg0;
-    if (!checkSubtype(r0, maze_Game__C4508_VT)) failedCast(r0);
-    s.tmp_0 = maze_Game_setFreeze__P7584_mk(s);
+    if (!checkSubtype(r0, maze_Game__C264821_VT)) failedCast(r0);
+    s.tmp_0 = maze_Game_setFreeze__P264835_mk(s);
     s.tmp_0.arg0 = s.arg0;
     s.tmp_0.arg1 = true;
     s.callLocIdx = 391; s.pc = 3; return s.tmp_0;
@@ -40274,7 +39807,7 @@ switch (step) {
   case 4:
     r0 = s.retval;
     s.tmp_0 = info_onLifeZero__P2578_mk(s);
-    s.tmp_0.arg0 = maze_Game_life_inline__P9763;
+    s.tmp_0.arg0 = maze_Game_life_inline__P265283;
     s.callLocIdx = 393; s.pc = 5; return s.tmp_0;
   case 5:
     r0 = s.retval;
@@ -40317,12 +39850,12 @@ switch (step) {
     return leave(s, r0)
   default: oops()
 } } }
-maze_Game_life__P7576.info = {"start":5020,"length":529,"line":140,"column":8,"endLine":155,"endColumn":9,"fileName":"maze_game.ts","functionName":"life","argumentNames":["this"]}
+maze_Game_life__P264827.info = {"start":5075,"length":529,"line":142,"column":8,"endLine":157,"endColumn":9,"fileName":"maze_game.ts","functionName":"life","argumentNames":["this"]}
 
-function maze_Game_life__P7576_mk(s) {
+function maze_Game_life__P264827_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: maze_Game_life__P7576, depth: s.depth + 1,
+        parent: s, fn: maze_Game_life__P264827, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
@@ -40335,7 +39868,7 @@ function maze_Game_life__P7576_mk(s) {
 
 
 
-function maze_Game_life_inline__P9763(s) {
+function maze_Game_life_inline__P265283(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -40349,12 +39882,12 @@ switch (step) {
     return leave(s, r0)
   default: oops()
 } } }
-maze_Game_life_inline__P9763.info = {"start":5244,"length":9,"line":146,"column":28,"endLine":146,"endColumn":37,"fileName":"maze_game.ts","functionName":"inline","argumentNames":[]}
+maze_Game_life_inline__P265283.info = {"start":5299,"length":9,"line":148,"column":28,"endLine":148,"endColumn":37,"fileName":"maze_game.ts","functionName":"inline","argumentNames":[]}
 
-function maze_Game_life_inline__P9763_mk(s) {
+function maze_Game_life_inline__P265283_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: maze_Game_life_inline__P9763, depth: s.depth + 1,
+        parent: s, fn: maze_Game_life_inline__P265283, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
 } }
 
@@ -40795,7 +40328,7 @@ function info_PlayerInfoImpl_onLifeZero__P2614_mk(s) {
 
 
 
-function maze_Game_setFreeze__P7584(s) {
+function maze_EventManager_cancelAll__P4553(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -40805,76 +40338,41 @@ if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) re
 switch (step) {
   case 0:
 
-    s.chaser___9939 = undefined;
-    s.unnamed20514___U1 = undefined;
-    s.unnamed20515___U2 = undefined;
     if (s.lambdaArgs) {
       s.arg0 = (s.lambdaArgs[0]);
-      s.arg1 = (s.lambdaArgs[1]);
       s.lambdaArgs = null;
     }
     r0 = s.arg0;
-    if (!checkSubtype(r0, maze_Game__C4508_VT)) failedCast(r0);
-    s.tmp_0 = maze_Mover_setFreeze__P232029_mk(s);
-    r0 = s.arg0.fields["maze"];
-    r0 = r0.fields["hero"];
-    r0 = r0.fields["mover"];
-    s.tmp_0.arg0 = r0;
-    s.tmp_0.arg1 = s.arg1;
-    s.callLocIdx = 420; s.pc = 3; return s.tmp_0;
-  case 3:
-    r0 = s.retval;
-    s.chaser___9939 = (undefined);
-    r0 = s.arg0.fields["maze"];
-    r0 = r0.fields["chasers"];
-    s.unnamed20514___U1 = (r0);
-    s.unnamed20515___U2 = (0);
-  case 1:
-    s.tmp_0 = r0 = s.unnamed20515___U2;
-    r0 = pxsim_Array__length(s.unnamed20514___U1);
+    if (!checkSubtype(r0, maze_EventManager__C4540_VT)) failedCast(r0);
+    s.tmp_0 = r0 = s.arg0;
+    r0 = pxsim_Array__mk();
     s.tmp_1 = r0;
-    r0 = (s.tmp_0 < s.tmp_1);
-    if (!r0) { step = 2; continue; }
-    r0 = pxsim_Array__getAt(s.unnamed20514___U1, s.unnamed20515___U2);
-    s.chaser___9939 = (r0);
-    s.tmp_2 = maze_Mover_setFreeze__P232029_mk(s);
-    r0 = s.chaser___9939.fields["mover"];
-    s.tmp_2.arg0 = r0;
-    s.tmp_2.arg1 = s.arg1;
-    s.callLocIdx = 421; s.pc = 4; return s.tmp_2;
-  case 4:
-    r0 = s.retval;
-    r0 = (s.unnamed20515___U2 + 1);
-    s.unnamed20515___U2 = (r0);
-    { step = 1; continue; }
-  case 2:
-    s.unnamed20514___U1 = (undefined);
+    r0 = (s.tmp_0).fields["frameEvents"] = (s.tmp_1);
+    s.tmp_0 = r0 = s.arg0;
+    r0 = pxsim_Array__mk();
+    s.tmp_1 = r0;
+    r0 = (s.tmp_0).fields["timedEvents"] = (s.tmp_1);
     r0 = undefined;
     return leave(s, r0)
   default: oops()
 } } }
-maze_Game_setFreeze__P7584.info = {"start":7928,"length":212,"line":227,"column":8,"endLine":232,"endColumn":9,"fileName":"maze_game.ts","functionName":"setFreeze","argumentNames":["this","freeze"]}
+maze_EventManager_cancelAll__P4553.info = {"start":3350,"length":91,"line":127,"column":8,"endLine":130,"endColumn":9,"fileName":"maze_events.ts","functionName":"cancelAll","argumentNames":["this"]}
 
-function maze_Game_setFreeze__P7584_mk(s) {
+function maze_EventManager_cancelAll__P4553_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: maze_Game_setFreeze__P7584, depth: s.depth + 1,
+        parent: s, fn: maze_EventManager_cancelAll__P4553, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
-  tmp_2: undefined,
-  chaser___9939: undefined,
-  unnamed20514___U1: undefined,
-  unnamed20515___U2: undefined,
   arg0: undefined,
-  arg1: undefined,
 } }
 
 
 
 
 
-function maze_Mover_setFreeze__P232029(s) {
+function maze_Game_levelNext__P264833(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -40886,95 +40384,776 @@ switch (step) {
 
     if (s.lambdaArgs) {
       s.arg0 = (s.lambdaArgs[0]);
-      s.arg1 = (s.lambdaArgs[1]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, maze_Game__C264821_VT)) failedCast(r0);
+    s.tmp_0 = r0 = s.arg0;
+    r0 = s.tmp_0.fields["levelCount"];
+    s.tmp_2 = r0;
+    r0 = (s.tmp_2 + 1);
+    s.tmp_1 = r0;
+    r0 = (s.tmp_0).fields["levelCount"] = (s.tmp_1);
+    s.tmp_0 = maze_Game_initLevel__P264824_mk(s);
+    s.tmp_0.arg0 = s.arg0;
+    s.callLocIdx = 418; s.pc = 1; return s.tmp_0;
+  case 1:
+    r0 = s.retval;
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+maze_Game_levelNext__P264833.info = {"start":7611,"length":98,"line":216,"column":8,"endLine":219,"endColumn":9,"fileName":"maze_game.ts","functionName":"levelNext","argumentNames":["this"]}
+
+function maze_Game_levelNext__P264833_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: maze_Game_levelNext__P264833, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  tmp_2: undefined,
+  arg0: undefined,
+} }
+
+
+
+
+
+function maze_Game_initLevel__P264824(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    s.chaser___265128 = undefined;
+    s.unnamed24094___U1 = undefined;
+    s.unnamed24095___U2 = undefined;
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, maze_Game__C264821_VT)) failedCast(r0);
+    s.tmp_0 = scene_cameraFollowSprite__P2890_mk(s);
+    r0 = s.arg0.fields["maze"];
+    r0 = r0.fields["hero"];
+    r0 = r0.fields["mover"];
+    r0 = r0.fields["sprite"];
+    s.tmp_0.arg0 = r0;
+    s.callLocIdx = 369; s.pc = 3; return s.tmp_0;
+  case 3:
+    r0 = s.retval;
+    s.tmp_0 = maze_Level_initLevel__P4633_mk(s);
+    s.tmp_0.arg0 = globals.level___4634;
+    r0 = s.arg0.fields["levelCount"];
+    s.tmp_0.arg1 = r0;
+    s.callLocIdx = 370; s.pc = 4; return s.tmp_0;
+  case 4:
+    r0 = s.retval;
+    r0 = (s.arg0).fields["pillsEaten"] = (0);
+    r0 = s.arg0.fields["maze"];
+    r0 = r0.fields["map"];
+    r0 = r0.fields["pillCount"];
+    s.tmp_0 = r0;
+    r0 = (s.arg0).fields["pillsRemaining"] = (s.tmp_0);
+    r0 = (s.arg0).fields["levelComplete"] = (false);
+    r0 = (s.arg0).fields["chaserEatCount"] = (0);
+    r0 = (s.arg0).fields["chaserWarn"] = (false);
+    s.tmp_0 = maze_Map_initLevel__P4451_mk(s);
+    r0 = s.arg0.fields["maze"];
+    r0 = r0.fields["map"];
+    s.tmp_0.arg0 = r0;
+    s.callLocIdx = 371; s.pc = 5; return s.tmp_0;
+  case 5:
+    r0 = s.retval;
+    s.tmp_0 = maze_Hero_initLevel__P4406_mk(s);
+    r0 = s.arg0.fields["maze"];
+    r0 = r0.fields["hero"];
+    s.tmp_0.arg0 = r0;
+    s.callLocIdx = 372; s.pc = 6; return s.tmp_0;
+  case 6:
+    r0 = s.retval;
+    s.chaser___265128 = (undefined);
+    r0 = s.arg0.fields["maze"];
+    r0 = r0.fields["chasers"];
+    s.unnamed24094___U1 = (r0);
+    s.unnamed24095___U2 = (0);
+  case 1:
+    s.tmp_0 = r0 = s.unnamed24095___U2;
+    r0 = pxsim_Array__length(s.unnamed24094___U1);
+    s.tmp_1 = r0;
+    r0 = (s.tmp_0 < s.tmp_1);
+    if (!r0) { step = 2; continue; }
+    r0 = pxsim_Array__getAt(s.unnamed24094___U1, s.unnamed24095___U2);
+    s.chaser___265128 = (r0);
+    s.tmp_2 = maze_Chaser_initLevel__P200288_mk(s);
+    s.tmp_2.arg0 = s.chaser___265128;
+    s.callLocIdx = 373; s.pc = 7; return s.tmp_2;
+  case 7:
+    r0 = s.retval;
+    r0 = (s.unnamed24095___U2 + 1);
+    s.unnamed24095___U2 = (r0);
+    { step = 1; continue; }
+  case 2:
+    s.unnamed24094___U1 = (undefined);
+    s.tmp_0 = maze_Fruit_initLevel__P4563_mk(s);
+    r0 = s.arg0.fields["maze"];
+    r0 = r0.fields["fruit"];
+    s.tmp_0.arg0 = r0;
+    s.callLocIdx = 374; s.pc = 8; return s.tmp_0;
+  case 8:
+    r0 = s.retval;
+    s.tmp_0 = maze_EventManager_cancelAll__P4553_mk(s);
+    r0 = s.arg0.fields["maze"];
+    r0 = r0.fields["events"];
+    s.tmp_0.arg0 = r0;
+    s.callLocIdx = 375; s.pc = 9; return s.tmp_0;
+  case 9:
+    r0 = s.retval;
+    s.tmp_0 = maze_EventManager_fireLater__P4548_mk(s);
+    r0 = s.arg0.fields["maze"];
+    r0 = r0.fields["events"];
+    s.tmp_0.arg0 = r0;
+    s.tmp_0.arg1 = 4;
+    s.tmp_0.arg2 = 0;
+    s.callLocIdx = 376; s.pc = 10; return s.tmp_0;
+  case 10:
+    r0 = s.retval;
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+maze_Game_initLevel__P264824.info = {"start":2602,"length":660,"line":73,"column":8,"endLine":93,"endColumn":9,"fileName":"maze_game.ts","functionName":"initLevel","argumentNames":["this"]}
+
+function maze_Game_initLevel__P264824_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: maze_Game_initLevel__P264824, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  tmp_2: undefined,
+  chaser___265128: undefined,
+  unnamed24094___U1: undefined,
+  unnamed24095___U2: undefined,
+  arg0: undefined,
+} }
+
+
+
+
+
+function maze_Fruit_initLevel__P4563(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, maze_Fruit__C4555_VT)) failedCast(r0);
+    r0 = (s.arg0).fields["pillCount"] = (0);
+    s.tmp_0 = maze_Fruit_setVisible__P7608_mk(s);
+    s.tmp_0.arg0 = s.arg0;
+    s.tmp_0.arg1 = false;
+    s.callLocIdx = 436; s.pc = 1; return s.tmp_0;
+  case 1:
+    r0 = s.retval;
+    s.tmp_0 = Sprite_x__P2355_mk(s);
+    r0 = s.arg0.fields["sprite"];
+    s.tmp_0.arg0 = r0;
+    r0 = s.arg0.fields["maze"];
+    r0 = r0.fields["map"];
+    r0 = r0.fields["fruit"];
+    r0 = r0.fields["x"];
+    s.tmp_0.arg1 = r0;
+    s.callLocIdx = 437; s.pc = 2; return s.tmp_0;
+  case 2:
+    r0 = s.retval;
+    s.tmp_0 = Sprite_y__P2357_mk(s);
+    r0 = s.arg0.fields["sprite"];
+    s.tmp_0.arg0 = r0;
+    r0 = s.arg0.fields["maze"];
+    r0 = r0.fields["map"];
+    r0 = r0.fields["fruit"];
+    r0 = r0.fields["y"];
+    s.tmp_0.arg1 = r0;
+    s.callLocIdx = 438; s.pc = 3; return s.tmp_0;
+  case 3:
+    r0 = s.retval;
+    r0 = pxsim_pxtcore_mkAction(1, maze_Fruit_initLevel_inline__P10169);
+    s.tmp_0 = r0;
+    r0 = pxsim_pxtrt_stclo(s.tmp_0, 0, s.arg0);
+    s.tmp_1 = maze_EventManager_register__P4550_mk(s);
+    r0 = s.arg0.fields["maze"];
+    r0 = r0.fields["events"];
+    s.tmp_1.arg0 = r0;
+    s.tmp_1.arg1 = 0;
+    s.tmp_1.arg2 = s.tmp_0;
+    s.callLocIdx = 440; s.pc = 4; return s.tmp_1;
+  case 4:
+    r0 = s.retval;
+    r0 = pxsim_pxtcore_mkAction(1, maze_Fruit_initLevel_inline__P10176);
+    s.tmp_0 = r0;
+    r0 = pxsim_pxtrt_stclo(s.tmp_0, 0, s.arg0);
+    s.tmp_1 = maze_EventManager_register__P4550_mk(s);
+    r0 = s.arg0.fields["maze"];
+    r0 = r0.fields["events"];
+    s.tmp_1.arg0 = r0;
+    s.tmp_1.arg1 = 1;
+    s.tmp_1.arg2 = s.tmp_0;
+    s.callLocIdx = 442; s.pc = 5; return s.tmp_1;
+  case 5:
+    r0 = s.retval;
+    r0 = pxsim_pxtcore_mkAction(1, maze_Fruit_initLevel_inline__P10183);
+    s.tmp_0 = r0;
+    r0 = pxsim_pxtrt_stclo(s.tmp_0, 0, s.arg0);
+    s.tmp_1 = maze_EventManager_register__P4550_mk(s);
+    r0 = s.arg0.fields["maze"];
+    r0 = r0.fields["events"];
+    s.tmp_1.arg0 = r0;
+    s.tmp_1.arg1 = 2;
+    s.tmp_1.arg2 = s.tmp_0;
+    s.callLocIdx = 444; s.pc = 6; return s.tmp_1;
+  case 6:
+    r0 = s.retval;
+    r0 = pxsim_pxtcore_mkAction(1, maze_Fruit_initLevel_inline__P10190);
+    s.tmp_0 = r0;
+    r0 = pxsim_pxtrt_stclo(s.tmp_0, 0, s.arg0);
+    s.tmp_1 = maze_EventManager_register__P4550_mk(s);
+    r0 = s.arg0.fields["maze"];
+    r0 = r0.fields["events"];
+    s.tmp_1.arg0 = r0;
+    s.tmp_1.arg1 = 10;
+    s.tmp_1.arg2 = s.tmp_0;
+    s.callLocIdx = 446; s.pc = 7; return s.tmp_1;
+  case 7:
+    r0 = s.retval;
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+maze_Fruit_initLevel__P4563.info = {"start":463,"length":520,"line":20,"column":8,"endLine":31,"endColumn":9,"fileName":"maze_fruit.ts","functionName":"initLevel","argumentNames":["this"]}
+
+function maze_Fruit_initLevel__P4563_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: maze_Fruit_initLevel__P4563, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  arg0: undefined,
+} }
+
+
+
+
+
+function maze_Fruit_initLevel_inline__P10169(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    s.tmp_0 = maze_Fruit_checkSpawn__P7609_mk(s);
+    s.tmp_0.arg0 = s.caps[0];
+    s.callLocIdx = 439; s.pc = 1; return s.tmp_0;
+  case 1:
+    r0 = s.retval;
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+maze_Fruit_initLevel_inline__P10169.info = {"start":698,"length":23,"line":27,"column":53,"endLine":27,"endColumn":76,"fileName":"maze_fruit.ts","functionName":"inline","argumentNames":[]}
+
+function maze_Fruit_initLevel_inline__P10169_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: maze_Fruit_initLevel_inline__P10169, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+} }
+
+
+
+
+
+function maze_Fruit_initLevel_inline__P10176(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    s.tmp_0 = maze_Fruit_checkSpawn__P7609_mk(s);
+    s.tmp_0.arg0 = s.caps[0];
+    s.callLocIdx = 441; s.pc = 1; return s.tmp_0;
+  case 1:
+    r0 = s.retval;
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+maze_Fruit_initLevel_inline__P10176.info = {"start":777,"length":23,"line":28,"column":54,"endLine":28,"endColumn":77,"fileName":"maze_fruit.ts","functionName":"inline","argumentNames":[]}
+
+function maze_Fruit_initLevel_inline__P10176_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: maze_Fruit_initLevel_inline__P10176, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+} }
+
+
+
+
+
+function maze_Fruit_initLevel_inline__P10183(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    s.tmp_0 = maze_Fruit_setVisible__P7608_mk(s);
+    s.tmp_0.arg0 = s.caps[0];
+    s.tmp_0.arg1 = false;
+    s.callLocIdx = 443; s.pc = 1; return s.tmp_0;
+  case 1:
+    r0 = s.retval;
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+maze_Fruit_initLevel_inline__P10183.info = {"start":856,"length":28,"line":29,"column":54,"endLine":29,"endColumn":82,"fileName":"maze_fruit.ts","functionName":"inline","argumentNames":[]}
+
+function maze_Fruit_initLevel_inline__P10183_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: maze_Fruit_initLevel_inline__P10183, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+} }
+
+
+
+
+
+function maze_Fruit_initLevel_inline__P10190(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    s.tmp_0 = maze_Fruit_setVisible__P7608_mk(s);
+    s.tmp_0.arg0 = s.caps[0];
+    s.tmp_0.arg1 = false;
+    s.callLocIdx = 445; s.pc = 1; return s.tmp_0;
+  case 1:
+    r0 = s.retval;
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+maze_Fruit_initLevel_inline__P10190.info = {"start":944,"length":28,"line":30,"column":58,"endLine":30,"endColumn":86,"fileName":"maze_fruit.ts","functionName":"inline","argumentNames":[]}
+
+function maze_Fruit_initLevel_inline__P10190_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: maze_Fruit_initLevel_inline__P10190, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+} }
+
+
+
+
+
+function maze_Fruit_checkSpawn__P7609(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, maze_Fruit__C4555_VT)) failedCast(r0);
+    s.tmp_0 = r0 = s.arg0;
+    r0 = s.tmp_0.fields["pillCount"];
+    s.tmp_2 = r0;
+    r0 = (s.tmp_2 + 1);
+    s.tmp_1 = r0;
+    r0 = (s.tmp_0).fields["pillCount"] = (s.tmp_1);
+    r0 = pxsim_pxtcore_mkAction(1, maze_Fruit_checkSpawn_inline__P10216);
+    s.tmp_0 = r0;
+    r0 = pxsim_pxtrt_stclo(s.tmp_0, 0, s.arg0);
+    s.tmp_2 = helpers_arrayFind__P111_mk(s);
+    s.tmp_2.arg0 = globals.fruitSpawns___10128;
+    s.tmp_2.arg1 = s.tmp_0;
+    s.callLocIdx = 449; s.pc = 3; return s.tmp_2;
+  case 3:
+    r0 = s.retval;
+    s.tmp_1 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_1);
+    if (!r0) { step = 1; continue; }
+    s.tmp_3 = maze_Fruit_setVisible__P7608_mk(s);
+    s.tmp_3.arg0 = s.arg0;
+    s.tmp_3.arg1 = true;
+    s.callLocIdx = 450; s.pc = 4; return s.tmp_3;
+  case 4:
+    r0 = s.retval;
+    s.tmp_0 = maze_EventManager_fire__P4547_mk(s);
+    r0 = s.arg0.fields["maze"];
+    r0 = r0.fields["events"];
+    s.tmp_0.arg0 = r0;
+    s.tmp_0.arg1 = 9;
+    s.callLocIdx = 451; s.pc = 5; return s.tmp_0;
+  case 5:
+    r0 = s.retval;
+    s.tmp_0 = maze_EventManager_fireLater__P4548_mk(s);
+    r0 = s.arg0.fields["maze"];
+    r0 = r0.fields["events"];
+    s.tmp_0.arg0 = r0;
+    s.tmp_0.arg1 = 10;
+    r0 = globals.level___4634.fields["timeFruitDespawn"];
+    s.tmp_0.arg2 = r0;
+    s.callLocIdx = 452; s.pc = 6; return s.tmp_0;
+  case 6:
+    r0 = s.retval;
+  case 1:
+  case 2:
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+maze_Fruit_checkSpawn__P7609.info = {"start":1210,"length":338,"line":39,"column":8,"endLine":48,"endColumn":9,"fileName":"maze_fruit.ts","functionName":"checkSpawn","argumentNames":["this"]}
+
+function maze_Fruit_checkSpawn__P7609_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: maze_Fruit_checkSpawn__P7609, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  tmp_2: undefined,
+  tmp_3: undefined,
+  arg0: undefined,
+} }
+
+
+
+
+
+function maze_Fruit_checkSpawn_inline__P10216(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.caps[0].fields["pillCount"];
+    s.tmp_0 = r0;
+    r0 = (s.arg0 == s.tmp_0);
+    return leave(s, r0)
+  default: oops()
+} } }
+maze_Fruit_checkSpawn_inline__P10216.info = {"start":1296,"length":26,"line":42,"column":33,"endLine":42,"endColumn":59,"fileName":"maze_fruit.ts","functionName":"inline","argumentNames":["x"]}
+
+function maze_Fruit_checkSpawn_inline__P10216_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: maze_Fruit_checkSpawn_inline__P10216, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  arg0: undefined,
+} }
+
+
+
+
+
+function maze_Chaser_initLevel__P200288(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, maze_Chaser__C200286_VT)) failedCast(r0);
+    s.tmp_0 = r0 = s.arg0;
+    r0 = s.arg0.fields["maze"];
+    r0 = r0.fields["map"];
+    r0 = r0.fields["scatterTargets"];
+    s.tmp_2 = r0;
+    r0 = s.arg0.fields["id"];
+    s.tmp_3 = r0;
+    r0 = pxsim_Array__getAt(s.tmp_2, s.tmp_3);
+    s.tmp_1 = r0;
+    r0 = (s.tmp_0).fields["scatterTarget"] = (s.tmp_1);
+    s.tmp_0 = r0 = s.arg0;
+    r0 = s.arg0.fields["maze"];
+    r0 = r0.fields["map"];
+    r0 = r0.fields["bases"];
+    s.tmp_2 = r0;
+    r0 = s.arg0.fields["id"];
+    s.tmp_3 = r0;
+    r0 = pxsim_Array__getAt(s.tmp_2, s.tmp_3);
+    s.tmp_1 = r0;
+    r0 = (s.tmp_0).fields["home"] = (s.tmp_1);
+    r0 = s.arg0.fields["maze"];
+    r0 = r0.fields["map"];
+    r0 = r0.fields["baseTop"];
+    s.tmp_0 = r0;
+    r0 = (s.arg0).fields["baseExit"] = (s.tmp_0);
+    r0 = s.arg0.fields["maze"];
+    r0 = r0.fields["map"];
+    r0 = r0.fields["baseCentre"];
+    s.tmp_0 = r0;
+    r0 = (s.arg0).fields["baseCentre"] = (s.tmp_0);
+    r0 = (s.arg0).fields["release"] = (false);
+    r0 = (s.arg0).fields["reverse"] = (false);
+    s.tmp_0 = maze_Chaser_place__P200312_mk(s);
+    s.tmp_0.arg0 = s.arg0;
+    s.callLocIdx = 471; s.pc = 1; return s.tmp_0;
+  case 1:
+    r0 = s.retval;
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+maze_Chaser_initLevel__P200288.info = {"start":1504,"length":343,"line":64,"column":8,"endLine":72,"endColumn":9,"fileName":"maze_chaser.ts","functionName":"initLevel","argumentNames":["this"]}
+
+function maze_Chaser_initLevel__P200288_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: maze_Chaser_initLevel__P200288, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  tmp_2: undefined,
+  tmp_3: undefined,
+  arg0: undefined,
+} }
+
+
+
+
+
+function maze_Chaser_place__P200312(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, maze_Chaser__C200286_VT)) failedCast(r0);
+    s.tmp_0 = maze_Mover_placeAtPos__P232025_mk(s);
+    r0 = s.arg0.fields["mover"];
+    s.tmp_0.arg0 = r0;
+    r0 = s.arg0.fields["home"];
+    r0 = r0.fields["x"];
+    s.tmp_0.arg1 = r0;
+    r0 = s.arg0.fields["home"];
+    r0 = r0.fields["y"];
+    s.tmp_0.arg2 = r0;
+    s.callLocIdx = 536; s.pc = 1; return s.tmp_0;
+  case 1:
+    r0 = s.retval;
+    s.tmp_0 = maze_Mover_setImage__P232022_mk(s);
+    r0 = s.arg0.fields["mover"];
+    s.tmp_0.arg0 = r0;
+    s.callLocIdx = 537; s.pc = 2; return s.tmp_0;
+  case 2:
+    r0 = s.retval;
+    r0 = (s.arg0).fields["mode"] = (1);
+    r0 = (s.arg0).fields["waitDir"] = (1);
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+maze_Chaser_place__P200312.info = {"start":14262,"length":194,"line":421,"column":8,"endLine":427,"endColumn":9,"fileName":"maze_chaser.ts","functionName":"place","argumentNames":["this"]}
+
+function maze_Chaser_place__P200312_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: maze_Chaser_place__P200312, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  arg0: undefined,
+} }
+
+
+
+
+
+function maze_Hero_initLevel__P4406(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, maze_Hero__C4400_VT)) failedCast(r0);
+    r0 = s.arg0.fields["mover"];
+    s.tmp_0 = r0;
+    r0 = s.arg0.fields["maze"];
+    r0 = r0.fields["map"];
+    r0 = r0.fields["home"];
+    r0 = r0.fields["x"];
+    s.tmp_1 = r0;
+    r0 = (s.tmp_0).fields["hx"] = (s.tmp_1);
+    r0 = s.arg0.fields["mover"];
+    s.tmp_0 = r0;
+    r0 = s.arg0.fields["maze"];
+    r0 = r0.fields["map"];
+    r0 = r0.fields["home"];
+    r0 = r0.fields["y"];
+    s.tmp_1 = r0;
+    r0 = (s.tmp_0).fields["hy"] = (s.tmp_1);
+    s.tmp_0 = maze_Mover_place__P232024_mk(s);
+    r0 = s.arg0.fields["mover"];
+    s.tmp_0.arg0 = r0;
+    s.callLocIdx = 121; s.pc = 1; return s.tmp_0;
+  case 1:
+    r0 = s.retval;
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+maze_Hero_initLevel__P4406.info = {"start":415,"length":152,"line":18,"column":8,"endLine":22,"endColumn":9,"fileName":"maze_hero.ts","functionName":"initLevel","argumentNames":["this"]}
+
+function maze_Hero_initLevel__P4406_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: maze_Hero_initLevel__P4406, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  arg0: undefined,
+} }
+
+
+
+
+
+function maze_Mover_place__P232024(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
       s.lambdaArgs = null;
     }
     r0 = s.arg0;
     if (!checkSubtype(r0, maze_Mover__C232017_VT)) failedCast(r0);
-    r0 = (s.arg0).fields["frozen"] = (s.arg1);
-    r0 = pxsim_numops_toBoolDecr(s.arg1);
-    if (!r0) { step = 1; continue; }
-    s.tmp_0 = r0 = s.arg0;
-    s.tmp_2 = Sprite_vx__P2358_mk(s);
-    r0 = s.arg0.fields["sprite"];
-    s.tmp_2.arg0 = r0;
-    s.callLocIdx = 298; s.pc = 3; return s.tmp_2;
-  case 3:
-    r0 = s.retval;
-    s.tmp_1 = r0;
-    r0 = (s.tmp_0).fields["fvx"] = (s.tmp_1);
-    s.tmp_0 = r0 = s.arg0;
-    s.tmp_2 = Sprite_vy__P2360_mk(s);
-    r0 = s.arg0.fields["sprite"];
-    s.tmp_2.arg0 = r0;
-    s.callLocIdx = 299; s.pc = 4; return s.tmp_2;
-  case 4:
-    r0 = s.retval;
-    s.tmp_1 = r0;
-    r0 = (s.tmp_0).fields["fvy"] = (s.tmp_1);
-    s.tmp_0 = Sprite_vx__P2359_mk(s);
-    r0 = s.arg0.fields["sprite"];
-    s.tmp_0.arg0 = r0;
-    s.tmp_0.arg1 = 0;
-    s.callLocIdx = 300; s.pc = 5; return s.tmp_0;
-  case 5:
-    r0 = s.retval;
-    s.tmp_0 = Sprite_vy__P2361_mk(s);
-    r0 = s.arg0.fields["sprite"];
-    s.tmp_0.arg0 = r0;
-    s.tmp_0.arg1 = 0;
-    s.callLocIdx = 301; s.pc = 6; return s.tmp_0;
-  case 6:
-    r0 = s.retval;
-    { step = 2; continue; }
+    s.tmp_0 = maze_Mover_placeAtPos__P232025_mk(s);
+    s.tmp_0.arg0 = s.arg0;
+    r0 = s.arg0.fields["hx"];
+    s.tmp_0.arg1 = r0;
+    r0 = s.arg0.fields["hy"];
+    s.tmp_0.arg2 = r0;
+    s.callLocIdx = 261; s.pc = 1; return s.tmp_0;
   case 1:
-    s.tmp_0 = Sprite_vx__P2359_mk(s);
+    r0 = s.retval;
+    s.tmp_0 = Sprite_setImage__P2391_mk(s);
     r0 = s.arg0.fields["sprite"];
     s.tmp_0.arg0 = r0;
-    r0 = s.arg0.fields["fvx"];
-    s.tmp_0.arg1 = r0;
-    s.callLocIdx = 302; s.pc = 7; return s.tmp_0;
-  case 7:
-    r0 = s.retval;
-    s.tmp_0 = Sprite_vy__P2361_mk(s);
-    r0 = s.arg0.fields["sprite"];
-    s.tmp_0.arg0 = r0;
-    r0 = s.arg0.fields["fvy"];
-    s.tmp_0.arg1 = r0;
-    s.callLocIdx = 303; s.pc = 8; return s.tmp_0;
-  case 8:
-    r0 = s.retval;
-  case 2:
-    s.tmp_0 = maze_DirImage_setFreeze__P232041_mk(s);
     r0 = s.arg0.fields["images"];
-    s.tmp_0.arg0 = r0;
-    s.tmp_0.arg1 = s.arg1;
-    s.callLocIdx = 304; s.pc = 9; return s.tmp_0;
-  case 9:
+    r0 = r0.fields["img"];
+    s.tmp_0.arg1 = r0;
+    s.callLocIdx = 262; s.pc = 2; return s.tmp_0;
+  case 2:
     r0 = s.retval;
     r0 = undefined;
     return leave(s, r0)
   default: oops()
 } } }
-maze_Mover_setFreeze__P232029.info = {"start":9798,"length":412,"line":298,"column":8,"endLine":310,"endColumn":9,"fileName":"maze_mover.ts","functionName":"setFreeze","argumentNames":["this","freeze"]}
+maze_Mover_place__P232024.info = {"start":6876,"length":115,"line":210,"column":8,"endLine":213,"endColumn":9,"fileName":"maze_mover.ts","functionName":"place","argumentNames":["this"]}
 
-function maze_Mover_setFreeze__P232029_mk(s) {
+function maze_Mover_place__P232024_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: maze_Mover_setFreeze__P232029, depth: s.depth + 1,
+        parent: s, fn: maze_Mover_place__P232024, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
-  tmp_1: undefined,
-  tmp_2: undefined,
   arg0: undefined,
-  arg1: undefined,
 } }
 
 
 
 
 
-function maze_Game_levelStart__P7581(s) {
+function maze_Map_initLevel__P4451(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -40984,15 +41163,530 @@ if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) re
 switch (step) {
   case 0:
 
-    s.i___9879 = undefined;
-    s.chaser___9887 = undefined;
+    s.i___8628 = undefined;
+    s.tile___8635 = undefined;
+    s.loc___8639 = undefined;
     if (s.lambdaArgs) {
       s.arg0 = (s.lambdaArgs[0]);
       s.lambdaArgs = null;
     }
     r0 = s.arg0;
-    if (!checkSubtype(r0, maze_Game__C4508_VT)) failedCast(r0);
-    s.tmp_0 = maze_Game_setChaserMode__P7585_mk(s);
+    if (!checkSubtype(r0, maze_Map__C4435_VT)) failedCast(r0);
+    s.i___8628 = (0);
+  case 1:
+    s.tmp_1 = r0 = s.i___8628;
+    r0 = s.arg0.fields["flags"];
+    s.tmp_3 = r0;
+    r0 = pxsim_Array__length(s.tmp_3);
+    s.tmp_2 = r0;
+    r0 = (s.tmp_1 < s.tmp_2);
+    s.tmp_0 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
+    if (!r0) { step = 6; continue; }
+    s.tmp_4 = maze_Map_getTile__P7592_mk(s);
+    s.tmp_4.arg0 = s.arg0;
+    s.tmp_4.arg1 = s.i___8628;
+    s.callLocIdx = 205; s.pc = 7; return s.tmp_4;
+  case 7:
+    r0 = s.retval;
+    s.tile___8635 = (r0);
+    s.tmp_0 = tiles_getTileLocation__P2767_mk(s);
+    r0 = s.tile___8635.fields["tx"];
+    s.tmp_0.arg0 = r0;
+    r0 = s.tile___8635.fields["ty"];
+    s.tmp_0.arg1 = r0;
+    s.callLocIdx = 206; s.pc = 8; return s.tmp_0;
+  case 8:
+    r0 = s.retval;
+    s.loc___8639 = (r0);
+    r0 = s.arg0.fields["flags"];
+    s.tmp_2 = r0;
+    r0 = pxsim_Array__getAt(s.tmp_2, s.i___8628);
+    s.tmp_1 = r0;
+    r0 = (s.tmp_1 & 256);
+    s.tmp_0 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
+    if (!r0) { step = 2; continue; }
+    r0 = s.arg0.fields["flags"];
+    s.tmp_3 = r0;
+    s.tmp_4 = r0 = s.i___8628;
+    r0 = pxsim_Array__getAt(s.tmp_3, s.i___8628);
+    s.tmp_6 = r0;
+    r0 = (s.tmp_6 | 2);
+    s.tmp_5 = r0;
+    r0 = pxsim_Array_.setAt(s.tmp_3, s.tmp_4, s.tmp_5);
+    s.tmp_0 = tiles_setTileAt__P2765_mk(s);
+    s.tmp_0.arg0 = s.loc___8639;
+    s.tmp_1 = helpers_getTileByName__P3338_mk(s);
+    s.tmp_1.arg0 = "tile_pill";
+    s.callLocIdx = 207; s.pc = 10; return s.tmp_1;
+  case 10:
+    r0 = s.retval;
+    s.tmp_0.arg1 = r0;
+    s.callLocIdx = 208; s.pc = 9; return s.tmp_0;
+  case 9:
+    r0 = s.retval;
+    { step = 5; continue; }
+  case 2:
+    r0 = s.arg0.fields["flags"];
+    s.tmp_2 = r0;
+    r0 = pxsim_Array__getAt(s.tmp_2, s.i___8628);
+    s.tmp_1 = r0;
+    r0 = (s.tmp_1 & 512);
+    s.tmp_0 = r0;
+    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
+    if (!r0) { step = 3; continue; }
+    r0 = s.arg0.fields["flags"];
+    s.tmp_3 = r0;
+    s.tmp_4 = r0 = s.i___8628;
+    r0 = pxsim_Array__getAt(s.tmp_3, s.i___8628);
+    s.tmp_6 = r0;
+    r0 = (s.tmp_6 | 4);
+    s.tmp_5 = r0;
+    r0 = pxsim_Array_.setAt(s.tmp_3, s.tmp_4, s.tmp_5);
+    s.tmp_0 = tiles_setTileAt__P2765_mk(s);
+    s.tmp_0.arg0 = s.loc___8639;
+    s.tmp_1 = helpers_getTileByName__P3338_mk(s);
+    s.tmp_1.arg0 = "tile_power";
+    s.callLocIdx = 209; s.pc = 12; return s.tmp_1;
+  case 12:
+    r0 = s.retval;
+    s.tmp_0.arg1 = r0;
+    s.callLocIdx = 210; s.pc = 11; return s.tmp_0;
+  case 11:
+    r0 = s.retval;
+  case 3:
+  case 4:
+  case 5:
+    r0 = (s.i___8628 + 1);
+    s.i___8628 = (r0);
+    { step = 1; continue; }
+  case 6:
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+maze_Map_initLevel__P4451.info = {"start":8225,"length":582,"line":257,"column":8,"endLine":269,"endColumn":9,"fileName":"maze_map.ts","functionName":"initLevel","argumentNames":["this"]}
+
+function maze_Map_initLevel__P4451_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: maze_Map_initLevel__P4451, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  tmp_2: undefined,
+  tmp_3: undefined,
+  tmp_4: undefined,
+  tmp_5: undefined,
+  tmp_6: undefined,
+  i___8628: undefined,
+  tile___8635: undefined,
+  loc___8639: undefined,
+  arg0: undefined,
+} }
+
+
+
+
+
+function maze_Map_getTile__P7592(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    s.tx___8235 = undefined;
+    s.ty___8240 = undefined;
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.arg1 = (s.lambdaArgs[1]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, maze_Map__C4435_VT)) failedCast(r0);
+    r0 = s.arg0.fields["w"];
+    s.tmp_0 = r0;
+    r0 = (s.arg1 % s.tmp_0);
+    s.tx___8235 = (r0);
+    r0 = s.arg0.fields["w"];
+    s.tmp_1 = r0;
+    r0 = (s.arg1 / s.tmp_1);
+    s.tmp_0 = r0;
+    r0 = pxsim.Math_.floor(s.tmp_0);
+    s.ty___8240 = (r0);
+    r0 = pxsim_pxtcore_mkClassInstance(maze_Tile__C4422_VT);
+    s.tmp_0 = r0;
+    s.tmp_1 = maze_Tile_constructor__P4425_mk(s);
+    s.tmp_1.arg0 = s.tmp_0;
+    s.tmp_1.arg1 = s.tx___8235;
+    s.tmp_1.arg2 = s.ty___8240;
+    s.callLocIdx = 151; s.pc = 1; return s.tmp_1;
+  case 1:
+    r0 = s.retval;
+    r0 = s.tmp_0;
+    return leave(s, r0)
+  default: oops()
+} } }
+maze_Map_getTile__P7592.info = {"start":3048,"length":166,"line":114,"column":8,"endLine":118,"endColumn":9,"fileName":"maze_map.ts","functionName":"getTile","argumentNames":["this","index"]}
+
+function maze_Map_getTile__P7592_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: maze_Map_getTile__P7592, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  tx___8235: undefined,
+  ty___8240: undefined,
+  arg0: undefined,
+  arg1: undefined,
+} }
+
+
+
+
+
+function maze_Level_initLevel__P4633(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.arg1 = (s.lambdaArgs[1]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, maze_Level__C4613_VT)) failedCast(r0);
+    s.tmp_0 = maze_Level_init__P4632_mk(s);
+    s.tmp_0.arg0 = s.arg0;
+    s.callLocIdx = 551; s.pc = 5; return s.tmp_0;
+  case 5:
+    r0 = s.retval;
+    s.tmp_1 = maze_getMaze__P4396_mk(s);
+    s.callLocIdx = 552; s.pc = 6; return s.tmp_1;
+  case 6:
+    r0 = s.retval;
+    r0 = r0.fields["game"];
+    r0 = r0.fields["difficulty"];
+    s.tmp_0 = r0;
+    r0 = pxsim_pxtcore.switch_eq(1, s.tmp_0);
+    if (r0) { step = 1; continue; }
+    r0 = pxsim_pxtcore.switch_eq(2, s.tmp_0);
+    if (r0) { step = 2; continue; }
+    r0 = s.tmp_0;
+    { step = 3; continue; }
+  case 1:
+    s.tmp_2 = maze_Level_initEasy__P7558_mk(s);
+    s.tmp_2.arg0 = s.arg0;
+    s.tmp_2.arg1 = s.arg1;
+    s.callLocIdx = 553; s.pc = 7; return s.tmp_2;
+  case 7:
+    r0 = s.retval;
+    { step = 4; continue; }
+  case 2:
+    s.tmp_3 = maze_Level_initHard__P7559_mk(s);
+    s.tmp_3.arg0 = s.arg0;
+    s.tmp_3.arg1 = s.arg1;
+    s.callLocIdx = 554; s.pc = 8; return s.tmp_3;
+  case 8:
+    r0 = s.retval;
+  case 3:
+  case 4:
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+maze_Level_initLevel__P4633.info = {"start":1379,"length":256,"line":50,"column":8,"endLine":57,"endColumn":9,"fileName":"maze_levels.ts","functionName":"initLevel","argumentNames":["this","index"]}
+
+function maze_Level_initLevel__P4633_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: maze_Level_initLevel__P4633, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  tmp_2: undefined,
+  tmp_3: undefined,
+  arg0: undefined,
+  arg1: undefined,
+} }
+
+
+
+
+
+function maze_Level_initHard__P7559(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.arg1 = (s.lambdaArgs[1]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, maze_Level__C4613_VT)) failedCast(r0);
+    s.tmp_0 = console_log__P380_mk(s);
+    if ((s.arg1) && (s.arg1).vtable) {
+    setupResume(s, 8);
+    pxsim_String__stringConv(s.arg1);
+    checkResumeConsumed();
+    return;
+    } else { s.retval = (s.arg1) + ""; }
+  case 8:
+    r0 = s.retval;
+    s.tmp_1 = r0;
+    r0 = pxsim_String__concat("hard:", s.tmp_1);
+    s.tmp_0.arg0 = r0;
+    s.callLocIdx = 556; s.pc = 7; return s.tmp_0;
+  case 7:
+    r0 = s.retval;
+    s.tmp_0 = r0 = s.arg1;
+    r0 = pxsim_pxtcore.switch_eq(0, s.tmp_0);
+    if (r0) { step = 1; continue; }
+    r0 = pxsim_pxtcore.switch_eq(1, s.tmp_0);
+    if (r0) { step = 2; continue; }
+    r0 = pxsim_pxtcore.switch_eq(2, s.tmp_0);
+    if (r0) { step = 3; continue; }
+    r0 = pxsim_pxtcore.switch_eq(3, s.tmp_0);
+    if (r0) { step = 4; continue; }
+    r0 = s.tmp_0;
+    { step = 5; continue; }
+  case 1:
+    r0 = (s.arg0).fields["speedChaser"] = (65);
+    r0 = (s.arg0).fields["speedChaserFright"] = (45);
+    r0 = (s.arg0).fields["speedHero"] = (70);
+    r0 = (s.arg0).fields["speedHeroFright"] = (75);
+    r0 = (s.arg0).fields["timeFright"] = (10);
+    r0 = (s.arg0).fields["timeWarn"] = (8);
+    { step = 6; continue; }
+  case 2:
+    r0 = (s.arg0).fields["speedChaser"] = (75);
+    r0 = (s.arg0).fields["speedChaserFright"] = (50);
+    r0 = (s.arg0).fields["speedHero"] = (80);
+    r0 = (s.arg0).fields["speedHeroFright"] = (85);
+    r0 = (s.arg0).fields["timeFright"] = (9);
+    r0 = (s.arg0).fields["timeWarn"] = (7);
+    { step = 6; continue; }
+  case 3:
+    r0 = (s.arg0).fields["speedChaser"] = (75);
+    r0 = (s.arg0).fields["speedChaserFright"] = (50);
+    r0 = (s.arg0).fields["speedHero"] = (80);
+    r0 = (s.arg0).fields["speedHeroFright"] = (85);
+    r0 = (s.arg0).fields["timeFright"] = (8);
+    r0 = (s.arg0).fields["timeWarn"] = (6);
+    { step = 6; continue; }
+  case 4:
+    r0 = (s.arg0).fields["speedChaser"] = (75);
+    r0 = (s.arg0).fields["speedChaserFright"] = (50);
+    r0 = (s.arg0).fields["speedHero"] = (80);
+    r0 = (s.arg0).fields["speedHeroFright"] = (85);
+    r0 = (s.arg0).fields["timeFright"] = (5);
+    r0 = (s.arg0).fields["timeWarn"] = (3.5);
+    { step = 6; continue; }
+  case 5:
+    r0 = (s.arg0).fields["speedChaser"] = (85);
+    r0 = (s.arg0).fields["speedChaserFright"] = (55);
+    r0 = (s.arg0).fields["speedHero"] = (90);
+    r0 = (s.arg0).fields["speedHeroFright"] = (95);
+    r0 = (s.arg0).fields["timeFright"] = (4);
+    r0 = (s.arg0).fields["timeWarn"] = (3);
+  case 6:
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+maze_Level_initHard__P7559.info = {"start":2567,"length":1704,"line":90,"column":8,"endLine":136,"endColumn":9,"fileName":"maze_levels.ts","functionName":"initHard","argumentNames":["this","index"]}
+
+function maze_Level_initHard__P7559_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: maze_Level_initHard__P7559, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  arg0: undefined,
+  arg1: undefined,
+} }
+
+
+
+
+
+function maze_Level_initEasy__P7558(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.arg1 = (s.lambdaArgs[1]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, maze_Level__C4613_VT)) failedCast(r0);
+    s.tmp_0 = console_log__P380_mk(s);
+    if ((s.arg1) && (s.arg1).vtable) {
+    setupResume(s, 7);
+    pxsim_String__stringConv(s.arg1);
+    checkResumeConsumed();
+    return;
+    } else { s.retval = (s.arg1) + ""; }
+  case 7:
+    r0 = s.retval;
+    s.tmp_1 = r0;
+    r0 = pxsim_String__concat("easy:", s.tmp_1);
+    s.tmp_0.arg0 = r0;
+    s.callLocIdx = 555; s.pc = 6; return s.tmp_0;
+  case 6:
+    r0 = s.retval;
+    r0 = (s.arg0).fields["timeScatter"] = (14);
+    r0 = (s.arg0).fields["timeFright"] = (20);
+    r0 = (s.arg0).fields["timeWarn"] = (17);
+    r0 = (s.arg0).fields["timeFruitDespawn"] = (20);
+    r0 = pxsim_Array__mk();
+    s.tmp_0 = r0;
+    r0 = pxsim_Array__push(s.tmp_0, 0);
+    r0 = pxsim_Array__push(s.tmp_0, 20);
+    r0 = pxsim_Array__push(s.tmp_0, 50);
+    r0 = pxsim_Array__push(s.tmp_0, 100);
+    r0 = (s.arg0).fields["pillReleaseCount"] = (s.tmp_0);
+    r0 = (s.arg0).fields["speedChaser"] = (45);
+    r0 = (s.arg0).fields["speedChaserFright"] = (25);
+    r0 = (s.arg0).fields["speedChaserWait"] = (25);
+    s.tmp_0 = r0 = s.arg1;
+    r0 = pxsim_pxtcore.switch_eq(0, s.tmp_0);
+    if (r0) { step = 1; continue; }
+    r0 = pxsim_pxtcore.switch_eq(1, s.tmp_0);
+    if (r0) { step = 2; continue; }
+    r0 = pxsim_pxtcore.switch_eq(2, s.tmp_0);
+    if (r0) { step = 3; continue; }
+    r0 = s.tmp_0;
+    { step = 4; continue; }
+  case 1:
+    r0 = (s.arg0).fields["speedHero"] = (50);
+    r0 = (s.arg0).fields["speedHeroFright"] = (60);
+    { step = 5; continue; }
+  case 2:
+  case 3:
+    r0 = (s.arg0).fields["speedHero"] = (55);
+    r0 = (s.arg0).fields["speedHeroFright"] = (60);
+    { step = 5; continue; }
+  case 4:
+    r0 = (s.arg0).fields["speedHero"] = (60);
+    r0 = (s.arg0).fields["speedHeroFright"] = (60);
+  case 5:
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+maze_Level_initEasy__P7558.info = {"start":1645,"length":912,"line":59,"column":8,"endLine":88,"endColumn":9,"fileName":"maze_levels.ts","functionName":"initEasy","argumentNames":["this","index"]}
+
+function maze_Level_initEasy__P7558_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: maze_Level_initEasy__P7558, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  arg0: undefined,
+  arg1: undefined,
+} }
+
+
+
+
+
+function scene_cameraFollowSprite__P2890(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    s.scene___19033 = undefined;
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.lambdaArgs = null;
+    }
+    s.tmp_0 = game_currentScene__P2999_mk(s);
+    s.callLocIdx = 1276; s.pc = 1; return s.tmp_0;
+  case 1:
+    r0 = s.retval;
+    s.scene___19033 = (r0);
+    r0 = s.scene___19033.fields["camera"];
+    s.tmp_0 = r0;
+    r0 = (s.tmp_0).fields["sprite"] = (s.arg0);
+    s.tmp_0 = scene_Camera_update__P2798_mk(s);
+    r0 = s.scene___19033.fields["camera"];
+    s.tmp_0.arg0 = r0;
+    s.callLocIdx = 1277; s.pc = 2; return s.tmp_0;
+  case 2:
+    r0 = s.retval;
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+scene_cameraFollowSprite__P2890.info = {"start":4010,"length":170,"line":143,"column":4,"endLine":147,"endColumn":5,"fileName":"pxt_modules/game/scenes.ts","functionName":"cameraFollowSprite","argumentNames":["sprite"]}
+
+function scene_cameraFollowSprite__P2890_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: scene_cameraFollowSprite__P2890, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  scene___19033: undefined,
+  arg0: undefined,
+} }
+
+
+
+
+
+function maze_Game_levelStart__P264832(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    s.i___265399 = undefined;
+    s.chaser___265407 = undefined;
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, maze_Game__C264821_VT)) failedCast(r0);
+    s.tmp_0 = maze_Game_setChaserMode__P264836_mk(s);
     s.tmp_0.arg0 = s.arg0;
     s.tmp_0.arg1 = 4;
     s.callLocIdx = 412; s.pc = 3; return s.tmp_0;
@@ -41015,9 +41709,9 @@ switch (step) {
     s.callLocIdx = 414; s.pc = 5; return s.tmp_0;
   case 5:
     r0 = s.retval;
-    s.i___9879 = (0);
+    s.i___265399 = (0);
   case 1:
-    s.tmp_1 = r0 = s.i___9879;
+    s.tmp_1 = r0 = s.i___265399;
     r0 = s.arg0.fields["maze"];
     r0 = r0.fields["chasers"];
     s.tmp_3 = r0;
@@ -41030,23 +41724,23 @@ switch (step) {
     r0 = s.arg0.fields["maze"];
     r0 = r0.fields["chasers"];
     s.tmp_4 = r0;
-    r0 = pxsim_Array__getAt(s.tmp_4, s.i___9879);
-    s.chaser___9887 = (r0);
+    r0 = pxsim_Array__getAt(s.tmp_4, s.i___265399);
+    s.chaser___265407 = (r0);
     s.tmp_0 = maze_Chaser_place__P200312_mk(s);
-    s.tmp_0.arg0 = s.chaser___9887;
+    s.tmp_0.arg0 = s.chaser___265407;
     s.callLocIdx = 415; s.pc = 6; return s.tmp_0;
   case 6:
     r0 = s.retval;
-    r0 = (s.i___9879 + 1);
-    s.i___9879 = (r0);
+    r0 = (s.i___265399 + 1);
+    s.i___265399 = (r0);
     { step = 1; continue; }
   case 2:
-    s.tmp_0 = maze_Game_updateRelease__P7583_mk(s);
+    s.tmp_0 = maze_Game_updateRelease__P264834_mk(s);
     s.tmp_0.arg0 = s.arg0;
     s.callLocIdx = 416; s.pc = 7; return s.tmp_0;
   case 7:
     r0 = s.retval;
-    s.tmp_0 = maze_Game_pause__P7574_mk(s);
+    s.tmp_0 = maze_Game_pause__P264825_mk(s);
     s.tmp_0.arg0 = s.arg0;
     s.tmp_0.arg1 = 1.5;
     s.callLocIdx = 417; s.pc = 8; return s.tmp_0;
@@ -41056,20 +41750,20 @@ switch (step) {
     return leave(s, r0)
   default: oops()
 } } }
-maze_Game_levelStart__P7581.info = {"start":7101,"length":445,"line":200,"column":8,"endLine":212,"endColumn":9,"fileName":"maze_game.ts","functionName":"levelStart","argumentNames":["this"]}
+maze_Game_levelStart__P264832.info = {"start":7156,"length":445,"line":202,"column":8,"endLine":214,"endColumn":9,"fileName":"maze_game.ts","functionName":"levelStart","argumentNames":["this"]}
 
-function maze_Game_levelStart__P7581_mk(s) {
+function maze_Game_levelStart__P264832_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: maze_Game_levelStart__P7581, depth: s.depth + 1,
+        parent: s, fn: maze_Game_levelStart__P264832, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
   tmp_2: undefined,
   tmp_3: undefined,
   tmp_4: undefined,
-  i___9879: undefined,
-  chaser___9887: undefined,
+  i___265399: undefined,
+  chaser___265407: undefined,
   arg0: undefined,
 } }
 
@@ -41077,7 +41771,7 @@ function maze_Game_levelStart__P7581_mk(s) {
 
 
 
-function maze_Game_pause__P7574(s) {
+function maze_Game_updateRelease__P264834(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -41087,68 +41781,16 @@ if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) re
 switch (step) {
   case 0:
 
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.arg1 = (s.lambdaArgs[1]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, maze_Game__C4508_VT)) failedCast(r0);
-    s.tmp_0 = maze_Game_setFreeze__P7584_mk(s);
-    s.tmp_0.arg0 = s.arg0;
-    s.tmp_0.arg1 = true;
-    s.callLocIdx = 377; s.pc = 1; return s.tmp_0;
-  case 1:
-    r0 = s.retval;
-    s.tmp_0 = maze_EventManager_fireLater__P4548_mk(s);
-    r0 = s.arg0.fields["maze"];
-    r0 = r0.fields["events"];
-    s.tmp_0.arg0 = r0;
-    s.tmp_0.arg1 = 11;
-    s.tmp_0.arg2 = s.arg1;
-    s.callLocIdx = 378; s.pc = 2; return s.tmp_0;
-  case 2:
-    r0 = s.retval;
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-maze_Game_pause__P7574.info = {"start":3217,"length":132,"line":93,"column":8,"endLine":96,"endColumn":9,"fileName":"maze_game.ts","functionName":"pause","argumentNames":["this","time"]}
-
-function maze_Game_pause__P7574_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: maze_Game_pause__P7574, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  arg0: undefined,
-  arg1: undefined,
-} }
-
-
-
-
-
-function maze_Game_updateRelease__P7583(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    s.i___9907 = undefined;
+    s.i___265427 = undefined;
     if (s.lambdaArgs) {
       s.arg0 = (s.lambdaArgs[0]);
       s.lambdaArgs = null;
     }
     r0 = s.arg0;
-    if (!checkSubtype(r0, maze_Game__C4508_VT)) failedCast(r0);
-    s.i___9907 = (0);
+    if (!checkSubtype(r0, maze_Game__C264821_VT)) failedCast(r0);
+    s.i___265427 = (0);
   case 1:
-    s.tmp_1 = r0 = s.i___9907;
+    s.tmp_1 = r0 = s.i___265427;
     r0 = s.arg0.fields["maze"];
     r0 = r0.fields["chasers"];
     s.tmp_3 = r0;
@@ -41160,7 +41802,7 @@ switch (step) {
     if (!r0) { step = 4; continue; }
     r0 = globals.level___4634.fields["pillReleaseCount"];
     s.tmp_6 = r0;
-    r0 = pxsim_Array__getAt(s.tmp_6, s.i___9907);
+    r0 = pxsim_Array__getAt(s.tmp_6, s.i___265427);
     s.tmp_5 = r0;
     r0 = s.arg0.fields["pillsEaten"];
     s.tmp_7 = r0;
@@ -41172,27 +41814,27 @@ switch (step) {
     r0 = s.arg0.fields["maze"];
     r0 = r0.fields["chasers"];
     s.tmp_9 = r0;
-    r0 = pxsim_Array__getAt(s.tmp_9, s.i___9907);
+    r0 = pxsim_Array__getAt(s.tmp_9, s.i___265427);
     s.tmp_8.arg0 = r0;
     s.callLocIdx = 419; s.pc = 5; return s.tmp_8;
   case 5:
     r0 = s.retval;
   case 2:
   case 3:
-    r0 = (s.i___9907 + 1);
-    s.i___9907 = (r0);
+    r0 = (s.i___265427 + 1);
+    s.i___265427 = (r0);
     { step = 1; continue; }
   case 4:
     r0 = undefined;
     return leave(s, r0)
   default: oops()
 } } }
-maze_Game_updateRelease__P7583.info = {"start":7664,"length":254,"line":219,"column":8,"endLine":225,"endColumn":9,"fileName":"maze_game.ts","functionName":"updateRelease","argumentNames":["this"]}
+maze_Game_updateRelease__P264834.info = {"start":7719,"length":254,"line":221,"column":8,"endLine":227,"endColumn":9,"fileName":"maze_game.ts","functionName":"updateRelease","argumentNames":["this"]}
 
-function maze_Game_updateRelease__P7583_mk(s) {
+function maze_Game_updateRelease__P264834_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: maze_Game_updateRelease__P7583, depth: s.depth + 1,
+        parent: s, fn: maze_Game_updateRelease__P264834, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
@@ -41204,7 +41846,7 @@ function maze_Game_updateRelease__P7583_mk(s) {
   tmp_7: undefined,
   tmp_8: undefined,
   tmp_9: undefined,
-  i___9907: undefined,
+  i___265427: undefined,
   arg0: undefined,
 } }
 
@@ -41294,7 +41936,7 @@ function maze_Hero_place__P4408_mk(s) {
 
 
 
-function maze_Game_eat__P7575(s) {
+function maze_Game_eat__P264826(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -41304,22 +41946,22 @@ if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) re
 switch (step) {
   case 0:
 
-    s.s___9638 = undefined;
-    s.i___9654 = undefined;
+    s.s___265158 = undefined;
+    s.i___265174 = undefined;
     if (s.lambdaArgs) {
       s.arg0 = (s.lambdaArgs[0]);
       s.arg1 = (s.lambdaArgs[1]);
       s.lambdaArgs = null;
     }
     r0 = s.arg0;
-    if (!checkSubtype(r0, maze_Game__C4508_VT)) failedCast(r0);
-    s.s___9638 = (0);
+    if (!checkSubtype(r0, maze_Game__C264821_VT)) failedCast(r0);
+    s.s___265158 = (0);
     r0 = (s.arg1 == 0);
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 1; continue; }
     r0 = globals.level___4634.fields["scorePill"];
-    s.s___9638 = (r0);
+    s.s___265158 = (r0);
     { step = 8; continue; }
   case 1:
     r0 = (s.arg1 == 1);
@@ -41327,7 +41969,7 @@ switch (step) {
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 2; continue; }
     r0 = globals.level___4634.fields["scorePower"];
-    s.s___9638 = (r0);
+    s.s___265158 = (r0);
     { step = 7; continue; }
   case 2:
     r0 = (s.arg1 == 2);
@@ -41350,18 +41992,18 @@ switch (step) {
     s.callLocIdx = 379; s.pc = 21; return s.tmp_1;
   case 21:
     r0 = s.retval;
-    s.i___9654 = (r0);
+    s.i___265174 = (r0);
     r0 = globals.level___4634.fields["scoreFruit"];
     s.tmp_0 = r0;
-    r0 = pxsim_Array__getAt(s.tmp_0, s.i___9654);
-    s.s___9638 = (r0);
+    r0 = pxsim_Array__getAt(s.tmp_0, s.i___265174);
+    s.s___265158 = (r0);
     s.tmp_0 = Sprite_say__P2411_mk(s);
     r0 = s.arg0.fields["maze"];
     r0 = r0.fields["hero"];
     r0 = r0.fields["mover"];
     r0 = r0.fields["sprite"];
     s.tmp_0.arg0 = r0;
-    s.tmp_0.arg1 = s.s___9638;
+    s.tmp_0.arg1 = s.s___265158;
     s.tmp_0.arg2 = 1000;
     s.tmp_0.arg3 = 15;
     s.tmp_0.arg4 = 1;
@@ -41383,21 +42025,21 @@ switch (step) {
     r0 = globals.level___4634.fields["scoreChaser"];
     s.tmp_4 = r0;
     r0 = pxsim_Array__getAt(s.tmp_4, s.tmp_3);
-    s.s___9638 = (r0);
+    s.s___265158 = (r0);
     s.tmp_0 = Sprite_say__P2411_mk(s);
     r0 = s.arg0.fields["maze"];
     r0 = r0.fields["hero"];
     r0 = r0.fields["mover"];
     r0 = r0.fields["sprite"];
     s.tmp_0.arg0 = r0;
-    s.tmp_0.arg1 = s.s___9638;
+    s.tmp_0.arg1 = s.s___265158;
     s.tmp_0.arg2 = 1000;
     s.tmp_0.arg3 = 15;
     s.tmp_0.arg4 = 1;
     s.callLocIdx = 381; s.pc = 23; return s.tmp_0;
   case 23:
     r0 = s.retval;
-    s.tmp_0 = maze_Game_pause__P7574_mk(s);
+    s.tmp_0 = maze_Game_pause__P264825_mk(s);
     s.tmp_0.arg0 = s.arg0;
     s.tmp_0.arg1 = 1;
     s.callLocIdx = 382; s.pc = 24; return s.tmp_0;
@@ -41409,7 +42051,7 @@ switch (step) {
   case 7:
   case 8:
     s.tmp_0 = info_changeScoreBy__P2573_mk(s);
-    s.tmp_0.arg0 = s.s___9638;
+    s.tmp_0.arg0 = s.s___265158;
     s.callLocIdx = 383; s.pc = 25; return s.tmp_0;
   case 25:
     r0 = s.retval;
@@ -41460,7 +42102,7 @@ switch (step) {
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 13; continue; }
     r0 = (s.arg0).fields["levelComplete"] = (true);
-    s.tmp_0 = maze_Game_setFreeze__P7584_mk(s);
+    s.tmp_0 = maze_Game_setFreeze__P264835_mk(s);
     s.tmp_0.arg0 = s.arg0;
     s.tmp_0.arg1 = true;
     s.callLocIdx = 384; s.pc = 26; return s.tmp_0;
@@ -41485,7 +42127,7 @@ switch (step) {
     r0 = s.retval;
     { step = 14; continue; }
   case 13:
-    s.tmp_0 = maze_Game_updateRelease__P7583_mk(s);
+    s.tmp_0 = maze_Game_updateRelease__P264834_mk(s);
     s.tmp_0.arg0 = s.arg0;
     s.callLocIdx = 387; s.pc = 29; return s.tmp_0;
   case 29:
@@ -41510,7 +42152,7 @@ switch (step) {
     s.tmp_3 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_3);
     if (!r0) { step = 19; continue; }
-    s.tmp_4 = maze_Game_setChaserMode__P7585_mk(s);
+    s.tmp_4 = maze_Game_setChaserMode__P264836_mk(s);
     s.tmp_4.arg0 = s.arg0;
     s.tmp_4.arg1 = 6;
     s.callLocIdx = 388; s.pc = 30; return s.tmp_4;
@@ -41542,12 +42184,12 @@ switch (step) {
     return leave(s, r0)
   default: oops()
 } } }
-maze_Game_eat__P7575.info = {"start":3359,"length":1651,"line":98,"column":8,"endLine":138,"endColumn":9,"fileName":"maze_game.ts","functionName":"eat","argumentNames":["this","event"]}
+maze_Game_eat__P264826.info = {"start":3414,"length":1651,"line":100,"column":8,"endLine":140,"endColumn":9,"fileName":"maze_game.ts","functionName":"eat","argumentNames":["this","event"]}
 
-function maze_Game_eat__P7575_mk(s) {
+function maze_Game_eat__P264826_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: maze_Game_eat__P7575, depth: s.depth + 1,
+        parent: s, fn: maze_Game_eat__P264826, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
@@ -41558,8 +42200,8 @@ function maze_Game_eat__P7575_mk(s) {
   tmp_6: undefined,
   tmp_7: undefined,
   tmp_8: undefined,
-  s___9638: undefined,
-  i___9654: undefined,
+  s___265158: undefined,
+  i___265174: undefined,
   arg0: undefined,
   arg1: undefined,
 } }
@@ -44210,6 +44852,101 @@ function sprites_BaseSpriteSayRenderer_destroy__P2263_mk(s) {
 
 
 
+function maze_EventManager_register__P4550(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    s.handler___10086 = undefined;
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.arg1 = (s.lambdaArgs[1]);
+      s.arg2 = (s.lambdaArgs[2]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, maze_EventManager__C4540_VT)) failedCast(r0);
+    r0 = pxsim_pxtcore_mkClassInstance(maze_Handler__C9978_VT);
+    s.tmp_0 = r0;
+    s.tmp_1 = maze_Handler_constructor__P9979_mk(s);
+    s.tmp_1.arg0 = s.tmp_0;
+    s.tmp_1.arg1 = s.arg1;
+    s.tmp_1.arg2 = s.arg2;
+    s.callLocIdx = 429; s.pc = 1; return s.tmp_1;
+  case 1:
+    r0 = s.retval;
+    s.handler___10086 = (s.tmp_0);
+    r0 = s.arg0.fields["handlers"];
+    s.tmp_0 = r0;
+    r0 = pxsim_Array__push(s.tmp_0, s.handler___10086);
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+maze_EventManager_register__P4550.info = {"start":2628,"length":153,"line":106,"column":8,"endLine":109,"endColumn":9,"fileName":"maze_events.ts","functionName":"register","argumentNames":["this","event","callback"]}
+
+function maze_EventManager_register__P4550_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: maze_EventManager_register__P4550, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  handler___10086: undefined,
+  arg0: undefined,
+  arg1: undefined,
+  arg2: undefined,
+} }
+
+
+
+
+
+function maze_Handler_constructor__P9979(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.arg1 = (s.lambdaArgs[1]);
+      s.arg2 = (s.lambdaArgs[2]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, maze_Handler__C9978_VT)) failedCast(r0);
+    r0 = (s.arg0).fields["event"] = (s.arg1);
+    r0 = (s.arg0).fields["callback"] = (s.arg2);
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+maze_Handler_constructor__P9979.info = {"start":657,"length":127,"line":35,"column":8,"endLine":38,"endColumn":9,"fileName":"maze_events.ts","functionName":"inline","argumentNames":["this","event","callback"]}
+
+function maze_Handler_constructor__P9979_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: maze_Handler_constructor__P9979, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  arg0: undefined,
+  arg1: undefined,
+  arg2: undefined,
+} }
+
+
+
+
+
 function maze_EventManager_init__P4546(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
@@ -44228,7 +44965,7 @@ switch (step) {
     if (!checkSubtype(r0, maze_EventManager__C4540_VT)) failedCast(r0);
     s.tmp_0 = r0 = s.arg0;
     s.tmp_2 = maze_getMaze__P4396_mk(s);
-    s.callLocIdx = 424; s.pc = 1; return s.tmp_2;
+    s.callLocIdx = 425; s.pc = 1; return s.tmp_2;
   case 1:
     r0 = s.retval;
     s.tmp_1 = r0;
@@ -45205,7 +45942,7 @@ switch (step) {
   case 1:
     r0 = s.retval;
     r0 = (s.arg0).fields["events"] = (s.tmp_0);
-    r0 = pxsim_pxtcore_mkClassInstance(maze_Game__C4508_VT);
+    r0 = pxsim_pxtcore_mkClassInstance(maze_Game__C264821_VT);
     s.tmp_0 = r0;
     r0 = undefined;
     r0 = (s.arg0).fields["game"] = (s.tmp_0);
@@ -45321,7 +46058,7 @@ switch (step) {
     s.tmp_0 = r0;
     s.tmp_1 = maze_Mover_constructor__P232035_mk(s);
     s.tmp_1.arg0 = s.tmp_0;
-    s.callLocIdx = 459; s.pc = 1; return s.tmp_1;
+    s.callLocIdx = 460; s.pc = 1; return s.tmp_1;
   case 1:
     r0 = s.retval;
     r0 = (s.arg0).fields["mover"] = (s.tmp_0);
@@ -45329,7 +46066,7 @@ switch (step) {
     s.tmp_0 = r0;
     s.tmp_1 = maze_DirImage_constructor__P232042_mk(s);
     s.tmp_1.arg0 = s.tmp_0;
-    s.callLocIdx = 460; s.pc = 2; return s.tmp_1;
+    s.callLocIdx = 461; s.pc = 2; return s.tmp_1;
   case 2:
     r0 = s.retval;
     r0 = (s.arg0).fields["img"] = (s.tmp_0);
@@ -45337,7 +46074,7 @@ switch (step) {
     s.tmp_0 = r0;
     s.tmp_1 = maze_DirImage_constructor__P232042_mk(s);
     s.tmp_1.arg0 = s.tmp_0;
-    s.callLocIdx = 461; s.pc = 3; return s.tmp_1;
+    s.callLocIdx = 462; s.pc = 3; return s.tmp_1;
   case 3:
     r0 = s.retval;
     r0 = (s.arg0).fields["imgReturn"] = (s.tmp_0);
@@ -45345,7 +46082,7 @@ switch (step) {
     s.tmp_0 = r0;
     s.tmp_1 = maze_DirImage_constructor__P232042_mk(s);
     s.tmp_1.arg0 = s.tmp_0;
-    s.callLocIdx = 462; s.pc = 4; return s.tmp_1;
+    s.callLocIdx = 463; s.pc = 4; return s.tmp_1;
   case 4:
     r0 = s.retval;
     r0 = (s.arg0).fields["imgFright"] = (s.tmp_0);
@@ -45353,7 +46090,7 @@ switch (step) {
     s.tmp_0 = r0;
     s.tmp_1 = maze_DirImage_constructor__P232042_mk(s);
     s.tmp_1.arg0 = s.tmp_0;
-    s.callLocIdx = 463; s.pc = 5; return s.tmp_1;
+    s.callLocIdx = 464; s.pc = 5; return s.tmp_1;
   case 5:
     r0 = s.retval;
     r0 = (s.arg0).fields["imgWarn"] = (s.tmp_0);
@@ -45699,7 +46436,7 @@ function maze_Pos_constructor__P4433_mk(s) {
 
 
 
-function maze_Game_constructor__P4518(s) {
+function maze_Game_constructor__P264838(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -45714,17 +46451,17 @@ switch (step) {
       s.lambdaArgs = null;
     }
     r0 = s.arg0;
-    if (!checkSubtype(r0, maze_Game__C4508_VT)) failedCast(r0);
+    if (!checkSubtype(r0, maze_Game__C264821_VT)) failedCast(r0);
     r0 = undefined;
     return leave(s, r0)
   default: oops()
 } } }
-maze_Game_constructor__P4518.info = {"start":645,"length":25,"line":26,"column":8,"endLine":27,"endColumn":9,"fileName":"maze_game.ts","functionName":"inline","argumentNames":["this"]}
+maze_Game_constructor__P264838.info = {"start":669,"length":25,"line":27,"column":8,"endLine":28,"endColumn":9,"fileName":"maze_game.ts","functionName":"inline","argumentNames":["this"]}
 
-function maze_Game_constructor__P4518_mk(s) {
+function maze_Game_constructor__P264838_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: maze_Game_constructor__P4518, depth: s.depth + 1,
+        parent: s, fn: maze_Game_constructor__P264838, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   arg0: undefined,
 } }
@@ -45844,13 +46581,13 @@ switch (step) {
     s.callLocIdx = 96; s.pc = 2; return s.tmp_0;
   case 2:
     r0 = s.retval;
-    s.tmp_0 = maze_Game_bootFlow__P4520_mk(s);
+    s.tmp_0 = maze_Game_bootFlow__P264823_mk(s);
     r0 = s.arg0.fields["game"];
     s.tmp_0.arg0 = r0;
     s.callLocIdx = 97; s.pc = 3; return s.tmp_0;
   case 3:
     r0 = s.retval;
-    s.tmp_0 = maze_Game_initLevel__P4521_mk(s);
+    s.tmp_0 = maze_Game_initLevel__P264824_mk(s);
     r0 = s.arg0.fields["game"];
     s.tmp_0.arg0 = r0;
     s.callLocIdx = 98; s.pc = 4; return s.tmp_0;
@@ -45876,7 +46613,7 @@ function maze_Maze_initLevel__P4394_mk(s) {
 
 
 
-function maze_Game_bootFlow__P4520(s) {
+function maze_Game_bootFlow__P264823(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -45886,15 +46623,15 @@ if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) re
 switch (step) {
   case 0:
 
-    s.result___9532 = undefined;
-    s.diff___9540 = undefined;
-    s.highScore___9545 = undefined;
+    s.result___265050 = undefined;
+    s.diff___265058 = undefined;
+    s.highScore___265063 = undefined;
     if (s.lambdaArgs) {
       s.arg0 = (s.lambdaArgs[0]);
       s.lambdaArgs = null;
     }
     r0 = s.arg0;
-    if (!checkSubtype(r0, maze_Game__C4508_VT)) failedCast(r0);
+    if (!checkSubtype(r0, maze_Game__C264821_VT)) failedCast(r0);
     s.tmp_0 = maze_ask__P4610_mk(s);
     s.tmp_0.arg0 = "Welcome to NicNac";
     s.tmp_0.arg1 = "Select difficulty";
@@ -45902,8 +46639,8 @@ switch (step) {
     s.callLocIdx = 361; s.pc = 5; return s.tmp_0;
   case 5:
     r0 = s.retval;
-    s.result___9532 = (r0);
-    r0 = pxsim_numops_toBoolDecr(s.result___9532);
+    s.result___265050 = (r0);
+    r0 = pxsim_numops_toBoolDecr(s.result___265050);
     if (!r0) { step = 1; continue; }
     r0 = 1;
     { step = 2; continue; }
@@ -45913,20 +46650,20 @@ switch (step) {
     // jmp value (already in r0)
     s.tmp_0 = r0;
     r0 = (s.arg0).fields["difficulty"] = (s.tmp_0);
-    s.tmp_0 = maze_difficultyString__P4507_mk(s);
+    s.tmp_0 = maze_difficultyString__P264932_mk(s);
     r0 = s.arg0.fields["difficulty"];
     s.tmp_0.arg0 = r0;
     s.callLocIdx = 362; s.pc = 6; return s.tmp_0;
   case 6:
     r0 = s.retval;
-    s.diff___9540 = (r0);
+    s.diff___265058 = (r0);
     s.tmp_0 = settings_readNumber__P2068_mk(s);
-    if ((s.diff___9540) && (s.diff___9540).vtable) {
+    if ((s.diff___265058) && (s.diff___265058).vtable) {
     setupResume(s, 8);
-    pxsim_String__stringConv(s.diff___9540);
+    pxsim_String__stringConv(s.diff___265058);
     checkResumeConsumed();
     return;
-    } else { s.retval = (s.diff___9540) + ""; }
+    } else { s.retval = (s.diff___265058) + ""; }
   case 8:
     r0 = s.retval;
     s.tmp_1 = r0;
@@ -45935,19 +46672,19 @@ switch (step) {
     s.callLocIdx = 363; s.pc = 7; return s.tmp_0;
   case 7:
     r0 = s.retval;
-    s.highScore___9545 = (r0);
-    r0 = pxsim_numops_toBoolDecr(s.highScore___9545);
+    s.highScore___265063 = (r0);
+    r0 = pxsim_numops_toBoolDecr(s.highScore___265063);
     s.tmp_1 = r0;
     r0 = pxsim_Boolean__bang(s.tmp_1);
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 3; continue; }
-    s.highScore___9545 = (0);
+    s.highScore___265063 = (0);
   case 3:
   case 4:
     s.tmp_0 = settings_writeNumber__P2063_mk(s);
     s.tmp_0.arg0 = "high_score";
-    s.tmp_0.arg1 = s.highScore___9545;
+    s.tmp_0.arg1 = s.highScore___265063;
     s.callLocIdx = 364; s.pc = 9; return s.tmp_0;
   case 9:
     r0 = s.retval;
@@ -45963,23 +46700,23 @@ switch (step) {
   case 11:
     r0 = s.retval;
     s.tmp_0 = maze_show__P4611_mk(s);
-    if ((s.diff___9540) && (s.diff___9540).vtable) {
+    if ((s.diff___265058) && (s.diff___265058).vtable) {
     setupResume(s, 13);
-    pxsim_String__stringConv(s.diff___9540);
+    pxsim_String__stringConv(s.diff___265058);
     checkResumeConsumed();
     return;
-    } else { s.retval = (s.diff___9540) + ""; }
+    } else { s.retval = (s.diff___265058) + ""; }
   case 13:
     r0 = s.retval;
     s.tmp_1 = r0;
     r0 = pxsim_String__concat("You chose: ", s.tmp_1);
     s.tmp_0.arg0 = r0;
-    if ((s.highScore___9545) && (s.highScore___9545).vtable) {
+    if ((s.highScore___265063) && (s.highScore___265063).vtable) {
     setupResume(s, 14);
-    pxsim_String__stringConv(s.highScore___9545);
+    pxsim_String__stringConv(s.highScore___265063);
     checkResumeConsumed();
     return;
-    } else { s.retval = (s.highScore___9545) + ""; }
+    } else { s.retval = (s.highScore___265063) + ""; }
   case 14:
     r0 = s.retval;
     s.tmp_2 = r0;
@@ -45999,19 +46736,19 @@ switch (step) {
     return leave(s, r0)
   default: oops()
 } } }
-maze_Game_bootFlow__P4520.info = {"start":1870,"length":667,"line":51,"column":8,"endLine":69,"endColumn":9,"fileName":"maze_game.ts","functionName":"bootFlow","argumentNames":["this"]}
+maze_Game_bootFlow__P264823.info = {"start":1925,"length":667,"line":53,"column":8,"endLine":71,"endColumn":9,"fileName":"maze_game.ts","functionName":"bootFlow","argumentNames":["this"]}
 
-function maze_Game_bootFlow__P4520_mk(s) {
+function maze_Game_bootFlow__P264823_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: maze_Game_bootFlow__P4520, depth: s.depth + 1,
+        parent: s, fn: maze_Game_bootFlow__P264823, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
   tmp_2: undefined,
-  result___9532: undefined,
-  diff___9540: undefined,
-  highScore___9545: undefined,
+  result___265050: undefined,
+  diff___265058: undefined,
+  highScore___265063: undefined,
   arg0: undefined,
 } }
 
@@ -46038,33 +46775,33 @@ switch (step) {
     }
     s.tmp_0 = controller__setUserEventsEnabled__P2206_mk(s);
     s.tmp_0.arg0 = false;
-    s.callLocIdx = 544; s.pc = 1; return s.tmp_0;
+    s.callLocIdx = 545; s.pc = 1; return s.tmp_0;
   case 1:
     r0 = s.retval;
     s.tmp_0 = control_pushEventContext__P409_mk(s);
-    s.callLocIdx = 545; s.pc = 2; return s.tmp_0;
+    s.callLocIdx = 546; s.pc = 2; return s.tmp_0;
   case 2:
     r0 = s.retval;
     s.tmp_0 = game_showDialog__P3005_mk(s);
     s.tmp_0.arg0 = s.arg0;
     s.tmp_0.arg1 = s.arg1;
     s.tmp_0.arg2 = s.arg2;
-    s.callLocIdx = 546; s.pc = 3; return s.tmp_0;
+    s.callLocIdx = 547; s.pc = 3; return s.tmp_0;
   case 3:
     r0 = s.retval;
     s.tmp_0 = pause__P413_mk(s);
     r0 = (1000 * s.arg3);
     s.tmp_0.arg0 = r0;
-    s.callLocIdx = 547; s.pc = 4; return s.tmp_0;
+    s.callLocIdx = 548; s.pc = 4; return s.tmp_0;
   case 4:
     r0 = s.retval;
     s.tmp_0 = control_popEventContext__P410_mk(s);
-    s.callLocIdx = 548; s.pc = 5; return s.tmp_0;
+    s.callLocIdx = 549; s.pc = 5; return s.tmp_0;
   case 5:
     r0 = s.retval;
     s.tmp_0 = controller__setUserEventsEnabled__P2206_mk(s);
     s.tmp_0.arg0 = true;
-    s.callLocIdx = 549; s.pc = 6; return s.tmp_0;
+    s.callLocIdx = 550; s.pc = 6; return s.tmp_0;
   case 6:
     r0 = s.retval;
     r0 = undefined;
@@ -46083,489 +46820,6 @@ function maze_show__P4611_mk(s) {
   arg1: undefined,
   arg2: undefined,
   arg3: undefined,
-} }
-
-
-
-
-
-function game_showDialog__P3005(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    s.titleFont___12086 = undefined;
-    s.subFont___12091 = undefined;
-    s.footerFont___12096 = undefined;
-    s.h___12101 = undefined;
-    s.top___12120 = undefined;
-    s.y___12124 = undefined;
-    s.footerTop___12161 = undefined;
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.arg1 = (s.lambdaArgs[1]);
-      s.arg2 = (s.lambdaArgs[2]);
-      s.lambdaArgs = null;
-    }
-    s.tmp_0 = game_init__P5230_mk(s);
-    s.tmp_0.arg0 = undefined;
-    s.callLocIdx = 1395; s.pc = 21; return s.tmp_0;
-  case 21:
-    r0 = s.retval;
-    s.tmp_0 = r0 = s.arg0;
-    r0 = pxsim_numops_toBool(s.tmp_0);
-    if (!r0) { step = 1; continue; }
-    r0 = s.tmp_0;
-    { step = 2; continue; }
-  case 1:
-    r0 = pxsim_String_.mkEmpty();
-  case 2:
-    // jmp value (already in r0)
-    s.tmp_1 = r0;
-    s.tmp_2 = image_getFontForText__P1977_mk(s);
-    s.tmp_2.arg0 = s.tmp_1;
-    s.callLocIdx = 1396; s.pc = 22; return s.tmp_2;
-  case 22:
-    r0 = s.retval;
-    s.titleFont___12086 = (r0);
-    s.tmp_0 = r0 = s.arg1;
-    r0 = pxsim_numops_toBool(s.tmp_0);
-    if (!r0) { step = 3; continue; }
-    r0 = s.tmp_0;
-    { step = 4; continue; }
-  case 3:
-    r0 = pxsim_String_.mkEmpty();
-  case 4:
-    // jmp value (already in r0)
-    s.tmp_1 = r0;
-    s.tmp_2 = image_getFontForText__P1977_mk(s);
-    s.tmp_2.arg0 = s.tmp_1;
-    s.callLocIdx = 1397; s.pc = 23; return s.tmp_2;
-  case 23:
-    r0 = s.retval;
-    s.subFont___12091 = (r0);
-    s.tmp_0 = r0 = s.arg2;
-    r0 = pxsim_numops_toBool(s.tmp_0);
-    if (!r0) { step = 5; continue; }
-    r0 = s.tmp_0;
-    { step = 6; continue; }
-  case 5:
-    r0 = pxsim_String_.mkEmpty();
-  case 6:
-    // jmp value (already in r0)
-    s.tmp_1 = r0;
-    s.tmp_2 = image_getFontForText__P1977_mk(s);
-    s.tmp_2.arg0 = s.tmp_1;
-    s.callLocIdx = 1398; s.pc = 24; return s.tmp_2;
-  case 24:
-    r0 = s.retval;
-    s.footerFont___12096 = (r0);
-    s.h___12101 = (8);
-    r0 = pxsim_numops_toBoolDecr(s.arg0);
-    if (!r0) { step = 7; continue; }
-    s.tmp_0 = r0 = s.h___12101;
-    s.tmp_2 = if_charHeight_1_mk(s);
-    s.tmp_2.arg0 = s.titleFont___12086;
-    if (!s.tmp_2.arg0.vtable.iface) {
-      s.retval = pxsim_pxtrt.mapGetByString(s.tmp_2.arg0, "charHeight");
-    } else {
-      s.tmp_2.fn = s.tmp_2.arg0.vtable.iface["charHeight"];
-      if (s.tmp_2.fn == null) { s.retval = s.tmp_2.arg0.fields["charHeight"]; }
-      else if (!s.tmp_2.fn.isGetter) { s.retval = bind(s.tmp_2); }
-     else { s.callLocIdx = 1399; s.pc = 25; return s.tmp_2; }
-    }
-  case 25:
-    r0 = s.retval;
-    s.tmp_1 = r0;
-    r0 = (s.tmp_0 + s.tmp_1);
-    s.h___12101 = (r0);
-  case 7:
-  case 8:
-    r0 = pxsim_numops_toBoolDecr(s.arg1);
-    if (!r0) { step = 9; continue; }
-    s.tmp_0 = r0 = s.h___12101;
-    s.tmp_3 = if_charHeight_1_mk(s);
-    s.tmp_3.arg0 = s.subFont___12091;
-    if (!s.tmp_3.arg0.vtable.iface) {
-      s.retval = pxsim_pxtrt.mapGetByString(s.tmp_3.arg0, "charHeight");
-    } else {
-      s.tmp_3.fn = s.tmp_3.arg0.vtable.iface["charHeight"];
-      if (s.tmp_3.fn == null) { s.retval = s.tmp_3.arg0.fields["charHeight"]; }
-      else if (!s.tmp_3.fn.isGetter) { s.retval = bind(s.tmp_3); }
-     else { s.callLocIdx = 1400; s.pc = 26; return s.tmp_3; }
-    }
-  case 26:
-    r0 = s.retval;
-    s.tmp_2 = r0;
-    r0 = (2 + s.tmp_2);
-    s.tmp_1 = r0;
-    r0 = (s.tmp_0 + s.tmp_1);
-    s.h___12101 = (r0);
-  case 9:
-  case 10:
-    r0 = (s.h___12101 + 8);
-    s.h___12101 = (r0);
-    s.tmp_0 = game_showDialogBackground__P5231_mk(s);
-    s.tmp_0.arg0 = s.h___12101;
-    s.tmp_0.arg1 = 9;
-    s.callLocIdx = 1401; s.pc = 27; return s.tmp_0;
-  case 27:
-    r0 = s.retval;
-    s.top___12120 = (r0);
-    r0 = (s.top___12120 + 8);
-    s.y___12124 = (r0);
-    r0 = pxsim_numops_toBoolDecr(s.arg0);
-    if (!r0) { step = 13; continue; }
-    r0 = pxsim_ImageMethods.isMono(globals.screen___2032);
-    s.tmp_0 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
-    if (!r0) { step = 11; continue; }
-    r0 = 1;
-    { step = 12; continue; }
-  case 11:
-    r0 = 7;
-  case 12:
-    // jmp value (already in r0)
-    s.tmp_1 = r0;
-    s.tmp_2 = helpers_imagePrint__P1990_mk(s);
-    s.tmp_2.arg0 = globals.screen___2032;
-    s.tmp_2.arg1 = s.arg0;
-    s.tmp_2.arg2 = 8;
-    s.tmp_2.arg3 = s.y___12124;
-    s.tmp_2.arg4 = s.tmp_1;
-    s.tmp_2.arg5 = s.titleFont___12086;
-    s.tmp_2.arg6 = undefined;
-    s.callLocIdx = 1402; s.pc = 28; return s.tmp_2;
-  case 28:
-    r0 = s.retval;
-    s.tmp_0 = r0 = s.y___12124;
-    s.tmp_3 = if_charHeight_1_mk(s);
-    s.tmp_3.arg0 = s.titleFont___12086;
-    if (!s.tmp_3.arg0.vtable.iface) {
-      s.retval = pxsim_pxtrt.mapGetByString(s.tmp_3.arg0, "charHeight");
-    } else {
-      s.tmp_3.fn = s.tmp_3.arg0.vtable.iface["charHeight"];
-      if (s.tmp_3.fn == null) { s.retval = s.tmp_3.arg0.fields["charHeight"]; }
-      else if (!s.tmp_3.fn.isGetter) { s.retval = bind(s.tmp_3); }
-     else { s.callLocIdx = 1403; s.pc = 29; return s.tmp_3; }
-    }
-  case 29:
-    r0 = s.retval;
-    s.tmp_2 = r0;
-    r0 = (s.tmp_2 + 2);
-    s.tmp_1 = r0;
-    r0 = (s.tmp_0 + s.tmp_1);
-    s.y___12124 = (r0);
-  case 13:
-  case 14:
-    r0 = pxsim_numops_toBoolDecr(s.arg1);
-    if (!r0) { step = 17; continue; }
-    r0 = pxsim_ImageMethods.isMono(globals.screen___2032);
-    s.tmp_0 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_0);
-    if (!r0) { step = 15; continue; }
-    r0 = 1;
-    { step = 16; continue; }
-  case 15:
-    r0 = 6;
-  case 16:
-    // jmp value (already in r0)
-    s.tmp_1 = r0;
-    s.tmp_2 = helpers_imagePrint__P1990_mk(s);
-    s.tmp_2.arg0 = globals.screen___2032;
-    s.tmp_2.arg1 = s.arg1;
-    s.tmp_2.arg2 = 8;
-    s.tmp_2.arg3 = s.y___12124;
-    s.tmp_2.arg4 = s.tmp_1;
-    s.tmp_2.arg5 = s.subFont___12091;
-    s.tmp_2.arg6 = undefined;
-    s.callLocIdx = 1404; s.pc = 30; return s.tmp_2;
-  case 30:
-    r0 = s.retval;
-    s.tmp_0 = r0 = s.y___12124;
-    s.tmp_3 = if_charHeight_1_mk(s);
-    s.tmp_3.arg0 = s.subFont___12091;
-    if (!s.tmp_3.arg0.vtable.iface) {
-      s.retval = pxsim_pxtrt.mapGetByString(s.tmp_3.arg0, "charHeight");
-    } else {
-      s.tmp_3.fn = s.tmp_3.arg0.vtable.iface["charHeight"];
-      if (s.tmp_3.fn == null) { s.retval = s.tmp_3.arg0.fields["charHeight"]; }
-      else if (!s.tmp_3.fn.isGetter) { s.retval = bind(s.tmp_3); }
-     else { s.callLocIdx = 1405; s.pc = 31; return s.tmp_3; }
-    }
-  case 31:
-    r0 = s.retval;
-    s.tmp_2 = r0;
-    r0 = (s.tmp_2 + 2);
-    s.tmp_1 = r0;
-    r0 = (s.tmp_0 + s.tmp_1);
-    s.y___12124 = (r0);
-  case 17:
-  case 18:
-    r0 = pxsim_numops_toBoolDecr(s.arg2);
-    if (!r0) { step = 19; continue; }
-    r0 = pxsim_ImageMethods.height(globals.screen___2032);
-    s.tmp_1 = r0;
-    s.tmp_3 = if_charHeight_1_mk(s);
-    s.tmp_3.arg0 = s.footerFont___12096;
-    if (!s.tmp_3.arg0.vtable.iface) {
-      s.retval = pxsim_pxtrt.mapGetByString(s.tmp_3.arg0, "charHeight");
-    } else {
-      s.tmp_3.fn = s.tmp_3.arg0.vtable.iface["charHeight"];
-      if (s.tmp_3.fn == null) { s.retval = s.tmp_3.arg0.fields["charHeight"]; }
-      else if (!s.tmp_3.fn.isGetter) { s.retval = bind(s.tmp_3); }
-     else { s.callLocIdx = 1406; s.pc = 32; return s.tmp_3; }
-    }
-  case 32:
-    r0 = s.retval;
-    s.tmp_2 = r0;
-    r0 = (s.tmp_1 - s.tmp_2);
-    s.tmp_0 = r0;
-    r0 = (s.tmp_0 - 4);
-    s.footerTop___12161 = (r0);
-    s.tmp_0 = helpers_imageFillRect__P1956_mk(s);
-    s.tmp_0.arg0 = globals.screen___2032;
-    s.tmp_0.arg1 = 0;
-    s.tmp_0.arg2 = s.footerTop___12161;
-    r0 = pxsim_ImageMethods.width(globals.screen___2032);
-    s.tmp_0.arg3 = r0;
-    s.tmp_2 = if_charHeight_1_mk(s);
-    s.tmp_2.arg0 = s.footerFont___12096;
-    if (!s.tmp_2.arg0.vtable.iface) {
-      s.retval = pxsim_pxtrt.mapGetByString(s.tmp_2.arg0, "charHeight");
-    } else {
-      s.tmp_2.fn = s.tmp_2.arg0.vtable.iface["charHeight"];
-      if (s.tmp_2.fn == null) { s.retval = s.tmp_2.arg0.fields["charHeight"]; }
-      else if (!s.tmp_2.fn.isGetter) { s.retval = bind(s.tmp_2); }
-     else { s.callLocIdx = 1407; s.pc = 34; return s.tmp_2; }
-    }
-  case 34:
-    r0 = s.retval;
-    s.tmp_1 = r0;
-    r0 = (s.tmp_1 + 4);
-    s.tmp_0.arg4 = r0;
-    s.tmp_0.arg5 = 0;
-    s.callLocIdx = 1408; s.pc = 33; return s.tmp_0;
-  case 33:
-    r0 = s.retval;
-    s.tmp_0 = helpers_imageDrawLine__P1958_mk(s);
-    s.tmp_0.arg0 = globals.screen___2032;
-    s.tmp_0.arg1 = 0;
-    s.tmp_0.arg2 = s.footerTop___12161;
-    r0 = pxsim_ImageMethods.width(globals.screen___2032);
-    s.tmp_0.arg3 = r0;
-    s.tmp_0.arg4 = s.footerTop___12161;
-    s.tmp_0.arg5 = 1;
-    s.callLocIdx = 1409; s.pc = 35; return s.tmp_0;
-  case 35:
-    r0 = s.retval;
-    s.tmp_0 = helpers_imagePrint__P1990_mk(s);
-    s.tmp_0.arg0 = globals.screen___2032;
-    s.tmp_0.arg1 = s.arg2;
-    r0 = pxsim_ImageMethods.width(globals.screen___2032);
-    s.tmp_2 = r0;
-    r0 = pxsim_String_.length(s.arg2);
-    s.tmp_4 = r0;
-    s.tmp_6 = if_charWidth_1_mk(s);
-    s.tmp_6.arg0 = s.footerFont___12096;
-    if (!s.tmp_6.arg0.vtable.iface) {
-      s.retval = pxsim_pxtrt.mapGetByString(s.tmp_6.arg0, "charWidth");
-    } else {
-      s.tmp_6.fn = s.tmp_6.arg0.vtable.iface["charWidth"];
-      if (s.tmp_6.fn == null) { s.retval = s.tmp_6.arg0.fields["charWidth"]; }
-      else if (!s.tmp_6.fn.isGetter) { s.retval = bind(s.tmp_6); }
-     else { s.callLocIdx = 1410; s.pc = 37; return s.tmp_6; }
-    }
-  case 37:
-    r0 = s.retval;
-    s.tmp_5 = r0;
-    r0 = (s.tmp_4 * s.tmp_5);
-    s.tmp_3 = r0;
-    r0 = (s.tmp_2 - s.tmp_3);
-    s.tmp_1 = r0;
-    r0 = (s.tmp_1 - 8);
-    s.tmp_0.arg2 = r0;
-    r0 = pxsim_ImageMethods.height(globals.screen___2032);
-    s.tmp_8 = r0;
-    s.tmp_10 = if_charHeight_1_mk(s);
-    s.tmp_10.arg0 = s.footerFont___12096;
-    if (!s.tmp_10.arg0.vtable.iface) {
-      s.retval = pxsim_pxtrt.mapGetByString(s.tmp_10.arg0, "charHeight");
-    } else {
-      s.tmp_10.fn = s.tmp_10.arg0.vtable.iface["charHeight"];
-      if (s.tmp_10.fn == null) { s.retval = s.tmp_10.arg0.fields["charHeight"]; }
-      else if (!s.tmp_10.fn.isGetter) { s.retval = bind(s.tmp_10); }
-     else { s.callLocIdx = 1411; s.pc = 38; return s.tmp_10; }
-    }
-  case 38:
-    r0 = s.retval;
-    s.tmp_9 = r0;
-    r0 = (s.tmp_8 - s.tmp_9);
-    s.tmp_7 = r0;
-    r0 = (s.tmp_7 - 2);
-    s.tmp_0.arg3 = r0;
-    s.tmp_0.arg4 = 1;
-    s.tmp_0.arg5 = s.footerFont___12096;
-    s.tmp_0.arg6 = undefined;
-    s.callLocIdx = 1412; s.pc = 36; return s.tmp_0;
-  case 36:
-    r0 = s.retval;
-  case 19:
-  case 20:
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-game_showDialog__P3005.info = {"start":5995,"length":1313,"line":190,"column":4,"endLine":223,"endColumn":5,"fileName":"pxt_modules/game/game.ts","functionName":"showDialog","argumentNames":["title","subtitle","footer"]}
-
-function game_showDialog__P3005_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: game_showDialog__P3005, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  tmp_2: undefined,
-  tmp_3: undefined,
-  tmp_4: undefined,
-  tmp_5: undefined,
-  tmp_6: undefined,
-  tmp_7: undefined,
-  tmp_8: undefined,
-  tmp_9: undefined,
-  tmp_10: undefined,
-  titleFont___12086: undefined,
-  subFont___12091: undefined,
-  footerFont___12096: undefined,
-  h___12101: undefined,
-  top___12120: undefined,
-  y___12124: undefined,
-  footerTop___12161: undefined,
-  arg0: undefined,
-  arg1: undefined,
-  arg2: undefined,
-} }
-
-
-
-
-
-function game_showDialogBackground__P5231(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    s.top___12559 = undefined;
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.arg1 = (s.lambdaArgs[1]);
-      s.lambdaArgs = null;
-    }
-    r0 = pxsim_ImageMethods.height(globals.screen___2032);
-    s.tmp_1 = r0;
-    r0 = (s.tmp_1 - s.arg0);
-    s.tmp_0 = r0;
-    r0 = (s.tmp_0 >> 1);
-    s.top___12559 = (r0);
-    s.tmp_0 = helpers_imageFillRect__P1956_mk(s);
-    s.tmp_0.arg0 = globals.screen___2032;
-    s.tmp_0.arg1 = 0;
-    s.tmp_0.arg2 = s.top___12559;
-    r0 = pxsim_ImageMethods.width(globals.screen___2032);
-    s.tmp_0.arg3 = r0;
-    s.tmp_0.arg4 = s.arg0;
-    s.tmp_0.arg5 = 0;
-    s.callLocIdx = 1392; s.pc = 1; return s.tmp_0;
-  case 1:
-    r0 = s.retval;
-    s.tmp_0 = helpers_imageDrawLine__P1958_mk(s);
-    s.tmp_0.arg0 = globals.screen___2032;
-    s.tmp_0.arg1 = 0;
-    s.tmp_0.arg2 = s.top___12559;
-    r0 = pxsim_ImageMethods.width(globals.screen___2032);
-    s.tmp_0.arg3 = r0;
-    s.tmp_0.arg4 = s.top___12559;
-    s.tmp_0.arg5 = 1;
-    s.callLocIdx = 1393; s.pc = 2; return s.tmp_0;
-  case 2:
-    r0 = s.retval;
-    s.tmp_0 = helpers_imageDrawLine__P1958_mk(s);
-    s.tmp_0.arg0 = globals.screen___2032;
-    s.tmp_0.arg1 = 0;
-    r0 = (s.top___12559 + s.arg0);
-    s.tmp_1 = r0;
-    r0 = (s.tmp_1 - 1);
-    s.tmp_0.arg2 = r0;
-    r0 = pxsim_ImageMethods.width(globals.screen___2032);
-    s.tmp_0.arg3 = r0;
-    r0 = (s.top___12559 + s.arg0);
-    s.tmp_2 = r0;
-    r0 = (s.tmp_2 - 1);
-    s.tmp_0.arg4 = r0;
-    s.tmp_0.arg5 = 1;
-    s.callLocIdx = 1394; s.pc = 3; return s.tmp_0;
-  case 3:
-    r0 = s.retval;
-    r0 = s.top___12559;
-    return leave(s, r0)
-  default: oops()
-} } }
-game_showDialogBackground__P5231.info = {"start":5687,"length":302,"line":181,"column":4,"endLine":188,"endColumn":5,"fileName":"pxt_modules/game/game.ts","functionName":"showDialogBackground","argumentNames":["h","c"]}
-
-function game_showDialogBackground__P5231_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: game_showDialogBackground__P5231, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  tmp_2: undefined,
-  top___12559: undefined,
-  arg0: undefined,
-  arg1: undefined,
-} }
-
-
-
-
-
-function controller__setUserEventsEnabled__P2206(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.lambdaArgs = null;
-    }
-    globals._userEventsEnabled___5018 = (s.arg0);
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-controller__setUserEventsEnabled__P2206.info = {"start":10070,"length":101,"line":291,"column":4,"endLine":293,"endColumn":5,"fileName":"pxt_modules/game/controllerbutton.ts","functionName":"_setUserEventsEnabled","argumentNames":["enabled"]}
-
-function controller__setUserEventsEnabled__P2206_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: controller__setUserEventsEnabled__P2206, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  arg0: undefined,
 } }
 
 
@@ -46652,223 +46906,6 @@ function info_setScore__P2572_mk(s) {
 
 
 
-function maze_ask__P4610(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    s.answer___11116 = undefined;
-    s.aNotHeld___11118 = undefined;
-    s.bNotHeld___11119 = undefined;
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.arg1 = (s.lambdaArgs[1]);
-      s.arg2 = (s.lambdaArgs[2]);
-      s.lambdaArgs = null;
-    }
-    s.tmp_0 = controller__setUserEventsEnabled__P2206_mk(s);
-    s.tmp_0.arg0 = false;
-    s.callLocIdx = 537; s.pc = 1; return s.tmp_0;
-  case 1:
-    r0 = s.retval;
-    s.tmp_0 = control_pushEventContext__P409_mk(s);
-    s.callLocIdx = 538; s.pc = 2; return s.tmp_0;
-  case 2:
-    r0 = s.retval;
-    s.tmp_0 = game_showDialog__P3005_mk(s);
-    s.tmp_0.arg0 = s.arg0;
-    s.tmp_0.arg1 = s.arg1;
-    s.tmp_0.arg2 = s.arg2;
-    s.callLocIdx = 539; s.pc = 3; return s.tmp_0;
-  case 3:
-    r0 = s.retval;
-    s.tmp_0 = pause__P413_mk(s);
-    s.tmp_0.arg0 = 250;
-    s.callLocIdx = 540; s.pc = 4; return s.tmp_0;
-  case 4:
-    r0 = s.retval;
-    r0 = pxsim_pxtrt.mklocRef();
-    s.answer___11116 = (r0);
-    r0 = pxsim_pxtrt_stlocRef(s.answer___11116, null);
-    r0 = pxsim_pxtrt.mklocRef();
-    s.aNotHeld___11118 = (r0);
-    r0 = pxsim_pxtrt_stlocRef(s.aNotHeld___11118, false);
-    r0 = pxsim_pxtrt.mklocRef();
-    s.bNotHeld___11119 = (r0);
-    r0 = pxsim_pxtrt_stlocRef(s.bNotHeld___11119, false);
-    r0 = pxsim_pxtcore_mkAction(3, maze_ask_inline__P11122);
-    s.tmp_0 = r0;
-    r0 = pxsim_pxtrt_stclo(s.tmp_0, 0, s.aNotHeld___11118);
-    r0 = pxsim_pxtrt_stclo(s.tmp_0, 1, s.bNotHeld___11119);
-    r0 = pxsim_pxtrt_stclo(s.tmp_0, 2, s.answer___11116);
-    s.tmp_1 = pauseUntil__P367_mk(s);
-    s.tmp_1.arg0 = s.tmp_0;
-    s.tmp_1.arg1 = undefined;
-    s.callLocIdx = 541; s.pc = 5; return s.tmp_1;
-  case 5:
-    r0 = s.retval;
-    s.tmp_0 = control_popEventContext__P410_mk(s);
-    s.callLocIdx = 542; s.pc = 6; return s.tmp_0;
-  case 6:
-    r0 = s.retval;
-    s.tmp_0 = controller__setUserEventsEnabled__P2206_mk(s);
-    s.tmp_0.arg0 = true;
-    s.callLocIdx = 543; s.pc = 7; return s.tmp_0;
-  case 7:
-    r0 = s.retval;
-    r0 = pxsim_pxtrt_ldlocRef(s.answer___11116);
-    return leave(s, r0)
-  default: oops()
-} } }
-maze_ask__P4610.info = {"start":99,"length":836,"line":3,"column":4,"endLine":25,"endColumn":5,"fileName":"maze_ui.ts","functionName":"ask","argumentNames":["title","subtitle","footer"]}
-
-function maze_ask__P4610_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: maze_ask__P4610, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  answer___11116: undefined,
-  aNotHeld___11118: undefined,
-  bNotHeld___11119: undefined,
-  arg0: undefined,
-  arg1: undefined,
-  arg2: undefined,
-} }
-
-
-
-
-
-function maze_ask_inline__P11122(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    r0 = pxsim_pxtrt_ldlocRef(s.caps[0]);
-    s.tmp_0 = r0;
-    r0 = pxsim_numops_toBool(s.tmp_0);
-    if (!r0) { step = 1; continue; }
-    r0 = s.tmp_0;
-    { step = 2; continue; }
-  case 1:
-    s.tmp_3 = controller_Button__C2189_v0_1_mk(s);
-    s.tmp_3.arg0 = globals.A___2113;
-    if (!checkSubtype(s.tmp_3.arg0, controller_Button__C2189_VT)) failedCast(s.tmp_3.arg0);
-    s.tmp_3.fn = s.tmp_3.arg0.vtable.methods.isPressed;
-    s.pc = 13; return s.tmp_3;
-  case 13:
-    r0 = s.retval;
-    s.tmp_2 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_2);
-    s.tmp_1 = r0;
-    r0 = pxsim_Boolean__bang(s.tmp_1);
-  case 2:
-    // jmp value (already in r0)
-    s.tmp_4 = r0;
-    r0 = pxsim_pxtrt_stlocRef(s.caps[0], s.tmp_4);
-    r0 = pxsim_pxtrt_ldlocRef(s.caps[1]);
-    s.tmp_0 = r0;
-    r0 = pxsim_numops_toBool(s.tmp_0);
-    if (!r0) { step = 3; continue; }
-    r0 = s.tmp_0;
-    { step = 4; continue; }
-  case 3:
-    s.tmp_3 = controller_Button__C2189_v0_1_mk(s);
-    s.tmp_3.arg0 = globals.B___2114;
-    if (!checkSubtype(s.tmp_3.arg0, controller_Button__C2189_VT)) failedCast(s.tmp_3.arg0);
-    s.tmp_3.fn = s.tmp_3.arg0.vtable.methods.isPressed;
-    s.pc = 14; return s.tmp_3;
-  case 14:
-    r0 = s.retval;
-    s.tmp_2 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_2);
-    s.tmp_1 = r0;
-    r0 = pxsim_Boolean__bang(s.tmp_1);
-  case 4:
-    // jmp value (already in r0)
-    s.tmp_4 = r0;
-    r0 = pxsim_pxtrt_stlocRef(s.caps[1], s.tmp_4);
-    r0 = pxsim_pxtrt_ldlocRef(s.caps[0]);
-    s.tmp_0 = r0;
-    r0 = pxsim_numops_toBool(s.tmp_0);
-    if (r0) { step = 5; continue; }
-    r0 = s.tmp_0;
-    { step = 6; continue; }
-  case 5:
-    s.tmp_1 = controller_Button__C2189_v0_1_mk(s);
-    s.tmp_1.arg0 = globals.A___2113;
-    if (!checkSubtype(s.tmp_1.arg0, controller_Button__C2189_VT)) failedCast(s.tmp_1.arg0);
-    s.tmp_1.fn = s.tmp_1.arg0.vtable.methods.isPressed;
-    s.pc = 15; return s.tmp_1;
-  case 15:
-    r0 = s.retval;
-  case 6:
-    // jmp value (already in r0)
-    s.tmp_2 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_2);
-    if (!r0) { step = 7; continue; }
-    r0 = pxsim_pxtrt_stlocRef(s.caps[2], true);
-    { step = 12; continue; }
-  case 7:
-    r0 = pxsim_pxtrt_ldlocRef(s.caps[1]);
-    s.tmp_0 = r0;
-    r0 = pxsim_numops_toBool(s.tmp_0);
-    if (r0) { step = 8; continue; }
-    r0 = s.tmp_0;
-    { step = 9; continue; }
-  case 8:
-    s.tmp_1 = controller_Button__C2189_v0_1_mk(s);
-    s.tmp_1.arg0 = globals.B___2114;
-    if (!checkSubtype(s.tmp_1.arg0, controller_Button__C2189_VT)) failedCast(s.tmp_1.arg0);
-    s.tmp_1.fn = s.tmp_1.arg0.vtable.methods.isPressed;
-    s.pc = 16; return s.tmp_1;
-  case 16:
-    r0 = s.retval;
-  case 9:
-    // jmp value (already in r0)
-    s.tmp_2 = r0;
-    r0 = pxsim_numops_toBoolDecr(s.tmp_2);
-    if (!r0) { step = 10; continue; }
-    r0 = pxsim_pxtrt_stlocRef(s.caps[2], false);
-  case 10:
-  case 11:
-  case 12:
-    r0 = pxsim_pxtrt_ldlocRef(s.caps[2]);
-    s.tmp_0 = r0;
-    r0 = (s.tmp_0 !== null);
-    return leave(s, r0)
-  default: oops()
-} } }
-maze_ask_inline__P11122.info = {"start":448,"length":374,"line":11,"column":19,"endLine":21,"endColumn":9,"fileName":"maze_ui.ts","functionName":"inline","argumentNames":[]}
-
-function maze_ask_inline__P11122_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: maze_ask_inline__P11122, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  tmp_2: undefined,
-  tmp_3: undefined,
-  tmp_4: undefined,
-} }
-
-
-
-
-
 function maze_Map_init__P4450(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
@@ -46880,8 +46917,8 @@ switch (step) {
   case 0:
 
     s.f___8605 = undefined;
-    s.unnamed20506___U1 = undefined;
-    s.unnamed20507___U2 = undefined;
+    s.unnamed24090___U1 = undefined;
+    s.unnamed24091___U2 = undefined;
     if (s.lambdaArgs) {
       s.arg0 = (s.lambdaArgs[0]);
       s.arg1 = (s.lambdaArgs[1]);
@@ -47013,15 +47050,15 @@ switch (step) {
     r0 = pxsim_Array__push(s.tmp_0, 2);
     r0 = pxsim_Array__push(s.tmp_0, 4);
     r0 = pxsim_Array__push(s.tmp_0, 8);
-    s.unnamed20506___U1 = (s.tmp_0);
-    s.unnamed20507___U2 = (0);
+    s.unnamed24090___U1 = (s.tmp_0);
+    s.unnamed24091___U2 = (0);
   case 1:
-    s.tmp_0 = r0 = s.unnamed20507___U2;
-    r0 = pxsim_Array__length(s.unnamed20506___U1);
+    s.tmp_0 = r0 = s.unnamed24091___U2;
+    r0 = pxsim_Array__length(s.unnamed24090___U1);
     s.tmp_1 = r0;
     r0 = (s.tmp_0 < s.tmp_1);
     if (!r0) { step = 2; continue; }
-    r0 = pxsim_Array__getAt(s.unnamed20506___U1, s.unnamed20507___U2);
+    r0 = pxsim_Array__getAt(s.unnamed24090___U1, s.unnamed24091___U2);
     s.f___8605 = (r0);
     s.tmp_2 = maze_Map_initFlagsFromFlags__P7598_mk(s);
     s.tmp_2.arg0 = s.arg0;
@@ -47030,11 +47067,11 @@ switch (step) {
     s.callLocIdx = 199; s.pc = 19; return s.tmp_2;
   case 19:
     r0 = s.retval;
-    r0 = (s.unnamed20507___U2 + 1);
-    s.unnamed20507___U2 = (r0);
+    r0 = (s.unnamed24091___U2 + 1);
+    s.unnamed24091___U2 = (r0);
     { step = 1; continue; }
   case 2:
-    s.unnamed20506___U1 = (undefined);
+    s.unnamed24090___U1 = (undefined);
     s.tmp_0 = maze_Map_initPills__P7596_mk(s);
     s.tmp_0.arg0 = s.arg0;
     s.callLocIdx = 200; s.pc = 20; return s.tmp_0;
@@ -47084,8 +47121,8 @@ function maze_Map_init__P4450_mk(s) {
   tmp_2: undefined,
   tmp_3: undefined,
   f___8605: undefined,
-  unnamed20506___U1: undefined,
-  unnamed20507___U2: undefined,
+  unnamed24090___U1: undefined,
+  unnamed24091___U2: undefined,
   arg0: undefined,
   arg1: undefined,
 } }
@@ -47575,8 +47612,8 @@ switch (step) {
   case 0:
 
     s.f___8470 = undefined;
-    s.unnamed20502___U1 = undefined;
-    s.unnamed20503___U2 = undefined;
+    s.unnamed24086___U1 = undefined;
+    s.unnamed24087___U2 = undefined;
     if (s.lambdaArgs) {
       s.arg0 = (s.lambdaArgs[0]);
       s.lambdaArgs = null;
@@ -47586,15 +47623,15 @@ switch (step) {
     r0 = (s.arg0).fields["pillCount"] = (0);
     s.f___8470 = (undefined);
     r0 = s.arg0.fields["flags"];
-    s.unnamed20502___U1 = (r0);
-    s.unnamed20503___U2 = (0);
+    s.unnamed24086___U1 = (r0);
+    s.unnamed24087___U2 = (0);
   case 1:
-    s.tmp_0 = r0 = s.unnamed20503___U2;
-    r0 = pxsim_Array__length(s.unnamed20502___U1);
+    s.tmp_0 = r0 = s.unnamed24087___U2;
+    r0 = pxsim_Array__length(s.unnamed24086___U1);
     s.tmp_1 = r0;
     r0 = (s.tmp_0 < s.tmp_1);
     if (!r0) { step = 6; continue; }
-    r0 = pxsim_Array__getAt(s.unnamed20502___U1, s.unnamed20503___U2);
+    r0 = pxsim_Array__getAt(s.unnamed24086___U1, s.unnamed24087___U2);
     s.f___8470 = (r0);
     r0 = (s.f___8470 & 2);
     s.tmp_2 = r0;
@@ -47617,11 +47654,11 @@ switch (step) {
     r0 = (s.tmp_4).fields["pillCount"] = (s.tmp_5);
   case 4:
   case 5:
-    r0 = (s.unnamed20503___U2 + 1);
-    s.unnamed20503___U2 = (r0);
+    r0 = (s.unnamed24087___U2 + 1);
+    s.unnamed24087___U2 = (r0);
     { step = 1; continue; }
   case 6:
-    s.unnamed20502___U1 = (undefined);
+    s.unnamed24086___U1 = (undefined);
     r0 = undefined;
     return leave(s, r0)
   default: oops()
@@ -47641,8 +47678,8 @@ function maze_Map_initPills__P7596_mk(s) {
   tmp_5: undefined,
   tmp_6: undefined,
   f___8470: undefined,
-  unnamed20502___U1: undefined,
-  unnamed20503___U2: undefined,
+  unnamed24086___U1: undefined,
+  unnamed24087___U2: undefined,
   arg0: undefined,
 } }
 
@@ -47746,8 +47783,8 @@ switch (step) {
 
     s.locs___8488 = undefined;
     s.loc___8493 = undefined;
-    s.unnamed20504___U2 = undefined;
-    s.unnamed20505___U3 = undefined;
+    s.unnamed24088___U2 = undefined;
+    s.unnamed24089___U3 = undefined;
     if (s.lambdaArgs) {
       s.arg0 = (s.lambdaArgs[0]);
       s.arg1 = (s.lambdaArgs[1]);
@@ -47763,15 +47800,15 @@ switch (step) {
     r0 = s.retval;
     s.locs___8488 = (r0);
     s.loc___8493 = (undefined);
-    s.unnamed20504___U2 = (s.locs___8488);
-    s.unnamed20505___U3 = (0);
+    s.unnamed24088___U2 = (s.locs___8488);
+    s.unnamed24089___U3 = (0);
   case 1:
-    s.tmp_0 = r0 = s.unnamed20505___U3;
-    r0 = pxsim_Array__length(s.unnamed20504___U2);
+    s.tmp_0 = r0 = s.unnamed24089___U3;
+    r0 = pxsim_Array__length(s.unnamed24088___U2);
     s.tmp_1 = r0;
     r0 = (s.tmp_0 < s.tmp_1);
     if (!r0) { step = 2; continue; }
-    r0 = pxsim_Array__getAt(s.unnamed20504___U2, s.unnamed20505___U3);
+    r0 = pxsim_Array__getAt(s.unnamed24088___U2, s.unnamed24089___U3);
     s.loc___8493 = (r0);
     s.tmp_2 = maze_Map_setFlag__P7591_mk(s);
     s.tmp_2.arg0 = s.arg0;
@@ -47788,11 +47825,11 @@ switch (step) {
     s.callLocIdx = 175; s.pc = 4; return s.tmp_2;
   case 4:
     r0 = s.retval;
-    r0 = (s.unnamed20505___U3 + 1);
-    s.unnamed20505___U3 = (r0);
+    r0 = (s.unnamed24089___U3 + 1);
+    s.unnamed24089___U3 = (r0);
     { step = 1; continue; }
   case 2:
-    s.unnamed20504___U2 = (undefined);
+    s.unnamed24088___U2 = (undefined);
     r0 = undefined;
     return leave(s, r0)
   default: oops()
@@ -47810,8 +47847,8 @@ function maze_Map_initFlagsFromTiles__P7597_mk(s) {
   tmp_3: undefined,
   locs___8488: undefined,
   loc___8493: undefined,
-  unnamed20504___U2: undefined,
-  unnamed20505___U3: undefined,
+  unnamed24088___U2: undefined,
+  unnamed24089___U3: undefined,
   arg0: undefined,
   arg1: undefined,
   arg2: undefined,
@@ -63360,6 +63397,409 @@ function particles_ParticleFactory_drawParticle__P3190_mk(s) {
 
 
 
+function game_BaseDialog_drawTextCore__P2919(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, game_BaseDialog__C2903_VT)) failedCast(r0);
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+game_BaseDialog_drawTextCore__P2919.info = {"start":2389,"length":65,"line":84,"column":8,"endLine":86,"endColumn":9,"fileName":"pxt_modules/game/textDialogs.ts","functionName":"drawTextCore","argumentNames":["this"]}
+
+function game_BaseDialog_drawTextCore__P2919_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: game_BaseDialog_drawTextCore__P2919, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  arg0: undefined,
+} }
+
+
+
+
+
+function game_BaseDialog_update__P2917(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, game_BaseDialog__C2903_VT)) failedCast(r0);
+    s.tmp_0 = game_BaseDialog_clearInterior__P5186_mk(s);
+    s.tmp_0.arg0 = s.arg0;
+    s.callLocIdx = 1286; s.pc = 1; return s.tmp_0;
+  case 1:
+    r0 = s.retval;
+    s.tmp_0 = game_BaseDialog__C2903_v1_1_mk(s);
+    s.tmp_0.arg0 = s.arg0;
+    if (!checkSubtype(s.tmp_0.arg0, game_BaseDialog__C2903_VT)) failedCast(s.tmp_0.arg0);
+    s.tmp_0.fn = s.tmp_0.arg0.vtable.methods.drawTextCore;
+    s.pc = 2; return s.tmp_0;
+  case 2:
+    r0 = s.retval;
+    s.tmp_0 = game_BaseDialog_drawCursorRow__P2920_mk(s);
+    s.tmp_0.arg0 = s.arg0;
+    s.callLocIdx = 1287; s.pc = 3; return s.tmp_0;
+  case 3:
+    r0 = s.retval;
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+game_BaseDialog_update__P2917.info = {"start":2171,"length":121,"line":74,"column":8,"endLine":78,"endColumn":9,"fileName":"pxt_modules/game/textDialogs.ts","functionName":"update","argumentNames":["this"]}
+
+function game_BaseDialog_update__P2917_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: game_BaseDialog_update__P2917, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  arg0: undefined,
+} }
+
+
+
+
+
+function info_PlayerInfo_id__P2644(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, info_PlayerInfo__C2617_VT)) failedCast(r0);
+    r0 = s.arg0.fields["impl"];
+    s.tmp_0 = r0;
+    r0 = s.tmp_0.fields["_player"];
+    return leave(s, r0)
+  default: oops()
+} } }
+info_PlayerInfo_id__P2644.info = {"start":27670,"length":59,"line":921,"column":8,"endLine":923,"endColumn":9,"fileName":"pxt_modules/game/info.ts","functionName":"id","argumentNames":["this"]}
+
+function info_PlayerInfo_id__P2644_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: info_PlayerInfo_id__P2644, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  arg0: undefined,
+} }
+
+
+
+
+
+function info_PlayerInfo_y__P2638(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.arg1 = (s.lambdaArgs[1]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, info_PlayerInfo__C2617_VT)) failedCast(r0);
+    r0 = s.arg0.fields["impl"];
+    s.tmp_0 = r0;
+    r0 = (s.tmp_0).fields["y"] = (s.arg1);
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+info_PlayerInfo_y__P2638.info = {"start":27116,"length":65,"line":895,"column":8,"endLine":897,"endColumn":9,"fileName":"pxt_modules/game/info.ts","functionName":"y","argumentNames":["this","value"]}
+
+function info_PlayerInfo_y__P2638_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: info_PlayerInfo_y__P2638, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  arg0: undefined,
+  arg1: undefined,
+} }
+
+
+
+
+
+function info_PlayerInfo_y__P2637(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, info_PlayerInfo__C2617_VT)) failedCast(r0);
+    r0 = s.arg0.fields["impl"];
+    r0 = r0.fields["y"];
+    return leaveAccessor(s, r0)
+  default: oops()
+} } }
+info_PlayerInfo_y__P2637.info = {"start":27047,"length":59,"line":891,"column":8,"endLine":893,"endColumn":9,"fileName":"pxt_modules/game/info.ts","functionName":"y","argumentNames":["this"]}
+info_PlayerInfo_y__P2637.isGetter = true;
+
+function info_PlayerInfo_y__P2637_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: info_PlayerInfo_y__P2637, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  arg0: undefined,
+} }
+
+
+
+
+
+function info_PlayerInfo_x__P2636(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.arg1 = (s.lambdaArgs[1]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, info_PlayerInfo__C2617_VT)) failedCast(r0);
+    r0 = s.arg0.fields["impl"];
+    s.tmp_0 = r0;
+    r0 = (s.tmp_0).fields["x"] = (s.arg1);
+    r0 = undefined;
+    return leave(s, r0)
+  default: oops()
+} } }
+info_PlayerInfo_x__P2636.info = {"start":26972,"length":65,"line":887,"column":8,"endLine":889,"endColumn":9,"fileName":"pxt_modules/game/info.ts","functionName":"x","argumentNames":["this","value"]}
+
+function info_PlayerInfo_x__P2636_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: info_PlayerInfo_x__P2636, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  arg0: undefined,
+  arg1: undefined,
+} }
+
+
+
+
+
+function info_PlayerInfo_x__P2635(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, info_PlayerInfo__C2617_VT)) failedCast(r0);
+    r0 = s.arg0.fields["impl"];
+    r0 = r0.fields["x"];
+    return leaveAccessor(s, r0)
+  default: oops()
+} } }
+info_PlayerInfo_x__P2635.info = {"start":26903,"length":59,"line":883,"column":8,"endLine":885,"endColumn":9,"fileName":"pxt_modules/game/info.ts","functionName":"x","argumentNames":["this"]}
+info_PlayerInfo_x__P2635.isGetter = true;
+
+function info_PlayerInfo_x__P2635_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: info_PlayerInfo_x__P2635, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  arg0: undefined,
+} }
+
+
+
+
+
+function info_PlayerInfoImpl_id__P2605(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, info_PlayerInfoImpl__C2595_VT)) failedCast(r0);
+    r0 = s.arg0.fields["_player"];
+    return leave(s, r0)
+  default: oops()
+} } }
+info_PlayerInfoImpl_id__P2605.info = {"start":21391,"length":57,"line":688,"column":8,"endLine":690,"endColumn":9,"fileName":"pxt_modules/game/info.ts","functionName":"id","argumentNames":["this"]}
+
+function info_PlayerInfoImpl_id__P2605_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: info_PlayerInfoImpl_id__P2605, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  arg0: undefined,
+} }
+
+
+
+
+
+function sprites_SpriteSet_toString__P2474(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, sprites_SpriteSet__C2463_VT)) failedCast(r0);
+    r0 = pxsim_String_.mkEmpty();
+    s.tmp_1 = r0;
+    r0 = s.arg0.fields["_sprites"];
+    s.tmp_4 = r0;
+    r0 = pxsim_Array__length(s.tmp_4);
+    s.tmp_3 = r0;
+    if ((s.tmp_3) && (s.tmp_3).vtable) {
+    setupResume(s, 1);
+    pxsim_String__stringConv(s.tmp_3);
+    checkResumeConsumed();
+    return;
+    } else { s.retval = (s.tmp_3) + ""; }
+  case 1:
+    r0 = s.retval;
+    s.tmp_2 = r0;
+    r0 = pxsim_String__concat(s.tmp_1, s.tmp_2);
+    s.tmp_0 = r0;
+    r0 = pxsim_String__concat(s.tmp_0, " sprites");
+    return leave(s, r0)
+  default: oops()
+} } }
+sprites_SpriteSet_toString__P2474.info = {"start":2586,"length":66,"line":97,"column":8,"endLine":99,"endColumn":9,"fileName":"pxt_modules/game/spriteset.ts","functionName":"toString","argumentNames":["this"]}
+
+function sprites_SpriteSet_toString__P2474_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: sprites_SpriteSet_toString__P2474, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  tmp_2: undefined,
+  tmp_3: undefined,
+  tmp_4: undefined,
+  arg0: undefined,
+} }
+
+
+
+
+
+function sprites_SpriteSet_length__P2466(s) {
+let r0 = s.r0, step = s.pc;
+s.pc = -1;
+
+
+while (true) {
+if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
+switch (step) {
+  case 0:
+
+    if (s.lambdaArgs) {
+      s.arg0 = (s.lambdaArgs[0]);
+      s.lambdaArgs = null;
+    }
+    r0 = s.arg0;
+    if (!checkSubtype(r0, sprites_SpriteSet__C2463_VT)) failedCast(r0);
+    r0 = s.arg0.fields["_sprites"];
+    s.tmp_0 = r0;
+    r0 = pxsim_Array__length(s.tmp_0);
+    return leaveAccessor(s, r0)
+  default: oops()
+} } }
+sprites_SpriteSet_length__P2466.info = {"start":625,"length":65,"line":26,"column":8,"endLine":28,"endColumn":9,"fileName":"pxt_modules/game/spriteset.ts","functionName":"length","argumentNames":["this"]}
+sprites_SpriteSet_length__P2466.isGetter = true;
+
+function sprites_SpriteSet_length__P2466_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: sprites_SpriteSet_length__P2466, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  arg0: undefined,
+} }
+
+
+
+
+
 function sprites_SpriteMap_toString__P2454(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
@@ -71248,409 +71688,6 @@ function scene_BackgroundLayer_constructor__P2686_mk(s) {
 
 
 
-function game_BaseDialog_drawTextCore__P2919(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, game_BaseDialog__C2903_VT)) failedCast(r0);
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-game_BaseDialog_drawTextCore__P2919.info = {"start":2389,"length":65,"line":84,"column":8,"endLine":86,"endColumn":9,"fileName":"pxt_modules/game/textDialogs.ts","functionName":"drawTextCore","argumentNames":["this"]}
-
-function game_BaseDialog_drawTextCore__P2919_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: game_BaseDialog_drawTextCore__P2919, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  arg0: undefined,
-} }
-
-
-
-
-
-function game_BaseDialog_update__P2917(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, game_BaseDialog__C2903_VT)) failedCast(r0);
-    s.tmp_0 = game_BaseDialog_clearInterior__P5186_mk(s);
-    s.tmp_0.arg0 = s.arg0;
-    s.callLocIdx = 1286; s.pc = 1; return s.tmp_0;
-  case 1:
-    r0 = s.retval;
-    s.tmp_0 = game_BaseDialog__C2903_v1_1_mk(s);
-    s.tmp_0.arg0 = s.arg0;
-    if (!checkSubtype(s.tmp_0.arg0, game_BaseDialog__C2903_VT)) failedCast(s.tmp_0.arg0);
-    s.tmp_0.fn = s.tmp_0.arg0.vtable.methods.drawTextCore;
-    s.pc = 2; return s.tmp_0;
-  case 2:
-    r0 = s.retval;
-    s.tmp_0 = game_BaseDialog_drawCursorRow__P2920_mk(s);
-    s.tmp_0.arg0 = s.arg0;
-    s.callLocIdx = 1287; s.pc = 3; return s.tmp_0;
-  case 3:
-    r0 = s.retval;
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-game_BaseDialog_update__P2917.info = {"start":2171,"length":121,"line":74,"column":8,"endLine":78,"endColumn":9,"fileName":"pxt_modules/game/textDialogs.ts","functionName":"update","argumentNames":["this"]}
-
-function game_BaseDialog_update__P2917_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: game_BaseDialog_update__P2917, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  arg0: undefined,
-} }
-
-
-
-
-
-function info_PlayerInfo_id__P2644(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, info_PlayerInfo__C2617_VT)) failedCast(r0);
-    r0 = s.arg0.fields["impl"];
-    s.tmp_0 = r0;
-    r0 = s.tmp_0.fields["_player"];
-    return leave(s, r0)
-  default: oops()
-} } }
-info_PlayerInfo_id__P2644.info = {"start":27670,"length":59,"line":921,"column":8,"endLine":923,"endColumn":9,"fileName":"pxt_modules/game/info.ts","functionName":"id","argumentNames":["this"]}
-
-function info_PlayerInfo_id__P2644_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: info_PlayerInfo_id__P2644, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  arg0: undefined,
-} }
-
-
-
-
-
-function info_PlayerInfo_y__P2638(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.arg1 = (s.lambdaArgs[1]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, info_PlayerInfo__C2617_VT)) failedCast(r0);
-    r0 = s.arg0.fields["impl"];
-    s.tmp_0 = r0;
-    r0 = (s.tmp_0).fields["y"] = (s.arg1);
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-info_PlayerInfo_y__P2638.info = {"start":27116,"length":65,"line":895,"column":8,"endLine":897,"endColumn":9,"fileName":"pxt_modules/game/info.ts","functionName":"y","argumentNames":["this","value"]}
-
-function info_PlayerInfo_y__P2638_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: info_PlayerInfo_y__P2638, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  arg0: undefined,
-  arg1: undefined,
-} }
-
-
-
-
-
-function info_PlayerInfo_y__P2637(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, info_PlayerInfo__C2617_VT)) failedCast(r0);
-    r0 = s.arg0.fields["impl"];
-    r0 = r0.fields["y"];
-    return leaveAccessor(s, r0)
-  default: oops()
-} } }
-info_PlayerInfo_y__P2637.info = {"start":27047,"length":59,"line":891,"column":8,"endLine":893,"endColumn":9,"fileName":"pxt_modules/game/info.ts","functionName":"y","argumentNames":["this"]}
-info_PlayerInfo_y__P2637.isGetter = true;
-
-function info_PlayerInfo_y__P2637_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: info_PlayerInfo_y__P2637, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  arg0: undefined,
-} }
-
-
-
-
-
-function info_PlayerInfo_x__P2636(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.arg1 = (s.lambdaArgs[1]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, info_PlayerInfo__C2617_VT)) failedCast(r0);
-    r0 = s.arg0.fields["impl"];
-    s.tmp_0 = r0;
-    r0 = (s.tmp_0).fields["x"] = (s.arg1);
-    r0 = undefined;
-    return leave(s, r0)
-  default: oops()
-} } }
-info_PlayerInfo_x__P2636.info = {"start":26972,"length":65,"line":887,"column":8,"endLine":889,"endColumn":9,"fileName":"pxt_modules/game/info.ts","functionName":"x","argumentNames":["this","value"]}
-
-function info_PlayerInfo_x__P2636_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: info_PlayerInfo_x__P2636, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  arg0: undefined,
-  arg1: undefined,
-} }
-
-
-
-
-
-function info_PlayerInfo_x__P2635(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, info_PlayerInfo__C2617_VT)) failedCast(r0);
-    r0 = s.arg0.fields["impl"];
-    r0 = r0.fields["x"];
-    return leaveAccessor(s, r0)
-  default: oops()
-} } }
-info_PlayerInfo_x__P2635.info = {"start":26903,"length":59,"line":883,"column":8,"endLine":885,"endColumn":9,"fileName":"pxt_modules/game/info.ts","functionName":"x","argumentNames":["this"]}
-info_PlayerInfo_x__P2635.isGetter = true;
-
-function info_PlayerInfo_x__P2635_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: info_PlayerInfo_x__P2635, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  arg0: undefined,
-} }
-
-
-
-
-
-function info_PlayerInfoImpl_id__P2605(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, info_PlayerInfoImpl__C2595_VT)) failedCast(r0);
-    r0 = s.arg0.fields["_player"];
-    return leave(s, r0)
-  default: oops()
-} } }
-info_PlayerInfoImpl_id__P2605.info = {"start":21391,"length":57,"line":688,"column":8,"endLine":690,"endColumn":9,"fileName":"pxt_modules/game/info.ts","functionName":"id","argumentNames":["this"]}
-
-function info_PlayerInfoImpl_id__P2605_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: info_PlayerInfoImpl_id__P2605, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  arg0: undefined,
-} }
-
-
-
-
-
-function sprites_SpriteSet_toString__P2474(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, sprites_SpriteSet__C2463_VT)) failedCast(r0);
-    r0 = pxsim_String_.mkEmpty();
-    s.tmp_1 = r0;
-    r0 = s.arg0.fields["_sprites"];
-    s.tmp_4 = r0;
-    r0 = pxsim_Array__length(s.tmp_4);
-    s.tmp_3 = r0;
-    if ((s.tmp_3) && (s.tmp_3).vtable) {
-    setupResume(s, 1);
-    pxsim_String__stringConv(s.tmp_3);
-    checkResumeConsumed();
-    return;
-    } else { s.retval = (s.tmp_3) + ""; }
-  case 1:
-    r0 = s.retval;
-    s.tmp_2 = r0;
-    r0 = pxsim_String__concat(s.tmp_1, s.tmp_2);
-    s.tmp_0 = r0;
-    r0 = pxsim_String__concat(s.tmp_0, " sprites");
-    return leave(s, r0)
-  default: oops()
-} } }
-sprites_SpriteSet_toString__P2474.info = {"start":2586,"length":66,"line":97,"column":8,"endLine":99,"endColumn":9,"fileName":"pxt_modules/game/spriteset.ts","functionName":"toString","argumentNames":["this"]}
-
-function sprites_SpriteSet_toString__P2474_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: sprites_SpriteSet_toString__P2474, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  tmp_2: undefined,
-  tmp_3: undefined,
-  tmp_4: undefined,
-  arg0: undefined,
-} }
-
-
-
-
-
-function sprites_SpriteSet_length__P2466(s) {
-let r0 = s.r0, step = s.pc;
-s.pc = -1;
-
-
-while (true) {
-if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) return null;
-switch (step) {
-  case 0:
-
-    if (s.lambdaArgs) {
-      s.arg0 = (s.lambdaArgs[0]);
-      s.lambdaArgs = null;
-    }
-    r0 = s.arg0;
-    if (!checkSubtype(r0, sprites_SpriteSet__C2463_VT)) failedCast(r0);
-    r0 = s.arg0.fields["_sprites"];
-    s.tmp_0 = r0;
-    r0 = pxsim_Array__length(s.tmp_0);
-    return leaveAccessor(s, r0)
-  default: oops()
-} } }
-sprites_SpriteSet_length__P2466.info = {"start":625,"length":65,"line":26,"column":8,"endLine":28,"endColumn":9,"fileName":"pxt_modules/game/spriteset.ts","functionName":"length","argumentNames":["this"]}
-sprites_SpriteSet_length__P2466.isGetter = true;
-
-function sprites_SpriteSet_length__P2466_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: sprites_SpriteSet_length__P2466, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  arg0: undefined,
-} }
-
-
-
-
-
 function scene_Camera_y__P2791(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
@@ -77103,84 +77140,7 @@ function PhysicsEngine__C2511_v2_4_mk(s) {
 } }
 
 
-function lambda_4_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: null, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  tmp_2: undefined,
-  tmp_3: undefined,
-  tmp_4: undefined,
-  arg0: undefined,
-  arg1: undefined,
-  arg2: undefined,
-  arg3: undefined,
-} }
-
-
-function PhysicsEngine__C2511_v0_2_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: null, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  tmp_2: undefined,
-  tmp_3: undefined,
-  tmp_4: undefined,
-  arg0: undefined,
-  arg1: undefined,
-} }
-
-
-function if_handler_2_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: null, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  tmp_2: undefined,
-  tmp_3: undefined,
-  tmp_4: undefined,
-  arg0: undefined,
-  arg1: undefined,
-} }
-
-
-function if_id_2_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: null, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  tmp_2: undefined,
-  tmp_3: undefined,
-  tmp_4: undefined,
-  arg0: undefined,
-  arg1: undefined,
-} }
-
-
-function lambda_2_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: null, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  tmp_2: undefined,
-  tmp_3: undefined,
-  tmp_4: undefined,
-  arg0: undefined,
-  arg1: undefined,
-} }
-
-
-function if_startScreenEffect_1_mk(s) {
+function if_charHeight_1_mk(s) {
     checkStack(s.depth);
     return {
         parent: s, fn: null, depth: s.depth + 1,
@@ -77194,7 +77154,7 @@ function if_startScreenEffect_1_mk(s) {
 } }
 
 
-function game_GameOverDialog__C2946_v0_1_mk(s) {
+function if_charWidth_1_mk(s) {
     checkStack(s.depth);
     return {
         parent: s, fn: null, depth: s.depth + 1,
@@ -77239,91 +77199,22 @@ function if___update_3_mk(s) {
 } }
 
 
+function lambda_2_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: null, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  tmp_2: undefined,
+  tmp_3: undefined,
+  tmp_4: undefined,
+  arg0: undefined,
+  arg1: undefined,
+} }
+
+
 function PhysicsEngine__C2511_v3_1_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: null, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  tmp_2: undefined,
-  tmp_3: undefined,
-  tmp_4: undefined,
-  arg0: undefined,
-} }
-
-
-function if_charHeight_1_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: null, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  tmp_2: undefined,
-  tmp_3: undefined,
-  tmp_4: undefined,
-  arg0: undefined,
-} }
-
-
-function if_charWidth_1_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: null, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  tmp_2: undefined,
-  tmp_3: undefined,
-  tmp_4: undefined,
-  arg0: undefined,
-} }
-
-
-function if_multiplier_1_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: null, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  tmp_2: undefined,
-  tmp_3: undefined,
-  tmp_4: undefined,
-  arg0: undefined,
-} }
-
-
-function if_data_1_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: null, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  tmp_2: undefined,
-  tmp_3: undefined,
-  tmp_4: undefined,
-  arg0: undefined,
-} }
-
-
-function if_xOffset_1_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: null, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  tmp_2: undefined,
-  tmp_3: undefined,
-  tmp_4: undefined,
-  arg0: undefined,
-} }
-
-
-function if_yOffset_1_mk(s) {
     checkStack(s.depth);
     return {
         parent: s, fn: null, depth: s.depth + 1,
@@ -77423,6 +77314,152 @@ function if_vx_1_mk(s) {
 
 
 function if_vy_1_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: null, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  tmp_2: undefined,
+  tmp_3: undefined,
+  tmp_4: undefined,
+  arg0: undefined,
+} }
+
+
+function if_multiplier_1_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: null, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  tmp_2: undefined,
+  tmp_3: undefined,
+  tmp_4: undefined,
+  arg0: undefined,
+} }
+
+
+function if_data_1_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: null, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  tmp_2: undefined,
+  tmp_3: undefined,
+  tmp_4: undefined,
+  arg0: undefined,
+} }
+
+
+function if_xOffset_1_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: null, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  tmp_2: undefined,
+  tmp_3: undefined,
+  tmp_4: undefined,
+  arg0: undefined,
+} }
+
+
+function if_yOffset_1_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: null, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  tmp_2: undefined,
+  tmp_3: undefined,
+  tmp_4: undefined,
+  arg0: undefined,
+} }
+
+
+function PhysicsEngine__C2511_v0_2_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: null, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  tmp_2: undefined,
+  tmp_3: undefined,
+  tmp_4: undefined,
+  arg0: undefined,
+  arg1: undefined,
+} }
+
+
+function if_handler_2_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: null, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  tmp_2: undefined,
+  tmp_3: undefined,
+  tmp_4: undefined,
+  arg0: undefined,
+  arg1: undefined,
+} }
+
+
+function if_id_2_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: null, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  tmp_2: undefined,
+  tmp_3: undefined,
+  tmp_4: undefined,
+  arg0: undefined,
+  arg1: undefined,
+} }
+
+
+function lambda_4_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: null, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  tmp_2: undefined,
+  tmp_3: undefined,
+  tmp_4: undefined,
+  arg0: undefined,
+  arg1: undefined,
+  arg2: undefined,
+  arg3: undefined,
+} }
+
+
+function if_startScreenEffect_1_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: null, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  tmp_2: undefined,
+  tmp_3: undefined,
+  tmp_4: undefined,
+  arg0: undefined,
+} }
+
+
+function game_GameOverDialog__C2946_v0_1_mk(s) {
     checkStack(s.depth);
     return {
         parent: s, fn: null, depth: s.depth + 1,
@@ -78018,6 +78055,20 @@ function particles_ParticleFactory__C3187_v1_4_mk(s) {
 } }
 
 
+function game_BaseDialog__C2903_v1_1_mk(s) {
+    checkStack(s.depth);
+    return {
+        parent: s, fn: null, depth: s.depth + 1,
+        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
+  tmp_0: undefined,
+  tmp_1: undefined,
+  tmp_2: undefined,
+  tmp_3: undefined,
+  tmp_4: undefined,
+  arg0: undefined,
+} }
+
+
 function if_handler_3_mk(s) {
     checkStack(s.depth);
     return {
@@ -78063,20 +78114,6 @@ function if_left_1_mk(s) {
 
 
 function if_top_1_mk(s) {
-    checkStack(s.depth);
-    return {
-        parent: s, fn: null, depth: s.depth + 1,
-        pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
-  tmp_0: undefined,
-  tmp_1: undefined,
-  tmp_2: undefined,
-  tmp_3: undefined,
-  tmp_4: undefined,
-  arg0: undefined,
-} }
-
-
-function game_BaseDialog__C2903_v1_1_mk(s) {
     checkStack(s.depth);
     return {
         parent: s, fn: null, depth: s.depth + 1,
@@ -78534,9 +78571,9 @@ const maze_EventManager__C4540_VT = mkVTable({
     "cancelAll": maze_EventManager_cancelAll__P4553,
   },
 });
-const maze_Game__C4508_VT = mkVTable({
+const maze_Game__C264821_VT = mkVTable({
   name: "Game",
-  numFields: 9,
+  numFields: 10,
   classNo: 25,
   lastSubtypeNo: 25,
   maxBgInstances: null,
@@ -78561,22 +78598,24 @@ const maze_Game__C4508_VT = mkVTable({
     "set/difficulty": null,
     "levelCount": null,
     "set/levelCount": null,
-    "init": maze_Game_init__P4519,
-    "bootFlow": maze_Game_bootFlow__P4520,
-    "initLevel": maze_Game_initLevel__P4521,
-    "pause": maze_Game_pause__P7574,
-    "eat": maze_Game_eat__P7575,
-    "life": maze_Game_life__P7576,
-    "chaserEndMode": maze_Game_chaserEndMode__P7577,
-    "chaserSetWarn": maze_Game_chaserSetWarn__P7578,
-    "saveHighScore": maze_Game_saveHighScore__P7579,
-    "gameOver": maze_Game_gameOver__P7580,
-    "levelStart": maze_Game_levelStart__P7581,
-    "levelNext": maze_Game_levelNext__P7582,
-    "updateRelease": maze_Game_updateRelease__P7583,
-    "setFreeze": maze_Game_setFreeze__P7584,
-    "setChaserMode": maze_Game_setChaserMode__P7585,
-    "update": maze_Game_update__P4522,
+    "freeze": null,
+    "set/freeze": null,
+    "init": maze_Game_init__P264822,
+    "bootFlow": maze_Game_bootFlow__P264823,
+    "initLevel": maze_Game_initLevel__P264824,
+    "pause": maze_Game_pause__P264825,
+    "eat": maze_Game_eat__P264826,
+    "life": maze_Game_life__P264827,
+    "chaserEndMode": maze_Game_chaserEndMode__P264828,
+    "chaserSetWarn": maze_Game_chaserSetWarn__P264829,
+    "saveHighScore": maze_Game_saveHighScore__P264830,
+    "gameOver": maze_Game_gameOver__P264831,
+    "levelStart": maze_Game_levelStart__P264832,
+    "levelNext": maze_Game_levelNext__P264833,
+    "updateRelease": maze_Game_updateRelease__P264834,
+    "setFreeze": maze_Game_setFreeze__P264835,
+    "setChaserMode": maze_Game_setChaserMode__P264836,
+    "update": maze_Game_update__P264837,
   },
 });
 const maze_Hero__C4400_VT = mkVTable({
@@ -79438,26 +79477,11 @@ const maze_TimedEvent__C9966_VT = mkVTable({
     "set/time": null,
   },
 });
-const maze_Handler__C9978_VT = mkVTable({
-  name: "Handler",
-  numFields: 2,
-  classNo: 52,
-  lastSubtypeNo: 52,
-  maxBgInstances: null,
-  methods: {
-  },
-  iface: {
-    "event": null,
-    "set/event": null,
-    "callback": null,
-    "set/callback": null,
-  },
-});
 const scene_Camera__C2781_VT = mkVTable({
   name: "Camera",
   numFields: 10,
-  classNo: 53,
-  lastSubtypeNo: 53,
+  classNo: 52,
+  lastSubtypeNo: 52,
   maxBgInstances: null,
   methods: {
   },
@@ -79494,235 +79518,11 @@ const scene_Camera__C2781_VT = mkVTable({
     "update": scene_Camera_update__P2798,
   },
 });
-const sprites_SpriteSet__C2463_VT = mkVTable({
-  name: "SpriteSet",
-  numFields: 1,
-  classNo: 54,
-  lastSubtypeNo: 54,
-  maxBgInstances: null,
-  methods: {
-  },
-  iface: {
-    "_sprites": null,
-    "set/_sprites": null,
-    "length": sprites_SpriteSet_length__P2466,
-    "add": sprites_SpriteSet_add__P2468,
-    "remove": sprites_SpriteSet_remove__P2470,
-    "contains": sprites_SpriteSet_contains__P2471,
-    "toString": sprites_SpriteSet_toString__P2474,
-  },
-  toStringMethod: sprites_SpriteSet_toString__P2474,
-});
-const info_PlayerInfoImpl__C2595_VT = mkVTable({
-  name: "PlayerInfoImpl",
-  numFields: 8,
-  classNo: 55,
-  lastSubtypeNo: 55,
-  maxBgInstances: null,
-  methods: {
-  },
-  iface: {
-    "_player": null,
-    "set/_player": null,
-    "bg": null,
-    "set/bg": null,
-    "border": null,
-    "set/border": null,
-    "fc": null,
-    "set/fc": null,
-    "x": null,
-    "set/x": null,
-    "y": null,
-    "set/y": null,
-    "left": null,
-    "set/left": null,
-    "up": null,
-    "set/up": null,
-    "init": info_PlayerInfoImpl_init__P5139,
-    "getState": info_PlayerInfoImpl_getState__P2604,
-    "id": info_PlayerInfoImpl_id__P2605,
-    "score": info_PlayerInfoImpl_score__P2606,
-    "setScore": info_PlayerInfoImpl_setScore__P2607,
-    "changeScoreBy": info_PlayerInfoImpl_changeScoreBy__P2608,
-    "hasScore": info_PlayerInfoImpl_hasScore__P2609,
-    "life": info_PlayerInfoImpl_life__P2610,
-    "setLife": info_PlayerInfoImpl_setLife__P2611,
-    "changeLifeBy": info_PlayerInfoImpl_changeLifeBy__P2612,
-    "hasLife": info_PlayerInfoImpl_hasLife__P2613,
-    "onLifeZero": info_PlayerInfoImpl_onLifeZero__P2614,
-    "raiseLifeZero": info_PlayerInfoImpl_raiseLifeZero__P2616,
-  },
-});
-const info_PlayerInfo__C2617_VT = mkVTable({
-  name: "PlayerInfo",
-  numFields: 2,
-  classNo: 56,
-  lastSubtypeNo: 56,
-  maxBgInstances: null,
-  methods: {
-  },
-  iface: {
-    "_player": null,
-    "set/_player": null,
-    "impl": null,
-    "set/impl": null,
-    "init": info_PlayerInfo_init__P5140,
-    "number": info_PlayerInfo_number__P2620,
-    "x": info_PlayerInfo_x__P2635,
-    "set/x": info_PlayerInfo_x__P2636,
-    "y": info_PlayerInfo_y__P2637,
-    "set/y": info_PlayerInfo_y__P2638,
-    "left": info_PlayerInfo_left__P2639,
-    "set/left": info_PlayerInfo_left__P2640,
-    "getState": info_PlayerInfo_getState__P2643,
-    "id": info_PlayerInfo_id__P2644,
-    "drawPlayer": info_PlayerInfo_drawPlayer__P2655,
-    "drawScore": info_PlayerInfo_drawScore__P2656,
-    "drawLives": info_PlayerInfo_drawLives__P2657,
-  },
-});
-const game_BaseDialog__C2903_VT = mkVTable({
-  name: "BaseDialog",
-  numFields: 11,
-  classNo: 57,
-  lastSubtypeNo: 58,
-  maxBgInstances: null,
-  methods: {
-    "update": game_BaseDialog_update__P2917,
-    "drawTextCore": game_BaseDialog_drawTextCore__P2919,
-  },
-  iface: {
-    "image": null,
-    "set/image": null,
-    "frame": null,
-    "set/frame": null,
-    "cursor": null,
-    "set/cursor": null,
-    "columns": null,
-    "set/columns": null,
-    "rows": null,
-    "set/rows": null,
-    "unit": null,
-    "set/unit": null,
-    "innerLeft": null,
-    "set/innerLeft": null,
-    "innerTop": null,
-    "set/innerTop": null,
-    "cursorCount": null,
-    "set/cursorCount": null,
-    "font": null,
-    "set/font": null,
-    "textColor": null,
-    "set/textColor": null,
-    "resize": game_BaseDialog_resize__P2916,
-    "update": game_BaseDialog_update__P2917,
-    "drawTextCore": game_BaseDialog_drawTextCore__P2919,
-    "drawCursorRow": game_BaseDialog_drawCursorRow__P2920,
-    "drawBorder": game_BaseDialog_drawBorder__P5184,
-    "fastFill": game_BaseDialog_fastFill__P5185,
-    "clearInterior": game_BaseDialog_clearInterior__P5186,
-    "drawPartial": game_BaseDialog_drawPartial__P5187,
-    "cursorRowHeight": game_BaseDialog_cursorRowHeight__P5188,
-    "textAreaWidth": game_BaseDialog_textAreaWidth__P5190,
-    "textAreaHeight": game_BaseDialog_textAreaHeight__P5191,
-  },
-});
-const game_GameOverPlayerScore__C2943_VT = mkVTable({
-  name: "GameOverPlayerScore",
-  numFields: 4,
-  classNo: 59,
-  lastSubtypeNo: 59,
-  maxBgInstances: null,
-  methods: {
-  },
-  iface: {
-    "str": null,
-    "set/str": null,
-    "player": null,
-    "set/player": null,
-    "value": null,
-    "set/value": null,
-    "winner": null,
-    "set/winner": null,
-  },
-});
-const game_GameOverDialog__C2946_VT = mkVTable({
-  name: "GameOverDialog",
-  numFields: 19,
-  classNo: 58,
-  lastSubtypeNo: 58,
-  maxBgInstances: null,
-  methods: {
-    "update": game_GameOverDialog_update__P2955,
-    "drawTextCore": game_GameOverDialog_drawTextCore__P2959,
-  },
-  iface: {
-    "image": null,
-    "set/image": null,
-    "frame": null,
-    "set/frame": null,
-    "cursor": null,
-    "set/cursor": null,
-    "columns": null,
-    "set/columns": null,
-    "rows": null,
-    "set/rows": null,
-    "unit": null,
-    "set/unit": null,
-    "innerLeft": null,
-    "set/innerLeft": null,
-    "innerTop": null,
-    "set/innerTop": null,
-    "cursorCount": null,
-    "set/cursorCount": null,
-    "font": null,
-    "set/font": null,
-    "textColor": null,
-    "set/textColor": null,
-    "cursorOn": null,
-    "set/cursorOn": null,
-    "flags": null,
-    "set/flags": null,
-    "height": null,
-    "set/height": null,
-    "message": null,
-    "set/message": null,
-    "judged": null,
-    "set/judged": null,
-    "scores": null,
-    "set/scores": null,
-    "bestScore": null,
-    "set/bestScore": null,
-    "winnerOverride": null,
-    "set/winnerOverride": null,
-    "isWinCondition": game_GameOverDialog_isWinCondition__P2947,
-    "isJudgedGame": game_GameOverDialog_isJudgedGame__P2948,
-    "hasScores": game_GameOverDialog_hasScores__P2949,
-    "hasBestScore": game_GameOverDialog_hasBestScore__P2950,
-    "isNewBestScore": game_GameOverDialog_isNewBestScore__P2951,
-    "isMultiplayerGame": game_GameOverDialog_isMultiplayerGame__P2952,
-    "displayCursor": game_GameOverDialog_displayCursor__P2954,
-    "update": game_GameOverDialog_update__P2955,
-    "drawMessage": game_GameOverDialog_drawMessage__P2956,
-    "drawScores": game_GameOverDialog_drawScores__P2957,
-    "drawBestScore": game_GameOverDialog_drawBestScore__P2958,
-    "drawTextCore": game_GameOverDialog_drawTextCore__P2959,
-    "resize": game_BaseDialog_resize__P2916,
-    "drawCursorRow": game_BaseDialog_drawCursorRow__P2920,
-    "drawBorder": game_BaseDialog_drawBorder__P5184,
-    "fastFill": game_BaseDialog_fastFill__P5185,
-    "clearInterior": game_BaseDialog_clearInterior__P5186,
-    "drawPartial": game_BaseDialog_drawPartial__P5187,
-    "cursorRowHeight": game_BaseDialog_cursorRowHeight__P5188,
-    "textAreaWidth": game_BaseDialog_textAreaWidth__P5190,
-    "textAreaHeight": game_BaseDialog_textAreaHeight__P5191,
-  },
-});
 const scene_Background__C2669_VT = mkVTable({
   name: "Background",
   numFields: 4,
-  classNo: 60,
-  lastSubtypeNo: 60,
+  classNo: 53,
+  lastSubtypeNo: 53,
   maxBgInstances: null,
   methods: {
   },
@@ -79744,8 +79544,8 @@ const scene_Background__C2669_VT = mkVTable({
 const scene_BackgroundLayer__C2679_VT = mkVTable({
   name: "BackgroundLayer",
   numFields: 6,
-  classNo: 61,
-  lastSubtypeNo: 61,
+  classNo: 54,
+  lastSubtypeNo: 54,
   maxBgInstances: null,
   methods: {
   },
@@ -79814,8 +79614,8 @@ const ArcadePhysicsEngine__C2527_VT = mkVTable({
 const sprites_SpriteMap__C2446_VT = mkVTable({
   name: "SpriteMap",
   numFields: 5,
-  classNo: 62,
-  lastSubtypeNo: 62,
+  classNo: 55,
+  lastSubtypeNo: 55,
   maxBgInstances: null,
   methods: {
   },
@@ -79842,6 +79642,230 @@ const sprites_SpriteMap__C2446_VT = mkVTable({
     "toString": sprites_SpriteMap_toString__P2454,
   },
   toStringMethod: sprites_SpriteMap_toString__P2454,
+});
+const sprites_SpriteSet__C2463_VT = mkVTable({
+  name: "SpriteSet",
+  numFields: 1,
+  classNo: 56,
+  lastSubtypeNo: 56,
+  maxBgInstances: null,
+  methods: {
+  },
+  iface: {
+    "_sprites": null,
+    "set/_sprites": null,
+    "length": sprites_SpriteSet_length__P2466,
+    "add": sprites_SpriteSet_add__P2468,
+    "remove": sprites_SpriteSet_remove__P2470,
+    "contains": sprites_SpriteSet_contains__P2471,
+    "toString": sprites_SpriteSet_toString__P2474,
+  },
+  toStringMethod: sprites_SpriteSet_toString__P2474,
+});
+const info_PlayerInfoImpl__C2595_VT = mkVTable({
+  name: "PlayerInfoImpl",
+  numFields: 8,
+  classNo: 57,
+  lastSubtypeNo: 57,
+  maxBgInstances: null,
+  methods: {
+  },
+  iface: {
+    "_player": null,
+    "set/_player": null,
+    "bg": null,
+    "set/bg": null,
+    "border": null,
+    "set/border": null,
+    "fc": null,
+    "set/fc": null,
+    "x": null,
+    "set/x": null,
+    "y": null,
+    "set/y": null,
+    "left": null,
+    "set/left": null,
+    "up": null,
+    "set/up": null,
+    "init": info_PlayerInfoImpl_init__P5139,
+    "getState": info_PlayerInfoImpl_getState__P2604,
+    "id": info_PlayerInfoImpl_id__P2605,
+    "score": info_PlayerInfoImpl_score__P2606,
+    "setScore": info_PlayerInfoImpl_setScore__P2607,
+    "changeScoreBy": info_PlayerInfoImpl_changeScoreBy__P2608,
+    "hasScore": info_PlayerInfoImpl_hasScore__P2609,
+    "life": info_PlayerInfoImpl_life__P2610,
+    "setLife": info_PlayerInfoImpl_setLife__P2611,
+    "changeLifeBy": info_PlayerInfoImpl_changeLifeBy__P2612,
+    "hasLife": info_PlayerInfoImpl_hasLife__P2613,
+    "onLifeZero": info_PlayerInfoImpl_onLifeZero__P2614,
+    "raiseLifeZero": info_PlayerInfoImpl_raiseLifeZero__P2616,
+  },
+});
+const info_PlayerInfo__C2617_VT = mkVTable({
+  name: "PlayerInfo",
+  numFields: 2,
+  classNo: 58,
+  lastSubtypeNo: 58,
+  maxBgInstances: null,
+  methods: {
+  },
+  iface: {
+    "_player": null,
+    "set/_player": null,
+    "impl": null,
+    "set/impl": null,
+    "init": info_PlayerInfo_init__P5140,
+    "number": info_PlayerInfo_number__P2620,
+    "x": info_PlayerInfo_x__P2635,
+    "set/x": info_PlayerInfo_x__P2636,
+    "y": info_PlayerInfo_y__P2637,
+    "set/y": info_PlayerInfo_y__P2638,
+    "left": info_PlayerInfo_left__P2639,
+    "set/left": info_PlayerInfo_left__P2640,
+    "getState": info_PlayerInfo_getState__P2643,
+    "id": info_PlayerInfo_id__P2644,
+    "drawPlayer": info_PlayerInfo_drawPlayer__P2655,
+    "drawScore": info_PlayerInfo_drawScore__P2656,
+    "drawLives": info_PlayerInfo_drawLives__P2657,
+  },
+});
+const game_BaseDialog__C2903_VT = mkVTable({
+  name: "BaseDialog",
+  numFields: 11,
+  classNo: 59,
+  lastSubtypeNo: 60,
+  maxBgInstances: null,
+  methods: {
+    "update": game_BaseDialog_update__P2917,
+    "drawTextCore": game_BaseDialog_drawTextCore__P2919,
+  },
+  iface: {
+    "image": null,
+    "set/image": null,
+    "frame": null,
+    "set/frame": null,
+    "cursor": null,
+    "set/cursor": null,
+    "columns": null,
+    "set/columns": null,
+    "rows": null,
+    "set/rows": null,
+    "unit": null,
+    "set/unit": null,
+    "innerLeft": null,
+    "set/innerLeft": null,
+    "innerTop": null,
+    "set/innerTop": null,
+    "cursorCount": null,
+    "set/cursorCount": null,
+    "font": null,
+    "set/font": null,
+    "textColor": null,
+    "set/textColor": null,
+    "resize": game_BaseDialog_resize__P2916,
+    "update": game_BaseDialog_update__P2917,
+    "drawTextCore": game_BaseDialog_drawTextCore__P2919,
+    "drawCursorRow": game_BaseDialog_drawCursorRow__P2920,
+    "drawBorder": game_BaseDialog_drawBorder__P5184,
+    "fastFill": game_BaseDialog_fastFill__P5185,
+    "clearInterior": game_BaseDialog_clearInterior__P5186,
+    "drawPartial": game_BaseDialog_drawPartial__P5187,
+    "cursorRowHeight": game_BaseDialog_cursorRowHeight__P5188,
+    "textAreaWidth": game_BaseDialog_textAreaWidth__P5190,
+    "textAreaHeight": game_BaseDialog_textAreaHeight__P5191,
+  },
+});
+const game_GameOverPlayerScore__C2943_VT = mkVTable({
+  name: "GameOverPlayerScore",
+  numFields: 4,
+  classNo: 61,
+  lastSubtypeNo: 61,
+  maxBgInstances: null,
+  methods: {
+  },
+  iface: {
+    "str": null,
+    "set/str": null,
+    "player": null,
+    "set/player": null,
+    "value": null,
+    "set/value": null,
+    "winner": null,
+    "set/winner": null,
+  },
+});
+const game_GameOverDialog__C2946_VT = mkVTable({
+  name: "GameOverDialog",
+  numFields: 19,
+  classNo: 60,
+  lastSubtypeNo: 60,
+  maxBgInstances: null,
+  methods: {
+    "update": game_GameOverDialog_update__P2955,
+    "drawTextCore": game_GameOverDialog_drawTextCore__P2959,
+  },
+  iface: {
+    "image": null,
+    "set/image": null,
+    "frame": null,
+    "set/frame": null,
+    "cursor": null,
+    "set/cursor": null,
+    "columns": null,
+    "set/columns": null,
+    "rows": null,
+    "set/rows": null,
+    "unit": null,
+    "set/unit": null,
+    "innerLeft": null,
+    "set/innerLeft": null,
+    "innerTop": null,
+    "set/innerTop": null,
+    "cursorCount": null,
+    "set/cursorCount": null,
+    "font": null,
+    "set/font": null,
+    "textColor": null,
+    "set/textColor": null,
+    "cursorOn": null,
+    "set/cursorOn": null,
+    "flags": null,
+    "set/flags": null,
+    "height": null,
+    "set/height": null,
+    "message": null,
+    "set/message": null,
+    "judged": null,
+    "set/judged": null,
+    "scores": null,
+    "set/scores": null,
+    "bestScore": null,
+    "set/bestScore": null,
+    "winnerOverride": null,
+    "set/winnerOverride": null,
+    "isWinCondition": game_GameOverDialog_isWinCondition__P2947,
+    "isJudgedGame": game_GameOverDialog_isJudgedGame__P2948,
+    "hasScores": game_GameOverDialog_hasScores__P2949,
+    "hasBestScore": game_GameOverDialog_hasBestScore__P2950,
+    "isNewBestScore": game_GameOverDialog_isNewBestScore__P2951,
+    "isMultiplayerGame": game_GameOverDialog_isMultiplayerGame__P2952,
+    "displayCursor": game_GameOverDialog_displayCursor__P2954,
+    "update": game_GameOverDialog_update__P2955,
+    "drawMessage": game_GameOverDialog_drawMessage__P2956,
+    "drawScores": game_GameOverDialog_drawScores__P2957,
+    "drawBestScore": game_GameOverDialog_drawBestScore__P2958,
+    "drawTextCore": game_GameOverDialog_drawTextCore__P2959,
+    "resize": game_BaseDialog_resize__P2916,
+    "drawCursorRow": game_BaseDialog_drawCursorRow__P2920,
+    "drawBorder": game_BaseDialog_drawBorder__P5184,
+    "fastFill": game_BaseDialog_fastFill__P5185,
+    "clearInterior": game_BaseDialog_clearInterior__P5186,
+    "drawPartial": game_BaseDialog_drawPartial__P5187,
+    "cursorRowHeight": game_BaseDialog_cursorRowHeight__P5188,
+    "textAreaWidth": game_BaseDialog_textAreaWidth__P5190,
+    "textAreaHeight": game_BaseDialog_textAreaHeight__P5191,
+  },
 });
 const particles_ParticleSource__C3151_VT = mkVTable({
   name: "ParticleSource",
@@ -79937,8 +79961,8 @@ const scene_Renderable__C2800_VT = mkVTable({
 const info_PlayerState__C2553_VT = mkVTable({
   name: "PlayerState",
   numFields: 8,
-  classNo: 63,
-  lastSubtypeNo: 63,
+  classNo: 62,
+  lastSubtypeNo: 62,
   maxBgInstances: null,
   methods: {
   },
@@ -79964,8 +79988,8 @@ const info_PlayerState__C2553_VT = mkVTable({
 const info_InfoState__C5084_VT = mkVTable({
   name: "InfoState",
   numFields: 10,
-  classNo: 64,
-  lastSubtypeNo: 64,
+  classNo: 63,
+  lastSubtypeNo: 63,
   maxBgInstances: null,
   methods: {
   },
@@ -79995,8 +80019,8 @@ const info_InfoState__C5084_VT = mkVTable({
 const JSON_Stringifier__C4711_VT = mkVTable({
   name: "Stringifier",
   numFields: 3,
-  classNo: 65,
-  lastSubtypeNo: 65,
+  classNo: 64,
+  lastSubtypeNo: 64,
   maxBgInstances: null,
   methods: {
   },
@@ -80014,8 +80038,8 @@ const JSON_Stringifier__C4711_VT = mkVTable({
 const music_Playable__C1911_VT = mkVTable({
   name: "Playable",
   numFields: 1,
-  classNo: 66,
-  lastSubtypeNo: 68,
+  classNo: 65,
+  lastSubtypeNo: 67,
   maxBgInstances: null,
   methods: {
     "play": music_Playable_play__P1914,
@@ -80030,8 +80054,8 @@ const music_Playable__C1911_VT = mkVTable({
 const effects_ImageEffect__C3290_VT = mkVTable({
   name: "ImageEffect",
   numFields: 4,
-  classNo: 69,
-  lastSubtypeNo: 69,
+  classNo: 68,
+  lastSubtypeNo: 68,
   maxBgInstances: null,
   methods: {
   },
@@ -80052,8 +80076,8 @@ const effects_ImageEffect__C3290_VT = mkVTable({
 const sprites_BaseSpriteSayRenderer__C2259_VT = mkVTable({
   name: "BaseSpriteSayRenderer",
   numFields: 3,
-  classNo: 70,
-  lastSubtypeNo: 71,
+  classNo: 69,
+  lastSubtypeNo: 70,
   maxBgInstances: null,
   methods: {
     "draw": sprites_BaseSpriteSayRenderer_draw__P2261,
@@ -80075,8 +80099,8 @@ const sprites_BaseSpriteSayRenderer__C2259_VT = mkVTable({
 const sprites_LegacySpriteSayRenderer__C2268_VT = mkVTable({
   name: "LegacySpriteSayRenderer",
   numFields: 5,
-  classNo: 71,
-  lastSubtypeNo: 71,
+  classNo: 70,
+  lastSubtypeNo: 70,
   maxBgInstances: null,
   methods: {
     "draw": sprites_BaseSpriteSayRenderer_draw__P2261,
@@ -80102,8 +80126,8 @@ const sprites_LegacySpriteSayRenderer__C2268_VT = mkVTable({
 const effects_ParticleEffect__C3262_VT = mkVTable({
   name: "ParticleEffect",
   numFields: 3,
-  classNo: 72,
-  lastSubtypeNo: 73,
+  classNo: 71,
+  lastSubtypeNo: 72,
   maxBgInstances: null,
   methods: {
   },
@@ -80116,6 +80140,21 @@ const effects_ParticleEffect__C3262_VT = mkVTable({
     "set/defaultLifespan": null,
     "start": effects_ParticleEffect_start__P3264,
     "destroy": effects_ParticleEffect_destroy__P3265,
+  },
+});
+const maze_Handler__C9978_VT = mkVTable({
+  name: "Handler",
+  numFields: 2,
+  classNo: 73,
+  lastSubtypeNo: 73,
+  maxBgInstances: null,
+  methods: {
+  },
+  iface: {
+    "event": null,
+    "set/event": null,
+    "callback": null,
+    "set/callback": null,
   },
 });
 const music_Melody__C1626_VT = mkVTable({
@@ -80145,8 +80184,8 @@ const music_Melody__C1626_VT = mkVTable({
 const music_MelodyPlayable__C1916_VT = mkVTable({
   name: "MelodyPlayable",
   numFields: 2,
-  classNo: 67,
-  lastSubtypeNo: 67,
+  classNo: 66,
+  lastSubtypeNo: 66,
   maxBgInstances: null,
   methods: {
     "play": music_MelodyPlayable_play__P1918,
@@ -80163,8 +80202,8 @@ const music_MelodyPlayable__C1916_VT = mkVTable({
 const music_SoundEffect__C1765_VT = mkVTable({
   name: "SoundEffect",
   numFields: 9,
-  classNo: 68,
-  lastSubtypeNo: 68,
+  classNo: 67,
+  lastSubtypeNo: 67,
   maxBgInstances: null,
   methods: {
     "play": music_SoundEffect_play__P1776,
@@ -80308,8 +80347,8 @@ const controller_ButtonEventHandlerState__C2185_VT = mkVTable({
 const effects_ScreenEffect__C3266_VT = mkVTable({
   name: "ScreenEffect",
   numFields: 5,
-  classNo: 73,
-  lastSubtypeNo: 73,
+  classNo: 72,
+  lastSubtypeNo: 72,
   maxBgInstances: null,
   methods: {
   },
@@ -80651,5 +80690,5 @@ const animation_Path__C3347_VT = mkVTable({
 
 const breakpoints = setupDebugger(1, ["transparency8___155099","tile2___155104","tile3___155109","tile4___155114","tile5___155119","tile7___155124","tile8___155129","tile9___155134","tile10___155139","tile11___155144","tile12___155149","tile13___155154","tile14___155159","tile6___155164","tile15___155169","tile16___155174","tile17___155179","tile18___155184","tile19___155189","tile20___155194","tile21___155199","tile22___155204","tile23___155209","tile24___155214","tile26___155219","tile27___155224","tile29___155229","tile28___155234","tile30___155239","tile31___155244","tile32___155249","tile33___155254","tile34___155259","tile35___155284","tile25___155264","tile36___155269","tile1___155279","tile37___155274","tile38___155294","tile39___155289","tile40___155299","transparency16___155094","_maze___7715","level___4634","fruitSpawns___10128"])
 
-return _main___P234274
+return _main___P266376
 })
