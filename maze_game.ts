@@ -45,6 +45,7 @@ namespace maze {
             this.maze.events.register(Event.LevelStart, () => this.levelStart())
             this.maze.events.register(Event.LevelNext, () => this.levelNext())
             this.maze.events.register(Event.Defrost, () => this.setFreeze(false))
+            this.maze.events.register(Event.DefrostHero, () => this.defrostHero())
             this.maze.events.register(Event.LoseLife, () => this.life())
             this.maze.events.register(Event.GameOver, () => this.gameOver())
             this.maze.events.register(Event.ChaserEndMode, () => this.chaserEndMode())
@@ -98,13 +99,26 @@ namespace maze {
             this.maze.events.fireLater(Event.Defrost, time)
         }
 
+        private freezeHero(time: number) {
+            this.maze.hero.mover.setFreeze(true)
+            this.maze.events.fireLater(Event.DefrostHero, time)
+        }
+
+        private defrostHero() {
+            if (!this.freeze) {
+                this.maze.hero.mover.setFreeze(false)
+            }
+        }
+
         private eat(event: Event) {
             // eat events
             let s = 0
             if (event == Event.EatPill) {
                 s = level.scorePill
+                this.freezeHero(1 / 60)
             } else if (event == Event.EatPower) {
                 s = level.scorePower
+                this.freezeHero(1 / 30)
             } else if (event == Event.EatFruit) {
                 const i = Math.min(this.maze.fruit.count - 1, level.scoreFruit.length - 1)
                 s = level.scoreFruit[i]

@@ -14,6 +14,7 @@ namespace maze {
         FruitSpawn,
         FruitDespawn,
         Defrost,
+        DefrostHero,
         LoseLife,
         ChaserEndMode,
         ChaserWarn,
