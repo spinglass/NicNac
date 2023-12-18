@@ -11,6 +11,7 @@ namespace maze {
         Base = 1 << 7,
         PillTile = 1 << 8,
         PowerTile = 1 << 9,
+        Slow = 1 << 10,
     }
     
     export class Tile {
@@ -234,13 +235,14 @@ namespace maze {
             this.initFlagsFromTiles(assets.tile`tile_pill`, MapFlags.Pill)
             this.initFlagsFromTiles(assets.tile`tile_power`, MapFlags.Power)
             this.initFlagsFromTiles(assets.tile`tile_tunnel`, MapFlags.Tunnel)
+            this.initFlagsFromTiles(assets.tile`tile_slow`, MapFlags.Slow)
 
             // mark pills for level reset
             this.initFlagsFromFlags(MapFlags.Pill, MapFlags.PillTile)
             this.initFlagsFromFlags(MapFlags.Power, MapFlags.PowerTile)
 
             // find all maze tiles
-            for (const f of [MapFlags.Empty, MapFlags.Home, MapFlags.Fruit, MapFlags.Pill, MapFlags.Power, MapFlags.Tunnel]) {
+            for (const f of [MapFlags.Empty, MapFlags.Home, MapFlags.Fruit, MapFlags.Pill, MapFlags.Power, MapFlags.Tunnel, MapFlags.Slow]) {
                 this.initFlagsFromFlags(f, MapFlags.Maze)
             }
 

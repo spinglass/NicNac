@@ -18,8 +18,9 @@ namespace maze {
         // chaser settings
         speedChaser: number
         speedChaserFright: number
+        speedChaserTunnel: number
         speedChaserWait: number
-
+    
         // hero settings
         speedHero: number
         speedHeroFright: number
@@ -41,6 +42,7 @@ namespace maze {
 
             this.speedChaser = 75
             this.speedChaserFright = 50
+            this.speedChaserTunnel = 40
             this.speedChaserWait = 50
 
             this.speedHero = 80
@@ -68,6 +70,7 @@ namespace maze {
             
             this.speedChaser = 45
             this.speedChaserFright = 25
+            this.speedChaserTunnel = 20
             this.speedChaserWait = 25
 
             switch (index) {
@@ -94,7 +97,8 @@ namespace maze {
             switch(index) {
                 case 0:
                     this.speedChaser = 65
-                    this.speedChaserFright = 45                  
+                    this.speedChaserFright = 45  
+                    this.speedChaserTunnel = 35
                     this.speedHero = 70
                     this.speedHeroFright = 75
                     this.timeFright = 10
@@ -103,6 +107,7 @@ namespace maze {
                 case 1:
                     this.speedChaser = 75
                     this.speedChaserFright = 50
+                    this.speedChaserTunnel = 50
                     this.speedHero = 80
                     this.speedHeroFright = 85
                     this.timeFright = 9
@@ -111,6 +116,7 @@ namespace maze {
                 case 2:
                     this.speedChaser = 75
                     this.speedChaserFright = 50
+                    this.speedChaserTunnel = 40
                     this.speedHero = 80
                     this.speedHeroFright = 85
                     this.timeFright = 8
@@ -119,6 +125,7 @@ namespace maze {
                 case 3:
                     this.speedChaser = 75
                     this.speedChaserFright = 50
+                    this.speedChaserTunnel = 40
                     this.speedHero = 80
                     this.speedHeroFright = 85
                     this.timeFright = 5
@@ -128,6 +135,7 @@ namespace maze {
                 default:
                     this.speedChaser = 85
                     this.speedChaserFright = 55
+                    this.speedChaserTunnel = 45
                     this.speedHero = 90
                     this.speedHeroFright = 95
                     this.timeFright = 4

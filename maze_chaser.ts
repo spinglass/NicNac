@@ -355,6 +355,13 @@ namespace maze {
         }
 
         private updateSpeed() {
+            // check for tunnel
+            const tile = this.mover.tile
+            if (this.maze.map.getFlag(tile, MapFlags.Tunnel) || this.maze.map.getFlag(tile, MapFlags.Slow)) {
+                this.mover.speed = level.speedChaserTunnel
+                return
+            }
+
             switch (this.mode) {
                 default:
                     this.mover.speed = level.speedChaser
