@@ -41,7 +41,7 @@ namespace maze {
     }
 
     export class EventManager {
-        maze: Maze
+        time: number
         handlers: Handler[]
         frameEvents: Event[]
         timedEvents: TimedEvent[]
@@ -52,8 +52,8 @@ namespace maze {
             this.timedEvents = []
         }
 
-        init() {
-            this.maze = getMaze()
+        init(time: number) {
+            this.time = time
         }
 
         private callHandlers(event: Event) {
@@ -86,13 +86,15 @@ namespace maze {
             }
 
             // set the time (overrides any previous fire request)
-            timedEvent.time = this.maze.time + (delaySeconds * 1000)
+            timedEvent.time = this.time + (delaySeconds * 1000)
         }
 
-        fireTimedEvents() {
+        fireTimedEvents(time: number) {
+            this.time = time
+            
             // find any events that are due
             for (const te of this.timedEvents) {
-                if (this.maze.time >= te.time) {
+                if (this.time >= te.time) {
                     const prevTime = te.time
 
                     this.callHandlers(te.event)

@@ -18,7 +18,6 @@ namespace maze {
     }
 
     export class Chaser {
-        maze: Maze
         mover: Mover
         img: DirImage
         imgReturn: DirImage
@@ -50,8 +49,6 @@ namespace maze {
         }
 
         init() {
-            this.maze = getMaze()
-
             this.img.load("chaser" + this.id)
 
             this.mover.init(this.img)
@@ -63,10 +60,10 @@ namespace maze {
         }
 
         initLevel() {
-            this.scatterTarget = this.maze.map.scatterTargets[this.id]
-            this.home = this.maze.map.bases[this.id]
-            this.baseExit = this.maze.map.baseTop
-            this.baseCentre = this.maze.map.baseCentre
+            this.scatterTarget = map.scatterTargets[this.id]
+            this.home = map.bases[this.id]
+            this.baseExit = map.baseTop
+            this.baseCentre = map.baseCentre
             this.release = false
             this.reverse = false
             this.place()
@@ -251,12 +248,12 @@ namespace maze {
                 switch(this.kind) {
                     case ChaserKind.Blinky: {
                         // directly target the hero
-                        this.target = this.maze.hero.mover.tile
+                        this.target = hero.mover.tile
                         break
                     }
                     case ChaserKind.Pinky:  {
                         // target 4 tiles ahead of the hero
-                        this.target = this.maze.hero.mover.tile.getNextIn(this.maze.hero.mover.dir, 4)
+                        this.target = hero.mover.tile.getNextIn(hero.mover.dir, 4)
 
                         // implement the overflow bug
                         if (this.mover.dir == Direction.Down) {
@@ -266,10 +263,10 @@ namespace maze {
                     }
                     case ChaserKind.Inky: {
                         // get position 2 in front of hero
-                        const t1 = this.maze.hero.mover.tile.getNextIn(this.maze.hero.mover.dir, 2)
+                        const t1 = hero.mover.tile.getNextIn(hero.mover.dir, 2)
 
                         // get position of first chaser
-                        const t2 = this.maze.chasers[0].mover.tile
+                        const t2 = chasers[0].mover.tile
 
                         // cast vector between them beyond t1
                         const dx = t1.tx - t2.tx
@@ -279,12 +276,12 @@ namespace maze {
                     }
                     case ChaserKind.Clyde: {
                         // calculate distance from player
-                        const dx = Math.abs(this.maze.hero.mover.tile.tx - this.mover.tile.tx)
-                        const dy = Math.abs(this.maze.hero.mover.tile.ty - this.mover.tile.ty)
+                        const dx = Math.abs(hero.mover.tile.tx - this.mover.tile.tx)
+                        const dy = Math.abs(hero.mover.tile.ty - this.mover.tile.ty)
                         const dist = dx + dy
                         if (dist > 8) {
                             // far, target hero direction
-                            this.target = this.maze.hero.mover.tile
+                            this.target = hero.mover.tile
                         } else {
                             // too close - scatter!
                             this.target = this.scatterTarget
@@ -322,7 +319,7 @@ namespace maze {
         }
 
         private doReturnToBase(): boolean {
-            this.target = this.maze.map.returnBase
+            this.target = map.returnBase
             this.doTarget()
             return true
         }
@@ -357,7 +354,7 @@ namespace maze {
         private updateSpeed() {
             // check for tunnel
             const tile = this.mover.tile
-            if (this.maze.map.getFlag(tile, MapFlags.Tunnel) || this.maze.map.getFlag(tile, MapFlags.Slow)) {
+            if (map.getFlag(tile, MapFlags.Tunnel) || map.getFlag(tile, MapFlags.Slow)) {
                 this.mover.speed = level.speedChaserTunnel
                 return
             }

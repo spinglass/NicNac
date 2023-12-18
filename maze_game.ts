@@ -14,7 +14,6 @@ namespace maze {
     }
 
     export class Game {
-        maze: Maze
         pillsEaten: number
         pillsRemaining: number
         levelComplete: boolean
@@ -29,7 +28,6 @@ namespace maze {
         }
 
         init() {
-            this.maze = getMaze()
             this.pillsRemaining = 0
             this.pillsEaten = 0
             this.levelComplete = false
@@ -38,18 +36,18 @@ namespace maze {
             this.freeze = true
 
             // register for events
-            this.maze.events.register(Event.EatPill, () => this.eat(Event.EatPill))
-            this.maze.events.register(Event.EatPower, () => this.eat(Event.EatPower))
-            this.maze.events.register(Event.EatFruit, () => this.eat(Event.EatFruit))
-            this.maze.events.register(Event.EatChaser, () => this.eat(Event.EatChaser))
-            this.maze.events.register(Event.LevelStart, () => this.levelStart())
-            this.maze.events.register(Event.LevelNext, () => this.levelNext())
-            this.maze.events.register(Event.Defrost, () => this.setFreeze(false))
-            this.maze.events.register(Event.DefrostHero, () => this.defrostHero())
-            this.maze.events.register(Event.LoseLife, () => this.life())
-            this.maze.events.register(Event.GameOver, () => this.gameOver())
-            this.maze.events.register(Event.ChaserEndMode, () => this.chaserEndMode())
-            this.maze.events.register(Event.ChaserWarn, () => this.chaserSetWarn())
+            events.register(Event.EatPill, () => this.eat(Event.EatPill))
+            events.register(Event.EatPower, () => this.eat(Event.EatPower))
+            events.register(Event.EatFruit, () => this.eat(Event.EatFruit))
+            events.register(Event.EatChaser, () => this.eat(Event.EatChaser))
+            events.register(Event.LevelStart, () => this.levelStart())
+            events.register(Event.LevelNext, () => this.levelNext())
+            events.register(Event.Defrost, () => this.setFreeze(false))
+            events.register(Event.DefrostHero, () => this.defrostHero())
+            events.register(Event.LoseLife, () => this.life())
+            events.register(Event.GameOver, () => this.gameOver())
+            events.register(Event.ChaserEndMode, () => this.chaserEndMode())
+            events.register(Event.ChaserWarn, () => this.chaserSetWarn())
         }
 
         bootFlow() {
@@ -73,40 +71,40 @@ namespace maze {
         }
 
         initLevel() {
-            scene.cameraFollowSprite(this.maze.hero.mover.sprite)
+            scene.cameraFollowSprite(hero.mover.sprite)
 
-            level.initLevel(this.levelCount)
+            level.initLevel(this.difficulty, this.levelCount)
 
             this.pillsEaten = 0
-            this.pillsRemaining = this.maze.map.pillCount
+            this.pillsRemaining = map.pillCount
             this.levelComplete = false
             this.chaserEatCount = 0
             this.chaserWarn = false
 
-            this.maze.map.initLevel()
-            this.maze.hero.initLevel()
-            for (const chaser of this.maze.chasers) {
+            map.initLevel()
+            hero.initLevel()
+            for (const chaser of chasers) {
                 chaser.initLevel()
             }
-            this.maze.fruit.initLevel()
+            fruit.initLevel()
 
-            this.maze.events.cancelAll()
-            this.maze.events.fireLater(Event.LevelStart, 0)
+            events.cancelAll()
+            events.fireLater(Event.LevelStart, 0)
         }
 
         private pause(time: number) {
             this.setFreeze(true)
-            this.maze.events.fireLater(Event.Defrost, time)
+            events.fireLater(Event.Defrost, time)
         }
 
         private freezeHero(time: number) {
-            this.maze.hero.mover.setFreeze(true)
-            this.maze.events.fireLater(Event.DefrostHero, time)
+            hero.mover.setFreeze(true)
+            events.fireLater(Event.DefrostHero, time)
         }
 
         private defrostHero() {
             if (!this.freeze) {
-                this.maze.hero.mover.setFreeze(false)
+                hero.mover.setFreeze(false)
             }
         }
 
@@ -120,14 +118,14 @@ namespace maze {
                 s = level.scorePower
                 this.freezeHero(1 / 30)
             } else if (event == Event.EatFruit) {
-                const i = Math.min(this.maze.fruit.count - 1, level.scoreFruit.length - 1)
+                const i = Math.min(fruit.count - 1, level.scoreFruit.length - 1)
                 s = level.scoreFruit[i]
-                this.maze.hero.mover.sprite.say(s, 1000)
+                hero.mover.sprite.say(s, 1000)
             } else if (event == Event.EatChaser) {
                 s = level.scoreChaser[this.chaserEatCount++]
 
                 // pause to enjoy the taste
-                this.maze.hero.mover.sprite.say(s, 1000)
+                hero.mover.sprite.say(s, 1000)
                 this.pause(1)
             }
             info.changeScoreBy(s)
@@ -140,8 +138,8 @@ namespace maze {
                 if (this.pillsRemaining <= 0) {
                     this.levelComplete = true
                     this.setFreeze(true)
-                    this.maze.events.fire(Event.LevelComplete)
-                    this.maze.events.fireLater(Event.LevelNext, 1)
+                    events.fire(Event.LevelComplete)
+                    events.fireLater(Event.LevelNext, 1)
                 } else {
                     this.updateRelease()
                 }
@@ -150,40 +148,40 @@ namespace maze {
             if (!this.levelComplete && event == Event.EatPower) {
                 this.chaserEatCount = 0
                 this.setChaserMode(ChaserMode.Fright)
-                this.maze.events.fireLater(Event.ChaserEndMode, level.timeFright)
-                this.maze.events.fireLater(Event.ChaserWarn, level.timeWarn)
+                events.fireLater(Event.ChaserEndMode, level.timeFright)
+                events.fireLater(Event.ChaserWarn, level.timeWarn)
             }
         }
 
         private life() {
             // stop everything
             this.setFreeze(true)
-            this.maze.events.cancelAll()
+            events.cancelAll()
 
             // replace the game-over handler so we can slightly delay it
             info.onLifeZero(() => { })
             info.changeLifeBy(-1)
 
             if (info.life() <= 0) {
-                this.maze.events.fireLater(Event.GameOver, 1.5)
+                events.fireLater(Event.GameOver, 1.5)
             } else {
                 // brief pause before restarting
-                this.maze.events.fireLater(Event.LevelStart, 1.5)
+                events.fireLater(Event.LevelStart, 1.5)
             }
         }
 
         private chaserEndMode() {
-            this.maze.events.cancel(Event.ChaserWarn)
+            events.cancel(Event.ChaserWarn)
             
             switch (this.chaserMode) {
                 case ChaserMode.Scatter:
                 case ChaserMode.Fright:
                     this.setChaserMode(ChaserMode.Chase)
-                    this.maze.events.fireLater(Event.ChaserEndMode, level.timeChase)
+                    events.fireLater(Event.ChaserEndMode, level.timeChase)
                     break
                 case ChaserMode.Chase:
                     this.setChaserMode(ChaserMode.Scatter)
-                    this.maze.events.fireLater(Event.ChaserEndMode, level.timeScatter)
+                    events.fireLater(Event.ChaserEndMode, level.timeScatter)
                     break
             }
             this.chaserEatCount = 0
@@ -191,12 +189,12 @@ namespace maze {
 
         private chaserSetWarn() {
             this.chaserWarn = !this.chaserWarn
-            for (const chaser of this.maze.chasers) {
+            for (const chaser of chasers) {
                 chaser.setWarn(this.chaserWarn)
             }
 
             // resend to flash the warning
-            this.maze.events.fireLater(Event.ChaserWarn, level.timeWarnFlash)
+            events.fireLater(Event.ChaserWarn, level.timeWarnFlash)
         }
 
         private saveHighScore() {
@@ -218,12 +216,12 @@ namespace maze {
         private levelStart() {
             // set mode
             this.setChaserMode(ChaserMode.Scatter)
-            this.maze.events.fireLater(Event.ChaserEndMode, level.timeScatter)
+            events.fireLater(Event.ChaserEndMode, level.timeScatter)
             this.chaserEatCount = 0
 
-            this.maze.hero.place()
-            for (let i = 0; i < this.maze.chasers.length; ++i) {
-                const chaser = this.maze.chasers[i]
+            hero.place()
+            for (let i = 0; i < chasers.length; ++i) {
+                const chaser = chasers[i]
                 chaser.place()
             }
             this.updateRelease()
@@ -236,24 +234,25 @@ namespace maze {
         }
 
         private updateRelease() {
-            for (let i = 0; i < this.maze.chasers.length; ++i) {
+            for (let i = 0; i < chasers.length; ++i) {
                 if (level.pillReleaseCount[i] == this.pillsEaten) {
-                    this.maze.chasers[i].setRelease()
+                    chasers[i].setRelease()
                 }
             }
         }
 
         private setFreeze(freeze: boolean) {
             this.freeze = freeze
-            this.maze.hero.mover.setFreeze(freeze)
-            for (const chaser of this.maze.chasers) {
+            hero.mover.setFreeze(freeze)
+            for (const chaser of chasers) {
                 chaser.mover.setFreeze(freeze)
             }
         }
 
         private setChaserMode(mode: ChaserMode) {
             this.chaserMode = mode
-            for (const chaser of this.maze.chasers) {
+            hero.chaserMode = mode
+            for (const chaser of chasers) {
                 chaser.setMode(mode)
             }
         }

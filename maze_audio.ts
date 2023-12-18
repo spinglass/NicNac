@@ -6,7 +6,6 @@ namespace maze {
 
         init() {
             // register for events
-            const events = getMaze().events
 
             const pill = music.createSoundEffect(WaveShape.Sine, 838, 2584, 120, 120, 60, SoundExpressionEffect.None, InterpolationCurve.Linear)
             events.register(Event.EatPill, () => this.play(pill))

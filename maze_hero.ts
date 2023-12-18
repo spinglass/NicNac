@@ -1,8 +1,8 @@
 namespace maze {
     export class Hero {
-        maze: Maze
         mover: Mover
         images: DirImage
+        chaserMode: ChaserMode
 
         constructor() {
             this.mover = new Mover()
@@ -10,15 +10,14 @@ namespace maze {
         }
 
         init() {
-            this.maze = getMaze()
             this.images.load("hero")
             this.mover.init(this.images)
             this.mover.mapType = MapFlags.Maze
         }
 
         initLevel() {
-            this.mover.hx = this.maze.map.home.x
-            this.mover.hy = this.maze.map.home.y
+            this.mover.hx = map.home.x
+            this.mover.hy = map.home.y
             this.mover.place()
         }
 
@@ -37,7 +36,7 @@ namespace maze {
                 this.mover.request = Direction.Right
             }
 
-            if (this.maze.game.chaserMode == ChaserMode.Fright) {
+            if (this.chaserMode == ChaserMode.Fright) {
                 this.mover.speed = level.speedHeroFright
             } else {
                 this.mover.speed = level.speedHero
@@ -47,27 +46,27 @@ namespace maze {
 
             // eat pills
             if (this.mover.changedTile) {
-                if (this.maze.map.eatPill(this.mover.tile)) {
-                    this.maze.events.fire(Event.EatPill)
-                } else if (this.maze.map.eatPower(this.mover.tile)) {
-                    this.maze.events.fire(Event.EatPower)
+                if (map.eatPill(this.mover.tile)) {
+                    events.fire(Event.EatPill)
+                } else if (map.eatPower(this.mover.tile)) {
+                    events.fire(Event.EatPower)
                 }
             }
 
             // check for eating or losing a life
-            for (const chaser of this.maze.chasers) {
+            for (const chaser of chasers) {
                 if (this.mover.tile.tx == chaser.mover.tile.tx && this.mover.tile.ty == chaser.mover.tile.ty)
                 {
                     if (chaser.mode == ChaserMode.Scatter || chaser.mode == ChaserMode.Chase) {
                         if (!level.immortal) {
-                            this.maze.events.fire(Event.LoseLife)
+                            events.fire(Event.LoseLife)
 
                             // can only get eaten once per life!
                             break
                         }
                     }
                     if (chaser.mode == ChaserMode.Fright) {
-                        this.maze.events.fire(Event.EatChaser)
+                        events.fire(Event.EatChaser)
 
                         // send the chaser home
                         chaser.doEaten()
@@ -84,7 +83,7 @@ namespace maze {
                     const dx = Math.abs(chaser.mover.x - this.mover.x)
                     const dy = Math.abs(chaser.mover.y - this.mover.y)
                     if (dx < 4 && dy < 4) {
-                        this.maze.events.fire(Event.EatChaser)
+                        events.fire(Event.EatChaser)
 
                         // send the chaser home
                         chaser.doEaten()

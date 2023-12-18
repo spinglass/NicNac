@@ -1,5 +1,13 @@
 //% weight=100 color=#0fbc11 icon="\uf11b" block="Maze"
 namespace maze {
+    export let audio: Audio
+    export let events: EventManager
+    export let level: Level
+    export let map: Map
+    export let hero: Hero
+    export let chasers: Chaser[]
+    export let fruit: Fruit
+
     export enum Direction {
         None = 0,
         Up = 1 << 0,
@@ -23,55 +31,46 @@ namespace maze {
         return null
     }
     
-    export class Maze {
-        audio: Audio
-        events: EventManager
+    class Maze {
         game: Game
-        map: Map
-        hero: Hero
-        chasers: Chaser[]
-        fruit: Fruit
         time: number
 
-        constructor() {
-            level = new Level()
-
-            this.audio = new Audio()
-            this.events = new EventManager()
+        init() {
+            this.time = game.runtime()
             this.game = new Game()
-            this.map = new Map()
-            this.hero = new Hero()
-            this.fruit = new Fruit()
-            this.chasers = [
+
+            // construct global objects
+            audio = new Audio()
+            events = new EventManager()
+            level = new Level()
+            map = new Map()
+            hero = new Hero()
+            chasers = [
                 new Chaser(ChaserKind.Blinky, 0),
                 new Chaser(ChaserKind.Pinky, 1),
                 new Chaser(ChaserKind.Inky, 2),
                 new Chaser(ChaserKind.Clyde, 3)
-                ]
-        }
+            ]
+            fruit = new Fruit()
 
-        init() {
+            events.init(this.time)
             level.init()
-
-            this.time = game.runtime()
-            this.audio.init()
-            this.events.init()
+            audio.init()
             this.game.init()
-            this.hero.init()
-            for (const c of this.chasers) {
-                c.init()
+            hero.init()
+            for (const chaser of chasers) {
+                chaser.init()
             }
-            this.fruit.init()
+            fruit.init()
 
             game.onUpdate(() => getMaze().update())
         }
 
         initLevel(tilemap: tiles.TileMapData) {
             scene.setTileMapLevel(tilemap)
-            this.map.init(tilemap)
+            map.init(tilemap)
 
             this.game.bootFlow()
-
             this.game.initLevel()
         }
 
@@ -79,23 +78,23 @@ namespace maze {
             this.time = game.runtime()
             
             // fire any due events
-            this.events.fireTimedEvents()
+            events.fireTimedEvents(this.time)
             
             // update game elements
             this.game.update()
-            this.hero.update()
-            for (const c of this.chasers) {
-                c.update()
+            hero.update()
+            for (const chaser of chasers) {
+                chaser.update()
             }
-            this.fruit.update()
+            fruit.update()
 
             // finally fire frame events
-            this.events.fireFrameEvents()
+            events.fireFrameEvents()
         }
     }
-    let _maze: Maze = null
+    let _maze: Maze
 
-    export function getMaze() {
+    function getMaze() {
         if (!_maze) {
             _maze = new Maze()
             _maze.init()

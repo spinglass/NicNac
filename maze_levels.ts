@@ -1,5 +1,4 @@
 namespace maze {
-
     export class Level {
         // game settings
         lives: number
@@ -52,10 +51,10 @@ namespace maze {
             this.immortal = false
         }
 
-        initLevel(index: number) {
+        initLevel(difficulty: Difficulty, index: number) {
             this.init()
 
-            switch (getMaze().game.difficulty) {
+            switch (difficulty) {
                 case Difficulty.Easy: return this.initEasy(index)
                 case Difficulty.Hard: return this.initHard(index)
             }
@@ -146,6 +145,4 @@ namespace maze {
             }
         }
     }
-    
-    export let level: Level
 }

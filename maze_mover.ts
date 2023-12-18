@@ -78,7 +78,6 @@ namespace maze {
     }
 
     export class Mover {
-        maze: Maze
         sprite: Sprite
         images: DirImage
         tile: Tile
@@ -115,8 +114,7 @@ namespace maze {
             this.mapType = MapFlags.None
         }
 
-        init(images: DirImage) {
-            this.maze = getMaze()            
+        init(images: DirImage) {         
             this.images = images
             this.sprite = sprites.create(this.images.img)
 
@@ -245,7 +243,7 @@ namespace maze {
 
             if (this.changedTile) {
                 // check for tunnel
-                const exit = this.maze.map.useTunnel(this.tile)
+                const exit = map.useTunnel(this.tile)
                 if (exit) {
                     // keep current speed and warp to exit
                     this.sprite.x = exit.cx
@@ -335,7 +333,7 @@ namespace maze {
 
         private checkTile(dir: Direction) {
             const next = this.tile.getNext(dir)
-            if (this.maze.map.getFlag(next, this.mapType)) {
+            if (map.getFlag(next, this.mapType)) {
                 this.validDirs |= dir
             }
         }
