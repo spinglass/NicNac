@@ -1,1 +1,18 @@
-<xml xmlns="https://developers.google.com/blockly/xml"><block type="pxt-on-start" id="Ith,bW^L{1|j9$eR%}Q," x="0" y="0"><statement name="HANDLER"><block type="maze_set_tilema" id="Xd.D}*YjvaTJDgV.[OEy"><field name="tilemap">tilemap`maze`</field><data>{"commentRefs":[],"fieldData":{"tilemap":"level1"}}</data></block></statement></block></xml>
+<xml xmlns="https://developers.google.com/blockly/xml"><variables><variable id="D;9OYL:5Bj7*GQ$@P7|7">mySprite</variable></variables><block type="pxt-on-start" id="HU:Y_xI=`Xl4p~E:1[iC" x="0" y="0"><statement name="HANDLER"><block type="run_image_animation" id="z+U8$E5fwDy0SE;{!TL9"><value name="sprite"><block type="variables_get" id="+mlNC4!bqC:MW|E#q9nJ"><field name="VAR" id="D;9OYL:5Bj7*GQ$@P7|7">mySprite</field></block></value><value name="frames"><block type="animation_editor" id="1e_baRlUPI$)*T0T:;o$"><field name="frames">[img`
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+`]</field><data>{"commentRefs":[],"fieldData":{"frames":"1e_baRlUPI$)*T0T:;o$"}}</data></block></value><value name="frameInterval"><shadow type="timePicker" id="h$_MQDAw_rCDmQumWwnm"><field name="ms">500</field></shadow></value><value name="loop"><shadow type="toggleOnOff" id="*LmQwM-!)v(j;B$1hFr6"><field name="on">false</field></shadow></value><next><block type="maze_set_tilema" id="sjfsL|[n81.T|0CZCbWP"><field name="tilemap">tilemap`maze`</field><data>{"commentRefs":[],"fieldData":{"tilemap":"level1"}}</data></block></next></block></statement></block></xml>
