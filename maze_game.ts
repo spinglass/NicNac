@@ -23,6 +23,7 @@ namespace maze {
         chaserWarn: boolean
         difficulty: Difficulty
         levelCount: number
+        freeze: boolean
 
         constructor() {
         }
@@ -34,6 +35,7 @@ namespace maze {
             this.levelComplete = false
             this.difficulty = Difficulty.None
             this.levelCount = 0
+            this.freeze = true
 
             // register for events
             this.maze.events.register(Event.EatPill, () => this.eat(Event.EatPill))
@@ -226,6 +228,7 @@ namespace maze {
         }
 
         private setFreeze(freeze: boolean) {
+            this.freeze = freeze
             this.maze.hero.mover.setFreeze(freeze)
             for (const chaser of this.maze.chasers) {
                 chaser.mover.setFreeze(freeze)
@@ -240,8 +243,13 @@ namespace maze {
         }
 
         update() {
-            if (controller.A.isPressed()) {
-                this.levelNext()
+            if (this.freeze) {
+                return
+            }
+
+            if (controller.A.isPressed() || controller.B.isPressed()) {
+                ask("NicNac", "Game paused", "Press A to continue")
+                this.pause(1.0)
             }
         }
     }
