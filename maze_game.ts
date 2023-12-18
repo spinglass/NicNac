@@ -62,12 +62,11 @@ namespace maze {
             }
             settings.writeNumber("high_score", highScore)
 
+            level.initLevel(this.difficulty, 0)
             info.setScore(0)
             info.setLife(level.lives)
 
             show("You chose: " + diff, "High score: " + highScore, " ", 2)
-
-            level.init()
         }
 
         initLevel() {
