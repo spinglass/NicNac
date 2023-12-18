@@ -1,10 +1,7 @@
 namespace maze {
     export class DirImage {
         img: Image
-        imgUp: Image
-        imgDown: Image
-        imgLeft: Image
-        imgRight: Image
+        anim: Image[]
         animUp: Image[]
         animDown: Image[]
         animLeft: Image[]
@@ -26,16 +23,23 @@ namespace maze {
                     break
                 }
             }
-            return images
+            console.log(name + ":" + images.length)
+            return (images.length > 0) ? images : null
+        }
+
+        private getAnim(dir: Direction): Image[] {
+            switch (dir) {
+                case Direction.Up: return (this.animUp ? this.animUp : this.anim)
+                case Direction.Down: return (this.animDown ? this.animDown : this.anim)
+                case Direction.Left: return (this.animLeft ? this.animLeft : this.anim)
+                case Direction.Right: return (this.animRight ? this.animRight : this.anim)
+            }
+            return this.anim
         }
 
         load(name: string) {
             this.img = helpers.getImageByName(name)
-            this.imgUp = helpers.getImageByName(name + "_up")
-            this.imgDown = helpers.getImageByName(name + "_down")
-            this.imgLeft = helpers.getImageByName(name + "_left")
-            this.imgRight = helpers.getImageByName(name + "_right")
-
+            this.anim = this.loadAnim(name)
             this.animUp = this.loadAnim(name + "_up")
             this.animDown = this.loadAnim(name + "_down")
             this.animLeft = this.loadAnim(name + "_left")
@@ -49,11 +53,12 @@ namespace maze {
                 animation.stopAnimation(animation.AnimationTypes.ImageAnimation, this.sprite)
 
                 const anim = this.getAnim(dir)
-                if (anim && anim.length > 0) {
-                    animation.runImageAnimation(this.sprite, anim, 100, true)
-                } else {
-                    const img = this.getImage(dir)
-                    this.sprite.setImage(img)
+                if (anim) {
+                    if (anim.length > 1) {
+                        animation.runImageAnimation(this.sprite, anim, 100, true)
+                    } else {
+                        this.sprite.setImage(anim[0])
+                    }
                 }
                 this.dir = dir
             }
@@ -69,26 +74,6 @@ namespace maze {
                     this.apply(this.sprite, this.dir)
                 }
             }
-        }
-
-        private getAnim(dir: Direction): Image[] {
-            switch (dir) {
-                case Direction.Up: return this.animUp
-                case Direction.Down: return this.animDown
-                case Direction.Left: return this.animLeft
-                case Direction.Right: return this.animRight
-            }
-            return null
-        }
-
-        private getImage(dir: Direction): Image {
-            switch(dir) {
-                case Direction.Up:      return this.imgUp
-                case Direction.Down:    return this.imgDown
-                case Direction.Left:    return this.imgLeft
-                case Direction.Right:   return this.imgRight
-            }
-            return this.img
         }
     }
 
@@ -225,6 +210,7 @@ namespace maze {
 
         place() {
             this.placeAtPos(this.hx, this.hy)
+            this.sprite.setImage(this.images.img)
         }
 
         placeAtPos(x: number, y: number) {
@@ -334,6 +320,17 @@ namespace maze {
 
         isDirectionValid(dir: Direction): boolean {
             return (this.validDirs & dir) != 0
+        }
+
+        setImages(images: DirImage) {
+            if (this.images != images) {
+                if (this.images) {
+                    this.images.setFreeze(true)
+                }
+                this.images = images
+                this.sprite.setImage(images.img)
+                this.images.apply(this.sprite, this.dir)
+            }
         }
 
         private checkTile(dir: Direction) {

@@ -20,10 +20,10 @@ namespace maze {
     export class Chaser {
         maze: Maze
         mover: Mover
-        images: DirImage
-        imagesReturn: DirImage
-        imgFright: Image
-        imgWarn: Image
+        img: DirImage
+        imgReturn: DirImage
+        imgFright: DirImage
+        imgWarn: DirImage
         kind: ChaserKind
         id: number
         mode: ChaserMode        // mode this chaser is using
@@ -41,8 +41,10 @@ namespace maze {
 
         constructor(kind: ChaserKind, id: number) {
             this.mover = new Mover()
-            this.images = new DirImage()
-            this.imagesReturn = new DirImage()
+            this.img = new DirImage()
+            this.imgReturn = new DirImage()
+            this.imgFright = new DirImage()
+            this.imgWarn = new DirImage()
             this.kind = kind
             this.id = id
         }
@@ -50,14 +52,14 @@ namespace maze {
         init() {
             this.maze = getMaze()
 
-            this.images.load("chaser" + this.id)
+            this.img.load("chaser" + this.id)
 
-            this.mover.init(this.images)
+            this.mover.init(this.img)
             this.mover.mapType = MapFlags.Maze
             
-            this.imagesReturn.load("eyes")
-            this.imgFright = helpers.getImageByName("chaser_fright")
-            this.imgWarn = helpers.getImageByName("chaser_warn")
+            this.imgReturn.load("eyes")
+            this.imgFright.load("chaser_fright")
+            this.imgWarn.load("chaser_warn")
         }
 
         initLevel() {
@@ -387,16 +389,16 @@ namespace maze {
 
             if (this.mode == ChaserMode.Fright) {
                 if (this.warn) {
-                    this.mover.sprite.setImage(this.imgWarn)
+                    this.mover.setImages(this.imgWarn)
                 } else {
-                    this.mover.sprite.setImage(this.imgFright)
+                    this.mover.setImages(this.imgFright)
                 }
             } else {
                 this.warn = false
                 if (this.mode == ChaserMode.ReturnToBase || this.mode == ChaserMode.EnterBase) {
-                    this.mover.images = this.imagesReturn
+                    this.mover.setImages(this.imgReturn)
                 } else {
-                    this.mover.images = this.images
+                    this.mover.setImages(this.img)
                 }
                 this.mover.setImage()
             }
