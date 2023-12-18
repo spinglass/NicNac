@@ -14,6 +14,7 @@ namespace maze {
         timeWarnFlash: number
         timeFruitDespawn: number
         pillReleaseCount: number[]
+        fruitSpawns: number[]
 
         // chaser settings
         speedChaser: number
@@ -39,6 +40,7 @@ namespace maze {
             this.timeWarnFlash = 0.25
             this.timeFruitDespawn = 10
             this.pillReleaseCount = [0, 0, 30, 90]
+            this.fruitSpawns =  [70, 170]
 
             this.speedChaser = 75
             this.speedChaserFright = 50

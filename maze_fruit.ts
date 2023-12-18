@@ -1,6 +1,4 @@
 namespace maze {
-    const fruitSpawns: number[] = [70, 170]
-
     export class Fruit {
         maze: Maze
         sprite: Sprite
@@ -40,7 +38,7 @@ namespace maze {
         private checkSpawn() {
             ++this.pillCount
 
-            if (fruitSpawns.find(x => (x == this.pillCount))) {
+            if (level.fruitSpawns.find(x => (x == this.pillCount))) {
                 this.setVisible(true)
                 
                 this.maze.events.fire(Event.FruitSpawn)
