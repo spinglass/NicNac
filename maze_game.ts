@@ -134,6 +134,7 @@ namespace maze {
             }
 
             if (!this.levelComplete && event == Event.EatPower) {
+                this.chaserEatCount = 0
                 this.setChaserMode(ChaserMode.Fright)
                 this.maze.events.fireLater(Event.ChaserEndMode, level.timeFright)
                 this.maze.events.fireLater(Event.ChaserWarn, level.timeWarn)
@@ -204,6 +205,7 @@ namespace maze {
             // set mode
             this.setChaserMode(ChaserMode.Scatter)
             this.maze.events.fireLater(Event.ChaserEndMode, level.timeScatter)
+            this.chaserEatCount = 0
 
             this.maze.hero.place()
             for (let i = 0; i < this.maze.chasers.length; ++i) {
