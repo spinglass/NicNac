@@ -29,7 +29,6 @@ namespace maze {
         gameMode: ChaserMode    // mode the game requested
         target: Tile
         scatterTarget: Tile
-
         waitDir: Direction
         release: boolean
         reverse: boolean
@@ -52,7 +51,6 @@ namespace maze {
             this.img.load("chaser" + this.id)
 
             this.mover.init(this.img)
-            this.mover.mapType = MapFlags.Maze
             
             this.imgReturn.load("eyes")
             this.imgFright.load("chaser_fright")

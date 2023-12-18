@@ -12,7 +12,6 @@ namespace maze {
         init() {
             this.images.load("hero")
             this.mover.init(this.images)
-            this.mover.mapType = MapFlags.Maze
         }
 
         initLevel() {

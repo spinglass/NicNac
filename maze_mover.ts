@@ -95,7 +95,6 @@ namespace maze {
         fvy: number                 // frozen speed y
         changedTile: boolean
         crossedTile: boolean        // crossed the center of current tile this frame
-        mapType: MapFlags
 
         constructor() {
             this.images = new DirImage()
@@ -111,7 +110,6 @@ namespace maze {
             this.fvx = 0
             this.fvy = 0
             this.changedTile = false
-            this.mapType = MapFlags.None
         }
 
         init(images: DirImage) {         
@@ -184,14 +182,10 @@ namespace maze {
         private applyCentre() {
             switch (this.dir) {
                 case Direction.Up:
-                    this.sprite.x = this.tile.cx
-                    break
                 case Direction.Down:
                     this.sprite.x = this.tile.cx
                     break
                 case Direction.Left:
-                    this.sprite.y = this.tile.cy
-                    break
                 case Direction.Right:
                     this.sprite.y = this.tile.cy
                     break
@@ -333,7 +327,7 @@ namespace maze {
 
         private checkTile(dir: Direction) {
             const next = this.tile.getNext(dir)
-            if (map.getFlag(next, this.mapType)) {
+            if (map.getFlag(next, MapFlags.Maze)) {
                 this.validDirs |= dir
             }
         }
