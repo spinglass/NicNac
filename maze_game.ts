@@ -196,20 +196,26 @@ namespace maze {
             events.fireLater(Event.ChaserWarn, level.timeWarnFlash)
         }
 
-        private saveHighScore() {
+        private saveHighScore(): boolean {
             // check the high score for the difficulty
             const diff = "high_score_" + difficultyString(this.difficulty)
             const highScore = settings.readNumber(diff)
             const score = info.score()
             if (!highScore || score > highScore) {
                 settings.writeNumber(diff, score)
+                return true
             }
+            return false
         }
 
         private gameOver() {
-            this.saveHighScore()
-            game.setGameOverEffect(false, effects.dissolve)
-            game.gameOver(false)
+            if (this.saveHighScore()) {
+                game.setGameOverEffect(false, effects.confetti)
+                game.gameOver(true)
+            } else {
+                game.setGameOverEffect(false, effects.dissolve)
+                game.gameOver(false)
+            }
         }
 
         private levelStart() {
