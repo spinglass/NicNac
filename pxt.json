@@ -24,7 +24,8 @@
         "maze_fruit.ts",
         "maze_chaser.ts",
         "maze_ui.ts",
-        "maze_levels.ts"
+        "maze_levels.ts",
+        "maze_image.ts"
     ],
     "testFiles": [
         "test.ts"
