@@ -134,6 +134,8 @@ namespace maze {
                 ++this.pillsEaten
                 --this.pillsRemaining
 
+                fruit.checkSpawn(this.pillsEaten)
+
                 if (this.pillsRemaining <= 0) {
                     this.levelComplete = true
                     this.setFreeze(true)

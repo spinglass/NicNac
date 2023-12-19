@@ -2,7 +2,6 @@ namespace maze {
     export class Fruit {
         sprite: Sprite
         visible: boolean
-        pillCount: number
         count: number           // total fruit eaten
 
         constructor() {
@@ -15,14 +14,10 @@ namespace maze {
         }
 
         initLevel() {
-            this.pillCount = 0
-
             this.setVisible(false)
             this.sprite.x = map.fruit.x
             this.sprite.y = map.fruit.y
 
-            events.register(Event.EatPill, () => this.checkSpawn())
-            events.register(Event.EatPower, () => this.checkSpawn())
             events.register(Event.EatFruit, () => this.setVisible(false))
             events.register(Event.FruitDespawn, () => this.setVisible(false))
         }
@@ -33,10 +28,8 @@ namespace maze {
             this.sprite.setFlag(SpriteFlag.Invisible, !visible)
         }
 
-        private checkSpawn() {
-            ++this.pillCount
-
-            if (level.fruitSpawns.find(x => (x == this.pillCount))) {
+        checkSpawn(pillCount: number) {
+            if (level.fruitSpawns.find(x => (x == pillCount))) {
                 this.setVisible(true)
                 
                 events.fire(Event.FruitSpawn)
