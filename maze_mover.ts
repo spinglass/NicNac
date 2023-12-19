@@ -17,6 +17,9 @@ namespace maze {
         fvy: number                 // frozen speed y
         changedTile: boolean
         crossedTile: boolean        // crossed the center of current tile this frame
+        crossedX: boolean
+        crossedY: boolean
+        fastTurn: boolean
 
         constructor() {
             this.images = new DirImage()
@@ -32,6 +35,7 @@ namespace maze {
             this.fvx = 0
             this.fvy = 0
             this.changedTile = false
+            this.fastTurn = false
         }
 
         init(images: DirImage) {         
@@ -55,17 +59,23 @@ namespace maze {
             this.changedTile = (this.tile.tx != ptile.tx) || (this.tile.ty != ptile.ty)
 
             // Check for crossing centre of tile
-            this.crossedTile = false
             const cx = this.tile.cx
             const cy = this.tile.cy
-            if (this.dir == Direction.Up) {
-                this.crossedTile = (py > cy && cy >= this.y)
-            } else if (this.dir == Direction.Down) {
-                this.crossedTile = (py < cy && cy <= this.y)
-            } else if (this.dir == Direction.Left) {
-                this.crossedTile = (px > cx && cx >= this.x)
-            } else if (this.dir == Direction.Right) {
-                this.crossedTile = (px < cx && cx <= this.x)
+            if (this.sprite.vx > 0) {
+                this.crossedX = (px < cx && cx <= this.x)
+            }
+            else {
+                this.crossedX = (this.x <= cx && cx < px)
+            }
+            if (this.sprite.vy > 0) {
+                this.crossedY = (py < cy && cy <= this.y)
+            } else {
+                this.crossedY = (this.y <= cy && cy < py)
+            }
+            if (this.dir == Direction.Left || this.dir == Direction.Right) {
+                this.crossedTile = this.crossedX
+            } else if (this.dir == Direction.Up || this.dir == Direction.Down) {
+                this.crossedTile = this.crossedY
             }
 
             // check which directions can travel from this tile
@@ -102,24 +112,42 @@ namespace maze {
         }
 
         private applyCentre() {
-            switch (this.dir) {
-                case Direction.Up:
-                case Direction.Down:
-                    this.sprite.x = this.tile.cx
-                    break
-                case Direction.Left:
-                case Direction.Right:
-                    this.sprite.y = this.tile.cy
-                    break
+            const cx = this.tile.cx
+            const cy = this.tile.cy
+            if (this.fastTurn) {
+                if (this.dir == Direction.Left || this.dir == Direction.Right) {
+                    if (this.crossedY) {
+                        this.sprite.y = cy
+                    } else if (this.sprite.y > cy) {
+                        this.sprite.vy = -this.speed
+                    } else if (this.sprite.y < cy) {
+                        this.sprite.vy = this.speed
+                    }
+                } else {
+                    if (this.crossedX) {
+                        this.sprite.x = cx
+                    } else if (this.sprite.x > cx) {
+                        this.sprite.vx = -this.speed
+                    } else if (this.sprite.x < cx) {
+                        this.sprite.vx = this.speed
+                    }
+                }
+            } else {
+                switch (this.dir) {
+                    case Direction.Up:
+                    case Direction.Down:
+                        this.sprite.x = cx
+                        break
+                    case Direction.Left:
+                    case Direction.Right:
+                        this.sprite.y = cy
+                        break
+                }
             }
         }
 
         setImage() {
             this.images.apply(this.sprite, this.dir)
-        }
-
-        reset() {
-            this.setVisible(false)
         }
 
         place() {
@@ -188,8 +216,21 @@ namespace maze {
                 }
             }
 
+            let canChangeDir = false
+            if (this.fastTurn)  {
+                const cx = this.tile.cx
+                const cy = this.tile.cy
+                if (this.dir == Direction.Left || this.dir == Direction.Right) {
+                    canChangeDir = (cx - 4 <= this.x && this.x <= cx + 4)
+                } else {
+                    canChangeDir = (cy - 4 <= this.y && this.y <= cy + 4)
+                }
+            } else {
+                canChangeDir = this.crossedTile
+            }
+
             // Apply requested direction if it's possible
-            if ((stopped || this.crossedTile) && this.isDirectionValid(this.request)) {
+            if ((stopped || canChangeDir) && this.isDirectionValid(this.request)) {
                 this.dir = this.request
                 this.request = Direction.None
             }
