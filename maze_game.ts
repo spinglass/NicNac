@@ -51,6 +51,13 @@ namespace maze {
         }
 
         bootFlow() {
+            // check for version change
+            const version = settings.readNumber("maze_version")
+            if (version != level.version) {
+                settings.clear()
+                settings.writeNumber("maze_version", level.version)
+            }
+
             const result = ask("Welcome to NicNac", "Select difficulty", "A = Easy, B = Hard")
             this.difficulty = result ? Difficulty.Easy : Difficulty.Hard
 

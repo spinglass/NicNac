@@ -1,6 +1,7 @@
 namespace maze {
     export class Level {
         // game settings
+        version: number         // high-scores will reset on version change
         lives: number
         scorePill: number
         scorePower: number
@@ -27,6 +28,7 @@ namespace maze {
         immortal: boolean
 
         init() {
+            this.version = 1
             this.lives = 3
             this.scorePill = 10
             this.scorePower = 50
