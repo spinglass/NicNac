@@ -123,7 +123,7 @@ namespace maze {
                     } else if (this.sprite.y < cy) {
                         this.sprite.vy = this.speed
                     }
-                } else {
+                } else if (this.dir == Direction.Up || this.dir == Direction.Down) {
                     if (this.crossedX) {
                         this.sprite.x = cx
                     } else if (this.sprite.x > cx) {
