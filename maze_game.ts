@@ -97,7 +97,7 @@ namespace maze {
         }
 
         private freezeHero(time: number) {
-            hero.mover.setFreeze(true)
+            hero.mover.setFreeze(true, false)
             events.fireLater(Event.DefrostHero, time)
         }
 

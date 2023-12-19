@@ -251,7 +251,7 @@ namespace maze {
             this.sprite.y = Math.constrain(this.sprite.y, miny, maxy)
         }
 
-        setFreeze(freeze: boolean) {
+        setFreeze(freeze: boolean, freezeImages: boolean = true) {
             this.frozen = freeze
             if (freeze) {
                 this.fvx = this.sprite.vx
@@ -262,7 +262,9 @@ namespace maze {
                 this.sprite.vx = this.fvx
                 this.sprite.vy = this.fvy
             }
-            this.images.setFreeze(freeze)
+            if (freezeImages) {
+                this.images.setFreeze(freeze)
+            }
         }
 
         isReady(): boolean {
