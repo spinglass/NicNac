@@ -83,8 +83,8 @@ namespace maze
         }
     }
 
-    export function askOptions(header: string, options: string[]): number {
-        let choice = 0
+    export function askOptions(header: string, options: string[], defaultChoice: number = 0): number {
+        let choice = Math.min(defaultChoice, options.length - 1)
 
         controller._setUserEventsEnabled(false);
         control.pushEventContext();

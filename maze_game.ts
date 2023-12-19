@@ -57,9 +57,14 @@ namespace maze {
                 settings.clear()
                 settings.writeNumber("maze_version", level.version)
             }
-
-            const result = askOptions("Select difficulty", ["Easy", "Hard"])
+            
+            let defaultDiffulty = settings.readNumber("maze_difficulty")
+            if (!defaultDiffulty) {
+                defaultDiffulty = Difficulty.Easy
+            }
+            const result = askOptions("Select difficulty", ["Easy", "Hard"], defaultDiffulty - 1)
             this.difficulty = result + 1
+            settings.writeNumber("maze_difficulty", this.difficulty)
 
             // get high-score for difficulty
             const diff = difficultyString(this.difficulty)
