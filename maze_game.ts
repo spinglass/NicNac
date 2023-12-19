@@ -58,8 +58,8 @@ namespace maze {
                 settings.writeNumber("maze_version", level.version)
             }
 
-            const result = ask("Welcome to NicNac", "Select difficulty", "A = Easy, B = Hard")
-            this.difficulty = result ? Difficulty.Easy : Difficulty.Hard
+            const result = askOptions("Select difficulty", ["Easy", "Hard"])
+            this.difficulty = result + 1
 
             // get high-score for difficulty
             const diff = difficultyString(this.difficulty)
@@ -73,7 +73,7 @@ namespace maze {
             info.setScore(0)
             info.setLife(level.lives)
 
-            show("You chose: " + diff, "High score: " + highScore, " ", 2)
+            showForTime([diff, "High score: " + highScore], null, 2)
         }
 
         initLevel() {
@@ -277,7 +277,7 @@ namespace maze {
             }
 
             if (controller.A.isPressed() || controller.B.isPressed()) {
-                ask("NicNac", "Game paused", "Press A to continue")
+                show("Game paused")
                 this.pause(1.0)
             }
         }
