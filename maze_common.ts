@@ -22,17 +22,17 @@ namespace maze {
         return null
     }
 
-    export enum Difficulty {
+    export enum Mode {
         None,
         Easy,
         Hard,
     }
 
-    export function difficultyString(diff: Difficulty) {
-        switch (diff) {
-            case Difficulty.None: return "None"
-            case Difficulty.Easy: return "Easy"
-            case Difficulty.Hard: return "Hard"
+    export function modeString(mode: Mode) {
+        switch (mode) {
+            case Mode.None: return "None"
+            case Mode.Easy: return "Easy"
+            case Mode.Hard: return "Hard"
         }
         return null
     }

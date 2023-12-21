@@ -222,7 +222,10 @@ namespace maze {
             return false
         }
 
-        init(tilemap: tiles.TileMapData) {
+        initLevel() {
+            const tilemap = helpers.getTilemapByName(level.mapName)
+            scene.setTileMapLevel(tilemap)
+
             this.w = tilemap.width
             this.h = tilemap.height
             this.flags.length = (this.w * this.h)
@@ -257,7 +260,7 @@ namespace maze {
             this.fruit = this.initPosition(MapFlags.Fruit)
         }
 
-        initLevel() {
+        resetLevel() {
             for (let i = 0; i < this.flags.length; ++i) {
                 const tile = this.getTile(i)
                 const loc = tiles.getTileLocation(tile.tx, tile.ty)

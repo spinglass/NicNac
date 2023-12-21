@@ -6,7 +6,7 @@ namespace maze {
         chaserMode: ChaserMode
         chaserEatCount: number
         chaserWarn: boolean
-        difficulty: Difficulty
+        mode: Mode
         levelIndex: number
         freeze: boolean
 
@@ -17,7 +17,7 @@ namespace maze {
             this.pillsRemaining = 0
             this.pillsEaten = 0
             this.levelComplete = false
-            this.difficulty = Difficulty.None
+            this.mode = Mode.None
             this.levelIndex = 0
             this.freeze = true
 
@@ -46,23 +46,23 @@ namespace maze {
                 settings.writeNumber("maze_version", level.version)
             }
 
-            let defaultDiffulty = settings.readNumber("maze_difficulty")
-            if (!defaultDiffulty) {
-                defaultDiffulty = Difficulty.Easy
+            let defaultMode = settings.readNumber("maze_mode")
+            if (!defaultMode) {
+                defaultMode = Mode.Easy
             }
-            const result = askOptions("Select difficulty", ["Easy", "Hard"], defaultDiffulty - 1)
-            this.difficulty = result + 1
-            settings.writeNumber("maze_difficulty", this.difficulty)
+            const result = askOptions("Select mode", ["Easy", "Hard"], defaultMode - 1)
+            this.mode = result + 1
+            settings.writeNumber("maze_mode", this.mode)
 
-            // get high-score for difficulty
-            const diff = difficultyString(this.difficulty)
+            // get high-score for mode
+            const diff = modeString(this.mode)
             let highScore = settings.readNumber("high_score_" + diff)
             if (!highScore) {
                 highScore = 0
             }
             settings.writeNumber("high-score", highScore)
 
-            level.initLevel(this.difficulty, 0)
+            level.initLevel(this.mode, 0)
             info.setScore(0)
             info.setLife(level.lives)
 
@@ -72,16 +72,7 @@ namespace maze {
         }
 
         initLevel() {
-            scene.cameraFollowSprite(hero.mover.sprite)
-
-            level.initLevel(this.difficulty, this.levelIndex)
-
-            this.pillsEaten = 0
-            this.pillsRemaining = map.pillCount
-            this.levelComplete = false
-            this.chaserEatCount = 0
-            this.chaserWarn = false
-
+            level.initLevel(this.mode, this.levelIndex)
             map.initLevel()
             hero.initLevel()
             for (const chaser of chasers) {
@@ -89,8 +80,16 @@ namespace maze {
             }
             fruit.initLevel(this.levelIndex)
 
+            this.pillsEaten = 0
+            this.pillsRemaining = map.pillCount
+            this.levelComplete = false
+            this.chaserEatCount = 0
+            this.chaserWarn = false
+
             events.cancelAll()
             events.fireLater(Event.LevelStart, 0)
+
+            scene.cameraFollowSprite(hero.mover.sprite)
         }
 
         private pause(time: number) {
@@ -201,8 +200,8 @@ namespace maze {
         }
 
         private saveHighScore(): boolean {
-            // check the high score for the difficulty
-            const diff = "high_score_" + difficultyString(this.difficulty)
+            // check the high score for the mode
+            const diff = "high_score_" + modeString(this.mode)
             const highScore = settings.readNumber(diff)
             const score = info.score()
             if (!highScore || score > highScore) {

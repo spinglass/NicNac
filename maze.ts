@@ -40,19 +40,21 @@ namespace maze {
         fruit.init()
     }
 
-    //% blockId=maze_set_tilema
-    //% block="set maze to $tilemap"
+    //% blockId=maze_add_tilemap
+    //% block="add $tilemap"
     //% tilemap.fieldEditor="tilemap"
     //% tilemap.fieldOptions.decompileArgumentAsString="true"
     //% tilemap.fieldOptions.filter="tile"
     //% tilemap.fieldOptions.taggedTemplate="tilemap"
     //% tilemap.fieldOptions.tileWidth=8
-    export function setTilemap(tilemap: tiles.TileMapData) {
+    export function add(tilemap: tiles.TileMapData) {
+        // no nothing - this function is simply a way to expose the correct tile map editor
+    }
+
+    //% blockId=maze_run
+    //% block="run the game"
+    export function run() {
         mazeInit()
-
-        scene.setTileMapLevel(tilemap)
-        map.init(tilemap)
-
         runner.bootFlow()
     }
 }

@@ -1,1 +1,2 @@
-maze.setTilemap(tilemap`maze`)
+maze.add(tilemap`maze_standard`)
+maze.run()

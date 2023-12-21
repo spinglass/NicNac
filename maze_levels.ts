@@ -3,6 +3,7 @@ namespace maze {
         // game settings
         version: number         // high-scores will reset on version change
         lives: number
+        mapName: string
         scorePill: number
         scorePower: number
         scoreFruit: number[]
@@ -30,6 +31,7 @@ namespace maze {
         init() {
             this.version = 1
             this.lives = 3
+            this.mapName = "maze_standard"
             this.scorePill = 10
             this.scorePower = 50
             this.scoreFruit = [200, 400, 600, 800, 1000, 1200, 1400, 1600, 1800, 2000]
@@ -53,12 +55,12 @@ namespace maze {
             this.immortal = false
         }
 
-        initLevel(difficulty: Difficulty, index: number) {
+        initLevel(mode: Mode, index: number) {
             this.init()
 
-            switch (difficulty) {
-                case Difficulty.Easy: return this.initEasy(index)
-                case Difficulty.Hard: return this.initHard(index)
+            switch (mode) {
+                case Mode.Easy: return this.initEasy(index)
+                case Mode.Hard: return this.initHard(index)
             }
         }
 
