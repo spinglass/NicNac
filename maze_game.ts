@@ -72,7 +72,7 @@ namespace maze {
             if (!highScore) {
                 highScore = 0
             }
-            settings.writeNumber("high_score", highScore)
+            settings.writeNumber("high-score", highScore)
 
             level.initLevel(this.difficulty, 0)
             info.setScore(0)
