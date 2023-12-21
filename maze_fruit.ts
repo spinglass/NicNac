@@ -3,20 +3,34 @@ namespace maze {
         sprite: Sprite
         visible: boolean
         count: number           // total fruit eaten
+        fruitNames: string[]
 
         constructor() {
         }
 
         init() {
-            this.sprite = sprites.create(assets.image`fruit`)
+            this.fruitNames = [
+                "fruit_cherries",
+                "fruit_strawberry",
+                "fruit_lemon",
+                "fruit_apple",
+                "fruit_pizza",
+                "fruit_cake"
+                ]
+            const img = helpers.getImageByName(this.fruitNames[0])
+            this.sprite = sprites.create(img)
             this.setVisible(false)
             this.count = 0
         }
 
-        initLevel() {
+        initLevel(levelIndex: number) {
             this.setVisible(false)
             this.sprite.x = map.fruit.x
             this.sprite.y = map.fruit.y
+
+            const i = (levelIndex % this.fruitNames.length)
+            const img = helpers.getImageByName(this.fruitNames[i])
+            this.sprite.setImage(img)
 
             events.register(Event.EatFruit, () => this.setVisible(false))
             events.register(Event.FruitDespawn, () => this.setVisible(false))

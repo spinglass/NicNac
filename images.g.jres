@@ -4,11 +4,6 @@
         "mimeType": "image/x-mkcd-f4",
         "displayName": "boing"
     },
-    "image6": {
-        "data": "hwQQABAAAAAAAODuDAAAAAAALiLCAAAAAOBC4i4MAAAA4CXi7uIAAADgJCLiwgAAAOAiIuLCAAAAyC4iIu4AAABoLCLizswAAGjI7C4i4gxghwDgQiLuzmCHAOAlIu7CdggA4CQi4sJ2iGbIIiLiwnZ2d2YsIu7CdoiIiMgiIgyGCAAAAO7MAA==",
-        "mimeType": "image/x-mkcd-f4",
-        "displayName": "fruit"
-    },
     "image28": {
         "data": "hwQQABAAAAAAAAAAAAAAAAAAAICIiIgIAACIiIiNiAAAgIiI2IgIAACIiN2IjYgAAIiI3diIiAiAiIiIiI2ICICIiIjYiAgAgIiIiNiICACAiIiIiI2ICACIiN3YiIgIAIiI3YiNiAAAgIiI2IgIAAAAiIiIjYgAAAAAgIiIiAgAAAAAAAAAAA==",
         "mimeType": "image/x-mkcd-f4",
@@ -328,6 +323,36 @@
         "data": "hwQQABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQiAAAAAAAABGIAQAAAAAAEREBAAAAAAAQEQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQiAAAAAAAABGIAQAAAAAAEREBAAAAAAAQEQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
         "mimeType": "image/x-mkcd-f4",
         "displayName": "eyes_left0"
+    },
+    "image6": {
+        "data": "hwQQABAAAAAAAODuDAAAAAAALiLCAAAAAOBC4i4MAAAA4CXi7uIAAADgJCLiwgAAAOAiIuLCAAAAyC4iIu4AAABoLCLizswAAGjI7C4i4gxghwDgQiLuzmCHAOAlIu7CdggA4CQi4sJ2iGbIIiLiwnZ2d2YsIu7CdoiIiMgiIgyGCAAAAO7MAA==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "fruit_cherries"
+    },
+    "image24": {
+        "data": "hwQQABAAAAAAAADu7u7uDgAA7iIiIu7OAOAiREQk4s4ALkJFIiLuwgAuRCIiIiLOAC4kIkIi4s6AKGJmJiIkzGbod3cmIiLOYIZ3ZyJC4gwAZncmQuLuDABgZyIiIu4MAHZ3Zy7izgBgZ2h35+4MAIAIhnZ3zAAAAACAYGYGAAAAAAAAAAAAAA==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "fruit_strawberry"
+    },
+    "image25": {
+        "data": "hwQQABAAAABEC7DMzAAAAFS0S91EzAAAVFVdRdVEDABAVVVVVdXEAEBRVVVFVUQMVFVVVV1FTQxUEVVV1VVEy1QRVVVV3UTEVFFVVVVNRMRUVVVVVU1ExEAVVVVV1UTLQBVRVVVVTcsAVBFVVVVdtABAVRVVVVW1AABEVVVFXUQAAABERMtMBA==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "fruit_lemon"
+    },
+    "image26": {
+        "data": "hwQQABAAAAAAAMDMzAwAAADA7O7u7gIAAOzu7u7uLgAA7u4iIuLuAuDuLiIiIuIC4O4iIiIiIi7g7i4iIiIiLs7MLCIiIiLkfGcsIiIiIuR37iIiIiIi5ODiRCIiIkLi4CJVJCIiQg4ALlQkIiIkDgAuIiIiROIAAOAuIiLiDgAAAODu7g4AAA==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "fruit_apple"
+    },
+    "image27": {
+        "data": "hwQQABAAAAAAAAAAAAC7RAAAAAAAu11NAAAAALsjU00AAAC7XSJSTQAAu11XI10EALA9MlVV1QS7SyUiVVfVBEu7NTJVVUUAS7RVVSNTTQBLtFRXIlJNALBES1UjU00AAEvkVFXVBAAAsETuVd0EAAAAS+Te7QAAAACw5O5OAAAAAADu7gQAAA==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "fruit_pizza"
+    },
+    "image71": {
+        "data": "hwQQABAAAAAAALC7u7sLAAAAsLM9MwsAAAA7s9XTCwAAADuz1VOzAACwM71VU70AALAzvVVTtQAAOzO9XTM1CwA7Mz1bPdULsO4z01s1VQvgIz7TWzVVC+siPtNaNVWzO+4z09o9Vb07MzPT2r3dvbA6M93avd2tAKA6Pdq9O6sAAKCqqqqqCg==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "fruit_cake"
     },
     "*": {
         "mimeType": "image/x-mkcd-f4",
