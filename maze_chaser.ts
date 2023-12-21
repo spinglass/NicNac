@@ -64,7 +64,7 @@ namespace maze {
             this.baseCentre = map.baseCentre
             this.release = false
             this.reverse = false
-            this.place()
+            this.resetLevel()
         }
 
         private isDirectionValid(dir: Direction): boolean {
@@ -421,7 +421,7 @@ namespace maze {
             this.warn = warn
         }
 
-        place() {
+        resetLevel() {
             this.mover.placeAtPos(this.home.x, this.home.y)
             this.mover.setImage()
             this.mode = ChaserMode.Wait

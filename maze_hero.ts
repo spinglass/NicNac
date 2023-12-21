@@ -95,7 +95,7 @@ namespace maze {
             }
         }
 
-        place() {
+        resetLevel() {
             this.mover.place()
             this.mover.setImage()
         }

@@ -36,6 +36,12 @@ namespace maze {
             events.register(Event.FruitDespawn, () => this.setVisible(false))
         }
 
+        resetLevel() {
+            // if fruit was spawned, the despawn event is cancelled at the restart
+            // so re-fire the event with a new time
+            events.fireLater(Event.FruitDespawn, level.timeFruitDespawn / 2)
+        }
+
         private setVisible(visible: boolean) {
             this.visible = visible
             this.sprite.setFlag(SpriteFlag.Ghost, !visible)

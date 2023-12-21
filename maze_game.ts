@@ -40,7 +40,7 @@ namespace maze {
             events.register(Event.EatPower, () => this.eat(Event.EatPower))
             events.register(Event.EatFruit, () => this.eat(Event.EatFruit))
             events.register(Event.EatChaser, () => this.eat(Event.EatChaser))
-            events.register(Event.LevelStart, () => this.levelStart())
+            events.register(Event.LevelStart, () => this.resetLevel())
             events.register(Event.LevelNext, () => this.levelNext())
             events.register(Event.Defrost, () => this.setFreeze(false))
             events.register(Event.DefrostHero, () => this.defrostHero())
@@ -232,18 +232,20 @@ namespace maze {
             }
         }
 
-        private levelStart() {
+        private resetLevel() {
             // set mode
             this.setChaserMode(ChaserMode.Scatter)
             events.fireLater(Event.ChaserEndMode, level.timeScatter)
             this.chaserEatCount = 0
 
-            hero.place()
+            hero.resetLevel()
             for (let i = 0; i < chasers.length; ++i) {
                 const chaser = chasers[i]
-                chaser.place()
+                chaser.resetLevel()
             }
             this.updateRelease()
+            fruit.resetLevel()
+
             this.pause(1.5)
         }
 
