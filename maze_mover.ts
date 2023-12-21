@@ -206,7 +206,7 @@ namespace maze {
 
             if (this.dir != Direction.None) {
                 // Can reverse direction at any time
-                if (this.dir == opposite(this.request)) {
+                if (this.dir == directionOpposite(this.request)) {
                     this.dir = this.request
                     this.request = Direction.None
                 }

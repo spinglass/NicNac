@@ -23,7 +23,6 @@ namespace maze {
                     break
                 }
             }
-            console.log(name + ":" + images.length)
             return (images.length > 0) ? images : null
         }
 

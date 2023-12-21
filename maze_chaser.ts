@@ -69,7 +69,7 @@ namespace maze {
 
         private isDirectionValid(dir: Direction): boolean {
             // check can move that direction and its now the opposite to current
-            return (this.mover.isDirectionValid(dir) && this.mover.dir != opposite(dir))
+            return (this.mover.isDirectionValid(dir) && this.mover.dir != directionOpposite(dir))
         }
 
         private checkNone(): boolean {
@@ -145,10 +145,10 @@ namespace maze {
             let dirs: Direction[]
             if (Math.abs(dx) > Math.abs(dy)) {
                 // Want to right direction in x then y
-                dirs = [dirX, dirY, opposite(dirY), opposite(dirX)]
+                dirs = [dirX, dirY, directionOpposite(dirY), directionOpposite(dirX)]
             } else {
                 // Want to right direction in y then x
-                dirs = [dirY, dirX, opposite(dirX), opposite(dirY)]
+                dirs = [dirY, dirX, directionOpposite(dirX), directionOpposite(dirY)]
             }
 
             // request the first direction that is allowed
@@ -217,7 +217,7 @@ namespace maze {
         private doReverse(): boolean {
             if (this.mover.changedTile && this.reverse) {
                 this.reverse = false
-                const rev = opposite(this.mover.dir)
+                const rev = directionOpposite(this.mover.dir)
                 if (this.mover.isDirectionValid(rev)) {
                     this.mover.request = rev
                     return true

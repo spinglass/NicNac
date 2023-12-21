@@ -52,8 +52,8 @@ namespace maze {
             this.timedEvents = []
         }
 
-        init(time: number) {
-            this.time = time
+        init() {
+            this.time = game.runtime()
         }
 
         private callHandlers(event: Event) {
@@ -87,10 +87,12 @@ namespace maze {
 
             // set the time (overrides any previous fire request)
             timedEvent.time = this.time + (delaySeconds * 1000)
+
+            console.log("fireLater:" + event + ":" + timedEvent.time)
         }
 
-        fireTimedEvents(time: number) {
-            this.time = time
+        fireTimedEvents() {
+            this.time = game.runtime()
             
             // find any events that are due
             for (const te of this.timedEvents) {

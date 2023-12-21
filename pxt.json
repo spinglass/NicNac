@@ -19,13 +19,14 @@
         "maze_map.ts",
         "maze_mover.ts",
         "maze_audio.ts",
-        "maze_game.ts",
         "maze_events.ts",
         "maze_fruit.ts",
         "maze_chaser.ts",
         "maze_ui.ts",
         "maze_levels.ts",
-        "maze_image.ts"
+        "maze_image.ts",
+        "maze_runner.ts",
+        "maze_common.ts"
     ],
     "testFiles": [
         "test.ts"
