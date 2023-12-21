@@ -50,8 +50,8 @@ namespace maze {
             this.speedChaserTunnel = 40
             this.speedChaserWait = 50
 
-            this.speedHero = 80
-            this.speedHeroFright = 90
+            this.speedHero = 50
+            this.speedHeroFright = 60
             this.immortal = false
         }
 
@@ -153,7 +153,22 @@ namespace maze {
         private initMouthman(index: number) {
             console.log("mouthman:" + index)
 
-            this.mapName = "maze_mm0"
+            this.speedChaser = 60
+            this.speedChaserFright = 40
+            this.speedChaserTunnel = 30
+            this.speedHero = 70
+            this.speedHeroFright = 75
+            this.timeFright = 10
+            this.timeWarn = 8
+
+            switch (index) {
+                case 0:
+                    this.mapName = "maze_standard"
+                    break
+                case 1:
+                    this.mapName = "maze_mm0"
+                    break
+            }
         }
     }
 }

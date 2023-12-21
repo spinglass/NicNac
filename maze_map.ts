@@ -232,6 +232,11 @@ namespace maze {
             }
             scene.setTileMapLevel(tilemap)
 
+            this.flags = []
+            this.bases = []
+            this.scatterTargets = []
+            this.pillCount = 0
+
             this.w = tilemap.width
             this.h = tilemap.height
             this.flags.length = (this.w * this.h)
