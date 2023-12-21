@@ -12,7 +12,7 @@ namespace maze {
             this.fruitNames = [
                 "fruit_cherries",
                 "fruit_strawberry",
-                "fruit_lemon",
+                "fruit_orange",
                 "fruit_apple",
                 "fruit_pizza",
                 "fruit_cake"
