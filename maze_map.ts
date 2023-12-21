@@ -224,6 +224,12 @@ namespace maze {
 
         initLevel() {
             const tilemap = helpers.getTilemapByName(level.mapName)
+            if (tilemap) {
+                console.log("Map [" + level.mapName + "] loaded")
+            }
+            else {
+                console.error("ERROR: Map [" + level.mapName + "] not found")
+            }
             scene.setTileMapLevel(tilemap)
 
             this.w = tilemap.width

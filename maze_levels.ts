@@ -61,6 +61,7 @@ namespace maze {
             switch (mode) {
                 case Mode.Easy: return this.initEasy(index)
                 case Mode.Hard: return this.initHard(index)
+                case Mode.MouthMan: return this.initMouthman(index)
             }
         }
 
@@ -147,6 +148,12 @@ namespace maze {
                     this.timeWarn = 3
                     break
             }
+        }
+
+        private initMouthman(index: number) {
+            console.log("mouthman:" + index)
+
+            this.mapName = "maze_mm0"
         }
     }
 }

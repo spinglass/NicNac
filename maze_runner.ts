@@ -50,13 +50,13 @@ namespace maze {
             if (!defaultMode) {
                 defaultMode = Mode.Easy
             }
-            const result = askOptions("Select mode", ["Easy", "Hard"], defaultMode - 1)
+            const result = askOptions("Select mode", ["Easy", "Hard", "Mouth-Man"], defaultMode - 1)
             this.mode = result + 1
             settings.writeNumber("maze_mode", this.mode)
 
             // get high-score for mode
-            const diff = modeString(this.mode)
-            let highScore = settings.readNumber("high_score_" + diff)
+            const modeName = modeString(this.mode)
+            let highScore = settings.readNumber("high_score_" + modeName)
             if (!highScore) {
                 highScore = 0
             }
@@ -66,7 +66,7 @@ namespace maze {
             info.setScore(0)
             info.setLife(level.lives)
 
-            showForTime([diff, "High score: " + highScore], null, 2)
+            showForTime([modeName, "High score: " + highScore], null, 2)
 
             this.initLevel()
         }
@@ -222,7 +222,6 @@ namespace maze {
         }
 
         private resetLevel() {
-            console.log("resetLevel")
             // set mode
             this.setChaserMode(ChaserMode.Scatter)
             events.fireLater(Event.ChaserEndMode, level.timeScatter)

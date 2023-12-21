@@ -87,8 +87,6 @@ namespace maze {
 
             // set the time (overrides any previous fire request)
             timedEvent.time = this.time + (delaySeconds * 1000)
-
-            console.log("fireLater:" + event + ":" + timedEvent.time)
         }
 
         fireTimedEvents() {

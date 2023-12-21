@@ -19,13 +19,14 @@ namespace maze {
             case Direction.Down: return "down"
             case Direction.Left: return "left"
         }
-        return null
+        return ""
     }
 
     export enum Mode {
         None,
         Easy,
         Hard,
+        MouthMan,
     }
 
     export function modeString(mode: Mode) {
@@ -33,7 +34,8 @@ namespace maze {
             case Mode.None: return "None"
             case Mode.Easy: return "Easy"
             case Mode.Hard: return "Hard"
+            case Mode.MouthMan: return "MouthMan"
         }
-        return null
+        return ""
     }
 }
