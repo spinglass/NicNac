@@ -298,7 +298,7 @@ namespace maze {
                 //this is a tunnel, find the other end,
                 // assumed to be another tunnel tile with either the same tx or ty
                 for (const tunnel of this.tunnels) {
-                    if ((tunnel.tx == tile.tx && tunnel.ty != tile.ty) || (tunnel.tx != tile.tx && tunnel.ty == tile.ty))
+                    if (tunnel.tx != tile.tx && tunnel.ty == tile.ty)
                     {
                         return tunnel
                     }
