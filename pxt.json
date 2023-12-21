@@ -3,7 +3,8 @@
     "version": "1.8.6",
     "description": "",
     "dependencies": {
-        "device": "*"
+        "device": "*",
+        "palette": "*"
     },
     "files": [
         "main.blocks",
@@ -50,8 +51,8 @@
         "#78DC52",
         "#003FAD",
         "#87F2FF",
-        "#8E2EC4",
-        "#A4839F",
+        "#003FAD",
+        "#89A9E1",
         "#5C406c",
         "#E5CDC4",
         "#91463d",

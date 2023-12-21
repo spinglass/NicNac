@@ -28,6 +28,10 @@ namespace maze {
         speedHeroFright: number
         immortal: boolean
 
+        // maze settings
+        color1: number
+        color2: number
+
         init() {
             this.version = 1
             this.lives = 3
@@ -53,6 +57,9 @@ namespace maze {
             this.speedHero = 50
             this.speedHeroFright = 60
             this.immortal = false
+
+            this.color1 = 0x003fad
+            this.color2 = 0x000804
         }
 
         initLevel(mode: Mode, index: number) {
@@ -162,11 +169,21 @@ namespace maze {
             this.timeWarn = 8
 
             switch (index) {
+                default:
                 case 0:
                     this.mapName = "maze_standard"
+                    this.color1 = 0x0070fe
+                    this.color2 = 0x000804
                     break
                 case 1:
+                    this.mapName = "maze_standard"
+                    this.color1 = 0x00e0fe
+                    this.color2 = 0x0074fd
+                    break
+                case 2:
                     this.mapName = "maze_mm0"
+                    this.color1 = 0x95e702
+                    this.color2 = 0x2f9401
                     break
             }
         }

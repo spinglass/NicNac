@@ -222,6 +222,13 @@ namespace maze {
             return false
         }
 
+        private initColor() {
+            const pal = palette.defaultPalette()
+            pal.setColor(10, level.color1)
+            pal.setColor(11, level.color2)
+            image.setPalette(pal.buf)
+        }
+
         initLevel() {
             const tilemap = helpers.getTilemapByName(level.mapName)
             if (tilemap) {
@@ -269,20 +276,8 @@ namespace maze {
         
             // fruits position
             this.fruit = this.initPosition(MapFlags.Fruit)
-        }
 
-        resetLevel() {
-            for (let i = 0; i < this.flags.length; ++i) {
-                const tile = this.getTile(i)
-                const loc = tiles.getTileLocation(tile.tx, tile.ty)
-                if (this.flags[i] & MapFlags.PillTile) {
-                    this.flags[i] |= MapFlags.Pill
-                    tiles.setTileAt(loc, assets.tile`tile_pill`)
-                } else if (this.flags[i] & MapFlags.PowerTile) {
-                    this.flags[i] |= MapFlags.Power
-                    tiles.setTileAt(loc, assets.tile`tile_power`)
-                }
-            }
+            this.initColor()
         }
 
         eatPill(tile: Tile):  boolean {
