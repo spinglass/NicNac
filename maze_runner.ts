@@ -272,10 +272,13 @@ namespace maze {
             events.fireTimedEvents()
 
             if (controller.A.isPressed() || controller.B.isPressed()) {
-                this.setFreeze(true)
-                events.fireLater(Event.LevelNext, 1)
-                //show("Game paused")
-                //this.pause(1.0)
+                if (level.levelSkip) {
+                    this.setFreeze(true)
+                    events.fireLater(Event.LevelNext, 1)
+                } else {
+                    show("Game paused")
+                    this.pause(1.0)
+                }
             }
             
             if (this.freeze) {

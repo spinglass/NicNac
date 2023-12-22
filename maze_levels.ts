@@ -1,5 +1,9 @@
 namespace maze {
     export class Level {
+        // cheats
+        immortal: boolean
+        levelSkip: boolean
+
         // game settings
         version: number         // high-scores will reset on version change
         lives: number
@@ -26,13 +30,15 @@ namespace maze {
         // hero settings
         speedHero: number
         speedHeroFright: number
-        immortal: boolean
 
         // maze settings
         color1: number
         color2: number
 
         init() {
+            this.immortal = false
+            this.levelSkip = false
+
             this.version = 1
             this.lives = 3
             this.mapName = "maze_standard"
@@ -56,7 +62,6 @@ namespace maze {
 
             this.speedHero = 50
             this.speedHeroFright = 60
-            this.immortal = false
 
             this.color1 = 0x003fad
             this.color2 = 0x000804
@@ -173,7 +178,7 @@ namespace maze {
                 case 0:
                     this.mapName = "maze_standard"
                     this.color1 = 0x0070fe
-                    this.color2 = 0x000804
+                    this.color2 = 0x001280
                     break
                 case 1:
                     this.mapName = "maze_standard"
