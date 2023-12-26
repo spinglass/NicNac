@@ -27,6 +27,7 @@ namespace maze {
         Easy,
         Hard,
         MouthMan,
+        GhostRevenge,
     }
 
     export function modeString(mode: Mode) {
@@ -35,6 +36,7 @@ namespace maze {
             case Mode.Easy: return "Easy"
             case Mode.Hard: return "Hard"
             case Mode.MouthMan: return "MouthMan"
+            case Mode.GhostRevenge: return "GhostRevenge"
         }
         return ""
     }

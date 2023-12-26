@@ -28,7 +28,8 @@
         "maze_image.ts",
         "maze_runner.ts",
         "maze_common.ts",
-        "maze_runner_standard.ts"
+        "maze_runner_standard.ts",
+        "maze_runner_revenge.ts"
     ],
     "testFiles": [
         "test.ts"

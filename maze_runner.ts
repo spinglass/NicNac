@@ -3,7 +3,7 @@ namespace maze {
         mode: Mode
         levelIndex: number
         freeze: boolean
-        standard: RunnerStandard
+        modeRunner: any
 
         constructor() {
         }
@@ -26,11 +26,6 @@ namespace maze {
             game.onUpdate(() => this.update())
         }
 
-        initStandard() {
-            this.standard = new RunnerStandard()
-            this.standard.init()
-        }
-
         bootFlow() {
             this.init()
 
@@ -45,7 +40,7 @@ namespace maze {
             if (!defaultMode) {
                 defaultMode = Mode.Easy
             }
-            const result = askOptions("Select mode", ["Easy", "Hard", "Mouth-Man"], defaultMode - 1)
+            const result = askOptions("Select mode", ["Easy", "Hard", "Mouth-Man", "Ghost Revenge"], defaultMode - 1)
             this.mode = result + 1
             settings.writeNumber("maze_mode", this.mode)
 
@@ -59,7 +54,15 @@ namespace maze {
             showForTime([modeName, "High score: " + highScore], null, 2)
 
             level.initLevel(this.mode, 0)
-            this.initStandard()
+            
+            if (this.mode == Mode.GhostRevenge) {
+                this.modeRunner = new RunnerRevenge()
+            }
+            else {
+                this.modeRunner = new RunnerStandard()
+            }
+            this.modeRunner.init()
+
             this.initLevel()
         }
 
@@ -67,9 +70,7 @@ namespace maze {
             level.initLevel(this.mode, this.levelIndex)
             map.initLevel()
 
-            if (this.standard) {
-                this.standard.initLevel(this.levelIndex)
-            }
+            this.modeRunner.initLevel(this.levelIndex)
 
             events.cancelAll()
             events.fireLater(Event.LevelStart, 0)
@@ -82,10 +83,7 @@ namespace maze {
 
         setFreeze(freeze: boolean) {
             this.freeze = freeze
-
-            if (this.standard) {
-                this.standard.setFreeze(freeze)
-            }
+            this.modeRunner.setFreeze(freeze)
         }
 
         endLevel() {
@@ -116,10 +114,7 @@ namespace maze {
         }
 
         private resetLevel() {
-            if (this.standard) {
-                this.standard.resetLevel()
-            }
-
+            this.modeRunner.resetLevel()
             this.pause(1.5)
         }
 
@@ -144,9 +139,7 @@ namespace maze {
             
             if (!this.freeze) {
                 // Update the game mode
-                if (this.standard) {
-                    this.standard.update()
-                }
+                this.modeRunner.update()
 
                 // finally fire frame events
                 events.fireFrameEvents()
