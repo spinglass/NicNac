@@ -179,7 +179,9 @@ namespace maze {
                 case ChaserMode.Scatter:
                 case ChaserMode.Fright:
                     this.setChaserMode(ChaserMode.Chase)
-                    events.fireLater(Event.ChaserEndMode, level.timeChase)
+                    if (level.enableScatter) {
+                        events.fireLater(Event.ChaserEndMode, level.timeChase)
+                    }
                     break
                 case ChaserMode.Chase:
                     this.setChaserMode(ChaserMode.Scatter)
@@ -223,8 +225,12 @@ namespace maze {
 
         private resetLevel() {
             // set mode
-            this.setChaserMode(ChaserMode.Scatter)
-            events.fireLater(Event.ChaserEndMode, level.timeScatter)
+            if (level.enableScatter) {
+                this.setChaserMode(ChaserMode.Scatter)
+                events.fireLater(Event.ChaserEndMode, level.timeScatter)
+            } else {
+                this.setChaserMode(ChaserMode.Chase)
+            }
             this.chaserEatCount = 0
 
             hero.resetLevel()

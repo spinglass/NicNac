@@ -12,6 +12,7 @@ namespace maze {
         scorePower: number
         scoreFruit: number[]
         scoreChaser: number[]
+        enableScatter: boolean
         timeScatter: number
         timeChase: number
         timeFright: number
@@ -46,6 +47,7 @@ namespace maze {
             this.scorePower = 50
             this.scoreFruit = [200, 400, 600, 800, 1000, 1200, 1400, 1600, 1800, 2000]
             this.scoreChaser = [100, 200, 400, 800]
+            this.enableScatter = true
             this.timeScatter = 7
             this.timeChase = 20
             this.timeFright = 7
@@ -170,8 +172,10 @@ namespace maze {
             this.speedChaserTunnel = 30
             this.speedHero = 70
             this.speedHeroFright = 75
+            this.enableScatter = false
             this.timeFright = 10
             this.timeWarn = 8
+            this.pillReleaseCount = [0, 0, 0, 0]
 
             switch (index) {
                 default:
