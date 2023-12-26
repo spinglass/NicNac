@@ -246,7 +246,7 @@ namespace maze {
 
             this.w = tilemap.width
             this.h = tilemap.height
-            this.flags.length = (this.w * this.h)
+            this.flags = [this.w * this.h]
 
             // find all tiles of interest
             this.initFlagsFromTiles(assets.tile`tile_empty`, MapFlags.Empty)
