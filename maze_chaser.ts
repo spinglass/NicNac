@@ -33,6 +33,7 @@ namespace maze {
         release: boolean
         reverse: boolean
         warn: boolean
+        eaten: boolean
         home: Pos
         baseExit: Pos
         baseCentre: Pos
@@ -189,6 +190,7 @@ namespace maze {
         }
 
         private doExitBase(): boolean {
+            this.eaten = false
             this.mover.updateState()
 
             // return to y center
@@ -400,7 +402,7 @@ namespace maze {
                 }
             } else {
                 this.warn = false
-                if (this.mode == ChaserMode.ReturnToBase || this.mode == ChaserMode.EnterBase) {
+                if (this.eaten) {
                     this.mover.setImages(this.imgReturn)
                 } else {
                     this.mover.setImages(this.img)
@@ -429,11 +431,13 @@ namespace maze {
             this.mover.setImage()
             this.mode = ChaserMode.Wait
             this.waitDir = Direction.Up
-
+            this.warn = false
+            this.eaten = false
         }
 
         doEaten() {
             this.mode = ChaserMode.ReturnToBase
+            this.eaten = true
         }
     }
 }
