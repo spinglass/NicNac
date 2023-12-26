@@ -128,6 +128,11 @@ namespace maze {
                     const tile = this.getTile(i)
                     x += tile.cx
                     y += tile.cy
+
+                    if (f == MapFlags.Fruit) {
+                        console.log("fruit: " + tile.cx + "," + tile.cy)
+                    }
+
                     ++count
                 }
             }
@@ -247,6 +252,7 @@ namespace maze {
             this.w = tilemap.width
             this.h = tilemap.height
             this.flags = [this.w * this.h]
+            this.flags.fill(MapFlags.None)
 
             // find all tiles of interest
             this.initFlagsFromTiles(assets.tile`tile_empty`, MapFlags.Empty)

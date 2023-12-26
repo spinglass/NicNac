@@ -28,16 +28,6 @@ namespace maze {
             new Chaser(ChaserKind.Clyde, 3)
         ]
         fruit = new Fruit()
-
-        runner.init()
-        events.init()
-        level.init()
-        audio.init()
-        hero.init()
-        for (const chaser of chasers) {
-            chaser.init()
-        }
-        fruit.init()
     }
 
     //% blockId=maze_add_tilemap
