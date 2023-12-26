@@ -1,18 +1,28 @@
 namespace maze {
     export class RunnerRevenge {
-
+        pillsEaten: number
+        pillsRemaining: number
+        
         init() {
+            this.pillsRemaining = 0
+            this.pillsEaten = 0
+            
             antiHero.init()
             for (const nom of noms) {
                 nom.init()
             }
 
             events.register(Event.EatChaser, () => this.eatNom())
+            events.register(Event.EatPill, () => this.eatPill())
+            events.register(Event.EatPower, () => this.eatPill())
             
             info.setScore(0)
         }
 
         initLevel(levelIndex: number) {
+            this.pillsEaten = 0
+            this.pillsRemaining = map.pillCount
+            
             antiHero.initLevel()
             for (const nom of noms) {
                 nom.initLevel()
@@ -43,8 +53,12 @@ namespace maze {
         }
 
         private eatNom() {
-            const scoreNom = 100
-            info.changeScoreBy(scoreNom)
+            info.changeScoreBy(10 * this.pillsRemaining)
+        }
+
+        private eatPill() {
+            ++this.pillsEaten
+            --this.pillsRemaining
         }
     }
 }
