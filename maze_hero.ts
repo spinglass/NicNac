@@ -98,7 +98,6 @@ namespace maze {
         resetLevel() {
             this.mover.place()
             this.mover.setImage()
-            console.log("Hero: " + this.mover.x + "," + this.mover.y)
         }
     }
 }

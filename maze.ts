@@ -7,6 +7,7 @@ namespace maze {
     export let map: Map
     export let hero: Hero
     export let chasers: Chaser[]
+    export let antiHero: AntiHero
     export let fruit: Fruit
     
     function mazeInit() {
@@ -27,6 +28,7 @@ namespace maze {
             new Chaser(ChaserKind.Inky, 2),
             new Chaser(ChaserKind.Clyde, 3)
         ]
+        antiHero = new AntiHero()
         fruit = new Fruit()
     }
 
