@@ -2,6 +2,7 @@ namespace maze {
     export class RunnerRevenge {
         pillsEaten: number
         pillsRemaining: number
+        nomsRemaining: number
         
         init() {
             this.pillsRemaining = 0
@@ -22,6 +23,7 @@ namespace maze {
         initLevel(levelIndex: number) {
             this.pillsEaten = 0
             this.pillsRemaining = map.pillCount
+            this.nomsRemaining = noms.length
             
             antiHero.initLevel()
             for (const nom of noms) {
@@ -54,6 +56,18 @@ namespace maze {
 
         private eatNom() {
             info.changeScoreBy(10 * this.pillsRemaining)
+
+            --this.nomsRemaining
+            if (this.nomsRemaining <= 0) {
+                runner.endLevel()
+
+                if (runner.levelIndex >= 1) {
+                    events.fireLater(Event.GameOver, 1.5)
+                } else {
+                    events.fire(Event.LevelComplete)
+                    events.fireLater(Event.LevelNext, 1)
+                }
+            }
         }
 
         private eatPill() {
