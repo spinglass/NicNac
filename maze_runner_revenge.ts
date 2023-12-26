@@ -7,6 +7,8 @@ namespace maze {
                 nom.init()
             }
 
+            events.register(Event.EatChaser, () => this.eatNom())
+            
             info.setScore(0)
         }
 
@@ -38,6 +40,11 @@ namespace maze {
             for (const nom of noms) {
                 nom.mover.setFreeze(freeze)
             }
+        }
+
+        private eatNom() {
+            const scoreNom = 100
+            info.changeScoreBy(scoreNom)
         }
     }
 }

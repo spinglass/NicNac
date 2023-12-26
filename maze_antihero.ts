@@ -43,6 +43,23 @@ namespace maze {
             this.mover.speed = level.speedHero
             this.mover.update()
             this.mover.setImage()
+
+            // Eat noms
+            for (const nom of noms) {
+                if (nom.active) {
+                    const dx = Math.abs(nom.mover.x - this.mover.x)
+                    const dy = Math.abs(nom.mover.y - this.mover.y)
+                    if (dx < 4 && dy < 4) {
+                        events.fire(Event.EatChaser)
+
+                        // hide the nom
+                        nom.setEaten()
+
+                        // also only one per frame, so both score events are seen
+                        break
+                    }
+                }
+            }
         }
     }
 }
