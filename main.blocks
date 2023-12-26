@@ -1,1 +1,1 @@
-<xml xmlns="https://developers.google.com/blockly/xml"><block type="pxt-on-start" id="M[jlJ#!$1zLAD/sDS1cm" x="0" y="0"><statement name="HANDLER"><block type="maze_run" id="C^.^L)o0][v;l_!W;`Rw"></block></statement></block></xml>
+<xml xmlns="https://developers.google.com/blockly/xml"><block type="pxt-on-start" x="10" y="10"><statement name="HANDLER"><block type="maze_run"></block></statement></block></xml>

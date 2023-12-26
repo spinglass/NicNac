@@ -78,6 +78,7 @@ namespace maze {
                 case Mode.Easy: return this.initEasy(index)
                 case Mode.Hard: return this.initHard(index)
                 case Mode.MouthMan: return this.initMouthman(index)
+                case Mode.GhostRevenge: return this.initRevenge(index)
             }
         }
 
@@ -198,6 +199,16 @@ namespace maze {
                     this.color2 = 0x2f9401
                     break
             }
+        }
+
+        private initRevenge(index: number) {
+            console.log("revenge:" + index)
+
+            this.mapName = "maze_revenge"
+            this.color1 = 0x0070fe
+            this.color2 = 0x001280
+
+            this.speedHero = 70
         }
     }
 }

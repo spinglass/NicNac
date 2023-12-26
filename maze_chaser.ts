@@ -50,7 +50,6 @@ namespace maze {
 
         init() {
             this.img.load("chaser" + this.id)
-
             this.mover.init(this.img)
             
             this.imgReturn.load("eyes")
@@ -60,9 +59,9 @@ namespace maze {
 
         initLevel() {
             this.scatterTarget = map.scatterTargets[this.id]
-            this.home = map.bases[this.id]
-            this.baseExit = map.baseTop
-            this.baseCentre = map.baseCentre
+            this.home = map.chaserBase[this.id]
+            this.baseExit = map.chaserBaseTop
+            this.baseCentre = map.chaserBaseCentre
             this.release = false
             this.reverse = false
             this.resetLevel()
@@ -322,7 +321,7 @@ namespace maze {
         }
 
         private doReturnToBase(): boolean {
-            this.target = map.returnBase
+            this.target = map.chaserReturn
             this.doTarget()
             return true
         }

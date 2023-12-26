@@ -3,30 +3,41 @@ namespace maze {
 
         init() {
             antiHero.init()
-            fruit.init()
+            for (const nom of noms) {
+                nom.init()
+            }
 
             info.setScore(0)
         }
 
         initLevel(levelIndex: number) {
             antiHero.initLevel()
-            fruit.initLevel(levelIndex)
+            for (const nom of noms) {
+                nom.initLevel()
+            }
 
             scene.cameraFollowSprite(antiHero.mover.sprite)
         }
 
         resetLevel() {
             antiHero.resetLevel()
-            fruit.resetLevel()
+            for (const nom of noms) {
+                nom.resetLevel()
+            }
         }
 
         update() {
             antiHero.update()
-            fruit.update()
+            for (const nom of noms) {
+                nom.update()
+            }
         }
 
         setFreeze(freeze: boolean) {
             antiHero.mover.setFreeze(freeze)
+            for (const nom of noms) {
+                nom.mover.setFreeze(freeze)
+            }
         }
     }
 }

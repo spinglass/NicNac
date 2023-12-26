@@ -5,11 +5,16 @@ namespace maze {
     export let events: EventManager
     export let level: Level
     export let map: Map
+
+    // Standard game elements
     export let hero: Hero
     export let chasers: Chaser[]
-    export let antiHero: AntiHero
     export let fruit: Fruit
-    
+
+    // Ghost revenge elements
+    export let antiHero: AntiHero
+    export let noms: Nom[]
+
     function mazeInit() {
         if (runner) {
             return
@@ -21,6 +26,7 @@ namespace maze {
         events = new EventManager()
         level = new Level()
         map = new Map()
+
         hero = new Hero()
         chasers = [
             new Chaser(ChaserKind.Blinky, 0),
@@ -28,8 +34,10 @@ namespace maze {
             new Chaser(ChaserKind.Inky, 2),
             new Chaser(ChaserKind.Clyde, 3)
         ]
-        antiHero = new AntiHero()
         fruit = new Fruit()
+
+        antiHero = new AntiHero()
+        noms = [new Nom(0), new Nom(1), new Nom(2), new Nom(3) ]
     }
 
     //% blockId=maze_add_tilemap
