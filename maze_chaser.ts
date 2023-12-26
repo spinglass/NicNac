@@ -79,8 +79,11 @@ namespace maze {
         }
 
         private checkWait(): boolean {
-            if (this.waitDir == Direction.Up && this.release) {
-                this.mode = ChaserMode.ExitBase
+            // Check if allowed to exit base during fright mode
+            if (level.enableExitBaseDuringFright || this.gameMode != ChaserMode.Fright) {
+                if (this.waitDir == Direction.Up && this.release) {
+                    this.mode = ChaserMode.ExitBase
+                }
             }
             return true
         }
@@ -91,7 +94,7 @@ namespace maze {
                 this.waitDir = Direction.Down
 
                 // make sure we don't re-enter fright mode
-                if (this.gameMode == ChaserMode.Fright) {
+                if (level.enableExitBaseDuringFright && this.gameMode == ChaserMode.Fright) {
                     this.gameMode = ChaserMode.Chase
                 }
             }
