@@ -1,10 +1,17 @@
 namespace maze {
+    enum NomMode {
+        None,
+        Fright,
+        Hunger,
+    }
+
     export class Nom {
         mover: Mover
         img: DirImage
         id: number
         active: boolean
         target: Tile
+        mode: NomMode
 
         constructor(id: number) {
             this.mover = new Mover()
@@ -51,7 +58,12 @@ namespace maze {
             }
 
             if (this.mover.isStopped() || this.mover.changedTile) {
-                this.findNearestPill()
+                this.updateMode()
+                if (this.mode == NomMode.Fright) {
+                    this.findSafePlace()
+                } else {
+                    this.findNearestPill()
+                }
                 this.doTarget()
             }
         }
@@ -61,8 +73,19 @@ namespace maze {
             this.mover.setVisible(false)
         }
 
+        private updateMode() {
+            const frightDist = 8 + this.id           
+            const dist = Math.abs(antiHero.mover.tile.tx - this.mover.tile.tx) + Math.abs(antiHero.mover.tile.ty - this.mover.tile.ty)
+            if (dist < frightDist) {
+                this.mode = NomMode.Fright
+            } else {
+                this.mode = NomMode.Hunger
+            }
+        }
+
         private doTarget() {
             if (!this.target) {
+                this.doRandom()
                 return
             }
 
@@ -85,11 +108,36 @@ namespace maze {
 
             // request the first direction that is allowed
             for (const dir of dirs) {
-                if (this.mover.isDirectionValid(dir) && dir != directionOpposite(this.mover.dir)) {
+                const isOpposite = (dir == directionOpposite(this.mover.dir))
+                if (this.mover.isDirectionValid(dir) && !isOpposite) {
                     this.mover.request = dir
                     break
                 }
             }
+        }
+
+        private doRandom() {
+            let dirs: Direction[] = [Direction.Up, Direction.Right, Direction.Down, Direction.Left]
+            let options: Direction[] = []
+
+            // determine which directions are possible
+            dirs.forEach(dir => {
+                if (this.mover.isDirectionValid(dir) && this.mover.dir != directionOpposite(dir)) {
+                    options.push(dir)
+                }
+            })
+
+            // randomly pick one
+            if (options.length > 0) {
+                const ran = Math.randomRange(0, options.length - 1)
+                this.mover.request = options[ran]
+            }
+        }
+
+        private findSafePlace() {
+            const dx = (this.mover.tile.tx - antiHero.mover.tile.tx)
+            const dy = (this.mover.tile.ty - antiHero.mover.tile.ty)
+            this.target = new Tile(this.mover.tile.tx + dx, this.mover.tile.ty + dy)
         }
 
         private findNearestPill()

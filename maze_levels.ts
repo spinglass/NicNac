@@ -209,7 +209,7 @@ namespace maze {
             this.color2 = 0x001280
 
             this.speedHero = 70
-            this.speedChaser = 60
+            this.speedChaser = 70
         }
     }
 }
